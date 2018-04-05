@@ -115,4 +115,50 @@ flt_genos_clean <- cbind(meta, dat[,order(colnames(dat))])
 
 #save
 saveRDS(flt_genos, "flt_snps.RDS")
-saveRDS(flt_genos, "flt_snps_clean.RDS")
+saveRDS(flt_genos_clean, "flt_snps_clean.RDS")
+
+###############################
+#prepare fast structure inputs
+
+cgenos <- readRDS("Raw_data/flt_snps_clean.RDS")
+cpops <- table(substr(colnames(cgenos[,4:ncol(cgenos)]), 1, 3))
+cpops <- list(names(cpops), as.numeric(cpops))
+
+
+#format with the correct datasets:
+#same random snps to use since the entire set would probably still be really slow, take 50,000:
+set.seed(194238759)
+snps <- sample(nrow(cgenos), 50000, F)
+
+##all samples, prepare data
+format_snps(cgenos, 3, 3, pop = cpops, n_samp = snps, outfile = "Data/fastSTRUCTURE/full.txt")
+fSTR <- data.table::fread("Data/fastSTRUCTURE/full.txt", header = F, stringsAsFactors = F)
+###add filler columns...
+fSTR <- cbind(fSTR[,1:2], matrix("filler", nrow(fSTR), 4), fSTR[,3:ncol(fSTR)])
+###set missing data to -9
+fSTR[fSTR == 0] <- -9
+fSTR <- as.data.frame(fSTR)
+
+
+##subset for the different comparisons
+###NA only
+NAonly <- fSTR[substr(fSTR$V1,1,3) %in% c("WNA", "ENA"),]
+NAonly$V2[substr(NAonly$V1,1,3) == "WNA"] <- 2
+###Hawaii
+HAWonly <- fSTR[substr(fSTR$V1, 1, 3) == "HAW",]
+HAWonly$V2 <- 1
+###AUS + NOR
+AUSonly <- fSTR[substr(fSTR$V1,1,3) %in% c("NOR", "NSW", "QLD", "VIC"),]
+AUSonly$V2[substr(AUSonly$V1,1,3) == "NOR"] <- 1
+AUSonly$V2[substr(AUSonly$V1,1,3) == "NSW"] <- 2
+AUSonly$V2[substr(AUSonly$V1,1,3) == "QLD"] <- 3
+AUSonly$V2[substr(AUSonly$V1,1,3) == "VIC"] <- 4
+
+
+##write
+data.table::fwrite(fSTR, "Data/fastSTRUCTURE/full.txt", col.names = F, row.names = F, quote = F, sep = "\t")
+data.table::fwrite(NAonly, "Data/fastSTRUCTURE/NAonly.txt", col.names = F, row.names = F, quote = F, sep = "\t")
+data.table::fwrite(HAWonly, "Data/fastSTRUCTURE/HAWonly.txt", col.names = F, row.names = F, quote = F, sep = "\t")
+data.table::fwrite(AUSonly, "Data/fastSTRUCTURE/AUSonly.txt", col.names = F, row.names = F, quote = F, sep = "\t")
+
+

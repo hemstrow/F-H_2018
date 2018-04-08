@@ -1,0 +1,32 @@
+==========================================
+SLURM_JOB_ID = 18837413
+SLURM_NODELIST = c11-75
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+Module python/2.7.6 loaded 
+K = 2
+run 4
+
+===========================================================================
+Job Finished
+
+Name                : full_fSTR
+User                : hemstrow
+Partition           : med
+Nodes               : c11-75
+Cores               : 8
+State               : RUNNING
+Submit              : 2018-04-08T12:50:37
+Start               : 2018-04-08T12:50:38
+End                 : --
+Reserved walltime   : 6-12:00:00
+Used walltime       :   00:01:48
+Used CPU time       :   00:01:48
+% User (Computation): 99.02%
+% System (I/O)      :  0.98%
+Mem reserved        : 20G/node
+Max Mem used        : 69.30M (c11-75)
+Max Disk Write      : 0.00  (c11-75)
+Max Disk Read       : 44.00M (c11-75)

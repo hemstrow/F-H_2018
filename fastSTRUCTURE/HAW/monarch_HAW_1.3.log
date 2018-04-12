@@ -1,0 +1,14 @@
+Marginal likelihood with initialization (1) = -1.0369336652
+Marginal likelihood with initialization (2) = -1.0369337838
+Marginal likelihood with initialization (3) = -1.0369550285
+Marginal likelihood with initialization (4) = -1.0369646049
+Marginal likelihood with initialization (5) = -1.0369216123
+Iteration Marginal_Likelihood delta_Marginal_Likelihood Iteration_Time (secs)
+0 -1.0369216123 -- 24.311
+10 -0.9230713970 0.1138502153 69.853
+20 -0.8947951358 0.0282762612 115.496
+30 -0.8683791361 0.0264159997 148.234
+40 -0.8683791361 0.0000000000 152.209
+Marginal Likelihood = -0.8683791361
+Total time = 512.7504 seconds
+Total iterations = 40 

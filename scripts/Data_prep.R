@@ -1,4 +1,4 @@
-setwd("Raw_data/")
+setwd("../Raw_data/")
 #import bamlist and annotations
 bamlist <- read.table("gbamlist.txt")
 plate1 <- read.csv("plate1.csv", header = T)
@@ -95,6 +95,9 @@ library(snpR)
 flt_genos <- filter_snps(raw_genos, 3, 0.05, 0.55, floor((ncol(raw_genos)-3)/2), pop = l) #just filtering snps.
 #only well sequenced samples
 flt_genos_clean <- filter_snps(raw_genos, 3, 0.05, 0.55, floor((ncol(raw_genos)-3)/2), .5, pop = l) #also remove crappy samples.
+#only filtering high frequency hets, for dadi. Note, change the raw genos input to something with no maf filtering!
+dadi_genos <- filter_snps(raw_genos, 3, FALSE, 0.55, floor((ncol(raw_genos)-3)/2))
+
 
 #reorder - full
 meta <- flt_genos[,1:3]

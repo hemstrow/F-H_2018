@@ -1,11 +1,11 @@
 library(snpR); library(readr)
 
 #import data
-anc <- read.table("../Data/anc_flank_20k.txt", header = F, stringsAsFactors = F)
+anc <- read.table("../Data/anc_flank_10k.txt", header = F, stringsAsFactors = F)
 anc <- anc[-1,]
-ref <- read.table("../Data/ref_flank_20k.txt", header = F, stringsAsFactors = F)
+ref <- read.table("../Data/ref_flank_10k.txt", header = F, stringsAsFactors = F)
 ref <- ref[-1,]
-dat <- readr::read_delim("../Data/rand_gap_snps_20k.txt", delim = "\t", col_names = T)
+dat <- readr::read_delim("../Data/rand_gap_snps_10k.txt", delim = "\t", col_names = T)
 
 #bind together
 x <- cbind(ref = ref, anc = anc, dat, stringsAsFactors = F)
@@ -77,11 +77,11 @@ dat <- x[,5:ncol(x)]
 dat <- dat[,order(colnames(dat))]
 x <- cbind(meta, dat)
 #remove the fixed snps that are here for some reason... (low snp p value but not called in anything? wierd.)
-fixed <- unlist(strsplit("6 205 452 878 898 977 1719 2060 2175 2357 2419 3162 3545 3766 3845 3897 3952 4004 4159 4293 4332 4792 4808 4985 5118 5186 5793 5919 6015 6123 6426 6636 6653 6677 6932 6993 7045 7090 7184 7219 7440 7464 8038 8138 8387 8579 8715 8885 9013 9151 9316 9506 9764 9839 9881",
+fixed <- unlist(strsplit("19 129 385 651 1147 1258 1281 1328 1383 1550 1922 2351 2674 2690 3102 3494 3497 3766 4634 4668 4852 4876 5110 5121 5136 5195 5306 5428 6037 6095 6239 6344 6452 6605 6839 7176 7301 7674 8227 8489 8535 8574 8707 8764 8974 9084 9122 9411 9826 10365 10376 10415 10491 10715 10841 10842 10850 11288 11577 11704 11724 11775 11777 11908 12097 12117 12300 12310 12827 12846 12951 12986 13563 13566 13567 13574 13597 13701 14066 14088 14104",
                          split = " "))
 fixed <- as.numeric(fixed)
 x <- x[-fixed,]
 #reformat
 dadi_snps <- format_snps(x, 4, "dadi", pop = pops)
 
-write.table(dadi_snps, "../Data/dadi_snps_20kgap.txt", quote = F, sep = "\t", col.names = T, row.names = F)
+write.table(dadi_snps, "../Data/dadi_snps_10kgap.txt", quote = F, sep = "\t", col.names = T, row.names = F)

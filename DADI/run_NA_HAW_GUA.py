@@ -66,7 +66,7 @@ def three_seq_estab((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2
 
 # import the data
 
-dd = dadi.Misc.make_data_dict('dadi_snps_20kgap.txt')
+dd = dadi.Misc.make_data_dict('dadi_snps_10kgap.txt')
 
 # Extract the spectrum for NAM, GUA, and HAW from that dictionary,
 # projected down to 20 samples per population.
@@ -108,7 +108,7 @@ print('Beginning optimization ************************************************')
 popt = dadi.Inference.optimize_log(p0, data, func_ex, pts_l, 
                                    lower_bound=lower_bound,
                                    upper_bound=upper_bound,
-                                   verbose=20, maxiter=10)
+                                   verbose=20, maxiter=50)
 print('Finshed optimization **************************************************')
 
 # plot and calculate theta0
@@ -133,7 +133,7 @@ print('Beginning optimization folded********************************************
 popt_f = dadi.Inference.optimize_log(p0, dataf, func_ex, pts_l, 
                                    lower_bound=lower_bound,
                                    upper_bound=upper_bound,
-                                   verbose=20, maxiter=10)
+                                   verbose=20, maxiter=50)
 print('Beginning optimization folded************************************************')
 
 modelf = func_ex(popt_f, nsf, pts_l)

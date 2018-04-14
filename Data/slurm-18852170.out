@@ -1,2061 +1,0 @@
-==========================================
-SLURM_JOB_ID = 18852170
-SLURM_NODELIST = bigmem1
-==========================================
-Module slurm/17.11.5 loaded 
-Module openmpi/3.0.1 loaded 
-Module gcc/7.3.0 loaded 
-Getting random snps...
-
-Attaching package: ‘dplyr’
-
-The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union
-
-Parsed with column specification:
-cols(
-  .default = col_character(),
-  X2 = col_integer()
-)
-See spec(...) for full column specifications.
-  |                                                                              |                                                                      |   0%  |                                                                              |                                                                      |   1%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |==                                                                    |   4%  |                                                                              |===                                                                   |   4%  |                                                                              |===                                                                   |   5%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |=====                                                                 |   8%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |=======                                                               |  11%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |=========                                                             |  14%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  16%  |                                                                              |============                                                          |  17%  |                                                                              |============                                                          |  18%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |==============                                                        |  21%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  22%  |                                                                              |================                                                      |  23%  |                                                                              |================                                                      |  24%  |                                                                              |=================                                                     |  24%  |                                                                              |=================                                                     |  25%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |===================                                                   |  28%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |=====================                                                 |  31%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |=======================                                               |  34%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |==========================                                            |  38%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  39%  |                                                                              |============================                                          |  40%  |                                                                              |============================                                          |  41%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |==============================                                        |  44%  |                                                                              |===============================                                       |  44%  |                                                                              |===============================                                       |  45%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |=================================                                     |  48%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |===================================                                   |  51%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |=====================================                                 |  54%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  56%  |                                                                              |========================================                              |  57%  |                                                                              |========================================                              |  58%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |==========================================                            |  61%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  62%  |                                                                              |============================================                          |  63%  |                                                                              |============================================                          |  64%  |                                                                              |=============================================                         |  64%  |                                                                              |=============================================                         |  65%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |===============================================                       |  68%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |=================================================                     |  71%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |===================================================                   |  74%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  76%  |                                                                              |======================================================                |  77%  |                                                                              |======================================================                |  78%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  79%  |                                                                              |========================================================              |  80%  |                                                                              |========================================================              |  81%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |==========================================================            |  84%  |                                                                              |===========================================================           |  84%  |                                                                              |===========================================================           |  85%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |=============================================================         |  88%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |===============================================================       |  91%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |=================================================================     |  94%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |====================================================================  |  98%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================|  99%  |                                                                              |======================================================================| 100%
-Finding flanking sequences...
-Creating samtools query...
-expr: non-integer argument
-expr: non-integer argument
-Progress: 5 out of 10030.
-Progress: 10 out of 10030.
-Progress: 15 out of 10030.
-Progress: 20 out of 10030.
-Progress: 25 out of 10030.
-Progress: 30 out of 10030.
-Progress: 35 out of 10030.
-Progress: 40 out of 10030.
-Progress: 45 out of 10030.
-Progress: 50 out of 10030.
-Progress: 55 out of 10030.
-Progress: 60 out of 10030.
-Progress: 65 out of 10030.
-Progress: 70 out of 10030.
-Progress: 75 out of 10030.
-Progress: 80 out of 10030.
-Progress: 85 out of 10030.
-Progress: 90 out of 10030.
-Progress: 95 out of 10030.
-Progress: 100 out of 10030.
-Progress: 105 out of 10030.
-Progress: 110 out of 10030.
-Progress: 115 out of 10030.
-Progress: 120 out of 10030.
-Progress: 125 out of 10030.
-Progress: 130 out of 10030.
-Progress: 135 out of 10030.
-Progress: 140 out of 10030.
-Progress: 145 out of 10030.
-Progress: 150 out of 10030.
-Progress: 155 out of 10030.
-Progress: 160 out of 10030.
-Progress: 165 out of 10030.
-Progress: 170 out of 10030.
-Progress: 175 out of 10030.
-Progress: 180 out of 10030.
-Progress: 185 out of 10030.
-Progress: 190 out of 10030.
-Progress: 195 out of 10030.
-Progress: 200 out of 10030.
-Progress: 205 out of 10030.
-Progress: 210 out of 10030.
-Progress: 215 out of 10030.
-Progress: 220 out of 10030.
-Progress: 225 out of 10030.
-Progress: 230 out of 10030.
-Progress: 235 out of 10030.
-Progress: 240 out of 10030.
-Progress: 245 out of 10030.
-Progress: 250 out of 10030.
-Progress: 255 out of 10030.
-Progress: 260 out of 10030.
-Progress: 265 out of 10030.
-Progress: 270 out of 10030.
-Progress: 275 out of 10030.
-Progress: 280 out of 10030.
-Progress: 285 out of 10030.
-Progress: 290 out of 10030.
-Progress: 295 out of 10030.
-Progress: 300 out of 10030.
-Progress: 305 out of 10030.
-Progress: 310 out of 10030.
-Progress: 315 out of 10030.
-Progress: 320 out of 10030.
-Progress: 325 out of 10030.
-Progress: 330 out of 10030.
-Progress: 335 out of 10030.
-Progress: 340 out of 10030.
-Progress: 345 out of 10030.
-Progress: 350 out of 10030.
-Progress: 355 out of 10030.
-Progress: 360 out of 10030.
-Progress: 365 out of 10030.
-Progress: 370 out of 10030.
-Progress: 375 out of 10030.
-Progress: 380 out of 10030.
-Progress: 385 out of 10030.
-Progress: 390 out of 10030.
-Progress: 395 out of 10030.
-Progress: 400 out of 10030.
-Progress: 405 out of 10030.
-Progress: 410 out of 10030.
-Progress: 415 out of 10030.
-Progress: 420 out of 10030.
-Progress: 425 out of 10030.
-Progress: 430 out of 10030.
-Progress: 435 out of 10030.
-Progress: 440 out of 10030.
-Progress: 445 out of 10030.
-Progress: 450 out of 10030.
-Progress: 455 out of 10030.
-Progress: 460 out of 10030.
-Progress: 465 out of 10030.
-Progress: 470 out of 10030.
-Progress: 475 out of 10030.
-Progress: 480 out of 10030.
-Progress: 485 out of 10030.
-Progress: 490 out of 10030.
-Progress: 495 out of 10030.
-Progress: 500 out of 10030.
-Progress: 505 out of 10030.
-Progress: 510 out of 10030.
-Progress: 515 out of 10030.
-Progress: 520 out of 10030.
-Progress: 525 out of 10030.
-Progress: 530 out of 10030.
-Progress: 535 out of 10030.
-Progress: 540 out of 10030.
-Progress: 545 out of 10030.
-Progress: 550 out of 10030.
-Progress: 555 out of 10030.
-Progress: 560 out of 10030.
-Progress: 565 out of 10030.
-Progress: 570 out of 10030.
-Progress: 575 out of 10030.
-Progress: 580 out of 10030.
-Progress: 585 out of 10030.
-Progress: 590 out of 10030.
-Progress: 595 out of 10030.
-Progress: 600 out of 10030.
-Progress: 605 out of 10030.
-Progress: 610 out of 10030.
-Progress: 615 out of 10030.
-Progress: 620 out of 10030.
-Progress: 625 out of 10030.
-Progress: 630 out of 10030.
-Progress: 635 out of 10030.
-Progress: 640 out of 10030.
-Progress: 645 out of 10030.
-Progress: 650 out of 10030.
-Progress: 655 out of 10030.
-Progress: 660 out of 10030.
-Progress: 665 out of 10030.
-Progress: 670 out of 10030.
-Progress: 675 out of 10030.
-Progress: 680 out of 10030.
-Progress: 685 out of 10030.
-Progress: 690 out of 10030.
-Progress: 695 out of 10030.
-Progress: 700 out of 10030.
-Progress: 705 out of 10030.
-Progress: 710 out of 10030.
-Progress: 715 out of 10030.
-Progress: 720 out of 10030.
-Progress: 725 out of 10030.
-Progress: 730 out of 10030.
-Progress: 735 out of 10030.
-Progress: 740 out of 10030.
-Progress: 745 out of 10030.
-Progress: 750 out of 10030.
-Progress: 755 out of 10030.
-Progress: 760 out of 10030.
-Progress: 765 out of 10030.
-Progress: 770 out of 10030.
-Progress: 775 out of 10030.
-Progress: 780 out of 10030.
-Progress: 785 out of 10030.
-Progress: 790 out of 10030.
-Progress: 795 out of 10030.
-Progress: 800 out of 10030.
-Progress: 805 out of 10030.
-Progress: 810 out of 10030.
-Progress: 815 out of 10030.
-Progress: 820 out of 10030.
-Progress: 825 out of 10030.
-Progress: 830 out of 10030.
-Progress: 835 out of 10030.
-Progress: 840 out of 10030.
-Progress: 845 out of 10030.
-Progress: 850 out of 10030.
-Progress: 855 out of 10030.
-Progress: 860 out of 10030.
-Progress: 865 out of 10030.
-Progress: 870 out of 10030.
-Progress: 875 out of 10030.
-Progress: 880 out of 10030.
-Progress: 885 out of 10030.
-Progress: 890 out of 10030.
-Progress: 895 out of 10030.
-Progress: 900 out of 10030.
-Progress: 905 out of 10030.
-Progress: 910 out of 10030.
-Progress: 915 out of 10030.
-Progress: 920 out of 10030.
-Progress: 925 out of 10030.
-Progress: 930 out of 10030.
-Progress: 935 out of 10030.
-Progress: 940 out of 10030.
-Progress: 945 out of 10030.
-Progress: 950 out of 10030.
-Progress: 955 out of 10030.
-Progress: 960 out of 10030.
-Progress: 965 out of 10030.
-Progress: 970 out of 10030.
-Progress: 975 out of 10030.
-Progress: 980 out of 10030.
-Progress: 985 out of 10030.
-Progress: 990 out of 10030.
-Progress: 995 out of 10030.
-Progress: 1000 out of 10030.
-Progress: 1005 out of 10030.
-Progress: 1010 out of 10030.
-Progress: 1015 out of 10030.
-Progress: 1020 out of 10030.
-Progress: 1025 out of 10030.
-Progress: 1030 out of 10030.
-Progress: 1035 out of 10030.
-Progress: 1040 out of 10030.
-Progress: 1045 out of 10030.
-Progress: 1050 out of 10030.
-Progress: 1055 out of 10030.
-Progress: 1060 out of 10030.
-Progress: 1065 out of 10030.
-Progress: 1070 out of 10030.
-Progress: 1075 out of 10030.
-Progress: 1080 out of 10030.
-Progress: 1085 out of 10030.
-Progress: 1090 out of 10030.
-Progress: 1095 out of 10030.
-Progress: 1100 out of 10030.
-Progress: 1105 out of 10030.
-Progress: 1110 out of 10030.
-Progress: 1115 out of 10030.
-Progress: 1120 out of 10030.
-Progress: 1125 out of 10030.
-Progress: 1130 out of 10030.
-Progress: 1135 out of 10030.
-Progress: 1140 out of 10030.
-Progress: 1145 out of 10030.
-Progress: 1150 out of 10030.
-Progress: 1155 out of 10030.
-Progress: 1160 out of 10030.
-Progress: 1165 out of 10030.
-Progress: 1170 out of 10030.
-Progress: 1175 out of 10030.
-Progress: 1180 out of 10030.
-Progress: 1185 out of 10030.
-Progress: 1190 out of 10030.
-Progress: 1195 out of 10030.
-Progress: 1200 out of 10030.
-Progress: 1205 out of 10030.
-Progress: 1210 out of 10030.
-Progress: 1215 out of 10030.
-Progress: 1220 out of 10030.
-Progress: 1225 out of 10030.
-Progress: 1230 out of 10030.
-Progress: 1235 out of 10030.
-Progress: 1240 out of 10030.
-Progress: 1245 out of 10030.
-Progress: 1250 out of 10030.
-Progress: 1255 out of 10030.
-Progress: 1260 out of 10030.
-Progress: 1265 out of 10030.
-Progress: 1270 out of 10030.
-Progress: 1275 out of 10030.
-Progress: 1280 out of 10030.
-Progress: 1285 out of 10030.
-Progress: 1290 out of 10030.
-Progress: 1295 out of 10030.
-Progress: 1300 out of 10030.
-Progress: 1305 out of 10030.
-Progress: 1310 out of 10030.
-Progress: 1315 out of 10030.
-Progress: 1320 out of 10030.
-Progress: 1325 out of 10030.
-Progress: 1330 out of 10030.
-Progress: 1335 out of 10030.
-Progress: 1340 out of 10030.
-Progress: 1345 out of 10030.
-Progress: 1350 out of 10030.
-Progress: 1355 out of 10030.
-Progress: 1360 out of 10030.
-Progress: 1365 out of 10030.
-Progress: 1370 out of 10030.
-Progress: 1375 out of 10030.
-Progress: 1380 out of 10030.
-Progress: 1385 out of 10030.
-Progress: 1390 out of 10030.
-Progress: 1395 out of 10030.
-Progress: 1400 out of 10030.
-Progress: 1405 out of 10030.
-Progress: 1410 out of 10030.
-Progress: 1415 out of 10030.
-Progress: 1420 out of 10030.
-Progress: 1425 out of 10030.
-Progress: 1430 out of 10030.
-Progress: 1435 out of 10030.
-Progress: 1440 out of 10030.
-Progress: 1445 out of 10030.
-Progress: 1450 out of 10030.
-Progress: 1455 out of 10030.
-Progress: 1460 out of 10030.
-Progress: 1465 out of 10030.
-Progress: 1470 out of 10030.
-Progress: 1475 out of 10030.
-Progress: 1480 out of 10030.
-Progress: 1485 out of 10030.
-Progress: 1490 out of 10030.
-Progress: 1495 out of 10030.
-Progress: 1500 out of 10030.
-Progress: 1505 out of 10030.
-Progress: 1510 out of 10030.
-Progress: 1515 out of 10030.
-Progress: 1520 out of 10030.
-Progress: 1525 out of 10030.
-Progress: 1530 out of 10030.
-Progress: 1535 out of 10030.
-Progress: 1540 out of 10030.
-Progress: 1545 out of 10030.
-Progress: 1550 out of 10030.
-Progress: 1555 out of 10030.
-Progress: 1560 out of 10030.
-Progress: 1565 out of 10030.
-Progress: 1570 out of 10030.
-Progress: 1575 out of 10030.
-Progress: 1580 out of 10030.
-Progress: 1585 out of 10030.
-Progress: 1590 out of 10030.
-Progress: 1595 out of 10030.
-Progress: 1600 out of 10030.
-Progress: 1605 out of 10030.
-Progress: 1610 out of 10030.
-Progress: 1615 out of 10030.
-Progress: 1620 out of 10030.
-Progress: 1625 out of 10030.
-Progress: 1630 out of 10030.
-Progress: 1635 out of 10030.
-Progress: 1640 out of 10030.
-Progress: 1645 out of 10030.
-Progress: 1650 out of 10030.
-Progress: 1655 out of 10030.
-Progress: 1660 out of 10030.
-Progress: 1665 out of 10030.
-Progress: 1670 out of 10030.
-Progress: 1675 out of 10030.
-Progress: 1680 out of 10030.
-Progress: 1685 out of 10030.
-Progress: 1690 out of 10030.
-Progress: 1695 out of 10030.
-Progress: 1700 out of 10030.
-Progress: 1705 out of 10030.
-Progress: 1710 out of 10030.
-Progress: 1715 out of 10030.
-Progress: 1720 out of 10030.
-Progress: 1725 out of 10030.
-Progress: 1730 out of 10030.
-Progress: 1735 out of 10030.
-Progress: 1740 out of 10030.
-Progress: 1745 out of 10030.
-Progress: 1750 out of 10030.
-Progress: 1755 out of 10030.
-Progress: 1760 out of 10030.
-Progress: 1765 out of 10030.
-Progress: 1770 out of 10030.
-Progress: 1775 out of 10030.
-Progress: 1780 out of 10030.
-Progress: 1785 out of 10030.
-Progress: 1790 out of 10030.
-Progress: 1795 out of 10030.
-Progress: 1800 out of 10030.
-Progress: 1805 out of 10030.
-Progress: 1810 out of 10030.
-Progress: 1815 out of 10030.
-Progress: 1820 out of 10030.
-Progress: 1825 out of 10030.
-Progress: 1830 out of 10030.
-Progress: 1835 out of 10030.
-Progress: 1840 out of 10030.
-Progress: 1845 out of 10030.
-Progress: 1850 out of 10030.
-Progress: 1855 out of 10030.
-Progress: 1860 out of 10030.
-Progress: 1865 out of 10030.
-Progress: 1870 out of 10030.
-Progress: 1875 out of 10030.
-Progress: 1880 out of 10030.
-Progress: 1885 out of 10030.
-Progress: 1890 out of 10030.
-Progress: 1895 out of 10030.
-Progress: 1900 out of 10030.
-Progress: 1905 out of 10030.
-Progress: 1910 out of 10030.
-Progress: 1915 out of 10030.
-Progress: 1920 out of 10030.
-Progress: 1925 out of 10030.
-Progress: 1930 out of 10030.
-Progress: 1935 out of 10030.
-Progress: 1940 out of 10030.
-Progress: 1945 out of 10030.
-Progress: 1950 out of 10030.
-Progress: 1955 out of 10030.
-Progress: 1960 out of 10030.
-Progress: 1965 out of 10030.
-Progress: 1970 out of 10030.
-Progress: 1975 out of 10030.
-Progress: 1980 out of 10030.
-Progress: 1985 out of 10030.
-Progress: 1990 out of 10030.
-Progress: 1995 out of 10030.
-Progress: 2000 out of 10030.
-Progress: 2005 out of 10030.
-Progress: 2010 out of 10030.
-Progress: 2015 out of 10030.
-Progress: 2020 out of 10030.
-Progress: 2025 out of 10030.
-Progress: 2030 out of 10030.
-Progress: 2035 out of 10030.
-Progress: 2040 out of 10030.
-Progress: 2045 out of 10030.
-Progress: 2050 out of 10030.
-Progress: 2055 out of 10030.
-Progress: 2060 out of 10030.
-Progress: 2065 out of 10030.
-Progress: 2070 out of 10030.
-Progress: 2075 out of 10030.
-Progress: 2080 out of 10030.
-Progress: 2085 out of 10030.
-Progress: 2090 out of 10030.
-Progress: 2095 out of 10030.
-Progress: 2100 out of 10030.
-Progress: 2105 out of 10030.
-Progress: 2110 out of 10030.
-Progress: 2115 out of 10030.
-Progress: 2120 out of 10030.
-Progress: 2125 out of 10030.
-Progress: 2130 out of 10030.
-Progress: 2135 out of 10030.
-Progress: 2140 out of 10030.
-Progress: 2145 out of 10030.
-Progress: 2150 out of 10030.
-Progress: 2155 out of 10030.
-Progress: 2160 out of 10030.
-Progress: 2165 out of 10030.
-Progress: 2170 out of 10030.
-Progress: 2175 out of 10030.
-Progress: 2180 out of 10030.
-Progress: 2185 out of 10030.
-Progress: 2190 out of 10030.
-Progress: 2195 out of 10030.
-Progress: 2200 out of 10030.
-Progress: 2205 out of 10030.
-Progress: 2210 out of 10030.
-Progress: 2215 out of 10030.
-Progress: 2220 out of 10030.
-Progress: 2225 out of 10030.
-Progress: 2230 out of 10030.
-Progress: 2235 out of 10030.
-Progress: 2240 out of 10030.
-Progress: 2245 out of 10030.
-Progress: 2250 out of 10030.
-Progress: 2255 out of 10030.
-Progress: 2260 out of 10030.
-Progress: 2265 out of 10030.
-Progress: 2270 out of 10030.
-Progress: 2275 out of 10030.
-Progress: 2280 out of 10030.
-Progress: 2285 out of 10030.
-Progress: 2290 out of 10030.
-Progress: 2295 out of 10030.
-Progress: 2300 out of 10030.
-Progress: 2305 out of 10030.
-Progress: 2310 out of 10030.
-Progress: 2315 out of 10030.
-Progress: 2320 out of 10030.
-Progress: 2325 out of 10030.
-Progress: 2330 out of 10030.
-Progress: 2335 out of 10030.
-Progress: 2340 out of 10030.
-Progress: 2345 out of 10030.
-Progress: 2350 out of 10030.
-Progress: 2355 out of 10030.
-Progress: 2360 out of 10030.
-Progress: 2365 out of 10030.
-Progress: 2370 out of 10030.
-Progress: 2375 out of 10030.
-Progress: 2380 out of 10030.
-Progress: 2385 out of 10030.
-Progress: 2390 out of 10030.
-Progress: 2395 out of 10030.
-Progress: 2400 out of 10030.
-Progress: 2405 out of 10030.
-Progress: 2410 out of 10030.
-Progress: 2415 out of 10030.
-Progress: 2420 out of 10030.
-Progress: 2425 out of 10030.
-Progress: 2430 out of 10030.
-Progress: 2435 out of 10030.
-Progress: 2440 out of 10030.
-Progress: 2445 out of 10030.
-Progress: 2450 out of 10030.
-Progress: 2455 out of 10030.
-Progress: 2460 out of 10030.
-Progress: 2465 out of 10030.
-Progress: 2470 out of 10030.
-Progress: 2475 out of 10030.
-Progress: 2480 out of 10030.
-Progress: 2485 out of 10030.
-Progress: 2490 out of 10030.
-Progress: 2495 out of 10030.
-Progress: 2500 out of 10030.
-Progress: 2505 out of 10030.
-Progress: 2510 out of 10030.
-Progress: 2515 out of 10030.
-Progress: 2520 out of 10030.
-Progress: 2525 out of 10030.
-Progress: 2530 out of 10030.
-Progress: 2535 out of 10030.
-Progress: 2540 out of 10030.
-Progress: 2545 out of 10030.
-Progress: 2550 out of 10030.
-Progress: 2555 out of 10030.
-Progress: 2560 out of 10030.
-Progress: 2565 out of 10030.
-Progress: 2570 out of 10030.
-Progress: 2575 out of 10030.
-Progress: 2580 out of 10030.
-Progress: 2585 out of 10030.
-Progress: 2590 out of 10030.
-Progress: 2595 out of 10030.
-Progress: 2600 out of 10030.
-Progress: 2605 out of 10030.
-Progress: 2610 out of 10030.
-Progress: 2615 out of 10030.
-Progress: 2620 out of 10030.
-Progress: 2625 out of 10030.
-Progress: 2630 out of 10030.
-Progress: 2635 out of 10030.
-Progress: 2640 out of 10030.
-Progress: 2645 out of 10030.
-Progress: 2650 out of 10030.
-Progress: 2655 out of 10030.
-Progress: 2660 out of 10030.
-Progress: 2665 out of 10030.
-Progress: 2670 out of 10030.
-Progress: 2675 out of 10030.
-Progress: 2680 out of 10030.
-Progress: 2685 out of 10030.
-Progress: 2690 out of 10030.
-Progress: 2695 out of 10030.
-Progress: 2700 out of 10030.
-Progress: 2705 out of 10030.
-Progress: 2710 out of 10030.
-Progress: 2715 out of 10030.
-Progress: 2720 out of 10030.
-Progress: 2725 out of 10030.
-Progress: 2730 out of 10030.
-Progress: 2735 out of 10030.
-Progress: 2740 out of 10030.
-Progress: 2745 out of 10030.
-Progress: 2750 out of 10030.
-Progress: 2755 out of 10030.
-Progress: 2760 out of 10030.
-Progress: 2765 out of 10030.
-Progress: 2770 out of 10030.
-Progress: 2775 out of 10030.
-Progress: 2780 out of 10030.
-Progress: 2785 out of 10030.
-Progress: 2790 out of 10030.
-Progress: 2795 out of 10030.
-Progress: 2800 out of 10030.
-Progress: 2805 out of 10030.
-Progress: 2810 out of 10030.
-Progress: 2815 out of 10030.
-Progress: 2820 out of 10030.
-Progress: 2825 out of 10030.
-Progress: 2830 out of 10030.
-Progress: 2835 out of 10030.
-Progress: 2840 out of 10030.
-Progress: 2845 out of 10030.
-Progress: 2850 out of 10030.
-Progress: 2855 out of 10030.
-Progress: 2860 out of 10030.
-Progress: 2865 out of 10030.
-Progress: 2870 out of 10030.
-Progress: 2875 out of 10030.
-Progress: 2880 out of 10030.
-Progress: 2885 out of 10030.
-Progress: 2890 out of 10030.
-Progress: 2895 out of 10030.
-Progress: 2900 out of 10030.
-Progress: 2905 out of 10030.
-Progress: 2910 out of 10030.
-Progress: 2915 out of 10030.
-Progress: 2920 out of 10030.
-Progress: 2925 out of 10030.
-Progress: 2930 out of 10030.
-Progress: 2935 out of 10030.
-Progress: 2940 out of 10030.
-Progress: 2945 out of 10030.
-Progress: 2950 out of 10030.
-Progress: 2955 out of 10030.
-Progress: 2960 out of 10030.
-Progress: 2965 out of 10030.
-Progress: 2970 out of 10030.
-Progress: 2975 out of 10030.
-Progress: 2980 out of 10030.
-Progress: 2985 out of 10030.
-Progress: 2990 out of 10030.
-Progress: 2995 out of 10030.
-Progress: 3000 out of 10030.
-Progress: 3005 out of 10030.
-Progress: 3010 out of 10030.
-Progress: 3015 out of 10030.
-Progress: 3020 out of 10030.
-Progress: 3025 out of 10030.
-Progress: 3030 out of 10030.
-Progress: 3035 out of 10030.
-Progress: 3040 out of 10030.
-Progress: 3045 out of 10030.
-Progress: 3050 out of 10030.
-Progress: 3055 out of 10030.
-Progress: 3060 out of 10030.
-Progress: 3065 out of 10030.
-Progress: 3070 out of 10030.
-Progress: 3075 out of 10030.
-Progress: 3080 out of 10030.
-Progress: 3085 out of 10030.
-Progress: 3090 out of 10030.
-Progress: 3095 out of 10030.
-Progress: 3100 out of 10030.
-Progress: 3105 out of 10030.
-Progress: 3110 out of 10030.
-Progress: 3115 out of 10030.
-Progress: 3120 out of 10030.
-Progress: 3125 out of 10030.
-Progress: 3130 out of 10030.
-Progress: 3135 out of 10030.
-Progress: 3140 out of 10030.
-Progress: 3145 out of 10030.
-Progress: 3150 out of 10030.
-Progress: 3155 out of 10030.
-Progress: 3160 out of 10030.
-Progress: 3165 out of 10030.
-Progress: 3170 out of 10030.
-Progress: 3175 out of 10030.
-Progress: 3180 out of 10030.
-Progress: 3185 out of 10030.
-Progress: 3190 out of 10030.
-Progress: 3195 out of 10030.
-Progress: 3200 out of 10030.
-Progress: 3205 out of 10030.
-Progress: 3210 out of 10030.
-Progress: 3215 out of 10030.
-Progress: 3220 out of 10030.
-Progress: 3225 out of 10030.
-Progress: 3230 out of 10030.
-Progress: 3235 out of 10030.
-Progress: 3240 out of 10030.
-Progress: 3245 out of 10030.
-Progress: 3250 out of 10030.
-Progress: 3255 out of 10030.
-Progress: 3260 out of 10030.
-Progress: 3265 out of 10030.
-Progress: 3270 out of 10030.
-Progress: 3275 out of 10030.
-Progress: 3280 out of 10030.
-Progress: 3285 out of 10030.
-Progress: 3290 out of 10030.
-Progress: 3295 out of 10030.
-Progress: 3300 out of 10030.
-Progress: 3305 out of 10030.
-Progress: 3310 out of 10030.
-Progress: 3315 out of 10030.
-Progress: 3320 out of 10030.
-Progress: 3325 out of 10030.
-Progress: 3330 out of 10030.
-Progress: 3335 out of 10030.
-Progress: 3340 out of 10030.
-Progress: 3345 out of 10030.
-Progress: 3350 out of 10030.
-Progress: 3355 out of 10030.
-Progress: 3360 out of 10030.
-Progress: 3365 out of 10030.
-Progress: 3370 out of 10030.
-Progress: 3375 out of 10030.
-Progress: 3380 out of 10030.
-Progress: 3385 out of 10030.
-Progress: 3390 out of 10030.
-Progress: 3395 out of 10030.
-Progress: 3400 out of 10030.
-Progress: 3405 out of 10030.
-Progress: 3410 out of 10030.
-Progress: 3415 out of 10030.
-Progress: 3420 out of 10030.
-Progress: 3425 out of 10030.
-Progress: 3430 out of 10030.
-Progress: 3435 out of 10030.
-Progress: 3440 out of 10030.
-Progress: 3445 out of 10030.
-Progress: 3450 out of 10030.
-Progress: 3455 out of 10030.
-Progress: 3460 out of 10030.
-Progress: 3465 out of 10030.
-Progress: 3470 out of 10030.
-Progress: 3475 out of 10030.
-Progress: 3480 out of 10030.
-Progress: 3485 out of 10030.
-Progress: 3490 out of 10030.
-Progress: 3495 out of 10030.
-Progress: 3500 out of 10030.
-Progress: 3505 out of 10030.
-Progress: 3510 out of 10030.
-Progress: 3515 out of 10030.
-Progress: 3520 out of 10030.
-Progress: 3525 out of 10030.
-Progress: 3530 out of 10030.
-Progress: 3535 out of 10030.
-Progress: 3540 out of 10030.
-Progress: 3545 out of 10030.
-Progress: 3550 out of 10030.
-Progress: 3555 out of 10030.
-Progress: 3560 out of 10030.
-Progress: 3565 out of 10030.
-Progress: 3570 out of 10030.
-Progress: 3575 out of 10030.
-Progress: 3580 out of 10030.
-Progress: 3585 out of 10030.
-Progress: 3590 out of 10030.
-Progress: 3595 out of 10030.
-Progress: 3600 out of 10030.
-Progress: 3605 out of 10030.
-Progress: 3610 out of 10030.
-Progress: 3615 out of 10030.
-Progress: 3620 out of 10030.
-Progress: 3625 out of 10030.
-Progress: 3630 out of 10030.
-Progress: 3635 out of 10030.
-Progress: 3640 out of 10030.
-Progress: 3645 out of 10030.
-Progress: 3650 out of 10030.
-Progress: 3655 out of 10030.
-Progress: 3660 out of 10030.
-Progress: 3665 out of 10030.
-Progress: 3670 out of 10030.
-Progress: 3675 out of 10030.
-Progress: 3680 out of 10030.
-Progress: 3685 out of 10030.
-Progress: 3690 out of 10030.
-Progress: 3695 out of 10030.
-Progress: 3700 out of 10030.
-Progress: 3705 out of 10030.
-Progress: 3710 out of 10030.
-Progress: 3715 out of 10030.
-Progress: 3720 out of 10030.
-Progress: 3725 out of 10030.
-Progress: 3730 out of 10030.
-Progress: 3735 out of 10030.
-Progress: 3740 out of 10030.
-Progress: 3745 out of 10030.
-Progress: 3750 out of 10030.
-Progress: 3755 out of 10030.
-Progress: 3760 out of 10030.
-Progress: 3765 out of 10030.
-Progress: 3770 out of 10030.
-Progress: 3775 out of 10030.
-Progress: 3780 out of 10030.
-Progress: 3785 out of 10030.
-Progress: 3790 out of 10030.
-Progress: 3795 out of 10030.
-Progress: 3800 out of 10030.
-Progress: 3805 out of 10030.
-Progress: 3810 out of 10030.
-Progress: 3815 out of 10030.
-Progress: 3820 out of 10030.
-Progress: 3825 out of 10030.
-Progress: 3830 out of 10030.
-Progress: 3835 out of 10030.
-Progress: 3840 out of 10030.
-Progress: 3845 out of 10030.
-Progress: 3850 out of 10030.
-Progress: 3855 out of 10030.
-Progress: 3860 out of 10030.
-Progress: 3865 out of 10030.
-Progress: 3870 out of 10030.
-Progress: 3875 out of 10030.
-Progress: 3880 out of 10030.
-Progress: 3885 out of 10030.
-Progress: 3890 out of 10030.
-Progress: 3895 out of 10030.
-Progress: 3900 out of 10030.
-Progress: 3905 out of 10030.
-Progress: 3910 out of 10030.
-Progress: 3915 out of 10030.
-Progress: 3920 out of 10030.
-Progress: 3925 out of 10030.
-Progress: 3930 out of 10030.
-Progress: 3935 out of 10030.
-Progress: 3940 out of 10030.
-Progress: 3945 out of 10030.
-Progress: 3950 out of 10030.
-Progress: 3955 out of 10030.
-Progress: 3960 out of 10030.
-Progress: 3965 out of 10030.
-Progress: 3970 out of 10030.
-Progress: 3975 out of 10030.
-Progress: 3980 out of 10030.
-Progress: 3985 out of 10030.
-Progress: 3990 out of 10030.
-Progress: 3995 out of 10030.
-Progress: 4000 out of 10030.
-Progress: 4005 out of 10030.
-Progress: 4010 out of 10030.
-Progress: 4015 out of 10030.
-Progress: 4020 out of 10030.
-Progress: 4025 out of 10030.
-Progress: 4030 out of 10030.
-Progress: 4035 out of 10030.
-Progress: 4040 out of 10030.
-Progress: 4045 out of 10030.
-Progress: 4050 out of 10030.
-Progress: 4055 out of 10030.
-Progress: 4060 out of 10030.
-Progress: 4065 out of 10030.
-Progress: 4070 out of 10030.
-Progress: 4075 out of 10030.
-Progress: 4080 out of 10030.
-Progress: 4085 out of 10030.
-Progress: 4090 out of 10030.
-Progress: 4095 out of 10030.
-Progress: 4100 out of 10030.
-Progress: 4105 out of 10030.
-Progress: 4110 out of 10030.
-Progress: 4115 out of 10030.
-Progress: 4120 out of 10030.
-Progress: 4125 out of 10030.
-Progress: 4130 out of 10030.
-Progress: 4135 out of 10030.
-Progress: 4140 out of 10030.
-Progress: 4145 out of 10030.
-Progress: 4150 out of 10030.
-Progress: 4155 out of 10030.
-Progress: 4160 out of 10030.
-Progress: 4165 out of 10030.
-Progress: 4170 out of 10030.
-Progress: 4175 out of 10030.
-Progress: 4180 out of 10030.
-Progress: 4185 out of 10030.
-Progress: 4190 out of 10030.
-Progress: 4195 out of 10030.
-Progress: 4200 out of 10030.
-Progress: 4205 out of 10030.
-Progress: 4210 out of 10030.
-Progress: 4215 out of 10030.
-Progress: 4220 out of 10030.
-Progress: 4225 out of 10030.
-Progress: 4230 out of 10030.
-Progress: 4235 out of 10030.
-Progress: 4240 out of 10030.
-Progress: 4245 out of 10030.
-Progress: 4250 out of 10030.
-Progress: 4255 out of 10030.
-Progress: 4260 out of 10030.
-Progress: 4265 out of 10030.
-Progress: 4270 out of 10030.
-Progress: 4275 out of 10030.
-Progress: 4280 out of 10030.
-Progress: 4285 out of 10030.
-Progress: 4290 out of 10030.
-Progress: 4295 out of 10030.
-Progress: 4300 out of 10030.
-Progress: 4305 out of 10030.
-Progress: 4310 out of 10030.
-Progress: 4315 out of 10030.
-Progress: 4320 out of 10030.
-Progress: 4325 out of 10030.
-Progress: 4330 out of 10030.
-Progress: 4335 out of 10030.
-Progress: 4340 out of 10030.
-Progress: 4345 out of 10030.
-Progress: 4350 out of 10030.
-Progress: 4355 out of 10030.
-Progress: 4360 out of 10030.
-Progress: 4365 out of 10030.
-Progress: 4370 out of 10030.
-Progress: 4375 out of 10030.
-Progress: 4380 out of 10030.
-Progress: 4385 out of 10030.
-Progress: 4390 out of 10030.
-Progress: 4395 out of 10030.
-Progress: 4400 out of 10030.
-Progress: 4405 out of 10030.
-Progress: 4410 out of 10030.
-Progress: 4415 out of 10030.
-Progress: 4420 out of 10030.
-Progress: 4425 out of 10030.
-Progress: 4430 out of 10030.
-Progress: 4435 out of 10030.
-Progress: 4440 out of 10030.
-Progress: 4445 out of 10030.
-Progress: 4450 out of 10030.
-Progress: 4455 out of 10030.
-Progress: 4460 out of 10030.
-Progress: 4465 out of 10030.
-Progress: 4470 out of 10030.
-Progress: 4475 out of 10030.
-Progress: 4480 out of 10030.
-Progress: 4485 out of 10030.
-Progress: 4490 out of 10030.
-Progress: 4495 out of 10030.
-Progress: 4500 out of 10030.
-Progress: 4505 out of 10030.
-Progress: 4510 out of 10030.
-Progress: 4515 out of 10030.
-Progress: 4520 out of 10030.
-Progress: 4525 out of 10030.
-Progress: 4530 out of 10030.
-Progress: 4535 out of 10030.
-Progress: 4540 out of 10030.
-Progress: 4545 out of 10030.
-Progress: 4550 out of 10030.
-Progress: 4555 out of 10030.
-Progress: 4560 out of 10030.
-Progress: 4565 out of 10030.
-Progress: 4570 out of 10030.
-Progress: 4575 out of 10030.
-Progress: 4580 out of 10030.
-Progress: 4585 out of 10030.
-Progress: 4590 out of 10030.
-Progress: 4595 out of 10030.
-Progress: 4600 out of 10030.
-Progress: 4605 out of 10030.
-Progress: 4610 out of 10030.
-Progress: 4615 out of 10030.
-Progress: 4620 out of 10030.
-Progress: 4625 out of 10030.
-Progress: 4630 out of 10030.
-Progress: 4635 out of 10030.
-Progress: 4640 out of 10030.
-Progress: 4645 out of 10030.
-Progress: 4650 out of 10030.
-Progress: 4655 out of 10030.
-Progress: 4660 out of 10030.
-Progress: 4665 out of 10030.
-Progress: 4670 out of 10030.
-Progress: 4675 out of 10030.
-Progress: 4680 out of 10030.
-Progress: 4685 out of 10030.
-Progress: 4690 out of 10030.
-Progress: 4695 out of 10030.
-Progress: 4700 out of 10030.
-Progress: 4705 out of 10030.
-Progress: 4710 out of 10030.
-Progress: 4715 out of 10030.
-Progress: 4720 out of 10030.
-Progress: 4725 out of 10030.
-Progress: 4730 out of 10030.
-Progress: 4735 out of 10030.
-Progress: 4740 out of 10030.
-Progress: 4745 out of 10030.
-Progress: 4750 out of 10030.
-Progress: 4755 out of 10030.
-Progress: 4760 out of 10030.
-Progress: 4765 out of 10030.
-Progress: 4770 out of 10030.
-Progress: 4775 out of 10030.
-Progress: 4780 out of 10030.
-Progress: 4785 out of 10030.
-Progress: 4790 out of 10030.
-Progress: 4795 out of 10030.
-Progress: 4800 out of 10030.
-Progress: 4805 out of 10030.
-Progress: 4810 out of 10030.
-Progress: 4815 out of 10030.
-Progress: 4820 out of 10030.
-Progress: 4825 out of 10030.
-Progress: 4830 out of 10030.
-Progress: 4835 out of 10030.
-Progress: 4840 out of 10030.
-Progress: 4845 out of 10030.
-Progress: 4850 out of 10030.
-Progress: 4855 out of 10030.
-Progress: 4860 out of 10030.
-Progress: 4865 out of 10030.
-Progress: 4870 out of 10030.
-Progress: 4875 out of 10030.
-Progress: 4880 out of 10030.
-Progress: 4885 out of 10030.
-Progress: 4890 out of 10030.
-Progress: 4895 out of 10030.
-Progress: 4900 out of 10030.
-Progress: 4905 out of 10030.
-Progress: 4910 out of 10030.
-Progress: 4915 out of 10030.
-Progress: 4920 out of 10030.
-Progress: 4925 out of 10030.
-Progress: 4930 out of 10030.
-Progress: 4935 out of 10030.
-Progress: 4940 out of 10030.
-Progress: 4945 out of 10030.
-Progress: 4950 out of 10030.
-Progress: 4955 out of 10030.
-Progress: 4960 out of 10030.
-Progress: 4965 out of 10030.
-Progress: 4970 out of 10030.
-Progress: 4975 out of 10030.
-Progress: 4980 out of 10030.
-Progress: 4985 out of 10030.
-Progress: 4990 out of 10030.
-Progress: 4995 out of 10030.
-Progress: 5000 out of 10030.
-Progress: 5005 out of 10030.
-Progress: 5010 out of 10030.
-Progress: 5015 out of 10030.
-Progress: 5020 out of 10030.
-Progress: 5025 out of 10030.
-Progress: 5030 out of 10030.
-Progress: 5035 out of 10030.
-Progress: 5040 out of 10030.
-Progress: 5045 out of 10030.
-Progress: 5050 out of 10030.
-Progress: 5055 out of 10030.
-Progress: 5060 out of 10030.
-Progress: 5065 out of 10030.
-Progress: 5070 out of 10030.
-Progress: 5075 out of 10030.
-Progress: 5080 out of 10030.
-Progress: 5085 out of 10030.
-Progress: 5090 out of 10030.
-Progress: 5095 out of 10030.
-Progress: 5100 out of 10030.
-Progress: 5105 out of 10030.
-Progress: 5110 out of 10030.
-Progress: 5115 out of 10030.
-Progress: 5120 out of 10030.
-Progress: 5125 out of 10030.
-Progress: 5130 out of 10030.
-Progress: 5135 out of 10030.
-Progress: 5140 out of 10030.
-Progress: 5145 out of 10030.
-Progress: 5150 out of 10030.
-Progress: 5155 out of 10030.
-Progress: 5160 out of 10030.
-Progress: 5165 out of 10030.
-Progress: 5170 out of 10030.
-Progress: 5175 out of 10030.
-Progress: 5180 out of 10030.
-Progress: 5185 out of 10030.
-Progress: 5190 out of 10030.
-Progress: 5195 out of 10030.
-Progress: 5200 out of 10030.
-Progress: 5205 out of 10030.
-Progress: 5210 out of 10030.
-Progress: 5215 out of 10030.
-Progress: 5220 out of 10030.
-Progress: 5225 out of 10030.
-Progress: 5230 out of 10030.
-Progress: 5235 out of 10030.
-Progress: 5240 out of 10030.
-Progress: 5245 out of 10030.
-Progress: 5250 out of 10030.
-Progress: 5255 out of 10030.
-Progress: 5260 out of 10030.
-Progress: 5265 out of 10030.
-Progress: 5270 out of 10030.
-Progress: 5275 out of 10030.
-Progress: 5280 out of 10030.
-Progress: 5285 out of 10030.
-Progress: 5290 out of 10030.
-Progress: 5295 out of 10030.
-Progress: 5300 out of 10030.
-Progress: 5305 out of 10030.
-Progress: 5310 out of 10030.
-Progress: 5315 out of 10030.
-Progress: 5320 out of 10030.
-Progress: 5325 out of 10030.
-Progress: 5330 out of 10030.
-Progress: 5335 out of 10030.
-Progress: 5340 out of 10030.
-Progress: 5345 out of 10030.
-Progress: 5350 out of 10030.
-Progress: 5355 out of 10030.
-Progress: 5360 out of 10030.
-Progress: 5365 out of 10030.
-Progress: 5370 out of 10030.
-Progress: 5375 out of 10030.
-Progress: 5380 out of 10030.
-Progress: 5385 out of 10030.
-Progress: 5390 out of 10030.
-Progress: 5395 out of 10030.
-Progress: 5400 out of 10030.
-Progress: 5405 out of 10030.
-Progress: 5410 out of 10030.
-Progress: 5415 out of 10030.
-Progress: 5420 out of 10030.
-Progress: 5425 out of 10030.
-Progress: 5430 out of 10030.
-Progress: 5435 out of 10030.
-Progress: 5440 out of 10030.
-Progress: 5445 out of 10030.
-Progress: 5450 out of 10030.
-Progress: 5455 out of 10030.
-Progress: 5460 out of 10030.
-Progress: 5465 out of 10030.
-Progress: 5470 out of 10030.
-Progress: 5475 out of 10030.
-Progress: 5480 out of 10030.
-Progress: 5485 out of 10030.
-Progress: 5490 out of 10030.
-Progress: 5495 out of 10030.
-Progress: 5500 out of 10030.
-Progress: 5505 out of 10030.
-Progress: 5510 out of 10030.
-Progress: 5515 out of 10030.
-Progress: 5520 out of 10030.
-Progress: 5525 out of 10030.
-Progress: 5530 out of 10030.
-Progress: 5535 out of 10030.
-Progress: 5540 out of 10030.
-Progress: 5545 out of 10030.
-Progress: 5550 out of 10030.
-Progress: 5555 out of 10030.
-Progress: 5560 out of 10030.
-Progress: 5565 out of 10030.
-Progress: 5570 out of 10030.
-Progress: 5575 out of 10030.
-Progress: 5580 out of 10030.
-Progress: 5585 out of 10030.
-Progress: 5590 out of 10030.
-Progress: 5595 out of 10030.
-Progress: 5600 out of 10030.
-Progress: 5605 out of 10030.
-Progress: 5610 out of 10030.
-Progress: 5615 out of 10030.
-Progress: 5620 out of 10030.
-Progress: 5625 out of 10030.
-Progress: 5630 out of 10030.
-Progress: 5635 out of 10030.
-Progress: 5640 out of 10030.
-Progress: 5645 out of 10030.
-Progress: 5650 out of 10030.
-Progress: 5655 out of 10030.
-Progress: 5660 out of 10030.
-Progress: 5665 out of 10030.
-Progress: 5670 out of 10030.
-Progress: 5675 out of 10030.
-Progress: 5680 out of 10030.
-Progress: 5685 out of 10030.
-Progress: 5690 out of 10030.
-Progress: 5695 out of 10030.
-Progress: 5700 out of 10030.
-Progress: 5705 out of 10030.
-Progress: 5710 out of 10030.
-Progress: 5715 out of 10030.
-Progress: 5720 out of 10030.
-Progress: 5725 out of 10030.
-Progress: 5730 out of 10030.
-Progress: 5735 out of 10030.
-Progress: 5740 out of 10030.
-Progress: 5745 out of 10030.
-Progress: 5750 out of 10030.
-Progress: 5755 out of 10030.
-Progress: 5760 out of 10030.
-Progress: 5765 out of 10030.
-Progress: 5770 out of 10030.
-Progress: 5775 out of 10030.
-Progress: 5780 out of 10030.
-Progress: 5785 out of 10030.
-Progress: 5790 out of 10030.
-Progress: 5795 out of 10030.
-Progress: 5800 out of 10030.
-Progress: 5805 out of 10030.
-Progress: 5810 out of 10030.
-Progress: 5815 out of 10030.
-Progress: 5820 out of 10030.
-Progress: 5825 out of 10030.
-Progress: 5830 out of 10030.
-Progress: 5835 out of 10030.
-Progress: 5840 out of 10030.
-Progress: 5845 out of 10030.
-Progress: 5850 out of 10030.
-Progress: 5855 out of 10030.
-Progress: 5860 out of 10030.
-Progress: 5865 out of 10030.
-Progress: 5870 out of 10030.
-Progress: 5875 out of 10030.
-Progress: 5880 out of 10030.
-Progress: 5885 out of 10030.
-Progress: 5890 out of 10030.
-Progress: 5895 out of 10030.
-Progress: 5900 out of 10030.
-Progress: 5905 out of 10030.
-Progress: 5910 out of 10030.
-Progress: 5915 out of 10030.
-Progress: 5920 out of 10030.
-Progress: 5925 out of 10030.
-Progress: 5930 out of 10030.
-Progress: 5935 out of 10030.
-Progress: 5940 out of 10030.
-Progress: 5945 out of 10030.
-Progress: 5950 out of 10030.
-Progress: 5955 out of 10030.
-Progress: 5960 out of 10030.
-Progress: 5965 out of 10030.
-Progress: 5970 out of 10030.
-Progress: 5975 out of 10030.
-Progress: 5980 out of 10030.
-Progress: 5985 out of 10030.
-Progress: 5990 out of 10030.
-Progress: 5995 out of 10030.
-Progress: 6000 out of 10030.
-Progress: 6005 out of 10030.
-Progress: 6010 out of 10030.
-Progress: 6015 out of 10030.
-Progress: 6020 out of 10030.
-Progress: 6025 out of 10030.
-Progress: 6030 out of 10030.
-Progress: 6035 out of 10030.
-Progress: 6040 out of 10030.
-Progress: 6045 out of 10030.
-Progress: 6050 out of 10030.
-Progress: 6055 out of 10030.
-Progress: 6060 out of 10030.
-Progress: 6065 out of 10030.
-Progress: 6070 out of 10030.
-Progress: 6075 out of 10030.
-Progress: 6080 out of 10030.
-Progress: 6085 out of 10030.
-Progress: 6090 out of 10030.
-Progress: 6095 out of 10030.
-Progress: 6100 out of 10030.
-Progress: 6105 out of 10030.
-Progress: 6110 out of 10030.
-Progress: 6115 out of 10030.
-Progress: 6120 out of 10030.
-Progress: 6125 out of 10030.
-Progress: 6130 out of 10030.
-Progress: 6135 out of 10030.
-Progress: 6140 out of 10030.
-Progress: 6145 out of 10030.
-Progress: 6150 out of 10030.
-Progress: 6155 out of 10030.
-Progress: 6160 out of 10030.
-Progress: 6165 out of 10030.
-Progress: 6170 out of 10030.
-Progress: 6175 out of 10030.
-Progress: 6180 out of 10030.
-Progress: 6185 out of 10030.
-Progress: 6190 out of 10030.
-Progress: 6195 out of 10030.
-Progress: 6200 out of 10030.
-Progress: 6205 out of 10030.
-Progress: 6210 out of 10030.
-Progress: 6215 out of 10030.
-Progress: 6220 out of 10030.
-Progress: 6225 out of 10030.
-Progress: 6230 out of 10030.
-Progress: 6235 out of 10030.
-Progress: 6240 out of 10030.
-Progress: 6245 out of 10030.
-Progress: 6250 out of 10030.
-Progress: 6255 out of 10030.
-Progress: 6260 out of 10030.
-Progress: 6265 out of 10030.
-Progress: 6270 out of 10030.
-Progress: 6275 out of 10030.
-Progress: 6280 out of 10030.
-Progress: 6285 out of 10030.
-Progress: 6290 out of 10030.
-Progress: 6295 out of 10030.
-Progress: 6300 out of 10030.
-Progress: 6305 out of 10030.
-Progress: 6310 out of 10030.
-Progress: 6315 out of 10030.
-Progress: 6320 out of 10030.
-Progress: 6325 out of 10030.
-Progress: 6330 out of 10030.
-Progress: 6335 out of 10030.
-Progress: 6340 out of 10030.
-Progress: 6345 out of 10030.
-Progress: 6350 out of 10030.
-Progress: 6355 out of 10030.
-Progress: 6360 out of 10030.
-Progress: 6365 out of 10030.
-Progress: 6370 out of 10030.
-Progress: 6375 out of 10030.
-Progress: 6380 out of 10030.
-Progress: 6385 out of 10030.
-Progress: 6390 out of 10030.
-Progress: 6395 out of 10030.
-Progress: 6400 out of 10030.
-Progress: 6405 out of 10030.
-Progress: 6410 out of 10030.
-Progress: 6415 out of 10030.
-Progress: 6420 out of 10030.
-Progress: 6425 out of 10030.
-Progress: 6430 out of 10030.
-Progress: 6435 out of 10030.
-Progress: 6440 out of 10030.
-Progress: 6445 out of 10030.
-Progress: 6450 out of 10030.
-Progress: 6455 out of 10030.
-Progress: 6460 out of 10030.
-Progress: 6465 out of 10030.
-Progress: 6470 out of 10030.
-Progress: 6475 out of 10030.
-Progress: 6480 out of 10030.
-Progress: 6485 out of 10030.
-Progress: 6490 out of 10030.
-Progress: 6495 out of 10030.
-Progress: 6500 out of 10030.
-Progress: 6505 out of 10030.
-Progress: 6510 out of 10030.
-Progress: 6515 out of 10030.
-Progress: 6520 out of 10030.
-Progress: 6525 out of 10030.
-Progress: 6530 out of 10030.
-Progress: 6535 out of 10030.
-Progress: 6540 out of 10030.
-Progress: 6545 out of 10030.
-Progress: 6550 out of 10030.
-Progress: 6555 out of 10030.
-Progress: 6560 out of 10030.
-Progress: 6565 out of 10030.
-Progress: 6570 out of 10030.
-Progress: 6575 out of 10030.
-Progress: 6580 out of 10030.
-Progress: 6585 out of 10030.
-Progress: 6590 out of 10030.
-Progress: 6595 out of 10030.
-Progress: 6600 out of 10030.
-Progress: 6605 out of 10030.
-Progress: 6610 out of 10030.
-Progress: 6615 out of 10030.
-Progress: 6620 out of 10030.
-Progress: 6625 out of 10030.
-Progress: 6630 out of 10030.
-Progress: 6635 out of 10030.
-Progress: 6640 out of 10030.
-Progress: 6645 out of 10030.
-Progress: 6650 out of 10030.
-Progress: 6655 out of 10030.
-Progress: 6660 out of 10030.
-Progress: 6665 out of 10030.
-Progress: 6670 out of 10030.
-Progress: 6675 out of 10030.
-Progress: 6680 out of 10030.
-Progress: 6685 out of 10030.
-Progress: 6690 out of 10030.
-Progress: 6695 out of 10030.
-Progress: 6700 out of 10030.
-Progress: 6705 out of 10030.
-Progress: 6710 out of 10030.
-Progress: 6715 out of 10030.
-Progress: 6720 out of 10030.
-Progress: 6725 out of 10030.
-Progress: 6730 out of 10030.
-Progress: 6735 out of 10030.
-Progress: 6740 out of 10030.
-Progress: 6745 out of 10030.
-Progress: 6750 out of 10030.
-Progress: 6755 out of 10030.
-Progress: 6760 out of 10030.
-Progress: 6765 out of 10030.
-Progress: 6770 out of 10030.
-Progress: 6775 out of 10030.
-Progress: 6780 out of 10030.
-Progress: 6785 out of 10030.
-Progress: 6790 out of 10030.
-Progress: 6795 out of 10030.
-Progress: 6800 out of 10030.
-Progress: 6805 out of 10030.
-Progress: 6810 out of 10030.
-Progress: 6815 out of 10030.
-Progress: 6820 out of 10030.
-Progress: 6825 out of 10030.
-Progress: 6830 out of 10030.
-Progress: 6835 out of 10030.
-Progress: 6840 out of 10030.
-Progress: 6845 out of 10030.
-Progress: 6850 out of 10030.
-Progress: 6855 out of 10030.
-Progress: 6860 out of 10030.
-Progress: 6865 out of 10030.
-Progress: 6870 out of 10030.
-Progress: 6875 out of 10030.
-Progress: 6880 out of 10030.
-Progress: 6885 out of 10030.
-Progress: 6890 out of 10030.
-Progress: 6895 out of 10030.
-Progress: 6900 out of 10030.
-Progress: 6905 out of 10030.
-Progress: 6910 out of 10030.
-Progress: 6915 out of 10030.
-Progress: 6920 out of 10030.
-Progress: 6925 out of 10030.
-Progress: 6930 out of 10030.
-Progress: 6935 out of 10030.
-Progress: 6940 out of 10030.
-Progress: 6945 out of 10030.
-Progress: 6950 out of 10030.
-Progress: 6955 out of 10030.
-Progress: 6960 out of 10030.
-Progress: 6965 out of 10030.
-Progress: 6970 out of 10030.
-Progress: 6975 out of 10030.
-Progress: 6980 out of 10030.
-Progress: 6985 out of 10030.
-Progress: 6990 out of 10030.
-Progress: 6995 out of 10030.
-Progress: 7000 out of 10030.
-Progress: 7005 out of 10030.
-Progress: 7010 out of 10030.
-Progress: 7015 out of 10030.
-Progress: 7020 out of 10030.
-Progress: 7025 out of 10030.
-Progress: 7030 out of 10030.
-Progress: 7035 out of 10030.
-Progress: 7040 out of 10030.
-Progress: 7045 out of 10030.
-Progress: 7050 out of 10030.
-Progress: 7055 out of 10030.
-Progress: 7060 out of 10030.
-Progress: 7065 out of 10030.
-Progress: 7070 out of 10030.
-Progress: 7075 out of 10030.
-Progress: 7080 out of 10030.
-Progress: 7085 out of 10030.
-Progress: 7090 out of 10030.
-Progress: 7095 out of 10030.
-Progress: 7100 out of 10030.
-Progress: 7105 out of 10030.
-Progress: 7110 out of 10030.
-Progress: 7115 out of 10030.
-Progress: 7120 out of 10030.
-Progress: 7125 out of 10030.
-Progress: 7130 out of 10030.
-Progress: 7135 out of 10030.
-Progress: 7140 out of 10030.
-Progress: 7145 out of 10030.
-Progress: 7150 out of 10030.
-Progress: 7155 out of 10030.
-Progress: 7160 out of 10030.
-Progress: 7165 out of 10030.
-Progress: 7170 out of 10030.
-Progress: 7175 out of 10030.
-Progress: 7180 out of 10030.
-Progress: 7185 out of 10030.
-Progress: 7190 out of 10030.
-Progress: 7195 out of 10030.
-Progress: 7200 out of 10030.
-Progress: 7205 out of 10030.
-Progress: 7210 out of 10030.
-Progress: 7215 out of 10030.
-Progress: 7220 out of 10030.
-Progress: 7225 out of 10030.
-Progress: 7230 out of 10030.
-Progress: 7235 out of 10030.
-Progress: 7240 out of 10030.
-Progress: 7245 out of 10030.
-Progress: 7250 out of 10030.
-Progress: 7255 out of 10030.
-Progress: 7260 out of 10030.
-Progress: 7265 out of 10030.
-Progress: 7270 out of 10030.
-Progress: 7275 out of 10030.
-Progress: 7280 out of 10030.
-Progress: 7285 out of 10030.
-Progress: 7290 out of 10030.
-Progress: 7295 out of 10030.
-Progress: 7300 out of 10030.
-Progress: 7305 out of 10030.
-Progress: 7310 out of 10030.
-Progress: 7315 out of 10030.
-Progress: 7320 out of 10030.
-Progress: 7325 out of 10030.
-Progress: 7330 out of 10030.
-Progress: 7335 out of 10030.
-Progress: 7340 out of 10030.
-Progress: 7345 out of 10030.
-Progress: 7350 out of 10030.
-Progress: 7355 out of 10030.
-Progress: 7360 out of 10030.
-Progress: 7365 out of 10030.
-Progress: 7370 out of 10030.
-Progress: 7375 out of 10030.
-Progress: 7380 out of 10030.
-Progress: 7385 out of 10030.
-Progress: 7390 out of 10030.
-Progress: 7395 out of 10030.
-Progress: 7400 out of 10030.
-Progress: 7405 out of 10030.
-Progress: 7410 out of 10030.
-Progress: 7415 out of 10030.
-Progress: 7420 out of 10030.
-Progress: 7425 out of 10030.
-Progress: 7430 out of 10030.
-Progress: 7435 out of 10030.
-Progress: 7440 out of 10030.
-Progress: 7445 out of 10030.
-Progress: 7450 out of 10030.
-Progress: 7455 out of 10030.
-Progress: 7460 out of 10030.
-Progress: 7465 out of 10030.
-Progress: 7470 out of 10030.
-Progress: 7475 out of 10030.
-Progress: 7480 out of 10030.
-Progress: 7485 out of 10030.
-Progress: 7490 out of 10030.
-Progress: 7495 out of 10030.
-Progress: 7500 out of 10030.
-Progress: 7505 out of 10030.
-Progress: 7510 out of 10030.
-Progress: 7515 out of 10030.
-Progress: 7520 out of 10030.
-Progress: 7525 out of 10030.
-Progress: 7530 out of 10030.
-Progress: 7535 out of 10030.
-Progress: 7540 out of 10030.
-Progress: 7545 out of 10030.
-Progress: 7550 out of 10030.
-Progress: 7555 out of 10030.
-Progress: 7560 out of 10030.
-Progress: 7565 out of 10030.
-Progress: 7570 out of 10030.
-Progress: 7575 out of 10030.
-Progress: 7580 out of 10030.
-Progress: 7585 out of 10030.
-Progress: 7590 out of 10030.
-Progress: 7595 out of 10030.
-Progress: 7600 out of 10030.
-Progress: 7605 out of 10030.
-Progress: 7610 out of 10030.
-Progress: 7615 out of 10030.
-Progress: 7620 out of 10030.
-Progress: 7625 out of 10030.
-Progress: 7630 out of 10030.
-Progress: 7635 out of 10030.
-Progress: 7640 out of 10030.
-Progress: 7645 out of 10030.
-Progress: 7650 out of 10030.
-Progress: 7655 out of 10030.
-Progress: 7660 out of 10030.
-Progress: 7665 out of 10030.
-Progress: 7670 out of 10030.
-Progress: 7675 out of 10030.
-Progress: 7680 out of 10030.
-Progress: 7685 out of 10030.
-Progress: 7690 out of 10030.
-Progress: 7695 out of 10030.
-Progress: 7700 out of 10030.
-Progress: 7705 out of 10030.
-Progress: 7710 out of 10030.
-Progress: 7715 out of 10030.
-Progress: 7720 out of 10030.
-Progress: 7725 out of 10030.
-Progress: 7730 out of 10030.
-Progress: 7735 out of 10030.
-Progress: 7740 out of 10030.
-Progress: 7745 out of 10030.
-Progress: 7750 out of 10030.
-Progress: 7755 out of 10030.
-Progress: 7760 out of 10030.
-Progress: 7765 out of 10030.
-Progress: 7770 out of 10030.
-Progress: 7775 out of 10030.
-Progress: 7780 out of 10030.
-Progress: 7785 out of 10030.
-Progress: 7790 out of 10030.
-Progress: 7795 out of 10030.
-Progress: 7800 out of 10030.
-Progress: 7805 out of 10030.
-Progress: 7810 out of 10030.
-Progress: 7815 out of 10030.
-Progress: 7820 out of 10030.
-Progress: 7825 out of 10030.
-Progress: 7830 out of 10030.
-Progress: 7835 out of 10030.
-Progress: 7840 out of 10030.
-Progress: 7845 out of 10030.
-Progress: 7850 out of 10030.
-Progress: 7855 out of 10030.
-Progress: 7860 out of 10030.
-Progress: 7865 out of 10030.
-Progress: 7870 out of 10030.
-Progress: 7875 out of 10030.
-Progress: 7880 out of 10030.
-Progress: 7885 out of 10030.
-Progress: 7890 out of 10030.
-Progress: 7895 out of 10030.
-Progress: 7900 out of 10030.
-Progress: 7905 out of 10030.
-Progress: 7910 out of 10030.
-Progress: 7915 out of 10030.
-Progress: 7920 out of 10030.
-Progress: 7925 out of 10030.
-Progress: 7930 out of 10030.
-Progress: 7935 out of 10030.
-Progress: 7940 out of 10030.
-Progress: 7945 out of 10030.
-Progress: 7950 out of 10030.
-Progress: 7955 out of 10030.
-Progress: 7960 out of 10030.
-Progress: 7965 out of 10030.
-Progress: 7970 out of 10030.
-Progress: 7975 out of 10030.
-Progress: 7980 out of 10030.
-Progress: 7985 out of 10030.
-Progress: 7990 out of 10030.
-Progress: 7995 out of 10030.
-Progress: 8000 out of 10030.
-Progress: 8005 out of 10030.
-Progress: 8010 out of 10030.
-Progress: 8015 out of 10030.
-Progress: 8020 out of 10030.
-Progress: 8025 out of 10030.
-Progress: 8030 out of 10030.
-Progress: 8035 out of 10030.
-Progress: 8040 out of 10030.
-Progress: 8045 out of 10030.
-Progress: 8050 out of 10030.
-Progress: 8055 out of 10030.
-Progress: 8060 out of 10030.
-Progress: 8065 out of 10030.
-Progress: 8070 out of 10030.
-Progress: 8075 out of 10030.
-Progress: 8080 out of 10030.
-Progress: 8085 out of 10030.
-Progress: 8090 out of 10030.
-Progress: 8095 out of 10030.
-Progress: 8100 out of 10030.
-Progress: 8105 out of 10030.
-Progress: 8110 out of 10030.
-Progress: 8115 out of 10030.
-Progress: 8120 out of 10030.
-Progress: 8125 out of 10030.
-Progress: 8130 out of 10030.
-Progress: 8135 out of 10030.
-Progress: 8140 out of 10030.
-Progress: 8145 out of 10030.
-Progress: 8150 out of 10030.
-Progress: 8155 out of 10030.
-Progress: 8160 out of 10030.
-Progress: 8165 out of 10030.
-Progress: 8170 out of 10030.
-Progress: 8175 out of 10030.
-Progress: 8180 out of 10030.
-Progress: 8185 out of 10030.
-Progress: 8190 out of 10030.
-Progress: 8195 out of 10030.
-Progress: 8200 out of 10030.
-Progress: 8205 out of 10030.
-Progress: 8210 out of 10030.
-Progress: 8215 out of 10030.
-Progress: 8220 out of 10030.
-Progress: 8225 out of 10030.
-Progress: 8230 out of 10030.
-Progress: 8235 out of 10030.
-Progress: 8240 out of 10030.
-Progress: 8245 out of 10030.
-Progress: 8250 out of 10030.
-Progress: 8255 out of 10030.
-Progress: 8260 out of 10030.
-Progress: 8265 out of 10030.
-Progress: 8270 out of 10030.
-Progress: 8275 out of 10030.
-Progress: 8280 out of 10030.
-Progress: 8285 out of 10030.
-Progress: 8290 out of 10030.
-Progress: 8295 out of 10030.
-Progress: 8300 out of 10030.
-Progress: 8305 out of 10030.
-Progress: 8310 out of 10030.
-Progress: 8315 out of 10030.
-Progress: 8320 out of 10030.
-Progress: 8325 out of 10030.
-Progress: 8330 out of 10030.
-Progress: 8335 out of 10030.
-Progress: 8340 out of 10030.
-Progress: 8345 out of 10030.
-Progress: 8350 out of 10030.
-Progress: 8355 out of 10030.
-Progress: 8360 out of 10030.
-Progress: 8365 out of 10030.
-Progress: 8370 out of 10030.
-Progress: 8375 out of 10030.
-Progress: 8380 out of 10030.
-Progress: 8385 out of 10030.
-Progress: 8390 out of 10030.
-Progress: 8395 out of 10030.
-Progress: 8400 out of 10030.
-Progress: 8405 out of 10030.
-Progress: 8410 out of 10030.
-Progress: 8415 out of 10030.
-Progress: 8420 out of 10030.
-Progress: 8425 out of 10030.
-Progress: 8430 out of 10030.
-Progress: 8435 out of 10030.
-Progress: 8440 out of 10030.
-Progress: 8445 out of 10030.
-Progress: 8450 out of 10030.
-Progress: 8455 out of 10030.
-Progress: 8460 out of 10030.
-Progress: 8465 out of 10030.
-Progress: 8470 out of 10030.
-Progress: 8475 out of 10030.
-Progress: 8480 out of 10030.
-Progress: 8485 out of 10030.
-Progress: 8490 out of 10030.
-Progress: 8495 out of 10030.
-Progress: 8500 out of 10030.
-Progress: 8505 out of 10030.
-Progress: 8510 out of 10030.
-Progress: 8515 out of 10030.
-Progress: 8520 out of 10030.
-Progress: 8525 out of 10030.
-Progress: 8530 out of 10030.
-Progress: 8535 out of 10030.
-Progress: 8540 out of 10030.
-Progress: 8545 out of 10030.
-Progress: 8550 out of 10030.
-Progress: 8555 out of 10030.
-Progress: 8560 out of 10030.
-Progress: 8565 out of 10030.
-Progress: 8570 out of 10030.
-Progress: 8575 out of 10030.
-Progress: 8580 out of 10030.
-Progress: 8585 out of 10030.
-Progress: 8590 out of 10030.
-Progress: 8595 out of 10030.
-Progress: 8600 out of 10030.
-Progress: 8605 out of 10030.
-Progress: 8610 out of 10030.
-Progress: 8615 out of 10030.
-Progress: 8620 out of 10030.
-Progress: 8625 out of 10030.
-Progress: 8630 out of 10030.
-Progress: 8635 out of 10030.
-Progress: 8640 out of 10030.
-Progress: 8645 out of 10030.
-Progress: 8650 out of 10030.
-Progress: 8655 out of 10030.
-Progress: 8660 out of 10030.
-Progress: 8665 out of 10030.
-Progress: 8670 out of 10030.
-Progress: 8675 out of 10030.
-Progress: 8680 out of 10030.
-Progress: 8685 out of 10030.
-Progress: 8690 out of 10030.
-Progress: 8695 out of 10030.
-Progress: 8700 out of 10030.
-Progress: 8705 out of 10030.
-Progress: 8710 out of 10030.
-Progress: 8715 out of 10030.
-Progress: 8720 out of 10030.
-Progress: 8725 out of 10030.
-Progress: 8730 out of 10030.
-Progress: 8735 out of 10030.
-Progress: 8740 out of 10030.
-Progress: 8745 out of 10030.
-Progress: 8750 out of 10030.
-Progress: 8755 out of 10030.
-Progress: 8760 out of 10030.
-Progress: 8765 out of 10030.
-Progress: 8770 out of 10030.
-Progress: 8775 out of 10030.
-Progress: 8780 out of 10030.
-Progress: 8785 out of 10030.
-Progress: 8790 out of 10030.
-Progress: 8795 out of 10030.
-Progress: 8800 out of 10030.
-Progress: 8805 out of 10030.
-Progress: 8810 out of 10030.
-Progress: 8815 out of 10030.
-Progress: 8820 out of 10030.
-Progress: 8825 out of 10030.
-Progress: 8830 out of 10030.
-Progress: 8835 out of 10030.
-Progress: 8840 out of 10030.
-Progress: 8845 out of 10030.
-Progress: 8850 out of 10030.
-Progress: 8855 out of 10030.
-Progress: 8860 out of 10030.
-Progress: 8865 out of 10030.
-Progress: 8870 out of 10030.
-Progress: 8875 out of 10030.
-Progress: 8880 out of 10030.
-Progress: 8885 out of 10030.
-Progress: 8890 out of 10030.
-Progress: 8895 out of 10030.
-Progress: 8900 out of 10030.
-Progress: 8905 out of 10030.
-Progress: 8910 out of 10030.
-Progress: 8915 out of 10030.
-Progress: 8920 out of 10030.
-Progress: 8925 out of 10030.
-Progress: 8930 out of 10030.
-Progress: 8935 out of 10030.
-Progress: 8940 out of 10030.
-Progress: 8945 out of 10030.
-Progress: 8950 out of 10030.
-Progress: 8955 out of 10030.
-Progress: 8960 out of 10030.
-Progress: 8965 out of 10030.
-Progress: 8970 out of 10030.
-Progress: 8975 out of 10030.
-Progress: 8980 out of 10030.
-Progress: 8985 out of 10030.
-Progress: 8990 out of 10030.
-Progress: 8995 out of 10030.
-Progress: 9000 out of 10030.
-Progress: 9005 out of 10030.
-Progress: 9010 out of 10030.
-Progress: 9015 out of 10030.
-Progress: 9020 out of 10030.
-Progress: 9025 out of 10030.
-Progress: 9030 out of 10030.
-Progress: 9035 out of 10030.
-Progress: 9040 out of 10030.
-Progress: 9045 out of 10030.
-Progress: 9050 out of 10030.
-Progress: 9055 out of 10030.
-Progress: 9060 out of 10030.
-Progress: 9065 out of 10030.
-Progress: 9070 out of 10030.
-Progress: 9075 out of 10030.
-Progress: 9080 out of 10030.
-Progress: 9085 out of 10030.
-Progress: 9090 out of 10030.
-Progress: 9095 out of 10030.
-Progress: 9100 out of 10030.
-Progress: 9105 out of 10030.
-Progress: 9110 out of 10030.
-Progress: 9115 out of 10030.
-Progress: 9120 out of 10030.
-Progress: 9125 out of 10030.
-Progress: 9130 out of 10030.
-Progress: 9135 out of 10030.
-Progress: 9140 out of 10030.
-Progress: 9145 out of 10030.
-Progress: 9150 out of 10030.
-Progress: 9155 out of 10030.
-Progress: 9160 out of 10030.
-Progress: 9165 out of 10030.
-Progress: 9170 out of 10030.
-Progress: 9175 out of 10030.
-Progress: 9180 out of 10030.
-Progress: 9185 out of 10030.
-Progress: 9190 out of 10030.
-Progress: 9195 out of 10030.
-Progress: 9200 out of 10030.
-Progress: 9205 out of 10030.
-Progress: 9210 out of 10030.
-Progress: 9215 out of 10030.
-Progress: 9220 out of 10030.
-Progress: 9225 out of 10030.
-Progress: 9230 out of 10030.
-Progress: 9235 out of 10030.
-Progress: 9240 out of 10030.
-Progress: 9245 out of 10030.
-Progress: 9250 out of 10030.
-Progress: 9255 out of 10030.
-Progress: 9260 out of 10030.
-Progress: 9265 out of 10030.
-Progress: 9270 out of 10030.
-Progress: 9275 out of 10030.
-Progress: 9280 out of 10030.
-Progress: 9285 out of 10030.
-Progress: 9290 out of 10030.
-Progress: 9295 out of 10030.
-Progress: 9300 out of 10030.
-Progress: 9305 out of 10030.
-Progress: 9310 out of 10030.
-Progress: 9315 out of 10030.
-Progress: 9320 out of 10030.
-Progress: 9325 out of 10030.
-Progress: 9330 out of 10030.
-Progress: 9335 out of 10030.
-Progress: 9340 out of 10030.
-Progress: 9345 out of 10030.
-Progress: 9350 out of 10030.
-Progress: 9355 out of 10030.
-Progress: 9360 out of 10030.
-Progress: 9365 out of 10030.
-Progress: 9370 out of 10030.
-Progress: 9375 out of 10030.
-Progress: 9380 out of 10030.
-Progress: 9385 out of 10030.
-Progress: 9390 out of 10030.
-Progress: 9395 out of 10030.
-Progress: 9400 out of 10030.
-Progress: 9405 out of 10030.
-Progress: 9410 out of 10030.
-Progress: 9415 out of 10030.
-Progress: 9420 out of 10030.
-Progress: 9425 out of 10030.
-Progress: 9430 out of 10030.
-Progress: 9435 out of 10030.
-Progress: 9440 out of 10030.
-Progress: 9445 out of 10030.
-Progress: 9450 out of 10030.
-Progress: 9455 out of 10030.
-Progress: 9460 out of 10030.
-Progress: 9465 out of 10030.
-Progress: 9470 out of 10030.
-Progress: 9475 out of 10030.
-Progress: 9480 out of 10030.
-Progress: 9485 out of 10030.
-Progress: 9490 out of 10030.
-Progress: 9495 out of 10030.
-Progress: 9500 out of 10030.
-Progress: 9505 out of 10030.
-Progress: 9510 out of 10030.
-Progress: 9515 out of 10030.
-Progress: 9520 out of 10030.
-Progress: 9525 out of 10030.
-Progress: 9530 out of 10030.
-Progress: 9535 out of 10030.
-Progress: 9540 out of 10030.
-Progress: 9545 out of 10030.
-Progress: 9550 out of 10030.
-Progress: 9555 out of 10030.
-Progress: 9560 out of 10030.
-Progress: 9565 out of 10030.
-Progress: 9570 out of 10030.
-Progress: 9575 out of 10030.
-Progress: 9580 out of 10030.
-Progress: 9585 out of 10030.
-Progress: 9590 out of 10030.
-Progress: 9595 out of 10030.
-Progress: 9600 out of 10030.
-Progress: 9605 out of 10030.
-Progress: 9610 out of 10030.
-Progress: 9615 out of 10030.
-Progress: 9620 out of 10030.
-Progress: 9625 out of 10030.
-Progress: 9630 out of 10030.
-Progress: 9635 out of 10030.
-Progress: 9640 out of 10030.
-Progress: 9645 out of 10030.
-Progress: 9650 out of 10030.
-Progress: 9655 out of 10030.
-Progress: 9660 out of 10030.
-Progress: 9665 out of 10030.
-Progress: 9670 out of 10030.
-Progress: 9675 out of 10030.
-Progress: 9680 out of 10030.
-Progress: 9685 out of 10030.
-Progress: 9690 out of 10030.
-Progress: 9695 out of 10030.
-Progress: 9700 out of 10030.
-Progress: 9705 out of 10030.
-Progress: 9710 out of 10030.
-Progress: 9715 out of 10030.
-Progress: 9720 out of 10030.
-Progress: 9725 out of 10030.
-Progress: 9730 out of 10030.
-Progress: 9735 out of 10030.
-Progress: 9740 out of 10030.
-Progress: 9745 out of 10030.
-Progress: 9750 out of 10030.
-Progress: 9755 out of 10030.
-Progress: 9760 out of 10030.
-Progress: 9765 out of 10030.
-Progress: 9770 out of 10030.
-Progress: 9775 out of 10030.
-Progress: 9780 out of 10030.
-Progress: 9785 out of 10030.
-Progress: 9790 out of 10030.
-Progress: 9795 out of 10030.
-Progress: 9800 out of 10030.
-Progress: 9805 out of 10030.
-Progress: 9810 out of 10030.
-Progress: 9815 out of 10030.
-Progress: 9820 out of 10030.
-Progress: 9825 out of 10030.
-Progress: 9830 out of 10030.
-Progress: 9835 out of 10030.
-Progress: 9840 out of 10030.
-Progress: 9845 out of 10030.
-Progress: 9850 out of 10030.
-Progress: 9855 out of 10030.
-Progress: 9860 out of 10030.
-Progress: 9865 out of 10030.
-Progress: 9870 out of 10030.
-Progress: 9875 out of 10030.
-Progress: 9880 out of 10030.
-Progress: 9885 out of 10030.
-Progress: 9890 out of 10030.
-Progress: 9895 out of 10030.
-Progress: 9900 out of 10030.
-Progress: 9905 out of 10030.
-Progress: 9910 out of 10030.
-Progress: 9915 out of 10030.
-Progress: 9920 out of 10030.
-Progress: 9925 out of 10030.
-Progress: 9930 out of 10030.
-Progress: 9935 out of 10030.
-Progress: 9940 out of 10030.
-Progress: 9945 out of 10030.
-Progress: 9950 out of 10030.
-Progress: 9955 out of 10030.
-Progress: 9960 out of 10030.
-Progress: 9965 out of 10030.
-Progress: 9970 out of 10030.
-Progress: 9975 out of 10030.
-Progress: 9980 out of 10030.
-Progress: 9985 out of 10030.
-Progress: 9990 out of 10030.
-Progress: 9995 out of 10030.
-Progress: 10000 out of 10030.
-Progress: 10005 out of 10030.
-Progress: 10010 out of 10030.
-Progress: 10015 out of 10030.
-Progress: 10020 out of 10030.
-Progress: 10025 out of 10030.
-Progress: 10030 out of 10030.
-Querying reference fasta.
-Querying ancestral fasta.
-Done.
-
-===========================================================================
-Job Finished
-
-Name                : get_rand
-User                : hemstrow
-Partition           : bigmemm
-Nodes               : bigmem1
-Cores               : 6
-State               : COMPLETED
-Submit              : 2018-04-12T14:01:53
-Start               : 2018-04-12T14:01:53
-End                 : 2018-04-12T14:10:24
-Reserved walltime   : 4-12:00:00
-Used walltime       :   00:08:31
-Used CPU time       :   00:07:07
-% User (Computation): 76.95%
-% System (I/O)      : 23.05%
-Mem reserved        : 48G/node
-Max Mem used        : 6.18G (bigmem1)
-Max Disk Write      : 34.00M (bigmem1)
-Max Disk Read       : 82.99G (bigmem1)

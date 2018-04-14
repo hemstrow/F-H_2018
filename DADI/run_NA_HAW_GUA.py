@@ -2,7 +2,9 @@ import numpy
 import dadi
 import os
 import array
-os.chdir("DADI")
+import pylab
+import matplotlib
+os.chdir("../DADI")
 
 # define the model
 
@@ -81,11 +83,11 @@ pts_l = [40,50,60]
 # want to exclude values with very long times, very small population sizes, or
 # very high migration rates, as they will take a long time to evaluate.
 # Parameters are: (nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23)
-upper_bound = [100, 100, 100, 100, 20, 20, 3, 3, 3, 3]
-lower_bound = [1e-2, 1e-2, 1e-2, 1e-2, 0, 0, 0, 0, 0, 0]
+upper_bound = [10, 10, 10, 10, 20, 20, 10, 10, 10, 10]
+lower_bound = [1e-3, 1e-3, 1e-3, 1e-3, 0, 0, 0, 0, 0, 0]
 
 # This is our initial guess for the parameters, which is somewhat arbitrary.
-p0 = [0.1,0.1,2,1,2,1,0.2,0.01,0.2,0.01]
+p0 = [0.1,0.1,2,1,2,1,0.2,0.1,0.2,0.1]
 # Make the extrapolating version of our demographic model function.
 func_ex = dadi.Numerics.make_extrap_log_func(three_seq_estab)
 
@@ -94,8 +96,7 @@ func_ex = dadi.Numerics.make_extrap_log_func(three_seq_estab)
 p0 = dadi.Misc.perturb_params(p0, fold = 1, upper_bound=upper_bound,
                               lower_bound=lower_bound)
 # Do the optimization. By default we assume that theta is a free parameter,
-# since it's trivial to find given the other parameters. If you want to fix
-# theta, add a multinom=False to the call.
+# since it's trivial to find given the other parameters.
 # The maxiter argument restricts how long the optimizer will run. For real 
 # runs, you will want to set this value higher (at least 10), to encourage
 # better convergence. You will also want to run optimization several times
@@ -107,8 +108,43 @@ print('Beginning optimization ************************************************')
 popt = dadi.Inference.optimize_log(p0, data, func_ex, pts_l, 
                                    lower_bound=lower_bound,
                                    upper_bound=upper_bound,
-                                   verbose=1, maxiter=3)
-# The verbose argument controls how often progress of the optimizer should be
-# printed. It's useful to keep track of optimization process.
+                                   verbose=20, maxiter=10)
 print('Finshed optimization **************************************************')
+
+# plot and calculate theta0
+model = func_ex(popt, ns, pts_l)
+
+# theta 0
+t0 = dadi.Inference.optimal_sfs_scaling(model, data)
+
+#print results
+print("Unfolded optimal parms:\n")
+print(popt)
+print("\ntheta:\n")
+print(t0)
+print("\n")
+
+###############################################
+# folded
+dataf= dadi.Spectrum.from_data_dict(dd, ['NAM','GUA','HAW'], polarized=False)
+nsf = data.sample_sizes
+
+print('Beginning optimization folded************************************************')
+popt_f = dadi.Inference.optimize_log(p0, dataf, func_ex, pts_l, 
+                                   lower_bound=lower_bound,
+                                   upper_bound=upper_bound,
+                                   verbose=20, maxiter=10)
+print('Beginning optimization folded************************************************')
+
+modelf = func_ex(popt_f, nsf, pts_l)
+
+# theta 0
+t0f = dadi.Inference.optimal_sfs_scaling(modelf, data)
+
+print("Folded optimal parms:\n")
+print(popt_f)
+print("\ntheta:\n")
+print(t0f)
+print("\n")
+
 

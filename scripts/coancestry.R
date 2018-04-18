@@ -1,7 +1,8 @@
 library(snpR); library(ggplot2); library(reshape2)
 ##########################
 #get data
-genos <- readRDS("flt_genotypes_good_inds.RDS")
+setwd("../RawData")
+genos <- readRDS("flt_snps_clean.RDS")
 
 
 ##########################
@@ -13,7 +14,7 @@ dups$eq <- ifelse(dups$HAW_9 == dups$HAW_9.1, 0, 1)
 sum(dups$eq)/nrow(dups) #0.019262
 ##########################
 #get the coancestry matrix
-source("RAFM.r")
+source("../scripts/RAFM.r")
 
 #format into RAFM format
 pops <- table(substr(colnames(genos[,4:ncol(genos)]), 1, 3))

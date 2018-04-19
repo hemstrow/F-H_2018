@@ -4,6 +4,7 @@ import os
 import array
 import math
 import matplotlib
+import time
 os.chdir("../Data")
 
 # define the model
@@ -88,6 +89,8 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
+    
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -99,7 +102,7 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # NA to HAW divergence.
     phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
     
-    # print("Growing HAW with migration.\n")
+    print("Growing HAW with migration.\n")
     # We need to define a function to describe the non-constant population 2
     # size. lambda is a convenient way to do so. Lambda just makes a function with parameter t, always just does an expression. In this case, given a time (t), what is the pop size?
     nu2_func = lambda t: (K2*nu2B*math.exp(r2*t))/(K2 + nu2B*(math.exp(r2*t) - 1))
@@ -111,7 +114,7 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # Now split off GUA from HAW
     phi = dadi.PhiManip.phi_2D_to_3D_split_2(xx, phi)
     
-    # print("Growning HAW and GUA with migration.\n")
+    print("Growing HAW and GUA with migration.\n")
     # Grow the two split populations until present
     # Need an equation for nu3 and to redefine nu2 where the time elapsed is t plus the time from founding until the split.
     nu3_func = lambda t: (K3*nu3B*math.exp(r3*t))/(K3 + nu3B*(math.exp(r3*t) - 1))
@@ -120,7 +123,9 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # Move forward in time till present.
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
+    end = time.time()
     # print("Finishing.\n")
+    print(end - start)
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -206,11 +211,11 @@ pts_l = [40,50,60]
 # want to exclude values with very long times, very small population sizes, or
 # very high migration rates, as they will take a long time to evaluate.
 # Parameters are: (nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23, r)
-upper_bound = [10, 10, 10, 10, 20, 20, 10, 10, 10, 10, 3]
-lower_bound = [1e-3, 1e-3, 1e-3, 1e-3, 0, 0, 0, 0, 0, 0, 1]
+upper_bound = [10, 10, 10, 10, 20, 20, 10, 10, 10, 10, 3, 3]
+lower_bound = [1e-3, 1e-3, 1e-3, 1e-3, 0, 0, 0, 0, 0, 0, 1, 1]
 
 # This is our initial guess for the parameters, which is somewhat arbitrary.
-p0 = [0.1,0.1,2,1,2,1,0.2,0.1,0.2,0.1, 2]
+p0 = [0.1,0.1,2,1,2,1,0.2,0.1,0.2,0.1, 2, 2]
 # Make the extrapolating version of our demographic model function.
 func_ex = dadi.Numerics.make_extrap_log_func(lgrowth_both)
 
@@ -228,7 +233,7 @@ p0 = dadi.Misc.perturb_params(p0, fold = 3, upper_bound=upper_bound,
 
 
 print('Beginning optimization ************************************************')
-popt = dadi.Inference.optimize_log(p0, data, func_ex, pts_l, 
+popt = dadi.Inference.optimize_log_fmin(p0, data, func_ex, pts_l, 
                                    lower_bound=lower_bound,
                                    upper_bound=upper_bound,
                                    verbose=1, maxiter=3)

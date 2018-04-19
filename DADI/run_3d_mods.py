@@ -1,6 +1,5 @@
 import sys
 
-
 if len(sys.argv) != 14:
   print("Usage: run_NA_HAW_GUA.py\tpath_to_dir_with_data\tinfile\toutfile\tmodel\tmaxiters\tpops\tfold_spectra\tfold_parms\tinitial_parms\tupper_bounds\tlower_bounds\tprojection\toptimizer\n")
   print("This script runs one of several 3 pop demographic models in dadi given the correct SNP format input data.\n")
@@ -24,7 +23,7 @@ if len(sys.argv) != 14:
   sys.exit()
 
 
-
+import time
 import numpy
 import dadi
 import os
@@ -55,6 +54,7 @@ def cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pt
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -78,7 +78,7 @@ def cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pt
     # Now split off p3 from p2
     phi = dadi.PhiManip.phi_2D_to_3D_split_2(xx, phi)
     
-    # print("Growning p2 and p3 with migration.\n")
+    # print("Growing p2 and p3 with migration.\n")
     # Grow the two split populations until present
     # Need an equation for nu3 and to redefine nu2, since we are starting at a new time period.
     nu3_func = lambda t: nu3B*(nu3F/nu3B)**(t/tp)
@@ -87,7 +87,9 @@ def cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pt
     # Move forward in time till present.
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
-    # print("Finishing.\n")
+    # print("Finishing=======================================================\n")
+    end = time.time()
+    print("Iter time: " + str(end - start))
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -114,6 +116,8 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
+    
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -124,7 +128,7 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # p1 to p2 divergence.
     phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
     
-    print("Growing p2 with migration.\n")
+    # print("Growing p2 with migration.\n")
     # We need to define a function to describe the non-constant population 2
     # size. lambda is a convenient way to do so. Lambda just makes a function with parameter t, always just does an expression. In this case, given a time (t), what is the pop size?
     nu2_func = lambda t: (K2*nu2B*math.exp(r2*t))/(K2 + nu2B*(math.exp(r2*t) - 1))
@@ -135,7 +139,7 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # Now split off p3 from p2
     phi = dadi.PhiManip.phi_2D_to_3D_split_2(xx, phi)
     
-    print("Growing p2 and p3 with migration.\n")
+    # print("Growing p2 and p3 with migration.\n")
     # Grow the two split populations until present
     # Need an equation for nu3 and to redefine nu2 where the time elapsed is t plus the time from founding until the split.
     nu3_func = lambda t: (K3*nu3B*math.exp(r3*t))/(K3 + nu3B*(math.exp(r3*t) - 1))
@@ -144,7 +148,10 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     # Move forward in time till present.
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
-    print("Finishing=======================================================\n")
+    end = time.time()
+    
+    # print("Finishing=======================================================\n")
+    print("Iter time: " + str(end - start))
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -171,6 +178,7 @@ def lgrowth_p3((nu2B, nu3B, nu2F, K3, ts, tp, m21, m31, m32, m23, r3), (n1,n2,n3
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -204,6 +212,8 @@ def lgrowth_p3((nu2B, nu3B, nu2F, K3, ts, tp, m21, m31, m32, m23, r3), (n1,n2,n3
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
     # print("Finishing.\n")
+    end = time.time()
+    print("Iter time: " + str(end - start))
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -230,6 +240,7 @@ def lgrowth_p2((nu2B, nu3B, nu3F, K2, ts, tp, m21, m31, m32, m23, r2), (n1,n2,n3
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -263,6 +274,8 @@ def lgrowth_p2((nu2B, nu3B, nu3F, K2, ts, tp, m21, m31, m32, m23, r2), (n1,n2,n3
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
     # print("Finishing.\n")
+    end = time.time()
+    print("Iter time: " + str(end - start))
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -290,6 +303,7 @@ def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2
     pts: Number of points to use in grid for evaluation.
     """
     
+    start = time.time()
     # Define the grid we'll use
     xx = yy = zz = dadi.Numerics.default_grid(pts)
     
@@ -323,6 +337,8 @@ def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2
     phi = dadi.Integration.three_pops(phi, xx, tp, nu2=nu2_func2, nu3=nu3_func, m21=m21, m31=m31, m32=m32, m23=m23)
     
     # print("Finishing.\n")
+    end = time.time()
+    print("Iter time: " + str(end - start))
     # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
@@ -337,6 +353,7 @@ pops = pops.strip('[]').split(',')
 projection = sys.argv[12]
 projection = map(int, projection.strip('[]').split(","))
 data = dadi.Spectrum.from_data_dict(dd, pops, projection, polarized=sys.argv[7])
+ns = data.sample_sizes
 
 # These are the grid point settings will use for extrapolation.
 pts_l = [40,50,60]
@@ -398,8 +415,10 @@ print(lower_bound)
 
 print('\nBeginning optimization ************************************************')
 if sys.argv[13] == "log":
+  print("Optimize log.")
   popt = dadi.Inference.optimize_log(p0, data, func_ex, pts_l, lower_bound=lower_bound, upper_bound=upper_bound, verbose=1, maxiter=map(int, sys.argv[5]))
 elif sys.argv[13] == "fmin":
+  print("optimize_log_fmin.")
   popt = dadi.Inference.optimize_log_fmin(p0, data, func_ex, pts_l, lower_bound=lower_bound, upper_bound=upper_bound, verbose=1, maxiter=map(int, sys.argv[5]))
 else:
   print("Unaccepted optimizer\n")
@@ -408,6 +427,7 @@ else:
 print('\nFinshed optimization **************************************************')
 
 # plot and calculate theta0
+print("Finalizing model and calculating stats...")
 model = func_ex(popt, ns, pts_l)
 
 # theta 0
@@ -419,11 +439,11 @@ ll = dadi.Inference.ll_multinom(model, data)
 # AIC
 AIC = (-2*(float(ll))) + (2*len(p0))
 
-
 #print results
 f = open(sys.argv[3],'a')
 f.write("model:\t" + sys.argv[4] + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + str(popt) + "\n")
 
+print("Finished.")
 
 
 

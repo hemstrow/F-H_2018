@@ -1,11 +1,11 @@
-./DADI/GUA_folded.saf.gz
 ./DADI/GUA.saf.gz
-./DADI/HAW_folded.saf.gz
+./DADI/GUA_folded.saf.gz
 ./DADI/HAW.saf.gz
-./DADI/NA_folded.saf.gz
-./DADI/NA_folded.saf.pos.gz
+./DADI/HAW_folded.saf.gz
 ./DADI/NA.saf.gz
 ./DADI/NA.saf.pos.gz
+./DADI/NA_folded.saf.gz
+./DADI/NA_folded.saf.pos.gz
 ./Raw_data/nomaf_raw_genotypes.geno
 .RData
 .Rhistory

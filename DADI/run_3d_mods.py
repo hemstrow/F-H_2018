@@ -1,7 +1,7 @@
 import sys
 
 if len(sys.argv) != 14:
-  print("Usage: run_NA_HAW_GUA.py\tpath_to_dir_with_data\tinfile\toutfile\tmodel\tmaxiters\tpops\tfold_spectra\tfold_parms\tinitial_parms\tupper_bounds\tlower_bounds\tprojection\toptimizer\n")
+  print("Usage: run_3d_mods.py\tpath_to_dir_with_data\tinfile\toutfile\tmodel\tmaxiters\tpops\tfold_spectra\tfold_parms\tinitial_parms\tupper_bounds\tlower_bounds\tprojection\toptimizer\n")
   print("This script runs one of several 3 pop demographic models in dadi given the correct SNP format input data.\n")
   print("Arguments:")
   print("\tpath_to_dir_with_data: The path to the directory containing input data.")

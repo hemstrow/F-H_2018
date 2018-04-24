@@ -1,0 +1,768 @@
+==========================================
+SLURM_JOB_ID = 18981458
+SLURM_NODELIST = c8-66
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+Module python/2.7.6 loaded 
+Module numpy/1.11.1 loaded 
+Module dadi/1.7.0 loaded 
+Module matplotlib/2.0 loaded 
+Module scipy/0.18.0 loaded 
+Beginning. Call:
+/home/hemstrow/monarch/github/F-H_2018/DADI/demographic_models/run_3d_mods.py /home/hemstrow/monarch/github/F-H_2018/Data/dadi_inputs/ dadi_snps_10kgap.txt 1st_folded_optim_10kgap_snps_dadi_out.txt cgrowth 10 [NAM,GUA,HAW] True 3 [0.1,0.1,0.5,0.5,5,5,.1,.1,.1,.1] [1,1,5,5,20,20,10,10,10,10] [.001,.001,.001,.001,.01,.01,.01,.01,.01,.01] [150,15,15] fmin
+
+Ready to begin run. Parameters:
+
+Model:
+cgrowth
+Maxiters:
+10
+Pops:
+['NAM', 'GUA', 'HAW']
+Projection:
+[150, 15, 15]
+Number of segregating sites in projected sfs:
+9454.98941724
+Folding spectra:
+True
+Level of parm folding:
+3
+Optimizer:
+fmin
+p0:
+[ 0.01421494  0.13562801  2.48431283  0.83645693  3.39879409  4.31722087
+  0.0180808   0.19009679  0.78322895  0.04768769]
+Upper Bounds:
+[1.0, 1.0, 5.0, 5.0, 20.0, 20.0, 10.0, 10.0, 10.0, 10.0]
+Lower Bounds:
+[0.001, 0.001, 0.001, 0.001, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01]
+
+Beginning optimization ************************************************
+optimize_log_fmin.
+Iter time: 68.2931909561
+Iter time: 129.551573038
+Iter time: 222.607251883
+1       , -23449.8    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 70.0092580318
+Iter time: 132.221302032
+Iter time: 224.685101032
+2       , -23420.3    , array([ 0.0114916  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 70.8608870506
+Iter time: 134.248769999
+Iter time: 228.690318823
+3       , -23449.2    , array([ 0.0142149  ,  0.122735   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 68.46626091
+Iter time: 129.676409006
+Iter time: 220.43966198
+4       , -23516.4    , array([ 0.0142149  ,  0.135628   ,  2.59996    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 68.4255321026
+Iter time: 129.484915018
+Iter time: 221.139271975
+5       , -23451.2    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.829021   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 68.6515939236
+Iter time: 129.868658066
+Iter time: 221.546193838
+6       , -23570.3    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.61319    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 73.4052209854
+Iter time: 139.608519793
+Iter time: 237.451947927
+7       , -23629.4    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.64477    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 68.4738080502
+Iter time: 129.593514919
+Iter time: 221.231006145
+8       , -23640.3    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0147938  ,  0.190097   ,  0.783229   ,  0.0476877  ])
+Iter time: 67.9816348553
+Iter time: 128.520040035
+Iter time: 218.836580038
+9       , -23551      , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.174954   ,  0.783229   ,  0.0476877  ])
+Iter time: 68.1086990833
+Iter time: 130.378484011
+Iter time: 219.911323071
+10      , -23453.3    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.773719   ,  0.0476877  ])
+Iter time: 68.3184449673
+Iter time: 129.470822096
+Iter time: 220.393136024
+11      , -23483.7    , array([ 0.0142149  ,  0.135628   ,  2.48431    ,  0.836457   ,  3.39879    ,  4.31722    ,  0.0180808  ,  0.190097   ,  0.783229   ,  0.0409569  ])
+Iter time: 69.8736851215
+Iter time: 132.610031128
+Iter time: 225.731890917
+12      , -23338.9    , array([ 0.013623   ,  0.132945   ,  2.50702    ,  0.834965   ,  3.44063    ,  4.38083    ,  0.0220982  ,  0.186967   ,  0.781318   ,  0.0462584  ])
+Iter time: 70.6028170586
+Iter time: 133.655166149
+Iter time: 227.566122055
+13      , -23166.4    , array([ 0.0133363  ,  0.131624   ,  2.51846    ,  0.834219   ,  3.46174    ,  4.41298    ,  0.0270082  ,  0.185421   ,  0.780364   ,  0.0455599  ])
+Iter time: 64.6558270454
+Iter time: 122.389891148
+Iter time: 208.309481859
+14      , -23283.6    , array([ 0.0134503  ,  0.132151   ,  2.51388    ,  0.834517   ,  3.45328    ,  4.03041    ,  0.0195918  ,  0.186038   ,  0.780745   ,  0.045838   ])
+Iter time: 68.602216959
+Iter time: 129.58585906
+Iter time: 221.043172836
+15      , -23281.7    , array([ 0.0133023  ,  0.131466   ,  2.51983    ,  0.83413    ,  3.2191     ,  4.277      ,  0.0199088  ,  0.185237   ,  0.780249   ,  0.0454768  ])
+Iter time: 69.3038938046
+Iter time: 131.078371048
+Iter time: 223.013107061
+16      , -23244.3    , array([ 0.013127   ,  0.130649   ,  2.527      ,  0.833665   ,  3.38518    ,  4.269      ,  0.020296   ,  0.203582   ,  0.779655   ,  0.045047   ])
+Iter time: 68.9580819607
+Iter time: 130.360702991
+Iter time: 222.08624506
+17      , -23224.4    , array([ 0.0129196  ,  0.129676   ,  2.40089    ,  0.833108   ,  3.38247    ,  4.25942    ,  0.0207706  ,  0.18995    ,  0.778942   ,  0.0445367  ])
+Iter time: 68.9887559414
+Iter time: 130.711157084
+Iter time: 222.313898087
+18      , -23206.2    , array([ 0.012675   ,  0.128517   ,  2.49554    ,  0.83244    ,  3.37921    ,  4.24795    ,  0.0213547  ,  0.189921   ,  0.778087   ,  0.0527322  ])
+Iter time: 71.1857590675
+Iter time: 131.556427002
+Iter time: 223.599476099
+19      , -23183.1    , array([ 0.0123877  ,  0.12714    ,  2.4978     ,  0.831639   ,  3.37531    ,  4.23423    ,  0.0220775  ,  0.189886   ,  0.788539   ,  0.0462094  ])
+Iter time: 69.3486390114
+Iter time: 131.249006033
+Iter time: 222.94058013
+20      , -23130.5    , array([ 0.0120514  ,  0.125507   ,  2.5005     ,  0.839627   ,  3.37063    ,  4.21782    ,  0.0229771  ,  0.189844   ,  0.780017   ,  0.0459193  ])
+Iter time: 69.9442119598
+Iter time: 132.259202957
+Iter time: 224.514550924
+21      , -22963.9    , array([ 0.0110965  ,  0.120734   ,  2.50864    ,  0.844981   ,  3.35664    ,  4.16899    ,  0.0259021  ,  0.189718   ,  0.778416   ,  0.0450598  ])
+Iter time: 69.9377729893
+Iter time: 131.884849072
+Iter time: 223.983865023
+22      , -23032.1    , array([ 0.011469   ,  0.122621   ,  2.50538    ,  0.833852   ,  3.36223    ,  4.18845    ,  0.0246899  ,  0.189768   ,  0.779056   ,  0.0454017  ])
+Iter time: 67.7417049408
+Iter time: 127.829747915
+Iter time: 216.566805124
+23      , -22946.2    , array([ 0.0109871  ,  0.135478   ,  2.50961    ,  0.833333   ,  3.35496    ,  4.16317    ,  0.0262772  ,  0.189702   ,  0.778224   ,  0.0449578  ])
+Iter time: 67.4832849503
+Iter time: 126.469730139
+Iter time: 214.784610033
+24      , -22679.6    , array([ 0.00965945 ,  0.142337   ,  2.52236    ,  0.831775   ,  3.33326    ,  4.08821    ,  0.0316782  ,  0.189506   ,  0.775734   ,  0.043652   ])
+Iter time: 67.6048579216
+Iter time: 128.397047997
+Iter time: 217.772984028
+25      , -22823.5    , array([ 0.0131268  ,  0.123788   ,  2.51725    ,  0.832397   ,  3.34192    ,  4.11803    ,  0.029396   ,  0.189584   ,  0.776729   ,  0.0441697  ])
+Iter time: 73.915225029
+Iter time: 140.109861135
+Iter time: 237.957705975
+26      , -22877.2    , array([ 0.0111609  ,  0.125395   ,  2.48832    ,  0.833908   ,  3.2677     ,  4.43008    ,  0.0294223  ,  0.194454   ,  0.778397   ,  0.0456126  ])
+Iter time: 70.3328728676
+Iter time: 132.64380312
+Iter time: 225.568519115
+27      , -22790.9    , array([ 0.0108957  ,  0.124861   ,  2.4762     ,  0.834251   ,  3.51594    ,  4.20414    ,  0.0313063  ,  0.197201   ,  0.778522   ,  0.0460023  ])
+Iter time: 70.0488221645
+Iter time: 131.715703964
+Iter time: 223.269356966
+28      , -22731.9    , array([ 0.0106374  ,  0.124509   ,  2.45917    ,  0.834833   ,  3.36888    ,  4.19914    ,  0.0334896  ,  0.178291   ,  0.778889   ,  0.0466365  ])
+Iter time: 70.3822469711
+Iter time: 132.55980587
+Iter time: 224.465858936
+29      , -22657      , array([ 0.0103961  ,  0.124428   ,  2.60079    ,  0.835737   ,  3.36887    ,  4.19661    ,  0.0360051  ,  0.18868    ,  0.779591   ,  0.0476075  ])
+Iter time: 71.2956500053
+Iter time: 133.649352074
+Iter time: 226.160174131
+30      , -22349.6    , array([ 0.00932565 ,  0.121884   ,  2.70689    ,  0.837054   ,  3.36209    ,  4.16555    ,  0.0474048  ,  0.188049   ,  0.779915   ,  0.0492215  ])
+Iter time: 70.5964150429
+Iter time: 133.22063899
+Iter time: 146733.806628
+31      , -22474.2    , array([ 0.00996585 ,  0.124226   ,  2.54315    ,  0.837333   ,  3.36869    ,  4.19148    ,  0.0410756  ,  0.188336   ,  0.780813   ,  0.0396582  ])
+Iter time: 114.609019041
+Iter time: 154.630203009
+Iter time: 224.41189909
+32      , -22366      , array([ 0.00976289 ,  0.12499    ,  2.55002    ,  0.839284   ,  3.37126    ,  4.19654    ,  0.0449837  ,  0.188062   ,  0.768949   ,  0.0438935  ])
+Iter time: 69.5015788078
+Iter time: 130.374927998
+Iter time: 220.642256975
+33      , -22260.5    , array([ 0.00852001 ,  0.11949    ,  2.53541    ,  0.837701   ,  3.26972    ,  3.98626    ,  0.0407212  ,  0.193136   ,  0.774718   ,  0.0441887  ])
+Iter time: 69.6851398945
+Iter time: 129.853209972
+Iter time: 218.774194956
+34      , -21804.5    , array([ 0.00680993 ,  0.113849   ,  2.54393    ,  0.839448   ,  3.17774    ,  3.78863    ,  0.0500015  ,  0.197113   ,  0.77191    ,  0.0435187  ])
+Iter time: 70.2248609066
+Iter time: 131.825790882
+Iter time: 224.682952881
+35      , -22113.5    , array([ 0.00892633 ,  0.126373   ,  2.55644    ,  0.839192   ,  3.32872    ,  4.11652    ,  0.0512967  ,  0.190151   ,  0.774589   ,  0.0439686  ])
+Iter time: 70.1967921257
+Iter time: 131.963866949
+Iter time: 222.765434027
+36      , -22006.2    , array([ 0.00883307 ,  0.129525   ,  2.56278    ,  0.827002   ,  3.32869    ,  4.12527    ,  0.0560564  ,  0.190288   ,  0.774462   ,  0.0440855  ])
+Iter time: 65.6906979084
+Iter time: 122.825085878
+Iter time: 207.311233044
+37      , -21946.3    , array([ 0.00838075 ,  0.125522   ,  2.59898    ,  0.83659    ,  3.43197    ,  3.82718    ,  0.0561402  ,  0.184851   ,  0.773696   ,  0.0432556  ])
+Iter time: 73.9363040924
+Iter time: 137.335375071
+Iter time: 231.000092983
+38      , -21797.4    , array([ 0.00651395 ,  0.127505   ,  2.58558    ,  0.838951   ,  3.37363    ,  4.05733    ,  0.0639526  ,  0.188643   ,  0.774751   ,  0.0444822  ])
+Iter time: 81.2277829647
+Iter time: 149.159024
+Iter time: 249.156683207
+39      , -21223.3    , array([ 0.00458867 ,  0.129406   ,  2.62043    ,  0.842247   ,  3.3896     ,  4.02731    ,  0.0943286  ,  0.188174   ,  0.773764   ,  0.0446393  ])
+Iter time: 71.4937810898
+Iter time: 132.834860086
+Iter time: 223.692112207
+40      , -21529.7    , array([ 0.00660142 ,  0.127316   ,  2.65838    ,  0.838686   ,  3.18327    ,  3.94021    ,  0.0748718  ,  0.179666   ,  0.772021   ,  0.042454   ])
+Iter time: 71.6588039398
+Iter time: 132.886033058
+Iter time: 223.396793127
+41      , -21347      , array([ 0.00614633 ,  0.128248   ,  2.71881    ,  0.838873   ,  3.28479    ,  3.89501    ,  0.0822093  ,  0.199026   ,  0.770291   ,  0.041097   ])
+Iter time: 74.3613619804
+Iter time: 138.314138174
+Iter time: 232.789288044
+42      , -21081.9    , array([ 0.00618347 ,  0.10987    ,  2.69076    ,  0.84339    ,  3.31019    ,  3.96215    ,  0.105172   ,  0.189093   ,  0.772335   ,  0.0433805  ])
+Iter time: 79.4986188412
+Iter time: 146.417831898
+Iter time: 246.256042004
+43      , -20173.7    , array([ 0.00494734 ,  0.0965291  ,  2.77912    ,  0.849258   ,  3.29871    ,  3.90058    ,  0.191634   ,  0.188887   ,  0.770641   ,  0.0432453  ])
+Iter time: 73.2302639484
+Iter time: 135.074054003
+Iter time: 225.649150848
+44      , -20906.5    , array([ 0.00521005 ,  0.119694   ,  2.71654    ,  0.840164   ,  3.26165    ,  3.80933    ,  0.110372   ,  0.190379   ,  0.765301   ,  0.0485832  ])
+Iter time: 74.1473519802
+Iter time: 136.103881121
+Iter time: 227.479195118
+45      , -20719.1    , array([ 0.00469062 ,  0.117937   ,  2.74372    ,  0.838387   ,  3.23768    ,  3.73178    ,  0.1206     ,  0.191123   ,  0.776371   ,  0.0447957  ])
+Iter time: 75.2202188969
+Iter time: 137.637001991
+Iter time: 229.411257029
+46      , -20393.5    , array([ 0.00427996 ,  0.120149   ,  2.59171    ,  0.840888   ,  3.22213    ,  3.67776    ,  0.137938   ,  0.191758   ,  0.764757   ,  0.0392011  ])
+Iter time: 76.541066885
+Iter time: 139.252423048
+Iter time: 231.505897999
+47      , -20292.1    , array([ 0.00386011 ,  0.114716   ,  2.75177    ,  0.839085   ,  3.23332    ,  3.63862    ,  0.155359   ,  0.189957   ,  0.768051   ,  0.0428885  ])
+Iter time: 77.9570720196
+Iter time: 141.550024033
+Iter time: 233.574421167
+48      , -20066.4    , array([ 0.00330566 ,  0.109239   ,  2.78431    ,  0.853926   ,  3.21459    ,  3.54088    ,  0.174318   ,  0.189754   ,  0.766901   ,  0.04254    ])
+Iter time: 86.2327609062
+Iter time: 152.009712934
+Iter time: 247.492481947
+49      , -19106.9    , array([ 0.00202223 ,  0.10032    ,  2.90215    ,  0.867715   ,  3.15901    ,  3.2805     ,  0.307397   ,  0.189487   ,  0.763148   ,  0.0417877  ])
+Iter time: 92.1296200752
+Iter time: 166.420701027
+Iter time: 274.877934217
+50      , -19522.4    , array([ 0.00262178 ,  0.107782   ,  2.80678    ,  0.850329   ,  3.06661    ,  3.70081    ,  0.244556   ,  0.196305   ,  0.765555   ,  0.0430578  ])
+Iter time: 88.1575520039
+Iter time: 158.502547979
+Iter time: 262.748051882
+51      , -19103.4    , array([ 0.0026658  ,  0.117538   ,  2.92447    ,  0.84962    ,  3.28845    ,  3.72097    ,  0.377179   ,  0.183942   ,  0.766059   ,  0.0427065  ])
+Iter time: 109.002710104
+Iter time: 191.931804895
+Iter time: 312.457770824
+52      , -17989.2    , array([ 0.0016679  ,  0.119428   ,  3.13558    ,  0.854752   ,  3.34524    ,  3.6876     ,  1.03593    ,  0.177691   ,  0.763151   ,  0.0423062  ])
+Iter time: 92.4649498463
+Iter time: 163.576150179
+Iter time: 261.051020145
+53      , -18732.9    , array([ 0.00208853 ,  0.103769   ,  2.89251    ,  0.853625   ,  3.31548    ,  3.53072    ,  0.426006   ,  0.20136    ,  0.764181   ,  0.043747   ])
+Iter time: 98.2780430317
+Iter time: 173.197062969
+Iter time: 282.060841084
+54      , -18443.1    , array([ 0.00180761 ,  0.0987434  ,  2.86347    ,  0.856415   ,  3.21899    ,  3.50224    ,  0.539152   ,  0.182197   ,  0.764678   ,  0.0457597  ])
+Iter time: 87.5934751034
+Iter time: 154.539428949
+Iter time: 252.1570158
+55      , -18175.7    , array([ 0.00200964 ,  0.0927074  ,  3.02415    ,  0.855835   ,  3.0874     ,  3.29386    ,  0.66589    ,  0.191464   ,  0.75945    ,  0.042338   ])
+Iter time: 103.476489067
+Iter time: 180.668059111
+Iter time: 291.687930107
+56      , -17926.5    , array([ 0.00146292 ,  0.0952365  ,  2.98041    ,  0.861133   ,  3.17348    ,  3.38255    ,  0.815263   ,  0.189462   ,  0.76667    ,  0.0378452  ])
+Iter time: 114.486590862
+Iter time: 199.753427029
+Iter time: 322.90931797
+58      , -17683.9    , array([ 0.00128715 ,  0.0926101  ,  3.00013    ,  0.867591   ,  3.18419    ,  3.38565    ,  1.09345    ,  0.188395   ,  0.753841   ,  0.0396839  ])
+Iter time: 131.776417971
+Iter time: 231.883326054
+Iter time: 370.167377949
+60      , -17609.3    , array([ 0.00110932 ,  0.086293   ,  3.27043    ,  0.870437   ,  3.19199    ,  3.37898    ,  1.44639    ,  0.187108   ,  0.763092   ,  0.0454586  ])
+Iter time: 84.4054379463
+Iter time: 152.008065939
+Iter time: 250.156702995
+63      , -19319.1    , array([ 0.00272488 ,  0.10655    ,  2.85498    ,  0.848825   ,  3.21807    ,  3.56823    ,  0.294515   ,  0.189545   ,  0.765737   ,  0.042674   ])
+Iter time: 85.3823778629
+Iter time: 153.856729031
+Iter time: 254.524996042
+65      , -19209.7    , array([ 0.00299421 ,  0.0982235  ,  2.873      ,  0.853934   ,  3.24643    ,  3.67803    ,  0.334201   ,  0.189043   ,  0.766782   ,  0.0428226  ])
+Iter time: 117.751000166
+Iter time: 205.741551876
+Iter time: 332.476035118
+66      , -17563.1    , array([ 0.00128624 ,  0.0909771  ,  3.15752    ,  0.867757   ,  3.36689    ,  3.24617    ,  1.47854    ,  0.180979   ,  0.760581   ,  0.0417144  ])
+Iter time: 138.687228918
+Iter time: 242.17750597
+Iter time: 390.818552971
+68      , -17435.9    , array([ 0.00106505 ,  0.0891662  ,  3.16737    ,  0.873137   ,  3.23756    ,  3.30368    ,  1.69531    ,  0.185709   ,  0.759374   ,  0.0418986  ])
+Iter time: 91.6471149921
+Iter time: 162.848927975
+Iter time: 266.76283288
+71      , -18537.6    , array([ 0.00214474 ,  0.0973745  ,  2.95367    ,  0.858361   ,  3.23666    ,  3.5346     ,  0.527054   ,  0.188161   ,  0.764291   ,  0.0425063  ])
+Iter time: 176.398946047
+Iter time: 313.855511904
+Iter time: 515.417028904
+72      , -17252.9    , array([ 0.00118089 ,  0.0923366  ,  3.18847    ,  0.856079   ,  3.31233    ,  3.57       ,  2.50343    ,  0.184845   ,  0.760699   ,  0.0427465  ])
+Iter time: 172.458378077
+Iter time: 307.236040831
+Iter time: 503.041372061
+74      , -17272.8    , array([ 0.00102018 ,  0.0872075  ,  3.26204    ,  0.870709   ,  3.15542    ,  3.32434    ,  2.57421    ,  0.170995   ,  0.758977   ,  0.0406435  ])
+Iter time: 98.5131459236
+Iter time: 172.961904049
+Iter time: 281.053380013
+76      , -18055      , array([ 0.00170483 ,  0.0957159  ,  3.02711    ,  0.860855   ,  3.23145    ,  3.46921    ,  0.804233   ,  0.185963   ,  0.762666   ,  0.0422414  ])
+Iter time: 188.318117857
+Iter time: 337.53000617
+Iter time: 555.134325981
+77      , -17193.6    , array([ 0.00100412 ,  0.0890906  ,  3.39879    ,  0.871256   ,  3.23602    ,  3.30425    ,  3.0258     ,  0.186158   ,  0.757027   ,  0.0378979  ])
+Iter time: 99.7937240601
+Iter time: 177.458061934
+Iter time: 283.108204842
+80      , -17832.3    , array([ 0.00158933 ,  0.0930632  ,  3.08952    ,  0.860578   ,  3.1641     ,  3.34793    ,  0.994744   ,  0.187516   ,  0.760025   ,  0.0417574  ])
+Iter time: 109.113707066
+Iter time: 191.319223881
+Iter time: 309.319370985
+82      , -17775.8    , array([ 0.00145872 ,  0.0944284  ,  3.09419    ,  0.863085   ,  3.23366    ,  3.42978    ,  1.10489    ,  0.18488    ,  0.7615     ,  0.0416858  ])
+Iter time: 117.527250051
+Iter time: 206.783292055
+Iter time: 335.333816051
+84      , -17745.5    , array([ 0.0014332  ,  0.104247   ,  3.14705    ,  0.860437   ,  3.28453    ,  3.52329    ,  1.25803    ,  0.18108    ,  0.76166    ,  0.0416869  ])
+Iter time: 195.502912045
+Iter time: 350.551227093
+Iter time: 578.512846947
+85      , -17230.3    , array([ 0.0010325  ,  0.08853    ,  3.38399    ,  0.871074   ,  3.29981    ,  3.37756    ,  3.12236    ,  0.178113   ,  0.752741   ,  0.0454547  ])
+Iter time: 116.450807095
+Iter time: 204.012012005
+Iter time: 331.092248917
+87      , -17629.5    , array([ 0.00136779 ,  0.09221    ,  3.14666    ,  0.863853   ,  3.20659    ,  3.36543    ,  1.33395    ,  0.185122   ,  0.759483   ,  0.0417933  ])
+Iter time: 122.858211994
+Iter time: 217.591418982
+Iter time: 349.21924901
+89      , -17599.4    , array([ 0.00130617 ,  0.0927735  ,  3.15168    ,  0.865149   ,  3.24028    ,  3.4031     ,  1.41917    ,  0.183828   ,  0.760119   ,  0.0417628  ])
+Iter time: 128.322731018
+Iter time: 225.599750996
+Iter time: 366.451586008
+91      , -17581.3    , array([ 0.0012887  ,  0.0969108  ,  3.17872    ,  0.864056   ,  3.26346    ,  3.4432     ,  1.52348    ,  0.182066   ,  0.760122   ,  0.0417671  ])
+Iter time: 200.93879199
+Iter time: 362.962214947
+Iter time: 599.562502146
+92      , -17214.2    , array([ 0.00104344 ,  0.0884399  ,  3.47603    ,  0.867082   ,  3.31819    ,  3.35564    ,  3.32642    ,  0.176658   ,  0.764631   ,  0.044583   ])
+Iter time: 131.476331949
+Iter time: 232.020217896
+Iter time: 378.091862917
+94      , -17499.8    , array([ 0.0012421  ,  0.091161   ,  3.20363    ,  0.865755   ,  3.234      ,  3.36753    ,  1.66957    ,  0.183343   ,  0.759607   ,  0.0420632  ])
+Iter time: 187.196131945
+Iter time: 338.693461895
+Iter time: 560.962105036
+95      , -17176.3    , array([ 0.00117313 ,  0.0951638  ,  3.23947    ,  0.863961   ,  3.34153    ,  3.35801    ,  3.10687    ,  0.175501   ,  0.755691   ,  0.0388184  ])
+Iter time: 246.284693003
+Iter time: 454.7143929
+Iter time: 761.173177958
+96      , -17051.3    , array([ 0.00120641 ,  0.0999354  ,  3.2241     ,  0.860741   ,  3.41891    ,  3.34758    ,  4.55347    ,  0.169971   ,  0.752018   ,  0.0358714  ])
+Iter time: 139.117001057
+Iter time: 246.35756588
+Iter time: 400.117571115
+98      , -17445.3    , array([ 0.00121584 ,  0.092032   ,  3.20652    ,  0.865949   ,  3.26181    ,  3.38296    ,  1.83859    ,  0.181801   ,  0.759344   ,  0.0415677  ])
+Iter time: 142.963019133
+Iter time: 253.102201939
+Iter time: 413.214443207
+100     , -17431.6    , array([ 0.00120417 ,  0.0938191  ,  3.22165    ,  0.865497   ,  3.27337    ,  3.39984    ,  1.92295    ,  0.180915   ,  0.759306   ,  0.0415599  ])
+Iter time: 141.203310966
+Iter time: 245.100980997
+Iter time: 398.67960906
+102     , -17415.5    , array([ 0.00119906 ,  0.0910414  ,  3.21411    ,  0.867235   ,  3.32016    ,  3.30877    ,  1.91943    ,  0.180371   ,  0.759472   ,  0.041526   ])
+Iter time: 147.691643953
+Iter time: 261.175171137
+Iter time: 426.689219952
+104     , -17384.1    , array([ 0.00117623 ,  0.0911274  ,  3.23803    ,  0.866308   ,  3.25826    ,  3.36709    ,  2.05394    ,  0.181397   ,  0.758978   ,  0.0416724  ])
+Iter time: 211.315135002
+Iter time: 382.389543056
+Iter time: 632.501019955
+105     , -17144.3    , array([ 0.00101369 ,  0.0899872  ,  3.34698    ,  0.867847   ,  3.303      ,  3.34726    ,  3.55039    ,  0.177092   ,  0.757286   ,  0.0410254  ])
+Iter time: 249.848755121
+Iter time: 459.934525013
+Iter time: 772.788121939
+106     , -17114      , array([ 0.00114583 ,  0.0930497  ,  3.42594    ,  0.859657   ,  3.34109    ,  3.43658    ,  4.46392    ,  0.171726   ,  0.756839   ,  0.0405303  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 17. Sum of data in those entries is 1.37692:
+Iter time: 258.444544077
+Iter time: 474.372906923
+Iter time: 790.694589853
+1.37692109999 9454.98941724
+107     , -17043.8    , array([ 0.00100343 ,  0.0882895  ,  3.40989    ,  0.866072   ,  3.3181     ,  3.34658    ,  4.65744    ,  0.174449   ,  0.756414   ,  0.0406561  ])
+Iter time: 163.747949123
+Iter time: 293.099539995
+Iter time: 480.803254128
+110     , -17285.1    , array([ 0.00113788 ,  0.0908873  ,  3.27355    ,  0.866451   ,  3.30778    ,  3.34268    ,  2.50533    ,  0.178708   ,  0.758512   ,  0.0412715  ])
+Iter time: 170.669965982
+Iter time: 305.980547905
+Iter time: 503.880463123
+112     , -17267.3    , array([ 0.00112513 ,  0.0909182  ,  3.2875     ,  0.865995   ,  3.27928    ,  3.37078    ,  2.61749    ,  0.179082   ,  0.758242   ,  0.0413242  ])
+Iter time: 255.21649909
+Iter time: 467.937657833
+Iter time: 778.688755035
+113     , -17090.5    , array([ 0.00101566 ,  0.0905382  ,  3.40606    ,  0.864824   ,  3.28739    ,  3.41229    ,  4.48029    ,  0.174978   ,  0.756449   ,  0.0406989  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 32. Sum of data in those entries is 2.16089:
+Iter time: 271.112772226
+Iter time: 499.757766962
+Iter time: 837.174530029
+2.16089130578 9454.98941724
+114     , -17026      , array([ 0.00113185 ,  0.0950685  ,  3.44775    ,  0.859428   ,  3.47449    ,  3.44908    ,  4.87144    ,  0.183715   ,  0.755481   ,  0.041339   ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 205. Sum of data in those entries is 8.40056:
+Iter time: 357.000503063
+Iter time: 667.934570074
+Iter time: 1128.23318505
+8.40056432848 9454.98941724
+115     , -16972.5    , array([ 0.00119218 ,  0.0992608  ,  3.54453    ,  0.853842   ,  3.64593    ,  3.51319    ,  6.70137    ,  0.190426   ,  0.753739   ,  0.0416912  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 108. Sum of data in those entries is 5.13334:
+Iter time: 312.850488901
+Iter time: 580.263727903
+Iter time: 976.955002069
+5.13333633103 9454.98941724
+116     , -16955.3    , array([ 0.00103822 ,  0.0928036  ,  3.47294    ,  0.861667   ,  3.41488    ,  3.42983    ,  5.78192    ,  0.177587   ,  0.755313   ,  0.04073    ])
+Iter time: 201.698110104
+Iter time: 365.464144945
+Iter time: 604.37262392
+119     , -17166.2    , array([ 0.00112249 ,  0.0921193  ,  3.29638    ,  0.860225   ,  3.3344     ,  3.47708    ,  3.25412    ,  0.181196   ,  0.758466   ,  0.0417764  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 103. Sum of data in those entries is 5.06645:
+Iter time: 308.21616292
+Iter time: 572.547211885
+Iter time: 962.65733695
+5.06644973829 9454.98941724
+120     , -16924.2    , array([ 0.00112118 ,  0.0961646  ,  3.41411    ,  0.855611   ,  3.42152    ,  3.41541    ,  5.77792    ,  0.177736   ,  0.760905   ,  0.036059   ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 289. Sum of data in those entries is 11.7692:
+Iter time: 401.204312086
+Iter time: 755.33080101
+Iter time: 1279.779387
+11.7692328181 9454.98941724
+121     , -16812      , array([ 0.00116834 ,  0.100225   ,  3.42927    ,  0.847983   ,  3.48404    ,  3.43449    ,  7.85988    ,  0.177548   ,  0.765021   ,  0.0321168  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 165. Sum of data in those entries is 7.58747:
+Iter time: 340.130434036
+Iter time: 635.025138855
+Iter time: 1072.57044291
+7.58747173503 9454.98941724
+122     , -16883.6    , array([ 0.0011348  ,  0.0987015  ,  3.31472    ,  0.85573    ,  3.43592    ,  3.45373    ,  6.44119    ,  0.17938    ,  0.749148   ,  0.0344299  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 292. Sum of data in those entries is 10.838:
+Iter time: 427.878216982
+Iter time: 807.403232813
+Iter time: 1368.93362617
+10.8379614152 9454.98941724
+123     , -17453.9    , array([ 0.00120844 ,  0.100009   ,  3.37311    ,  0.848573   ,  3.56566    ,  3.53862    ,  8.23621    ,  0.168968   ,  0.755092   ,  0.0397333  ])
+Iter time: 223.69783783
+Iter time: 409.2278409
+Iter time: 678.93874979
+124     , -17116.6    , array([ 0.00105171 ,  0.091703   ,  3.39235    ,  0.865529   ,  3.31545    ,  3.36135    ,  3.88653    ,  0.181703   ,  0.756543   ,  0.0383486  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 294. Sum of data in those entries is 11.7816:
+Iter time: 397.118644953
+Iter time: 745.004544973
+Iter time: 1258.91625381
+11.7816200856 9454.98941724
+125     , -17788.3    , array([ 0.00106702 ,  0.0966332  ,  3.49792    ,  0.860512   ,  3.45651    ,  3.34004    ,  7.93523    ,  0.173692   ,  0.753277   ,  0.0354325  ])
+Iter time: 234.541306019
+Iter time: 431.365012884
+Iter time: 715.633859158
+126     , -17102.9    , array([ 0.00110836 ,  0.0932276  ,  3.34565    ,  0.860297   ,  3.36452    ,  3.4423     ,  4.06645    ,  0.17929    ,  0.757165   ,  0.0400912  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 270. Sum of data in those entries is 12.2876:
+Iter time: 387.244771957
+Iter time: 728.117024183
+Iter time: 1233.57037592
+12.2876124558 9454.98941724
+127     , -16898.5    , array([ 0.00120282 ,  0.0996251  ,  3.44477    ,  0.851465   ,  3.50227    ,  3.48906    ,  7.47318    ,  0.178157   ,  0.754426   ,  0.0359153  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 285. Sum of data in those entries is 11.8281:
+Iter time: 403.549244881
+Iter time: 761.174494028
+Iter time: 1285.76450086
+11.8280778212 9454.98941724
+128     , -16848      , array([ 0.0011909  ,  0.0993947  ,  3.40913    ,  0.850953   ,  3.52758    ,  3.50045    ,  7.78051    ,  0.172952   ,  0.754745   ,  0.0379218  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 271. Sum of data in those entries is 12.4097:
+Iter time: 391.014257908
+Iter time: 733.087677956
+Iter time: 1241.27627993
+12.4096819584 9454.98941724
+129     , -16800.6    , array([ 0.00110154 ,  0.099257   ,  3.3724     ,  0.855023   ,  3.53875    ,  3.43645    ,  7.57028    ,  0.183261   ,  0.754031   ,  0.0354063  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 388. Sum of data in those entries is 14.8642:
+Iter time: 494.100961924
+Iter time: 932.937501907
+Iter time: 1587.19408488
+14.8642036481 9454.98941724
+130     , -17948.3    , array([ 0.00108004 ,  0.102514   ,  3.34594    ,  0.852715   ,  3.64192    ,  3.43639    ,  9.85847    ,  0.189316   ,  0.75263    ,  0.0330926  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 375. Sum of data in those entries is 15.0869:
+Iter time: 469.732471943
+Iter time: 888.648787975
+Iter time: 1511.46448898
+15.0868547654 9454.98941724
+131     , -19212.8    , array([ 0.00113738 ,  0.100317   ,  3.45883    ,  0.853337   ,  3.54977    ,  3.42957    ,  9.41006    ,  0.1763     ,  0.753081   ,  0.0349154  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 39. Sum of data in those entries is 2.52456:
+Iter time: 275.933454037
+Iter time: 512.718640804
+Iter time: 855.65282011
+2.52456400934 9454.98941724
+132     , -16996.6    , array([ 0.00111554 ,  0.0949516  ,  3.37359    ,  0.858552   ,  3.4099     ,  3.43912    ,  5.01545    ,  0.178538   ,  0.756142   ,  0.0387294  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 328. Sum of data in those entries is 13.5339:
+Iter time: 440.459362984
+Iter time: 832.342422009
+Iter time: 1413.45914602
+13.5338872123 9454.98941724
+133     , -16964      , array([ 0.00126468 ,  0.104285   ,  3.39098    ,  0.847636   ,  3.65973    ,  3.46516    ,  8.7358     ,  0.181375   ,  0.753733   ,  0.0340546  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 411. Sum of data in those entries is 15.0223:
+Iter time: 506.950099945
+Iter time: 957.709980965
+Iter time: 1628.27970195
+15.0223414532 9454.98941724
+134     , -18429.6    , array([ 0.00107482 ,  0.0952872  ,  3.6187     ,  0.849047   ,  3.56718    ,  3.55662    ,  9.79169    ,  0.189158   ,  0.75852    ,  0.038238   ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 67. Sum of data in those entries is 3.29299:
+Iter time: 293.83661294
+Iter time: 547.172783852
+Iter time: 915.909754038
+3.29299137852 9454.98941724
+135     , -16968.1    , array([ 0.00117207 ,  0.0987525  ,  3.31852    ,  0.857802   ,  3.45539    ,  3.39866    ,  5.51406    ,  0.174577   ,  0.753638   ,  0.0364489  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 404. Sum of data in those entries is 14.7232:
+Iter time: 504.661478043
+Iter time: 958.900348186
+Iter time: 1632.44572186
+14.7231611073 9454.98941724
+136     , -19254.4    , array([ 0.00133302 ,  0.110299   ,  3.403      ,  0.842203   ,  3.70549    ,  3.56869    ,  9.9019     ,  0.18433    ,  0.753557   ,  0.0330088  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 93. Sum of data in those entries is 4.80431:
+Iter time: 301.641625166
+Iter time: 559.802675962
+Iter time: 943.509025097
+4.80430780793 9454.98941724
+137     , -16949.6    , array([ 0.00107727 ,  0.0933416  ,  3.40817    ,  0.860042   ,  3.41097    ,  3.40077    ,  5.62393    ,  0.176868   ,  0.755699   ,  0.0385924  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 373. Sum of data in those entries is 14.7279:
+Iter time: 472.638195038
+Iter time: 896.98704505
+Iter time: 1518.46591902
+14.7278514976 9454.98941724
+138     , -21078.6    , array([ 0.00119071 ,  0.10221    ,  3.44663    ,  0.849875   ,  3.60595    ,  3.46488    ,  9.4081     ,  0.17977    ,  0.75374    ,  0.0346263  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 108. Sum of data in those entries is 5.13334:
+Iter time: 314.668033123
+Iter time: 584.312371016
+Iter time: 984.19677496
+5.13333633103 9454.98941724
+139     , -16929.9    , array([ 0.00113388 ,  0.0967164  ,  3.39171    ,  0.856374   ,  3.45789    ,  3.44554    ,  5.86959    ,  0.178845   ,  0.755541   ,  0.0376602  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 197. Sum of data in those entries is 7.88029:
+Iter time: 353.900881052
+Iter time: 658.415231943
+Iter time: 1111.99691415
+7.88028695169 9454.98941724
+140     , -16854.2    , array([ 0.00110304 ,  0.0972665  ,  3.25163    ,  0.855068   ,  3.33699    ,  3.37866    ,  6.85704    ,  0.166446   ,  0.756504   ,  0.0315189  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 332. Sum of data in those entries is 13.6664:
+Iter time: 446.356397152
+Iter time: 841.351701021
+Iter time: 1427.5728879
+13.6663582245 9454.98941724
+141     , -17033.3    , array([ 0.00110843 ,  0.0974711  ,  3.45896    ,  0.850578   ,  3.49653    ,  3.4884     ,  8.70486    ,  0.179833   ,  0.75718    ,  0.0350193  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 133. Sum of data in those entries is 5.57554:
+Iter time: 324.898512125
+Iter time: 606.015263796
+Iter time: 1021.6588819
+5.57553946943 9454.98941724
+142     , -16924.2    , array([ 0.00115583 ,  0.0984306  ,  3.35309    ,  0.85599    ,  3.46563    ,  3.42088    ,  6.18079    ,  0.175876   ,  0.754522   ,  0.0360861  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 45. Sum of data in those entries is 2.76268:
+Iter time: 282.852039099
+Iter time: 524.294913054
+Iter time: 872.891943216
+2.76268031548 9454.98941724
+143     , -16996.1    , array([ 0.00100893 ,  0.0912397  ,  3.37745    ,  0.86247    ,  3.26552    ,  3.41266    ,  5.12718    ,  0.17203    ,  0.757243   ,  0.0379184  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 279. Sum of data in those entries is 12.2348:
+Iter time: 391.844558001
+Iter time: 736.891804934
+Iter time: 1249.59956717
+12.2347786374 9454.98941724
+144     , -16832.4    , array([ 0.00119523 ,  0.100858   ,  3.38759    ,  0.85132    ,  3.55692    ,  3.45196    ,  7.64622    ,  0.178992   ,  0.754609   ,  0.0349819  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 294. Sum of data in those entries is 11.4679:
+Iter time: 415.998576164
+Iter time: 780.577094793
+Iter time: 1328.67629218
+11.4678913068 9454.98941724
+145     , -17320.9    , array([ 0.00126413 ,  0.104249   ,  3.28138    ,  0.846378   ,  3.52829    ,  3.45226    ,  8.19189    ,  0.175977   ,  0.755518   ,  0.0307537  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 160. Sum of data in those entries is 7.55041:
+Iter time: 337.314265013
+Iter time: 623.050254107
+Iter time: 1052.31620193
+7.55041478722 9454.98941724
+146     , -16904.6    , array([ 0.00109059 ,  0.0955413  ,  3.42402    ,  0.857819   ,  3.44289    ,  3.43542    ,  6.30812    ,  0.177183   ,  0.755364   ,  0.0379673  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 313. Sum of data in those entries is 13.1693:
+Iter time: 438.779196978
+Iter time: 827.983683109
+Iter time: 1405.48099995
+13.1693092471 9454.98941724
+147     , -17242.9    , array([ 0.0012213  ,  0.104132   ,  3.34685    ,  0.847538   ,  3.53892    ,  3.48882    ,  8.61765    ,  0.176755   ,  0.755065   ,  0.0323512  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 148. Sum of data in those entries is 7.03088:
+Iter time: 330.240828991
+Iter time: 618.108863831
+Iter time: 1037.59362102
+7.03088031059 9454.98941724
+148     , -16905.5    , array([ 0.0011116  ,  0.0959295  ,  3.39273    ,  0.856899   ,  3.44252    ,  3.42257    ,  6.25716    ,  0.17684    ,  0.755541   ,  0.0369274  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 293. Sum of data in those entries is 11.5604:
+Iter time: 423.714660883
+Iter time: 931.735261917
+Iter time: 11091.419646
+11.5603862568 9454.98941724
+149     , -17378.9    , array([ 0.00115573 ,  0.100334   ,  3.36329    ,  0.851273   ,  3.4878     ,  3.43889    ,  8.36324    ,  0.174407   ,  0.755223   ,  0.033022   ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 169. Sum of data in those entries is 7.61263:
+Iter time: 325.827723026
+Iter time: 610.403953075
+Iter time: 1101.45563197
+7.61262831034 9454.98941724
+150     , -16893.2    , array([ 0.0011393  ,  0.0976084  ,  3.38458    ,  0.855096   ,  3.46534    ,  3.44388    ,  6.41283    ,  0.177725   ,  0.755461   ,  0.0364429  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 291. Sum of data in those entries is 11.7811:
+Iter time: 478.437861919
+Iter time: 1175.97017384
+Iter time: 1887.71810889
+11.78105528 9454.98941724
+151     , -17360.6    , array([ 0.00113052 ,  0.0984215  ,  3.4084     ,  0.851476   ,  3.47995    ,  3.46833    ,  8.00091    ,  0.177722   ,  0.756431   ,  0.0345303  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 177. Sum of data in those entries is 7.21148:
+Iter time: 344.735059023
+Iter time: 643.911651134
+Iter time: 1088.0456059
+7.21148003088 9454.98941724
+152     , -16894.1    , array([ 0.00114945 ,  0.0984283  ,  3.36683    ,  0.85486    ,  3.4692     ,  3.43268    ,  6.59277    ,  0.176336   ,  0.754999   ,  0.0356907  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 292. Sum of data in those entries is 11.6859:
+Iter time: 410.202368021
+Iter time: 772.05896616
+Iter time: 1308.75999999
+11.6858885864 9454.98941724
+153     , -16866.6    , array([ 0.0011834  ,  0.101508   ,  3.36341    ,  0.850168   ,  3.50873    ,  3.46865    ,  7.98628    ,  0.176653   ,  0.755303   ,  0.0335145  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 293. Sum of data in those entries is 11.4087:
+Iter time: 422.082718134
+Iter time: 794.737828016
+Iter time: 1348.28847694
+11.4086609495 9454.98941724
+154     , -17218.8    , array([ 0.00122606 ,  0.103163   ,  3.32079    ,  0.847736   ,  3.52167    ,  3.46234    ,  8.30444    ,  0.176206   ,  0.755467   ,  0.0317934  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 200. Sum of data in those entries is 8.42637:
+Iter time: 353.674877882
+Iter time: 662.536450863
+Iter time: 1117.92851782
+8.42636667328 9454.98941724
+155     , -16874.4    , array([ 0.00112299 ,  0.0973923  ,  3.39792    ,  0.855287   ,  3.46242    ,  3.44213    ,  6.75698    ,  0.176938   ,  0.75539    ,  0.0363196  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 202. Sum of data in those entries is 8.42947:
+Iter time: 356.543996096
+Iter time: 666.705309153
+Iter time: 1123.0635891
+8.42946579913 9454.98941724
+156     , -16838.4    , array([ 0.00109649 ,  0.0984868  ,  3.29176    ,  0.854828   ,  3.45404    ,  3.39988    ,  6.86997    ,  0.175002   ,  0.7566     ,  0.0336852  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 286. Sum of data in those entries is 12.0161:
+Iter time: 403.798048019
+Iter time: 756.819862127
+Iter time: 1283.26940298
+12.0160532469 9454.98941724
+157     , -16812.8    , array([ 0.00113664 ,  0.0996962  ,  3.35281    ,  0.851427   ,  3.48391    ,  3.4491     ,  7.8518     ,  0.176541   ,  0.756346   ,  0.0335074  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 297. Sum of data in those entries is 11.5622:
+Iter time: 426.427796125
+Iter time: 802.551695108
+Iter time: 1362.334939
+11.5621517705 9454.98941724
+158     , -17335.3    , array([ 0.00114622 ,  0.10096    ,  3.32894    ,  0.85046    ,  3.49152    ,  3.43893    ,  8.40566    ,  0.174927   ,  0.75606    ,  0.0322692  ])
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 206. Sum of data in those entries is 8.4142:
+Iter time: 357.729238987
+Iter time: 671.647789955
+Iter time: 1131.29190397
+8.41419742406 9454.98941724
+159     , -16994.7    , array([ 0.00114103 ,  0.0984358  ,  3.37058    ,  0.853935   ,  3.47187    ,  3.44264    ,  6.86167    ,  0.177021   ,  0.755611   ,  0.0353514  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 283. Sum of data in those entries is 11.8485:
+Iter time: 395.322396994
+Iter time: 744.098809958
+Iter time: 1261.79278016
+11.848508228 9454.98941724
+160     , -16818.1    , array([ 0.00113445 ,  0.0997401  ,  3.40071    ,  0.851496   ,  3.51129    ,  3.43547    ,  7.71372    ,  0.180382   ,  0.759506   ,  0.0337214  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 282. Sum of data in those entries is 12.1188:
+Iter time: 396.633648872
+Iter time: 745.830994129
+Iter time: 1261.2280879
+12.1188088091 9454.98941724
+161     , -16820.1    , array([ 0.00111895 ,  0.0994764  ,  3.36259    ,  0.853223   ,  3.51122    ,  3.44277    ,  7.70976    ,  0.17987    ,  0.755188   ,  0.0344437  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 275. Sum of data in those entries is 12.2097:
+Iter time: 391.628295898
+Iter time: 736.719174862
+Iter time: 1244.17958713
+12.2097228451 9454.98941724
+162     , -16822.3    , array([ 0.00114743 ,  0.100055   ,  3.37999    ,  0.85317    ,  3.54782    ,  3.4442     ,  7.60815    ,  0.181114   ,  0.75432    ,  0.0351935  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 224. Sum of data in those entries is 8.98379:
+Iter time: 372.905316114
+Iter time: 699.692393064
+Iter time: 1180.15515995
+8.98378550756 9454.98941724
+163     , -16926.9    , array([ 0.00109901 ,  0.0988712  ,  3.33184    ,  0.854925   ,  3.49614    ,  3.41812    ,  7.21163    ,  0.179084   ,  0.755314   ,  0.034535   ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 279. Sum of data in those entries is 11.509:
+Iter time: 396.871918917
+Iter time: 751.363694906
+Iter time: 1263.41628504
+11.5090099796 9454.98941724
+164     , -16852.5    , array([ 0.00114535 ,  0.0993258  ,  3.39072    ,  0.852985   ,  3.53316    ,  3.46831    ,  7.67467    ,  0.178032   ,  0.754388   ,  0.0366424  ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 221. Sum of data in those entries is 9.00045:
+Iter time: 371.91830802
+Iter time: 694.94344902
+Iter time: 1176.07456708
+9.00044843084 9454.98941724
+165     , -16897.7    , array([ 0.00110229 ,  0.0982567  ,  3.31146    ,  0.855046   ,  3.43639    ,  3.40744    ,  7.20484    ,  0.174651   ,  0.755266   ,  0.0334061  ])

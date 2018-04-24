@@ -1,0 +1,66 @@
+==========================================
+SLURM_JOB_ID = 19033763
+SLURM_NODELIST = c9-65
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 9
+run 6
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r6.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r6.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=9, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r6
+Setup: seed=1524513313 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=186952867.459521
+iter[50] like is=-113000070.251176 thres=0.011409
+iter[100] like is=-112737865.945586 thres=0.006948
+iter[150] like is=-112504954.212269 thres=0.003608
+iter[200] like is=-112458315.728744 thres=0.004514
+iter[250] like is=-112448324.299227 thres=0.001209
+iter[300] like is=-112444815.627626 thres=0.000623
+iter[350] like is=-112443322.040988 thres=0.000744
+iter[400] like is=-112441778.243561 thres=0.003522
+iter[450] like is=-112440197.877469 thres=0.002578
+iter[500] like is=-112438813.406693 thres=0.001174
+iter[550] like is=-112438514.506922 thres=0.002523
+iter[600] like is=-112438085.328494 thres=0.000350
+iter[650] like is=-112437847.005968 thres=0.000328
+iter[700] like is=-112437780.890520 thres=0.000448
+iter[750] like is=-112437735.706921 thres=0.000068
+iter[800] like is=-112437708.986029 thres=0.000232
+iter[850] like is=-112437686.288339 thres=0.000397
+iter[900] like is=-112437666.536707 thres=0.000048
+iter[950] like is=-112437669.968841 thres=0.002623
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-112437669.968841 after 950 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r6.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r6.fopt.gz
+	[ALL done] cpu-time used =  20582.81 sec
+	[ALL done] walltime used =  20581.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c9-65
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T12:55:13
+End                 : 2018-04-23T18:38:15
+Reserved walltime   : 6-12:00:00
+Used walltime       :   05:43:02
+Used CPU time       :   05:43:03
+% User (Computation): 98.78%
+% System (I/O)      :  1.22%
+Mem reserved        : 20G/node
+Max Mem used        : 6.32G (c9-65)
+Max Disk Write      : 42.94M (c9-65)
+Max Disk Read       : 249.76M (c9-65)

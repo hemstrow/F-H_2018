@@ -1,0 +1,70 @@
+==========================================
+SLURM_JOB_ID = 19033749
+SLURM_NODELIST = c11-89
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 9
+run 4
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r4.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r4.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=9, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r4
+Setup: seed=1524513133 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=186905049.374172
+iter[50] like is=-112858545.991721 thres=0.037544
+iter[100] like is=-112364194.751680 thres=0.003035
+iter[150] like is=-112317497.425485 thres=0.001030
+iter[200] like is=-112309925.202722 thres=0.003906
+iter[250] like is=-112306055.610009 thres=0.002899
+iter[300] like is=-112304639.099909 thres=0.001201
+iter[350] like is=-112304029.272469 thres=0.001063
+iter[400] like is=-112303471.897402 thres=0.000985
+iter[450] like is=-112303025.576739 thres=0.000465
+iter[500] like is=-112302104.184244 thres=0.003796
+iter[550] like is=-112301475.461815 thres=0.000152
+iter[600] like is=-112301300.476796 thres=0.000209
+iter[650] like is=-112301166.543115 thres=0.000613
+iter[700] like is=-112300989.762219 thres=0.002111
+iter[750] like is=-112300875.546599 thres=0.000076
+iter[800] like is=-112300857.756919 thres=0.000222
+iter[850] like is=-112300825.433322 thres=0.006313
+iter[900] like is=-112300795.020538 thres=0.000080
+iter[950] like is=-112300771.708534 thres=0.001539
+iter[1000] like is=-112300721.088000 thres=0.000264
+iter[1050] like is=-112300617.457571 thres=0.000139
+iter[1100] like is=-112300572.627414 thres=0.000096
+iter[1150] like is=-112300801.235426 thres=0.000632
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-112300801.235426 after 1150 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r4.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r4.fopt.gz
+	[ALL done] cpu-time used =  26527.29 sec
+	[ALL done] walltime used =  26528.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-89
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T12:52:12
+End                 : 2018-04-23T20:14:21
+Reserved walltime   : 6-12:00:00
+Used walltime       :   07:22:09
+Used CPU time       :   07:22:07
+% User (Computation): 98.76%
+% System (I/O)      :  1.24%
+Mem reserved        : 20G/node
+Max Mem used        : 6.32G (c11-89)
+Max Disk Write      : 17.36M (c11-89)
+Max Disk Read       : 249.75M (c11-89)

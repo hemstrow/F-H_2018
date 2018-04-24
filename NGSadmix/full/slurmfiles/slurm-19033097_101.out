@@ -1,0 +1,85 @@
+==========================================
+SLURM_JOB_ID = 19033801
+SLURM_NODELIST = c11-71
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 11
+run 2
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K11_r2.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K11_r2.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=11, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K11_r2
+Setup: seed=1524513674 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=186033959.368937
+iter[50] like is=-112363242.899118 thres=0.016304
+iter[100] like is=-111764785.093923 thres=0.005414
+iter[150] like is=-111711786.303390 thres=0.004930
+iter[200] like is=-111702794.219688 thres=0.004520
+iter[250] like is=-111697139.552917 thres=0.001938
+iter[300] like is=-111693257.299664 thres=0.003340
+iter[350] like is=-111687845.116201 thres=0.006354
+iter[400] like is=-111685181.125074 thres=0.001964
+iter[450] like is=-111683639.051902 thres=0.000698
+iter[500] like is=-111682141.557748 thres=0.000903
+iter[550] like is=-111679612.725295 thres=0.008935
+iter[600] like is=-111676661.129240 thres=0.004015
+iter[650] like is=-111674413.213196 thres=0.006861
+iter[700] like is=-111672247.818358 thres=0.000892
+iter[750] like is=-111670252.754469 thres=0.000489
+iter[800] like is=-111669344.257446 thres=0.000437
+iter[850] like is=-111668781.141479 thres=0.000558
+iter[900] like is=-111667971.324773 thres=0.000214
+iter[950] like is=-111667411.862321 thres=0.002996
+iter[1000] like is=-111666955.230991 thres=0.000809
+iter[1050] like is=-111666793.973652 thres=0.000452
+iter[1100] like is=-111666677.859083 thres=0.000212
+iter[1150] like is=-111666599.253005 thres=0.000229
+iter[1200] like is=-111666490.925914 thres=0.000798
+iter[1250] like is=-111666435.432068 thres=0.006976
+iter[1300] like is=-111666186.165468 thres=0.007898
+iter[1350] like is=-111666087.250224 thres=0.000753
+iter[1400] like is=-111665938.737774 thres=0.001174
+iter[1450] like is=-111665824.603547 thres=0.000390
+iter[1500] like is=-111665794.248441 thres=0.000081
+iter[1550] like is=-111665773.787845 thres=0.000149
+iter[1600] like is=-111665747.747121 thres=0.000714
+iter[1650] like is=-111665683.848230 thres=0.000377
+iter[1700] like is=-111665586.457716 thres=0.006193
+iter[1750] like is=-111665405.457704 thres=0.000732
+iter[1800] like is=-111665311.331720 thres=0.000144
+iter[1850] like is=-111665295.383877 thres=0.000194
+iter[1900] like is=-111665327.059969 thres=0.000706
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-111665327.059969 after 1900 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K11_r2.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K11_r2.fopt.gz
+	[ALL done] cpu-time used =  49472.40 sec
+	[ALL done] walltime used =  49472.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-71
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T13:01:14
+End                 : 2018-04-24T02:45:47
+Reserved walltime   : 6-12:00:00
+Used walltime       :   13:44:33
+Used CPU time       :   13:44:32
+% User (Computation): 98.89%
+% System (I/O)      :  1.11%
+Mem reserved        : 20G/node
+Max Mem used        : 6.39G (c11-71)
+Max Disk Write      : 51.27M (c11-71)
+Max Disk Read       : 249.75M (c11-71)

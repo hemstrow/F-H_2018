@@ -1,0 +1,46 @@
+==========================================
+SLURM_JOB_ID = 19033102
+SLURM_NODELIST = c8-70
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 1
+run 5
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K1_r5.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K1_r5.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=1, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K1_r5
+Setup: seed=1524507447 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=241135910.937416
+EM accelerated has reached convergence with tol 0.000010
+best like=-132336826.705087 after 8 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K1_r5.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K1_r5.fopt.gz
+	[ALL done] cpu-time used =  263.92 sec
+	[ALL done] walltime used =  264.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c8-70
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:17:27
+End                 : 2018-04-23T11:21:51
+Reserved walltime   : 6-12:00:00
+Used walltime       :   00:04:24
+Used CPU time       :   00:04:24
+% User (Computation): 97.72%
+% System (I/O)      :  2.28%
+Mem reserved        : 20G/node
+Max Mem used        : 6.12G (c8-70)
+Max Disk Write      : 0.00  (c8-70)
+Max Disk Read       : 249.74M (c8-70)

@@ -1,0 +1,51 @@
+==========================================
+SLURM_JOB_ID = 19033110
+SLURM_NODELIST = c11-90
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 2
+run 3
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r3.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r3.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=2, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r3
+Setup: seed=1524507447 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=210463072.384189
+iter[50] like is=-124780441.817849 thres=0.019367
+iter[100] like is=-124407482.118302 thres=0.003664
+iter[150] like is=-124398923.348535 thres=0.000150
+iter[200] like is=-124398895.625933 thres=0.000162
+iter[250] like is=-124398892.363760 thres=0.000011
+EM accelerated has reached convergence with tol 0.000010
+best like=-124398892.363760 after 251 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r3.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r3.fopt.gz
+	[ALL done] cpu-time used =  2731.31 sec
+	[ALL done] walltime used =  2731.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-90
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:17:27
+End                 : 2018-04-23T12:02:59
+Reserved walltime   : 6-12:00:00
+Used walltime       :   00:45:32
+Used CPU time       :   00:45:31
+% User (Computation): 98.92%
+% System (I/O)      :  1.08%
+Mem reserved        : 20G/node
+Max Mem used        : 6.12G (c11-90)
+Max Disk Write      : 8.02M (c11-90)
+Max Disk Read       : 249.75M (c11-90)

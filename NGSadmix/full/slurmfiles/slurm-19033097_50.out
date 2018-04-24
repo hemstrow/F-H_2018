@@ -1,0 +1,53 @@
+==========================================
+SLURM_JOB_ID = 19033208
+SLURM_NODELIST = c11-71
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 6
+run 1
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r1.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r1.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=6, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r1
+Setup: seed=1524508137 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=189914561.712146
+iter[50] like is=-115791342.066339 thres=0.004968
+iter[100] like is=-114128093.295934 thres=0.006746
+iter[150] like is=-113914212.618497 thres=0.001298
+iter[200] like is=-113900035.195916 thres=0.000365
+iter[250] like is=-113899329.119660 thres=0.001321
+iter[300] like is=-113899572.269687 thres=0.000359
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-113899572.269687 after 300 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r1.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r1.fopt.gz
+	[ALL done] cpu-time used =  5509.46 sec
+	[ALL done] walltime used =  5510.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-71
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:28:57
+End                 : 2018-04-23T13:00:47
+Reserved walltime   : 6-12:00:00
+Used walltime       :   01:31:50
+Used CPU time       :   01:31:49
+% User (Computation): 98.86%
+% System (I/O)      :  1.15%
+Mem reserved        : 20G/node
+Max Mem used        : 6.25G (c11-71)
+Max Disk Write      : 0.00  (c11-71)
+Max Disk Read       : 249.75M (c11-71)

@@ -1,0 +1,1415 @@
+==========================================
+SLURM_JOB_ID = 18981507
+SLURM_NODELIST = c8-73
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+Module python/2.7.6 loaded 
+Module numpy/1.11.1 loaded 
+Module dadi/1.7.0 loaded 
+Module matplotlib/2.0 loaded 
+Module scipy/0.18.0 loaded 
+Beginning. Call:
+/home/hemstrow/monarch/github/F-H_2018/DADI/demographic_models/run_3d_mods.py /home/hemstrow/monarch/github/F-H_2018/Data/dadi_inputs/ dadi_snps_10kgap.txt 1st_folded_optim_10kgap_snps_dadi_out.txt lgrowth_p2 10 [NAM,HAW,GUA] True 3 [0.1,0.1,0.5,1,5,5,.1,.1,.1,.1,2] [1,1,5,10,20,20,10,10,10,10,4] [1e-3,1e-3,1e-3,1e-3,0.01,0.01,0.01,0.01,0.01,0.01,1] [150,15,15] fmin
+
+Ready to begin run. Parameters:
+
+Model:
+lgrowth_p2
+Maxiters:
+10
+Pops:
+['NAM', 'HAW', 'GUA']
+Projection:
+[150, 15, 15]
+Number of segregating sites in projected sfs:
+9454.98941724
+Folding spectra:
+True
+Level of parm folding:
+3
+Optimizer:
+fmin
+p0:
+[  0.04460447   0.02319415   1.84455919   5.17901809  11.83552882
+   0.90437978   0.13489969   0.18052322   0.21631205   0.11124328   3.96      ]
+Upper Bounds:
+[1.0, 1.0, 5.0, 10.0, 20.0, 20.0, 10.0, 10.0, 10.0, 10.0, 4.0]
+Lower Bounds:
+[0.001, 0.001, 0.001, 0.001, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 1.0]
+
+Beginning optimization ************************************************
+optimize_log_fmin.
+Iter time: 29.9508020878
+Iter time: 57.8506340981
+Iter time: 98.9481010437
+1       , -24607.8    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 30.0320091248
+Iter time: 57.9261260033
+Iter time: 99.353399992
+2       , -24607.6    , array([ 0.038181   ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 34.543143034
+Iter time: 66.5772528648
+Iter time: 114.331274986
+3       , -24608.4    , array([ 0.0446045  ,  0.0192153  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 29.7544372082
+Iter time: 57.3168017864
+Iter time: 98.5928049088
+4       , -24612.1    , array([ 0.0446045  ,  0.0231942  ,  1.9019     ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 30.0722558498
+Iter time: 57.8423249722
+Iter time: 99.0889930725
+5       , -24881.7    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.62289    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 30.1227660179
+Iter time: 57.8704881668
+Iter time: 99.3301360607
+6       , -24798.9    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  13.392     ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 29.7965519428
+Iter time: 57.3732681274
+Iter time: 98.7476971149
+7       , -24604.9    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.899846   ,  0.1349     ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 29.9356570244
+Iter time: 57.6275291443
+Iter time: 99.342015028
+8       , -24929.1    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.122043   ,  0.180523   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 29.99269104
+Iter time: 57.7515330315
+Iter time: 99.0241341591
+9       , -24640.1    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.165714   ,  0.216312   ,  0.111243   ,  3.96       ])
+Iter time: 29.8734660149
+Iter time: 57.6325469017
+Iter time: 98.930975914
+10      , -24617.2    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.200371   ,  0.111243   ,  3.96       ])
+Iter time: 29.9612979889
+Iter time: 57.6740489006
+Iter time: 99.059084177
+11      , -24631.2    , array([ 0.0446045  ,  0.0231942  ,  1.84456    ,  5.17902    ,  11.8355    ,  0.90438    ,  0.1349     ,  0.180523   ,  0.216312   ,  0.0996753  ,  3.96       ])
+Iter time: 30.6715121269
+Iter time: 59.0704460144
+Iter time: 101.541349173
+13      , -24765.1    , array([ 0.0433611  ,  0.0224139  ,  1.85485    ,  5.25703    ,  12.1044    ,  0.903554   ,  0.132465   ,  0.177736   ,  0.213322   ,  0.109044   ,  3.69667    ])
+Iter time: 30.7819311619
+Iter time: 59.3032870293
+Iter time: 101.955993176
+14      , -24395.2    , array([ 0.0431388  ,  0.0222749  ,  1.85673    ,  5.27134    ,  12.154     ,  0.903404   ,  0.148618   ,  0.177233   ,  0.212783   ,  0.108649   ,  3.91076    ])
+Iter time: 31.2048430443
+Iter time: 60.1661128998
+Iter time: 103.516752005
+15      , -24105.5    , array([ 0.0424241  ,  0.0218291  ,  1.86285    ,  5.31812    ,  12.3164    ,  0.902916   ,  0.164003   ,  0.175611   ,  0.21104    ,  0.107375   ,  3.88638    ])
+Iter time: 30.9842939377
+Iter time: 59.8448739052
+Iter time: 102.715941191
+16      , -24330      , array([ 0.0427474  ,  0.0220306  ,  1.86007    ,  4.80627    ,  12.2423    ,  0.903138   ,  0.139315   ,  0.176347   ,  0.211831   ,  0.107952   ,  3.89744    ])
+Iter time: 31.1070079803
+Iter time: 60.1190149784
+Iter time: 103.187718868
+17      , -24309.7    , array([ 0.0424182  ,  0.0218254  ,  1.8629     ,  5.14781    ,  10.6442    ,  0.902912   ,  0.140134   ,  0.175598   ,  0.211026   ,  0.107365   ,  3.88617    ])
+Iter time: 30.6825311184
+Iter time: 59.2135310173
+Iter time: 101.70095396
+19      , -24642.5    , array([ 0.0433859  ,  0.0224295  ,  1.85465    ,  5.20503    ,  11.9516    ,  0.903571   ,  0.135301   ,  0.177792   ,  0.213382   ,  0.109089   ,  3.81677    ])
+Iter time: 30.6221470833
+Iter time: 59.020373106
+Iter time: 101.399662018
+21      , -24581.6    , array([ 0.0433983  ,  0.0224373  ,  1.85454    ,  5.17923    ,  11.8759    ,  0.903579   ,  0.136741   ,  0.17782    ,  0.213412   ,  0.109111   ,  3.87828    ])
+Iter time: 31.45865798
+Iter time: 60.6590008736
+Iter time: 104.372457981
+22      , -24386      , array([ 0.0420389  ,  0.0215895  ,  1.8662     ,  5.12824    ,  11.7731    ,  0.90265    ,  0.141924   ,  0.193332   ,  0.210095   ,  0.106686   ,  3.90682    ])
+Iter time: 31.743543148
+Iter time: 61.1899142265
+Iter time: 105.575968027
+23      , -24351      , array([ 0.0415886  ,  0.0213099  ,  1.87016    ,  5.11906    ,  11.7618    ,  0.902336   ,  0.14324    ,  0.179698   ,  0.208984   ,  0.120548   ,  3.89723    ])
+Iter time: 32.134554863
+Iter time: 61.9822170734
+Iter time: 106.603388071
+24      , -24315.8    , array([ 0.0410626  ,  0.0209841  ,  1.87485    ,  5.10823    ,  11.7485    ,  0.901965   ,  0.144811   ,  0.179548   ,  0.227343   ,  0.109602   ,  3.88592    ])
+Iter time: 32.8618898392
+Iter time: 63.0806801319
+Iter time: 108.454822779
+25      , -24267.9    , array([ 0.0404495  ,  0.0206055  ,  1.8136     ,  5.09547    ,  11.7327    ,  0.901526   ,  0.14669    ,  0.179372   ,  0.212502   ,  0.109306   ,  3.8726     ])
+Iter time: 28.054776907
+Iter time: 53.9556100368
+Iter time: 92.7794930935
+26      , -24211.4    , array([ 0.0397367  ,  0.0251901  ,  1.86423    ,  5.08042    ,  11.7141    ,  0.901009   ,  0.148942   ,  0.179163   ,  0.211817   ,  0.108957   ,  3.85692    ])
+Iter time: 31.831004858
+Iter time: 61.3663511276
+Iter time: 105.453649044
+27      , -24138.7    , array([ 0.0389105  ,  0.0211845  ,  1.86783    ,  5.0627     ,  11.6922    ,  0.900397   ,  0.151647   ,  0.178917   ,  0.211009   ,  0.108547   ,  3.83847    ])
+Iter time: 32.1081008911
+Iter time: 61.9763820171
+Iter time: 106.584455013
+28      , -24052.6    , array([ 0.0456134  ,  0.0208382  ,  1.87209    ,  5.04183    ,  11.6663    ,  0.899675   ,  0.154909   ,  0.178626   ,  0.210059   ,  0.108063   ,  3.81678    ])
+Iter time: 33.3084449768
+Iter time: 64.2531831264
+Iter time: 110.391726017
+29      , -23770.3    , array([ 0.0498557  ,  0.0197516  ,  1.886      ,  4.97461    ,  11.5826    ,  0.897331   ,  0.166      ,  0.177685   ,  0.207001   ,  0.106508   ,  3.74712    ])
+Iter time: 33.0258939266
+Iter time: 63.6992430687
+Iter time: 109.646653891
+30      , -23900.3    , array([ 0.0398428  ,  0.0202383  ,  1.87967    ,  5.00505    ,  11.6206    ,  0.903747   ,  0.160863   ,  0.178112   ,  0.208386   ,  0.107212   ,  3.77863    ])
+Iter time: 32.5350139141
+Iter time: 62.7230930328
+Iter time: 108.17749691
+31      , -23803.6    , array([ 0.0403186  ,  0.0205324  ,  1.87413    ,  4.97382    ,  11.5354    ,  0.900044   ,  0.163455   ,  0.180875   ,  0.210303   ,  0.108959   ,  3.84003    ])
+Iter time: 31.8126680851
+Iter time: 61.3414719105
+Iter time: 105.447717905
+32      , -23893.6    , array([ 0.0413074  ,  0.0211447  ,  1.86386    ,  4.99542    ,  11.593     ,  0.900497   ,  0.161582   ,  0.164359   ,  0.213663   ,  0.111864   ,  3.80004    ])
+Iter time: 31.6085848808
+Iter time: 60.8709130287
+Iter time: 104.667124987
+33      , -23842.2    , array([ 0.0417032  ,  0.0213919  ,  1.85877    ,  4.98219    ,  11.5737    ,  0.900477   ,  0.163644   ,  0.173984   ,  0.215665   ,  0.0976635  ,  3.79194    ])
+Iter time: 32.4487400055
+Iter time: 62.5050721169
+Iter time: 107.465415001
+34      , -23778.6    , array([ 0.0403907  ,  0.0205816  ,  1.86862    ,  5.34122    ,  11.0065    ,  0.899195   ,  0.17325    ,  0.176856   ,  0.213462   ,  0.107091   ,  3.77286    ])
+Iter time: 31.3667850494
+Iter time: 60.544383049
+Iter time: 104.081526995
+35      , -23691.7    , array([ 0.041922   ,  0.0215321  ,  1.85276    ,  5.0664     ,  11.3339    ,  0.899861   ,  0.172199   ,  0.173226   ,  0.196632   ,  0.105036   ,  3.76379    ])
+Iter time: 30.9999890327
+Iter time: 59.9633190632
+Iter time: 102.888524055
+36      , -23374      , array([ 0.0423585  ,  0.0218115  ,  1.84182    ,  5.04561    ,  11.1322    ,  0.89881    ,  0.187778   ,  0.170149   ,  0.182869   ,  0.102824   ,  3.70417    ])
+Iter time: 32.45718503
+Iter time: 62.3413639069
+Iter time: 107.331969023
+37      , -23448.1    , array([ 0.0405718  ,  0.0206997  ,  1.86079    ,  5.00915    ,  12.612     ,  0.898173   ,  0.187672   ,  0.176111   ,  0.206391   ,  0.106385   ,  3.73087    ])
+Iter time: 30.3091509342
+Iter time: 59.2102370262
+Iter time: 102.110952139
+38      , -23409.1    , array([ 0.0425699  ,  0.0219434  ,  1.92033    ,  5.04491    ,  11.5933    ,  0.898944   ,  0.187498   ,  0.171832   ,  0.203873   ,  0.103982   ,  3.71864    ])
+Iter time: 36.5655500889
+Iter time: 70.5830988884
+Iter time: 121.461084843
+39      , -23319      , array([ 0.0438795  ,  0.017505   ,  1.87827    ,  5.05341    ,  11.5899    ,  0.899085   ,  0.192557   ,  0.17073    ,  0.203116   ,  0.103432   ,  3.70906    ])
+Iter time: 41.9830780029
+Iter time: 81.1026320457
+Iter time: 139.557250023
+40      , -22849.5    , array([ 0.0461102  ,  0.0145924  ,  1.88534    ,  5.03995    ,  11.5283    ,  0.898125   ,  0.218942   ,  0.166663   ,  0.198901   ,  0.100776   ,  3.63727    ])
+Iter time: 33.7397470474
+Iter time: 65.1063320637
+Iter time: 111.984493017
+41      , -23155.1    , array([ 0.046216   ,  0.0194509  ,  1.87784    ,  5.06695    ,  11.5819    ,  0.899283   ,  0.20218    ,  0.168774   ,  0.201714   ,  0.102431   ,  3.69058    ])
+Iter time: 34.912569046
+Iter time: 67.3725779057
+Iter time: 116.315011978
+42      , -23052      , array([ 0.0430534  ,  0.0184847  ,  1.8856     ,  4.78134    ,  10.8727    ,  0.896117   ,  0.194198   ,  0.170714   ,  0.200034   ,  0.102665   ,  3.61099    ])
+Iter time: 33.3617799282
+Iter time: 64.3908910751
+Iter time: 110.724020958
+43      , -23075.2    , array([ 0.0464931  ,  0.0196118  ,  1.8698     ,  5.03836    ,  11.3851    ,  0.893914   ,  0.204886   ,  0.167023   ,  0.201081   ,  0.102014   ,  3.68345    ])
+Iter time: 34.8816809654
+Iter time: 67.4075789452
+Iter time: 115.885658979
+44      , -22926.6    , array([ 0.0458194  ,  0.018516   ,  1.88675    ,  5.05593    ,  11.3747    ,  0.895944   ,  0.212973   ,  0.181529   ,  0.193962   ,  0.0961467  ,  3.64199    ])
+Iter time: 35.7685821056
+Iter time: 69.118708849
+Iter time: 118.866439104
+45      , -22809.2    , array([ 0.0461679  ,  0.0178279  ,  1.89706    ,  5.08292    ,  11.3578    ,  0.895142   ,  0.220608   ,  0.172815   ,  0.188491   ,  0.109813   ,  3.62309    ])
+Iter time: 38.2632300854
+Iter time: 74.0309960842
+Iter time: 127.562000036
+46      , -22262.9    , array([ 0.0485764  ,  0.0162752  ,  1.9165     ,  5.13405    ,  11.2514    ,  0.892487   ,  0.256143   ,  0.172234   ,  0.176217   ,  0.116444   ,  3.54151    ])
+Iter time: 35.7443721294
+Iter time: 69.0410199165
+Iter time: 118.87238884
+47      , -22555.5    , array([ 0.0493989  ,  0.0178058  ,  1.88918    ,  5.12091    ,  11.344     ,  0.8942     ,  0.239659   ,  0.164759   ,  0.187181   ,  0.0996252  ,  3.52547    ])
+Iter time: 36.5343260765
+Iter time: 70.4696621895
+Iter time: 121.656661987
+48      , -22356.9    , array([ 0.0511492  ,  0.0173014  ,  1.89852    ,  4.73228    ,  11.9545    ,  0.894139   ,  0.23985    ,  0.166346   ,  0.180058   ,  0.100041   ,  3.54425    ])
+Iter time: 36.2895190716
+Iter time: 70.0270760059
+Iter time: 120.512979031
+49      , -22092.6    , array([ 0.041632   ,  0.0175995  ,  1.88329    ,  5.03511    ,  11.4254    ,  0.895416   ,  0.267649   ,  0.163596   ,  0.18103    ,  0.099449   ,  3.53267    ])
+Iter time: 38.3891780376
+Iter time: 73.946064949
+Iter time: 126.99405098
+50      , -21191.8    , array([ 0.0380438  ,  0.0166131  ,  1.88193    ,  5.06563    ,  11.3477    ,  0.89446    ,  0.339855   ,  0.156976   ,  0.169293   ,  0.096097   ,  3.43009    ])
+Iter time: 38.4580578804
+Iter time: 74.3248980045
+Iter time: 127.897608042
+51      , -22086.2    , array([ 0.0505636  ,  0.0161351  ,  1.91273    ,  5.01059    ,  10.2932    ,  0.893904   ,  0.263733   ,  0.161642   ,  0.17514    ,  0.0977396  ,  3.49425    ])
+Iter time: 42.2556529045
+Iter time: 81.7472469807
+Iter time: 140.830232859
+52      , -21850.5    , array([ 0.0497219  ,  0.0143931  ,  1.85209    ,  4.9689     ,  10.9581    ,  0.892224   ,  0.280871   ,  0.163837   ,  0.172474   ,  0.0988786  ,  3.46629    ])
+Iter time: 44.4785490036
+Iter time: 85.7888541222
+Iter time: 147.587535143
+53      , -21567.3    , array([ 0.0514477  ,  0.0134261  ,  1.933      ,  4.95439    ,  11.3795    ,  0.891164   ,  0.301753   ,  0.164324   ,  0.190249   ,  0.0992834  ,  3.43809    ])
+Iter time: 42.846157074
+Iter time: 82.6437559128
+Iter time: 142.284669161
+54      , -21543.9    , array([ 0.0480819  ,  0.0140742  ,  1.90592    ,  4.91342    ,  10.9026    ,  0.889228   ,  0.301424   ,  0.16486    ,  0.170649   ,  0.0991008  ,  3.40657    ])
+Iter time: 45.3998479843
+Iter time: 87.6756570339
+Iter time: 150.95833683
+55      , -21330.8    , array([ 0.0480882  ,  0.0131416  ,  1.92078    ,  4.91879    ,  11.004     ,  0.893715   ,  0.319073   ,  0.166194   ,  0.166154   ,  0.0989833  ,  3.36502    ])
+Iter time: 45.6805341244
+Iter time: 88.2901711464
+Iter time: 152.25464797
+56      , -20940.2    , array([ 0.0529851  ,  0.0131043  ,  1.9111     ,  5.20997    ,  11.5479    ,  0.891083   ,  0.368439   ,  0.161809   ,  0.161482   ,  0.0977048  ,  3.38879    ])
+Iter time: 52.9727079868
+Iter time: 102.455560923
+Iter time: 176.621611118
+57      , -19777      , array([ 0.0587796  ,  0.0110335  ,  1.92398    ,  5.43849    ,  11.901     ,  0.888577   ,  0.507487   ,  0.157533   ,  0.14509    ,  0.0953154  ,  3.28287    ])
+Iter time: 49.3235189915
+Iter time: 95.2146799564
+Iter time: 163.742872
+58      , -20590.2    , array([ 0.0520931  ,  0.0119069  ,  1.91674    ,  4.9928     ,  11.1293    ,  0.889918   ,  0.393414   ,  0.148297   ,  0.157975   ,  0.104164   ,  3.29712    ])
+Iter time: 42.2017860413
+Iter time: 81.5507512093
+Iter time: 139.943283081
+59      , -20263.9    , array([ 0.0529256  ,  0.0145599  ,  1.92394    ,  5.00007    ,  10.911     ,  0.886276   ,  0.425717   ,  0.158131   ,  0.147733   ,  0.0999782  ,  3.24299    ])
+Iter time: 50.639966011
+Iter time: 97.7721419334
+Iter time: 168.344648123
+60      , -20154.3    , array([ 0.0500254  ,  0.0115036  ,  1.9264     ,  4.89971    ,  11.0101    ,  0.888727   ,  0.431742   ,  0.158769   ,  0.150371   ,  0.101198   ,  3.29541    ])
+Iter time: 52.640599966
+Iter time: 101.683135033
+Iter time: 174.99488306
+61      , -19933.9    , array([ 0.0481188  ,  0.0109923  ,  1.92201    ,  5.33571    ,  10.2926    ,  0.887806   ,  0.48006    ,  0.155927   ,  0.151282   ,  0.100989   ,  3.23484    ])
+Iter time: 53.3630051613
+Iter time: 146562.685405
+Iter time: 292.137008905
+62      , -19627.4    , array([ 0.0505802  ,  0.0108806  ,  1.90498    ,  4.95273    ,  10.7601    ,  0.8886     ,  0.50391    ,  0.147898   ,  0.150351   ,  0.084545   ,  3.18447    ])
+Iter time: 63.3877301216
+Iter time: 122.226980925
+Iter time: 210.747234106
+63      , -18365      , array([ 0.0516129  ,  0.00889649 ,  1.89924    ,  4.86449    ,  10.5226    ,  0.886663   ,  0.706787   ,  0.137051   ,  0.138879   ,  0.0720399  ,  3.01969    ])
+Iter time: 58.1584780216
+Iter time: 112.072738886
+Iter time: 192.701112986
+64      , -19056.4    , array([ 0.0487742  ,  0.00984912 ,  1.90628    ,  5.04753    ,  11.809     ,  0.885881   ,  0.585482   ,  0.15293    ,  0.145027   ,  0.0952893  ,  3.14301    ])
+Iter time: 56.0469820499
+Iter time: 107.984406948
+Iter time: 185.625954866
+65      , -18830      , array([ 0.0494266  ,  0.0103053  ,  1.97904    ,  5.10444    ,  11.2443    ,  0.886398   ,  0.628307   ,  0.149004   ,  0.1427     ,  0.0935605  ,  3.11247    ])
+Iter time: 55.7401669025
+Iter time: 107.228938103
+Iter time: 184.246053934
+66      , -18645.8    , array([ 0.0474218  ,  0.0105287  ,  1.90434    ,  5.14723    ,  10.8044    ,  0.886588   ,  0.668252   ,  0.145942   ,  0.122777   ,  0.0921787  ,  3.08174    ])
+Iter time: 60.8025360107
+Iter time: 117.259361982
+Iter time: 203.087502003
+67      , -18135.2    , array([ 0.0506139  ,  0.00952758 ,  1.9311     ,  5.23421    ,  11.2585    ,  0.888037   ,  0.773176   ,  0.142279   ,  0.128925   ,  0.0911407  ,  3.05409    ])
+Iter time: 73.902369976
+Iter time: 141.946558952
+Iter time: 242.872072935
+68      , -16593.4    , array([ 0.0519295  ,  0.00783903 ,  1.94382    ,  5.40237    ,  11.4408    ,  0.887442   ,  1.23831    ,  0.132176   ,  0.112061   ,  0.0874037  ,  2.89178    ])
+Iter time: 62.8353238106
+Iter time: 120.615086079
+Iter time: 207.141700029
+69      , -17501.3    , array([ 0.0513194  ,  0.00928886 ,  1.92032    ,  5.3184     ,  11.234     ,  0.882448   ,  0.934645   ,  0.135381   ,  0.123262   ,  0.089208   ,  3.00777    ])
+Iter time: 81.1999270916
+Iter time: 156.526661873
+Iter time: 268.71421814
+70      , -17048.9    , array([ 0.0684972  ,  0.00661079 ,  1.96717    ,  5.21016    ,  10.8738    ,  0.879549   ,  1.05469    ,  0.139525   ,  0.114195   ,  0.090653   ,  2.88106    ])
+Iter time: 69.3336508274
+Iter time: 133.144681931
+Iter time: 228.250530005
+71      , -16954.5    , array([ 0.0525767  ,  0.00828783 ,  1.94059    ,  5.32727    ,  11.0404    ,  0.882156   ,  1.09003    ,  0.146063   ,  0.115364   ,  0.0815464  ,  2.92463    ])
+Iter time: 88.1795909405
+Iter time: 169.855768919
+Iter time: 291.063746929
+72      , -16689.8    , array([ 0.0516875  ,  0.00611767 ,  1.93636    ,  5.38119    ,  11.2855    ,  0.885031   ,  1.1951     ,  0.135016   ,  0.117938   ,  0.0818701  ,  2.9181     ])
+Iter time: 81.9834840298
+Iter time: 157.547292948
+Iter time: 269.247104883
+73      , -16208.5    , array([ 0.0550099  ,  0.00690319 ,  1.9357     ,  5.5858     ,  11.2343    ,  0.881922   ,  1.41807    ,  0.130569   ,  0.110862   ,  0.0778257  ,  2.8089     ])
+Iter time: 108.414945841
+Iter time: 206.760356903
+Iter time: 353.541931868
+74      , -14665.4    , array([ 0.0576854  ,  0.00534759 ,  1.94036    ,  5.96408    ,  11.3481    ,  0.878539   ,  2.57001    ,  0.118407   ,  0.0951896  ,  0.0682493  ,  2.59328    ])
+Iter time: 91.0009379387
+Iter time: 172.0470891
+Iter time: 294.58378911
+75      , -15578.1    , array([ 0.0591066  ,  0.00633723 ,  1.94348    ,  5.23426    ,  12.2327    ,  0.881153   ,  1.73025    ,  0.126459   ,  0.101293   ,  0.0726242  ,  2.74876    ])
+Iter time: 98.7734730244
+Iter time: 188.853471994
+Iter time: 323.854537964
+76      , -15117      , array([ 0.0484353  ,  0.00570809 ,  1.94505    ,  5.09972    ,  10.6324    ,  0.879047   ,  2.04564    ,  0.120268   ,  0.098936   ,  0.0732355  ,  2.62249    ])
+Iter time: 98.9993510246
+Iter time: 189.433713913
+Iter time: 324.092578888
+77      , -14987.7    , array([ 0.0582972  ,  0.0057907  ,  1.97031    ,  5.50501    ,  10.5128    ,  0.880482   ,  2.226      ,  0.118592   ,  0.0923302  ,  0.069832   ,  2.65049    ])
+Iter time: 113.732470989
+Iter time: 217.990324974
+Iter time: 372.028260946
+78      , -14605.3    , array([ 0.0592804  ,  0.00498374 ,  1.89634    ,  5.51893    ,  10.9065    ,  0.878897   ,  2.61066    ,  0.116769   ,  0.0866938  ,  0.0674386  ,  2.59944    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 137. Sum of data in those entries is 0.627832:
+Iter time: 171.238065004
+Iter time: 324.99193716
+Iter time: 553.694010019
+0.627832002206 9454.98941724
+79      , -13493      , array([ 0.0649212  ,  0.00346579 ,  1.8563     ,  5.73863    ,  10.7415    ,  0.875171   ,  5.32156    ,  0.103369   ,  0.0675724  ,  0.0572554  ,  2.37557    ])
+Iter time: 143.377922058
+Iter time: 269.425708055
+Iter time: 459.355473042
+80      , -13952.2    , array([ 0.0654178  ,  0.00398564 ,  1.96159    ,  5.58234    ,  11.3385    ,  0.876641   ,  3.57946    ,  0.111972   ,  0.0903943  ,  0.0627723  ,  2.50402    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 73. Sum of data in those entries is 0.190891:
+Iter time: 148.650613785
+Iter time: 281.563815117
+Iter time: 479.158387899
+0.19089131395 9454.98941724
+81      , -13605.9    , array([ 0.0627525  ,  0.00407616 ,  1.97845    ,  6.05651    ,  11.8013    ,  0.874757   ,  4.54533    ,  0.114934   ,  0.073912   ,  0.0783342  ,  2.46994    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 69. Sum of data in those entries is 0.187276:
+Iter time: 167.739547014
+Iter time: 319.084253073
+Iter time: 545.281750917
+0.187275550303 9454.98941724
+82      , -13575.4    , array([ 0.065462   ,  0.00336101 ,  1.96737    ,  5.67206    ,  11.1535    ,  0.877537   ,  4.5825     ,  0.112939   ,  0.0758815  ,  0.0617813  ,  2.39248    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 143. Sum of data in those entries is 0.631169:
+Iter time: 155.516823053
+Iter time: 292.957948923
+Iter time: 497.862468004
+0.631169149475 9454.98941724
+83      , -13461.6    , array([ 0.0486429  ,  0.00417603 ,  1.92054    ,  5.88001    ,  11.5762    ,  0.880063   ,  5.3042     ,  0.105453   ,  0.0760408  ,  0.0567024  ,  2.41472    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.839399:
+Iter time: 206.846201897
+Iter time: 389.078857899
+Iter time: 661.112844944
+0.839399053613 9454.98941724
+85      , -13252.1    , array([ 0.0624825  ,  0.00294071 ,  1.94317    ,  5.85489    ,  11.5002    ,  0.877084   ,  6.84305    ,  0.0949395  ,  0.0697762  ,  0.0590047  ,  2.29731    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 347. Sum of data in those entries is 0.918665:
+Iter time: 203.771247864
+Iter time: 382.331138849
+Iter time: 646.851397991
+0.918665263448 9454.98941724
+87      , -13498.7    , array([ 0.0657874  ,  0.0034871  ,  1.94867    ,  5.88583    ,  11.2891    ,  0.872802   ,  8.57178    ,  0.0963371  ,  0.0620414  ,  0.0553739  ,  2.20446    ])
+Iter time: 99.6019349098
+Iter time: 189.787578821
+Iter time: 324.545624018
+89      , -15027.2    , array([ 0.0556235  ,  0.00579967 ,  1.94338    ,  5.53548    ,  11.3569    ,  0.882491   ,  2.17383    ,  0.121026   ,  0.0953102  ,  0.0751385  ,  2.67501    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 394. Sum of data in those entries is 1.17466:
+Iter time: 225.265079021
+Iter time: 427.349987984
+Iter time: 723.275906801
+1.17465796668 9454.98941724
+90      , -13510.5    , array([ 0.0593983  ,  0.00285883 ,  1.9424     ,  6.20893    ,  10.2503    ,  0.874237   ,  8.77328    ,  0.0963362  ,  0.0641598  ,  0.057809   ,  2.21661    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 520. Sum of data in those entries is 1.78847:
+Iter time: 241.51485014
+Iter time: 453.264014959
+Iter time: 767.32359314
+1.78846697782 9454.98941724
+91      , -14263.6    , array([ 0.0752246  ,  0.00279896 ,  1.94035    ,  6.60488    ,  11.7148    ,  0.875457   ,  9.66963    ,  0.0972899  ,  0.0607139  ,  0.0549133  ,  2.25338    ])
+Iter time: 125.690937996
+Iter time: 239.297744989
+Iter time: 408.431849003
+93      , -14120      , array([ 0.0587447  ,  0.00465791 ,  1.9429     ,  5.7137     ,  11.2742    ,  0.879547   ,  3.32764    ,  0.113288   ,  0.0842031  ,  0.068052   ,  2.53025    ])
+Iter time: 126.907143116
+Iter time: 241.627609968
+Iter time: 414.690083981
+95      , -14073.6    , array([ 0.0601609  ,  0.00460848 ,  1.95507    ,  5.70759    ,  10.8816    ,  0.878502   ,  3.42943    ,  0.11191    ,  0.0825299  ,  0.065528   ,  2.51332    ])
+Iter time: 134.079855919
+Iter time: 255.324937105
+Iter time: 435.549155951
+97      , -13922.6    , array([ 0.0599588  ,  0.00439881 ,  1.94082    ,  5.92895    ,  11.2841    ,  0.877531   ,  3.73355    ,  0.111536   ,  0.0832563  ,  0.0646615  ,  2.48251    ])
+Iter time: 111.637987137
+Iter time: 213.254254818
+Iter time: 364.099164009
+98      , -14596.4    , array([ 0.0495461  ,  0.00507839 ,  1.9423     ,  5.15746    ,  10.6741    ,  0.877971   ,  2.55897    ,  0.116314   ,  0.0924982  ,  0.0704064  ,  2.55081    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 266. Sum of data in those entries is 0.609524:
+Iter time: 195.115902185
+Iter time: 368.007049084
+Iter time: 624.806276083
+0.609523862129 9454.98941724
+99      , -13496.7    , array([ 0.0677676  ,  0.00324847 ,  1.94084    ,  6.2088     ,  11.4455    ,  0.876085   ,  6.93543    ,  0.101732   ,  0.0674527  ,  0.0584334  ,  2.32432    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 347. Sum of data in those entries is 0.707826:
+Iter time: 224.431731939
+Iter time: 423.637462854
+Iter time: 719.635953903
+0.707825733784 9454.98941724
+100     , -13442.2    , array([ 0.0651153  ,  0.00285808 ,  1.93937    ,  6.05265    ,  11.1218    ,  0.873262   ,  8.4982     ,  0.0979539  ,  0.0640588  ,  0.0552607  ,  2.23689    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 500. Sum of data in those entries is 1.18257:
+Iter time: 248.463284969
+Iter time: 466.737228155
+Iter time: 790.515902042
+1.18257294711 9454.98941724
+101     , -13620.4    , array([ 0.064504   ,  0.0026484  ,  1.92448    ,  6.12414    ,  11.5688    ,  0.873349   ,  9.72514    ,  0.0967872  ,  0.0624151  ,  0.0556383  ,  2.20476    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 83. Sum of data in those entries is 0.19111:
+Iter time: 160.379703045
+Iter time: 304.273883104
+Iter time: 518.925364971
+0.19110980445 9454.98941724
+103     , -13540.5    , array([ 0.0637963  ,  0.00366282 ,  1.94893    ,  5.76914    ,  11.2894    ,  0.876132   ,  4.75794    ,  0.107238   ,  0.0792017  ,  0.0612283  ,  2.41384    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 108. Sum of data in those entries is 0.362338:
+Iter time: 158.013258934
+Iter time: 299.725531816
+Iter time: 512.052212954
+0.362337954257 9454.98941724
+105     , -14956.6    , array([ 0.061249   ,  0.0038161  ,  1.93895    ,  5.93817    ,  11.2625    ,  0.876513   ,  4.91312    ,  0.106838   ,  0.075838   ,  0.061989   ,  2.40039    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 310. Sum of data in those entries is 0.817756:
+Iter time: 214.687932968
+Iter time: 405.69718504
+Iter time: 688.069909096
+0.817756242878 9454.98941724
+106     , -13672.5    , array([ 0.0637853  ,  0.0028991  ,  1.94127    ,  5.95295    ,  11.3094    ,  0.875171   ,  7.62585    ,  0.0964349  ,  0.0668564  ,  0.057102   ,  2.2669     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 212. Sum of data in those entries is 1.07182:
+Iter time: 178.324854851
+Iter time: 337.019560099
+Iter time: 573.608195066
+1.0718204134 9454.98941724
+107     , -13300.6    , array([ 0.0551301  ,  0.00350435 ,  1.93183    ,  5.86743    ,  11.5382    ,  0.878572   ,  6.02469    ,  0.100058   ,  0.0728412  ,  0.0578421  ,  2.35528    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 207. Sum of data in those entries is 0.973897:
+Iter time: 187.541396856
+Iter time: 355.389450073
+Iter time: 607.241745949
+0.973897189175 9454.98941724
+108     , -13330.9    , array([ 0.0636902  ,  0.00319248 ,  1.89924    ,  5.79647    ,  11.1144    ,  0.876127   ,  6.03455    ,  0.0990648  ,  0.0686654  ,  0.0581235  ,  2.33611    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 260. Sum of data in those entries is 0.61703:
+Iter time: 200.38452816
+Iter time: 378.267784119
+Iter time: 642.513025999
+0.617029827474 9454.98941724
+109     , -13374.6    , array([ 0.0650714  ,  0.00309076 ,  1.942      ,  6.02925    ,  11.4728    ,  0.876584   ,  6.88909    ,  0.0982772  ,  0.0686046  ,  0.0587184  ,  2.31077    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 310. Sum of data in those entries is 0.817756:
+Iter time: 203.829771996
+Iter time: 384.450394154
+Iter time: 650.731463909
+0.817756242878 9454.98941724
+110     , -13450.1    , array([ 0.0641136  ,  0.00320227 ,  1.94592    ,  5.87034    ,  11.3941    ,  0.87494    ,  7.65879    ,  0.0956358  ,  0.0657952  ,  0.0571605  ,  2.25041    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 316. Sum of data in those entries is 0.847827:
+Iter time: 214.89948988
+Iter time: 406.270550013
+Iter time: 691.983572006
+0.84782653243 9454.98941724
+111     , -14070.2    , array([ 0.0609209  ,  0.00289948 ,  1.94278    ,  6.02931    ,  10.8573    ,  0.875659   ,  7.74829    ,  0.0956353  ,  0.0669091  ,  0.0584038  ,  2.2566     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 182. Sum of data in those entries is 0.732991:
+Iter time: 181.481666088
+Iter time: 343.683331013
+Iter time: 585.124466896
+0.73299072307 9454.98941724
+112     , -13336.8    , array([ 0.063136   ,  0.00328196 ,  1.94605    ,  5.81186    ,  11.3943    ,  0.876608   ,  5.70604    ,  0.100902   ,  0.0743397  ,  0.0601063  ,  2.35486    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 170. Sum of data in those entries is 0.576355:
+Iter time: 185.066179037
+Iter time: 351.239099979
+Iter time: 598.11636591
+0.576354611239 9454.98941724
+113     , -13549.1    , array([ 0.0639549  ,  0.00314384 ,  1.95523    ,  5.76275    ,  11.3255    ,  0.877311   ,  5.59985    ,  0.103549   ,  0.0727648  ,  0.060377   ,  2.34441    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 173. Sum of data in those entries is 0.579549:
+Iter time: 174.73728013
+Iter time: 330.821413994
+Iter time: 564.322129965
+0.579549310521 9454.98941724
+114     , -13926      , array([ 0.0626173  ,  0.0034622  ,  1.96073    ,  5.95484    ,  11.6498    ,  0.87592    ,  5.57709    ,  0.104459   ,  0.0718143  ,  0.067986   ,  2.38206    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 336. Sum of data in those entries is 0.870026:
+Iter time: 225.541207075
+Iter time: 425.556447029
+Iter time: 721.869806051
+0.870025745158 9454.98941724
+115     , -18122.1    , array([ 0.0634852  ,  0.00279073 ,  1.9338     ,  5.988      ,  11.5345    ,  0.875215   ,  8.1578     ,  0.0958589  ,  0.0659931  ,  0.0572968  ,  2.25056    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 117. Sum of data in those entries is 0.587558:
+Iter time: 166.032516003
+Iter time: 314.220996857
+Iter time: 535.699111223
+0.587558095799 9454.98941724
+116     , -13641.1    , array([ 0.0612076  ,  0.00359661 ,  1.942      ,  5.8918     ,  11.3917    ,  0.877308   ,  5.05459    ,  0.102904   ,  0.0762188  ,  0.0617684  ,  2.38812    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 108. Sum of data in those entries is 0.362338:
+Iter time: 163.525053978
+Iter time: 310.184669971
+Iter time: 528.563363791
+0.362337954257 9454.98941724
+117     , -14121.6    , array([ 0.061171   ,  0.00365318 ,  1.94796    ,  5.7981     ,  11.1822    ,  0.877747   ,  4.97133    ,  0.102672   ,  0.0749791  ,  0.0620403  ,  2.39489    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 174. Sum of data in those entries is 0.579549:
+Iter time: 178.177491903
+Iter time: 334.645214081
+Iter time: 568.726714134
+0.579549310521 9454.98941724
+118     , -14160.9    , array([ 0.0617415  ,  0.00341533 ,  1.94441    ,  5.845      ,  11.2693    ,  0.877113   ,  5.62662    ,  0.100925   ,  0.072624   ,  0.0608188  ,  2.35796    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 231. Sum of data in those entries is 0.6011:
+Iter time: 191.670082092
+Iter time: 362.370676994
+Iter time: 615.448945045
+0.601100263859 9454.98941724
+119     , -13526.2    , array([ 0.0586913  ,  0.00321018 ,  1.93749    ,  5.86116    ,  11.5192    ,  0.877828   ,  6.42085    ,  0.0974653  ,  0.0712922  ,  0.0584205  ,  2.32612    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 230. Sum of data in those entries is 0.6011:
+Iter time: 196.299321175
+Iter time: 371.826527834
+Iter time: 632.052117825
+0.601100263859 9454.98941724
+120     , -13469.2    , array([ 0.0630834  ,  0.00306401 ,  1.92108    ,  5.8256     ,  11.3056    ,  0.876605   ,  6.4261     ,  0.0969802  ,  0.0692186  ,  0.0585624  ,  2.31663    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 221. Sum of data in those entries is 0.646083:
+Iter time: 193.296975851
+Iter time: 367.124763012
+Iter time: 621.81128788
+0.646082926735 9454.98941724
+121     , -13400.9    , array([ 0.0628084  ,  0.00310666 ,  1.94461    ,  5.83333    ,  11.4471    ,  0.876846   ,  6.24874    ,  0.0978752  ,  0.0720218  ,  0.0595529  ,  2.32591    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 255. Sum of data in those entries is 0.684907:
+Iter time: 202.990993023
+Iter time: 384.510734797
+Iter time: 651.611232042
+0.684906777569 9454.98941724
+122     , -13298      , array([ 0.0637638  ,  0.0030148  ,  1.94259    ,  5.94143    ,  11.4865    ,  0.876834   ,  6.86603    ,  0.0965939  ,  0.0691879  ,  0.0588614  ,  2.30403    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 277. Sum of data in those entries is 0.590494:
+Iter time: 204.511813879
+Iter time: 385.687040806
+Iter time: 655.044734001
+0.590493505575 9454.98941724
+123     , -13574.9    , array([ 0.0632928  ,  0.00306871 ,  1.94455    ,  5.86261    ,  11.447     ,  0.876012   ,  7.23944    ,  0.095287   ,  0.0677565  ,  0.0580753  ,  2.27374    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 218. Sum of data in those entries is 0.623229:
+Iter time: 194.850407839
+Iter time: 371.159280062
+Iter time: 628.229876995
+0.623229204496 9454.98941724
+124     , -13287.9    , array([ 0.0632144  ,  0.00304058 ,  1.94919    ,  5.80863    ,  11.4125    ,  0.877197   ,  6.19032    ,  0.0991508  ,  0.0712548  ,  0.0596869  ,  2.32074    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 203. Sum of data in those entries is 0.953256:
+Iter time: 184.71185112
+Iter time: 349.149036884
+Iter time: 594.095927
+0.953255628905 9454.98941724
+125     , -13338.8    , array([ 0.0618418  ,  0.00325217 ,  1.94258    ,  5.87332    ,  11.4458    ,  0.877196   ,  5.88123    ,  0.0988415  ,  0.0729264  ,  0.0603707  ,  2.34227    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 277. Sum of data in those entries is 0.590494:
+Iter time: 210.134778023
+Iter time: 396.682290077
+Iter time: 674.241682053
+0.590493505575 9454.98941724
+126     , -13620.7    , array([ 0.0631305  ,  0.00291983 ,  1.94222    ,  5.90371    ,  11.4044    ,  0.876127   ,  7.22386    ,  0.0956843  ,  0.0683007  ,  0.0580456  ,  2.28206    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 220. Sum of data in those entries is 0.680482:
+Iter time: 189.728054047
+Iter time: 360.130192995
+Iter time: 609.286190987
+0.680481781773 9454.98941724
+127     , -13353.1    , array([ 0.0625499  ,  0.00319082 ,  1.95193    ,  5.90465    ,  11.5748    ,  0.876502   ,  6.17773    ,  0.0995858  ,  0.0707879  ,  0.0633363  ,  2.3393     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 285. Sum of data in those entries is 0.698537:
+Iter time: 210.32746911
+Iter time: 399.058803082
+Iter time: 675.644554853
+0.698537476143 9454.98941724
+128     , -14336      , array([ 0.0616967  ,  0.00292002 ,  1.94298    ,  5.94146    ,  11.1741    ,  0.876371   ,  7.28162    ,  0.0952867  ,  0.0683276  ,  0.0587035  ,  2.27686    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 300. Sum of data in those entries is 0.734957:
+Iter time: 215.123616934
+Iter time: 406.566283941
+Iter time: 689.798522949
+0.734957205646 9454.98941724
+129     , -20197.7    , array([ 0.0629818  ,  0.00286474 ,  1.93848    ,  5.92107    ,  11.5173    ,  0.876149   ,  7.47156    ,  0.0953981  ,  0.0678583  ,  0.0581445  ,  2.27381    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 193. Sum of data in those entries is 0.753893:
+Iter time: 183.052934885
+Iter time: 348.470297813
+Iter time: 589.885052204
+0.753892618821 9454.98941724
+130     , -13394.2    , array([ 0.0618232  ,  0.00327764 ,  1.94557    ,  5.82642    ,  11.3401    ,  0.877415   ,  5.83259    ,  0.0987302  ,  0.0723309  ,  0.0605035  ,  2.34559    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 187. Sum of data in those entries is 0.751904:
+Iter time: 182.985285044
+Iter time: 346.632926941
+Iter time: 588.99120903
+0.751904052288 9454.98941724
+131     , -13350.7    , array([ 0.0631345  ,  0.00328385 ,  1.94154    ,  5.78582    ,  11.7198    ,  0.877382   ,  5.74809    ,  0.0994856  ,  0.0725816  ,  0.0602573  ,  2.35515    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 168. Sum of data in those entries is 0.576315:
+Iter time: 178.162446022
+Iter time: 337.356090069
+Iter time: 574.255516052
+0.576314672588 9454.98941724
+132     , -13636.4    , array([ 0.0617013  ,  0.00335497 ,  1.94217    ,  5.8015     ,  11.5402    ,  0.877856   ,  5.55824    ,  0.0997765  ,  0.0734172  ,  0.061356   ,  2.3633     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.835073:
+Iter time: 201.657280922
+Iter time: 381.633865833
+Iter time: 648.449396849
+0.83507313626 9454.98941724
+133     , -13586.1    , array([ 0.0627701  ,  0.00302302 ,  1.94221    ,  5.87799    ,  11.4382    ,  0.876559   ,  6.76568    ,  0.0966913  ,  0.0695454  ,  0.0588561  ,  2.3021     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 205. Sum of data in those entries is 0.95448:
+Iter time: 185.44592905
+Iter time: 351.311424017
+Iter time: 597.604568958
+0.954479820308 9454.98941724
+134     , -13328      , array([ 0.0620555  ,  0.00324045 ,  1.94218    ,  5.82689    ,  11.5061    ,  0.877423   ,  5.93465    ,  0.0987373  ,  0.0721032  ,  0.0605111  ,  2.34272    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 145. Sum of data in those entries is 0.56681:
+Iter time: 180.560410023
+Iter time: 342.427608013
+Iter time: 583.106563091
+0.566810148355 9454.98941724
+135     , -13469.6    , array([ 0.0613226  ,  0.00322397 ,  1.93942    ,  5.83569    ,  11.508     ,  0.878228   ,  5.34945    ,  0.100843   ,  0.0748483  ,  0.0617845  ,  2.38487    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 194. Sum of data in those entries is 0.753893:
+Iter time: 189.718501091
+Iter time: 359.742675066
+Iter time: 615.783009052
+0.753892618821 9454.98941724
+136     , -13397.6    , array([ 0.0666599  ,  0.00308429 ,  1.94683    ,  5.83251    ,  11.4339    ,  0.876484   ,  5.83454    ,  0.0992013  ,  0.0717685  ,  0.0620477  ,  2.34177    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 269. Sum of data in those entries is 0.609265:
+Iter time: 204.173933029
+Iter time: 385.728537083
+Iter time: 655.878404856
+0.609265083739 9454.98941724
+137     , -13267.4    , array([ 0.064775   ,  0.00304647 ,  1.94625    ,  5.85739    ,  11.4316    ,  0.875768   ,  7.11449    ,  0.0955934  ,  0.0678385  ,  0.0587148  ,  2.27651    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 213. Sum of data in those entries is 1.07182:
+Iter time: 187.886987925
+Iter time: 355.480273008
+Iter time: 604.666007996
+1.0718204134 9454.98941724
+138     , -13310.8    , array([ 0.0632706  ,  0.00320217 ,  1.96948    ,  5.87334    ,  11.6597    ,  0.877236   ,  6.03311    ,  0.0991405  ,  0.0730879  ,  0.0619745  ,  2.33614    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 218. Sum of data in those entries is 0.623229:
+Iter time: 190.140150785
+Iter time: 359.334352016
+Iter time: 612.638511896
+0.623229204496 9454.98941724
+139     , -13345.8    , array([ 0.0636325  ,  0.00317565 ,  1.95015    ,  5.87285    ,  11.5541    ,  0.877067   ,  6.16487    ,  0.0984637  ,  0.0704311  ,  0.061387   ,  2.32868    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 244. Sum of data in those entries is 0.85356:
+Iter time: 193.852667093
+Iter time: 366.500937939
+Iter time: 622.204380989
+0.853560289024 9454.98941724
+140     , -13914.3    , array([ 0.0594513  ,  0.0032157  ,  1.94853    ,  5.88104    ,  11.5895    ,  0.877535   ,  6.66896    ,  0.0970156  ,  0.0704383  ,  0.0588042  ,  2.31055    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 213. Sum of data in those entries is 1.07182:
+Iter time: 190.499752045
+Iter time: 361.226037979
+Iter time: 614.09591794
+1.0718204134 9454.98941724
+141     , -13309      , array([ 0.0647797  ,  0.00311663 ,  1.94725    ,  5.84461    ,  11.4726    ,  0.876747   ,  6.03281    ,  0.0986503  ,  0.0714336  ,  0.0612205  ,  2.33393    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.841483:
+Iter time: 202.352832079
+Iter time: 382.575791121
+Iter time: 650.048633099
+0.841483002632 9454.98941724
+142     , -13956      , array([ 0.0646492  ,  0.00299841 ,  1.9501     ,  5.89052    ,  11.7101    ,  0.876482   ,  6.71225    ,  0.0974643  ,  0.0697322  ,  0.0604344  ,  2.3047     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 214. Sum of data in those entries is 1.07182:
+Iter time: 187.519572973
+Iter time: 355.774414062
+Iter time: 604.633563042
+1.0718204134 9454.98941724
+143     , -13311.3    , array([ 0.0625179  ,  0.00320549 ,  1.9467     ,  5.84238    ,  11.4315    ,  0.877182   ,  6.04106    ,  0.0984122  ,  0.0716723  ,  0.0604862  ,  2.3353     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 222. Sum of data in those entries is 0.647399:
+Iter time: 194.998080969
+Iter time: 368.67246604
+Iter time: 627.514194012
+0.647399490649 9454.98941724
+144     , -13365.8    , array([ 0.0638922  ,  0.00308257 ,  1.94279    ,  5.80128    ,  11.4467    ,  0.87752    ,  6.31152    ,  0.0964188  ,  0.0714132  ,  0.05725    ,  2.31018    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 222. Sum of data in those entries is 0.646083:
+Iter time: 190.905013084
+Iter time: 361.241523981
+Iter time: 614.041099072
+0.646082926735 9454.98941724
+145     , -13343.4    , array([ 0.0628828  ,  0.0031634  ,  1.94964    ,  5.87864    ,  11.5426    ,  0.876756   ,  6.21091    ,  0.0987844  ,  0.0709437  ,  0.0617566  ,  2.33199    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 256. Sum of data in those entries is 0.684899:
+Iter time: 204.084240198
+Iter time: 386.053699017
+Iter time: 658.589082003
+0.684899300963 9454.98941724
+146     , -13298.9    , array([ 0.0632546  ,  0.00297496 ,  1.95468    ,  5.93759    ,  11.2738    ,  0.876525   ,  6.87946    ,  0.0963919  ,  0.06936    ,  0.0604449  ,  2.29051    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 234. Sum of data in those entries is 0.611465:
+Iter time: 198.464213848
+Iter time: 376.142407179
+Iter time: 639.425697088
+0.611464738807 9454.98941724
+147     , -13847.9    , array([ 0.0626917  ,  0.00304003 ,  1.94686    ,  5.86128    ,  11.3845    ,  0.876742   ,  6.54356    ,  0.0970165  ,  0.0712789  ,  0.0591659  ,  2.30959    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 220. Sum of data in those entries is 0.64518:
+Iter time: 192.128005028
+Iter time: 363.362422943
+Iter time: 619.060157061
+0.645179887816 9454.98941724
+148     , -13435.2    , array([ 0.0633959  ,  0.00314118 ,  1.94933    ,  5.86995    ,  11.5115    ,  0.876986   ,  6.25744    ,  0.0980999  ,  0.0706421  ,  0.060824   ,  2.3239     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 260. Sum of data in those entries is 0.604164:
+Iter time: 204.801952839
+Iter time: 387.139467955
+Iter time: 657.829427958
+0.60416356253 9454.98941724
+149     , -13565.9    , array([ 0.0636184  ,  0.00299312 ,  1.94471    ,  5.85614    ,  11.4659    ,  0.876426   ,  6.97745    ,  0.0952659  ,  0.0688005  ,  0.0588596  ,  2.28689    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 237. Sum of data in those entries is 0.614924:
+Iter time: 200.295505047
+Iter time: 379.049604893
+Iter time: 644.899840117
+0.614924319542 9454.98941724
+150     , -13513.2    , array([ 0.0628474  ,  0.00299023 ,  1.94618    ,  5.83172    ,  11.4563    ,  0.877141   ,  6.50851    ,  0.0970223  ,  0.0705116  ,  0.0593449  ,  2.309      ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.836538:
+Iter time: 204.354313135
+Iter time: 387.763977051
+Iter time: 658.813584805
+0.836538498662 9454.98941724
+151     , -13269.8    , array([ 0.0631199  ,  0.00297753 ,  1.94288    ,  5.898      ,  11.4934    ,  0.876959   ,  6.85453    ,  0.0957631  ,  0.0694814  ,  0.058933   ,  2.30067    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.836538:
+Iter time: 205.347249031
+Iter time: 388.08248806
+Iter time: 658.850716114
+0.836538498662 9454.98941724
+152     , -13270.7    , array([ 0.0628674  ,  0.00295779 ,  1.94892    ,  5.89609    ,  11.3865    ,  0.876804   ,  6.86123    ,  0.095663   ,  0.0695678  ,  0.0597205  ,  2.29391    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 231. Sum of data in those entries is 0.6011:
+Iter time: 197.952776194
+Iter time: 375.704263926
+Iter time: 637.594508886
+0.601100263859 9454.98941724
+153     , -13501.7    , array([ 0.0636207  ,  0.00302739 ,  1.94521    ,  5.84974    ,  11.4864    ,  0.876915   ,  6.42517    ,  0.0967771  ,  0.0706     ,  0.0601024  ,  2.31555    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 231. Sum of data in those entries is 0.6011:
+Iter time: 196.391146898
+Iter time: 371.899416924
+Iter time: 632.410307884
+0.601100263859 9454.98941724
+154     , -13532.7    , array([ 0.0628753  ,  0.00306866 ,  1.95628    ,  5.8641     ,  11.5797    ,  0.87716    ,  6.42533    ,  0.0970173  ,  0.0714128  ,  0.0604714  ,  2.31665    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 231. Sum of data in those entries is 0.6011:
+Iter time: 196.520506859
+Iter time: 371.786942005
+Iter time: 635.05598712
+0.601100263859 9454.98941724
+155     , -13527.5    , array([ 0.0625002  ,  0.00307025 ,  1.94494    ,  5.84863    ,  11.4658    ,  0.877133   ,  6.42956    ,  0.0966602  ,  0.0707179  ,  0.0597409  ,  2.31623    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 230. Sum of data in those entries is 0.647407:
+Iter time: 195.533582926
+Iter time: 369.429876089
+Iter time: 628.340416908
+0.647407163757 9454.98941724
+156     , -13328.9    , array([ 0.0622686  ,  0.00308695 ,  1.94268    ,  5.84087    ,  11.5032    ,  0.877254   ,  6.37269    ,  0.0968198  ,  0.0709301  ,  0.0597532  ,  2.31991    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 225. Sum of data in those entries is 0.647407:
+Iter time: 194.602663994
+Iter time: 368.393827915
+Iter time: 627.899322033
+0.647407137011 9454.98941724
+157     , -13303.8    , array([ 0.0621613  ,  0.00309252 ,  1.94288    ,  5.8641     ,  11.473     ,  0.87714    ,  6.34394    ,  0.0968708  ,  0.0713339  ,  0.0596838  ,  2.31968    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 236. Sum of data in those entries is 0.608991:
+Iter time: 198.940046072
+Iter time: 374.608819962
+Iter time: 636.792263985
+0.608991163647 9454.98941724
+158     , -13378.7    , array([ 0.0626823  ,  0.00305003 ,  1.94641    ,  5.86675    ,  11.5214    ,  0.87692    ,  6.51932    ,  0.0968429  ,  0.0703575  ,  0.060365   ,  2.31458    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 235. Sum of data in those entries is 0.610821:
+Iter time: 197.893946171
+Iter time: 374.006317854
+Iter time: 635.600007057
+0.610820857056 9454.98941724
+159     , -13295.6    , array([ 0.0630548  ,  0.00305592 ,  1.94666    ,  5.86386    ,  11.5271    ,  0.877075   ,  6.49511    ,  0.0966855  ,  0.0701029  ,  0.0601841  ,  2.31294    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 219. Sum of data in those entries is 0.848079:
+Iter time: 194.175257921
+Iter time: 367.04422617
+Iter time: 624.614048004
+0.848078681454 9454.98941724
+160     , -13328.2    , array([ 0.0619323  ,  0.00306424 ,  1.94732    ,  5.86721    ,  11.5145    ,  0.877681   ,  6.14845    ,  0.0976649  ,  0.0721039  ,  0.0606598  ,  2.33449    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 242. Sum of data in those entries is 0.682101:
+Iter time: 201.339324951
+Iter time: 380.824543953
+Iter time: 649.311998129
+0.682101058547 9454.98941724
+161     , -13483.1    , array([ 0.0624923  ,  0.00298803 ,  1.93419    ,  5.8598     ,  11.3897    ,  0.877041   ,  6.62352    ,  0.0960179  ,  0.0695881  ,  0.0590764  ,  2.30772    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 244. Sum of data in those entries is 0.76003:
+Iter time: 202.392901897
+Iter time: 382.992709875
+Iter time: 652.601867914
+0.760029598249 9454.98941724
+162     , -13721      , array([ 0.0628659  ,  0.00297178 ,  1.94351    ,  5.87735    ,  11.4889    ,  0.877051   ,  6.65502    ,  0.0962558  ,  0.0700664  ,  0.0596773  ,  2.30659    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 235. Sum of data in those entries is 0.614891:
+Iter time: 197.862683058
+Iter time: 374.321788073
+Iter time: 636.887343168
+0.614890891857 9454.98941724
+163     , -13282.6    , array([ 0.0625914  ,  0.00304533 ,  1.94458    ,  5.8558     ,  11.4716    ,  0.877113   ,  6.4852     ,  0.0965589  ,  0.0705544  ,  0.059725   ,  2.31382    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.632104:
+Iter time: 198.189125061
+Iter time: 374.955536127
+Iter time: 636.998266935
+0.632103874732 9454.98941724
+164     , -13402.9    , array([ 0.0624723  ,  0.00306145 ,  1.94198    ,  5.89881    ,  11.5012    ,  0.877039   ,  6.57001    ,  0.0958131  ,  0.0702791  ,  0.0601453  ,  2.3147     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.840635:
+Iter time: 200.347699165
+Iter time: 379.005528927
+Iter time: 644.123618841
+0.84063479763 9454.98941724
+165     , -14215.9    , array([ 0.0615088  ,  0.00303002 ,  1.94235    ,  5.88957    ,  11.4737    ,  0.877286   ,  6.68226    ,  0.0958812  ,  0.070133   ,  0.0593949  ,  2.308      ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 236. Sum of data in those entries is 0.614924:
+Iter time: 198.634316921
+Iter time: 375.656918049
+Iter time: 638.718112946
+0.614924319542 9454.98941724
+166     , -13286.2    , array([ 0.063086   ,  0.00302805 ,  1.9445     ,  5.85968    ,  11.4832    ,  0.877008   ,  6.4885     ,  0.0965524  ,  0.070483   ,  0.0599247  ,  2.31366    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 234. Sum of data in those entries is 0.601069:
+Iter time: 196.598130941
+Iter time: 371.820573092
+Iter time: 631.686010122
+0.601068538909 9454.98941724
+167     , -13272.7    , array([ 0.0627272  ,  0.00307738 ,  1.95532    ,  5.87944    ,  11.5884    ,  0.877155   ,  6.45793    ,  0.0967369  ,  0.0713184  ,  0.0605833  ,  2.3169     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 235. Sum of data in those entries is 0.615551:
+Iter time: 199.273516893
+Iter time: 377.083875895
+Iter time: 642.007212877
+0.615551183045 9454.98941724
+168     , -13272.8    , array([ 0.0627938  ,  0.00300641 ,  1.9499     ,  5.83706    ,  11.4918    ,  0.877178   ,  6.49018    ,  0.0971129  ,  0.0708059  ,  0.0595852  ,  2.31032    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 234. Sum of data in those entries is 0.611432:
+Iter time: 200.083812952
+Iter time: 378.897881031
+Iter time: 642.719896078
+0.611432367338 9454.98941724
+169     , -13616.4    , array([ 0.0626037  ,  0.00300978 ,  1.9461     ,  5.86355    ,  11.4663    ,  0.877344   ,  6.53532    ,  0.096129   ,  0.0708087  ,  0.0592281  ,  2.30966    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 235. Sum of data in those entries is 0.594729:
+Iter time: 198.48337388
+Iter time: 375.44433403
+Iter time: 638.661691189
+0.59472870415 9454.98941724
+170     , -13414.1    , array([ 0.0626626  ,  0.00303991 ,  1.94633    ,  5.86595    ,  11.5076    ,  0.877026   ,  6.52332    ,  0.0966639  ,  0.07047    ,  0.0600787  ,  2.31335    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.14659214
+Iter time: 387.390212059
+Iter time: 659.031942844
+0.838173124441 9454.98941724
+171     , -13259.7    , array([ 0.0628004  ,  0.00295906 ,  1.94303    ,  5.8764     ,  11.4968    ,  0.877022   ,  6.84879    ,  0.0953504  ,  0.0696286  ,  0.0589689  ,  2.29899    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.283761978
+Iter time: 388.287946939
+Iter time: 659.899680138
+0.838173124441 9454.98941724
+172     , -13259.5    , array([ 0.0626746  ,  0.00294924 ,  1.94604    ,  5.87545    ,  11.4432    ,  0.876944   ,  6.85214    ,  0.0953005  ,  0.0696719  ,  0.0593615  ,  2.29561    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 243. Sum of data in those entries is 0.747157:
+Iter time: 200.894689798
+Iter time: 380.178328991
+Iter time: 647.22813201
+0.747156684978 9454.98941724
+173     , -13607.7    , array([ 0.0626047  ,  0.00300827 ,  1.94924    ,  5.86715    ,  11.5442    ,  0.877119   ,  6.6477     ,  0.095834   ,  0.0705431  ,  0.0597888  ,  2.30708    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.760023:
+Iter time: 202.401928902
+Iter time: 382.922675848
+Iter time: 651.40149188
+0.760023030977 9454.98941724
+174     , -13610.9    , array([ 0.0626379  ,  0.00297338 ,  1.94653    ,  5.84597    ,  11.496     ,  0.877131   ,  6.66428    ,  0.0960201  ,  0.0702891  ,  0.0592942  ,  2.30381    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.760023:
+Iter time: 201.77534008
+Iter time: 381.68126297
+Iter time: 648.786062002
+0.760023030977 9454.98941724
+175     , -13643.6    , array([ 0.0625369  ,  0.00299256 ,  1.94388    ,  5.85534    ,  11.4859    ,  0.877098   ,  6.66172    ,  0.0957458  ,  0.0701642  ,  0.0593637  ,  2.30555    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.760023:
+Iter time: 202.126871109
+Iter time: 382.203182936
+Iter time: 650.170634985
+0.760023030977 9454.98941724
+176     , -13664.9    , array([ 0.0627835  ,  0.00298406 ,  1.94384    ,  5.85728    ,  11.4917    ,  0.877046   ,  6.66342    ,  0.0957425  ,  0.0701287  ,  0.0594629  ,  2.30547    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 242. Sum of data in those entries is 0.760023:
+Iter time: 201.717982054
+Iter time: 402.164086103
+Iter time: 759.967224121
+0.760023030977 9454.98941724
+177     , -13701.6    , array([ 0.062768   ,  0.00299776 ,  1.94491    ,  5.85937    ,  11.5137    ,  0.87708    ,  6.66681    ,  0.0958085  ,  0.0699393  ,  0.0595915  ,  2.30511    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 239. Sum of data in those entries is 0.631797:
+Iter time: 200.379726171
+Iter time: 378.34175086
+Iter time: 643.600006104
+0.631797408976 9454.98941724
+178     , -13394.8    , array([ 0.0623217  ,  0.00301566 ,  1.94303    ,  5.85949    ,  11.4866    ,  0.877112   ,  6.58877    ,  0.0959003  ,  0.0705507  ,  0.0593433  ,  2.30847    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 236. Sum of data in those entries is 0.614924:
+Iter time: 199.635748148
+Iter time: 379.04502511
+Iter time: 642.913003922
+0.614924319542 9454.98941724
+179     , -13286.3    , array([ 0.0622068  ,  0.00300184 ,  1.94525    ,  5.86105    ,  11.5074    ,  0.877383   ,  6.48646    ,  0.0962925  ,  0.0709305  ,  0.0598265  ,  2.31583    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 239. Sum of data in those entries is 0.63179:
+Iter time: 200.387193918
+Iter time: 378.991748095
+Iter time: 644.74591589
+0.631789804831 9454.98941724
+180     , -13422.7    , array([ 0.0623755  ,  0.00301294 ,  1.94293    ,  5.84788    ,  11.5017    ,  0.877169   ,  6.60368    ,  0.095875   ,  0.0703508  ,  0.0593778  ,  2.30858    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 243. Sum of data in those entries is 0.760023:
+Iter time: 202.002387047
+Iter time: 381.738193989
+Iter time: 650.059881926
+0.760023030977 9454.98941724
+181     , -13830.4    , array([ 0.0625823  ,  0.00299487 ,  1.94479    ,  5.86082    ,  11.5108    ,  0.877002   ,  6.67923    ,  0.0958864  ,  0.0700662  ,  0.059681   ,  2.30593    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 242. Sum of data in those entries is 0.841169:
+Iter time: 202.728020906
+Iter time: 383.395771027
+Iter time: 651.832497835
+0.841169193367 9454.98941724
+182     , -13925.1    , array([ 0.062543   ,  0.00297504 ,  1.94463    ,  5.85922    ,  11.4832    ,  0.877214   ,  6.68742    ,  0.0955324  ,  0.0702905  ,  0.0591163  ,  2.30348    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 243. Sum of data in those entries is 0.760023:
+Iter time: 202.025921822
+Iter time: 382.166821957
+Iter time: 649.701697826
+0.760023030977 9454.98941724
+183     , -13852.8    , array([ 0.0625725  ,  0.0029899  ,  1.94475    ,  5.86042    ,  11.5039    ,  0.877055   ,  6.68127    ,  0.0957978  ,  0.0701222  ,  0.0595393  ,  2.30532    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.323629141
+Iter time: 388.536254883
+Iter time: 660.816210985
+0.838173124441 9454.98941724
+184     , -13256.2    , array([ 0.0625785  ,  0.00294497 ,  1.94461    ,  5.86516    ,  11.4717    ,  0.877014   ,  6.84759    ,  0.0951198  ,  0.069724   ,  0.0591829  ,  2.29646    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.278636932
+Iter time: 388.206241131
+Iter time: 659.849777937
+0.838173124441 9454.98941724
+185     , -13255.9    , array([ 0.0626412  ,  0.00294987 ,  1.9431     ,  5.86564    ,  11.4985    ,  0.877053   ,  6.84592    ,  0.0951447  ,  0.0697024  ,  0.0589868  ,  2.29815    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 241. Sum of data in those entries is 0.760023:
+Iter time: 202.652392864
+Iter time: 383.246190071
+Iter time: 651.62048316
+0.760023030977 9454.98941724
+186     , -13659.4    , array([ 0.0623445  ,  0.00297112 ,  1.94421    ,  5.85797    ,  11.5038    ,  0.877233   ,  6.66237    ,  0.0956136  ,  0.070351   ,  0.0594142  ,  2.30655    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 244. Sum of data in those entries is 0.840211:
+Iter time: 203.214365959
+Iter time: 384.468620777
+Iter time: 652.400547981
+0.840211389516 9454.98941724
+187     , -13835      , array([ 0.062402   ,  0.00297795 ,  1.9431     ,  5.85719    ,  11.4934    ,  0.877098   ,  6.71471    ,  0.0954187  ,  0.0701624  ,  0.0591738  ,  2.30288    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 244. Sum of data in those entries is 0.840277:
+Iter time: 203.023807049
+Iter time: 383.967395067
+Iter time: 652.542284966
+0.840276966068 9454.98941724
+188     , -13858.7    , array([ 0.0624289  ,  0.00297661 ,  1.94305    ,  5.85138    ,  11.5009    ,  0.877126   ,  6.7223     ,  0.0954061  ,  0.0700629  ,  0.059191   ,  2.30294    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.835039:
+Iter time: 203.524097919
+Iter time: 384.82683897
+Iter time: 635.924243927
+0.835039403036 9454.98941724
+189     , -14086.9    , array([ 0.0625436  ,  0.0029743  ,  1.9462     ,  5.86102    ,  11.5222    ,  0.877102   ,  6.74467    ,  0.0953857  ,  0.0701586  ,  0.0593955  ,  2.30219    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 203.947936058
+Iter time: 385.984995127
+Iter time: 657.730320215
+0.83507313626 9454.98941724
+190     , -13972.7    , array([ 0.0625602  ,  0.002957   ,  1.94485    ,  5.85043    ,  11.4981    ,  0.877108   ,  6.75307    ,  0.0954782  ,  0.0700322  ,  0.0591493  ,  2.30056    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 203.556039095
+Iter time: 385.106030941
+Iter time: 654.717314005
+0.83507313626 9454.98941724
+191     , -13991.5    , array([ 0.0625097  ,  0.00296652 ,  1.94352    ,  5.85512    ,  11.493     ,  0.877091   ,  6.75178    ,  0.0953418  ,  0.0699699  ,  0.059184   ,  2.30143    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 203.87441802
+Iter time: 385.855125904
+Iter time: 655.775117874
+0.83507313626 9454.98941724
+192     , -14002.7    , array([ 0.0626328  ,  0.00296231 ,  1.9435     ,  5.85608    ,  11.496     ,  0.877065   ,  6.75264    ,  0.0953401  ,  0.0699522  ,  0.0592334  ,  2.30139    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 203.567363977
+Iter time: 385.094496012
+Iter time: 654.746180058
+0.83507313626 9454.98941724
+193     , -14022.7    , array([ 0.0626251  ,  0.0029691  ,  1.94404    ,  5.85713    ,  11.5069    ,  0.877082   ,  6.75436    ,  0.095373   ,  0.0698577  ,  0.0592974  ,  2.30121    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.835073:
+Iter time: 203.673742056
+Iter time: 385.246250868
+Iter time: 654.824906111
+0.83507313626 9454.98941724
+194     , -14080.6    , array([ 0.0625324  ,  0.00296767 ,  1.94398    ,  5.85785    ,  11.5055    ,  0.877043   ,  6.76064    ,  0.0954118  ,  0.0699211  ,  0.0593419  ,  2.30162    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.835073:
+Iter time: 204.704190016
+Iter time: 386.982120991
+Iter time: 658.051424026
+0.835072870084 9454.98941724
+195     , -13682.9    , array([ 0.0624995  ,  0.00295004 ,  1.94128    ,  5.85332    ,  11.472     ,  0.87708    ,  6.78372    ,  0.0952663  ,  0.0697528  ,  0.0589975  ,  2.29971    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.835073:
+Iter time: 204.340341091
+Iter time: 386.553041935
+Iter time: 657.147549868
+0.83507313626 9454.98941724
+196     , -13603.1    , array([ 0.0625047  ,  0.00295343 ,  1.94301    ,  5.85565    ,  11.4826    ,  0.877145   ,  6.77189    ,  0.0952138  ,  0.0699591  ,  0.0589883  ,  2.29994    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.835073:
+Iter time: 204.797029018
+Iter time: 388.017871141
+Iter time: 657.94473815
+0.835072870084 9454.98941724
+197     , -13665.6    , array([ 0.0623904  ,  0.00294916 ,  1.94276    ,  5.85611    ,  11.4768    ,  0.877118   ,  6.78139    ,  0.0952236  ,  0.070041   ,  0.0589766  ,  2.30012    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.835073:
+Iter time: 204.410185099
+Iter time: 386.73932004
+Iter time: 657.750941992
+0.835072870084 9454.98941724
+198     , -13671.7    , array([ 0.0623387  ,  0.00295353 ,  1.94316    ,  5.85716    ,  11.4842    ,  0.877144   ,  6.78836    ,  0.0952352  ,  0.0699625  ,  0.0589937  ,  2.29971    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.835073:
+Iter time: 204.725816011
+Iter time: 387.637346029
+Iter time: 660.182163954
+0.835072870084 9454.98941724
+199     , -13755.2    , array([ 0.0624304  ,  0.00294698 ,  1.94308    ,  5.8585     ,  11.4855    ,  0.877127   ,  6.79589    ,  0.0952142  ,  0.0699434  ,  0.0590084  ,  2.29936    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.835069:
+Iter time: 204.507050991
+Iter time: 386.98342514
+Iter time: 657.747854948
+0.835068814879 9454.98941724
+200     , -13645.4    , array([ 0.0623565  ,  0.00295465 ,  1.94143    ,  5.86466    ,  11.4782    ,  0.877115   ,  6.8024     ,  0.0950302  ,  0.0698651  ,  0.0590173  ,  2.30001    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.930537939
+Iter time: 390.375299931
+Iter time: 662.256149054
+0.838173124441 9454.98941724
+201     , -13257.3    , array([ 0.0624743  ,  0.00293124 ,  1.94293    ,  5.86612    ,  11.4712    ,  0.877094   ,  6.84827    ,  0.0950339  ,  0.0697986  ,  0.0589443  ,  2.2971     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 251. Sum of data in those entries is 0.836539:
+Iter time: 206.831043005
+Iter time: 391.895236015
+Iter time: 665.283313036
+0.836538677272 9454.98941724
+202     , -13278.6    , array([ 0.0625145  ,  0.00292151 ,  1.94285    ,  5.86193    ,  11.4747    ,  0.877121   ,  6.88062    ,  0.0949515  ,  0.0696338  ,  0.0589198  ,  2.2961     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.84091:
+Iter time: 205.509124994
+Iter time: 388.166472912
+Iter time: 659.525211811
+0.840910340579 9454.98941724
+203     , -13651.2    , array([ 0.0625013  ,  0.00294755 ,  1.94284    ,  5.86125    ,  11.4806    ,  0.877091   ,  6.81375    ,  0.0951077  ,  0.0697955  ,  0.0590688  ,  2.29903    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.836629:
+Iter time: 205.45992589
+Iter time: 388.349833965
+Iter time: 660.530646801
+0.836629288245 9454.98941724
+204     , -13250.3    , array([ 0.0624326  ,  0.00294405 ,  1.94491    ,  5.86788    ,  11.4957    ,  0.877141   ,  6.83146    ,  0.0950269  ,  0.069994   ,  0.0590926  ,  2.29855    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.894425869
+Iter time: 389.083767891
+Iter time: 661.781069994
+0.838173124441 9454.98941724
+205     , -13262.2    , array([ 0.0623991  ,  0.00294106 ,  1.94673    ,  5.87517    ,  11.5075    ,  0.877171   ,  6.85545    ,  0.0949075  ,  0.0701149  ,  0.0591403  ,  2.29798    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.838173:
+Iter time: 205.421223879
+Iter time: 388.780989885
+Iter time: 661.019785881
+0.838173124441 9454.98941724
+206     , -13251.4    , array([ 0.0626107  ,  0.00293884 ,  1.94335    ,  5.86598    ,  11.4856    ,  0.877076   ,  6.83466    ,  0.0950201  ,  0.0697899  ,  0.0591145  ,  2.29835    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.592033148
+Iter time: 388.967340946
+Iter time: 661.401944876
+0.838173124441 9454.98941724
+207     , -13259      , array([ 0.062599   ,  0.00294133 ,  1.94386    ,  5.86883    ,  11.4947    ,  0.877094   ,  6.85142    ,  0.0949948  ,  0.0696662  ,  0.0591568  ,  2.29762    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 259. Sum of data in those entries is 0.600738:
+Iter time: 208.346540928
+Iter time: 393.822643995
+Iter time: 669.701726198
+0.600737980806 9454.98941724
+208     , -13724.6    , array([ 0.0626915  ,  0.00291425 ,  1.94235    ,  5.86894    ,  11.466     ,  0.876953   ,  7.00938    ,  0.0944956  ,  0.069236   ,  0.0586747  ,  2.28959    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 204.4462111
+Iter time: 386.305729866
+Iter time: 656.33001709
+0.83507313626 9454.98941724
+209     , -14111.8    , array([ 0.062431   ,  0.0029568  ,  1.94374    ,  5.86071    ,  11.4943    ,  0.877163   ,  6.74748    ,  0.0953329  ,  0.0700705  ,  0.0592285  ,  2.3023     ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.836629:
+Iter time: 205.451761007
+Iter time: 388.585991144
+Iter time: 661.131966114
+0.836629288245 9454.98941724
+210     , -13250.8    , array([ 0.0625216  ,  0.00294145 ,  1.94413    ,  5.86693    ,  11.4906    ,  0.877108   ,  6.83306    ,  0.0950235  ,  0.0698919  ,  0.0591036  ,  2.29845    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.839399:
+Iter time: 205.506650925
+Iter time: 388.876908064
+Iter time: 655.888947964
+0.839399053613 9454.98941724
+211     , -13251.6    , array([ 0.0624575  ,  0.00294238 ,  1.94404    ,  5.86138    ,  11.4979    ,  0.877112   ,  6.83725    ,  0.0949832  ,  0.069885   ,  0.0590487  ,  2.29793    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.303232193
+Iter time: 388.339583158
+Iter time: 660.01729393
+0.838173124441 9454.98941724
+212     , -13253.4    , array([ 0.0625368  ,  0.00294696 ,  1.94401    ,  5.86676    ,  11.4971    ,  0.877097   ,  6.83869    ,  0.0950858  ,  0.069848   ,  0.0590397  ,  2.29835    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.397541046
+Iter time: 388.536872149
+Iter time: 660.298403978
+0.838173124441 9454.98941724
+213     , -13252.9    , array([ 0.0625055  ,  0.00294451 ,  1.94476    ,  5.86652    ,  11.4837    ,  0.877077   ,  6.83952    ,  0.0950734  ,  0.0698589  ,  0.0591377  ,  2.29751    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.644448996
+Iter time: 389.119328022
+Iter time: 661.625072002
+0.838173124441 9454.98941724
+214     , -13253.4    , array([ 0.0624534  ,  0.00293764 ,  1.94392    ,  5.867      ,  11.4834    ,  0.877117   ,  6.83986    ,  0.0950304  ,  0.0698962  ,  0.0590184  ,  2.29783    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 205.488142967
+Iter time: 388.544013023
+Iter time: 660.600467205
+0.838173124441 9454.98941724
+215     , -13255      , array([ 0.0625157  ,  0.00294269 ,  1.94439    ,  5.86835    ,  11.4952    ,  0.877117   ,  6.84143    ,  0.0950108  ,  0.0698299  ,  0.0591247  ,  2.29809    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.838173:
+Iter time: 206.076111794
+Iter time: 389.696011066
+Iter time: 662.419284105
+0.838173124441 9454.98941724
+216     , -13260.2    , array([ 0.0624735  ,  0.00293276 ,  1.94388    ,  5.8649     ,  11.4852    ,  0.877131   ,  6.85599    ,  0.0949892  ,  0.0698136  ,  0.0590062  ,  2.29733    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.835069:
+Iter time: 204.780447006
+Iter time: 387.584076166
+Iter time: 659.745029926
+0.835068814879 9454.98941724
+217     , -13630.5    , array([ 0.0624686  ,  0.00294873 ,  1.94396    ,  5.86176    ,  11.4891    ,  0.877143   ,  6.80161    ,  0.0951203  ,  0.0699765  ,  0.0590405  ,  2.29925    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 247. Sum of data in those entries is 0.839585:
+Iter time: 205.118259192
+Iter time: 388.417484999
+Iter time: 660.623159885
+0.839585171835 9454.98941724
+218     , -13692.9    , array([ 0.0623945  ,  0.00294935 ,  1.94317    ,  5.86627    ,  11.4869    ,  0.877128   ,  6.81691    ,  0.0950286  ,  0.0699295  ,  0.059055   ,  2.29928    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 246. Sum of data in those entries is 0.837855:
+Iter time: 205.104027987
+Iter time: 387.777431965
+Iter time: 662.464771986
+0.837855217416 9454.98941724
+219     , -13247.2    , array([ 0.0624669  ,  0.0029458  ,  1.94387    ,  5.86456    ,  11.4881    ,  0.877116   ,  6.8226     ,  0.0950673  ,  0.0698947  ,  0.0590807  ,  2.29879    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 248. Sum of data in those entries is 0.835073:
+Iter time: 204.010679007
+Iter time: 385.791371107
+Iter time: 656.817439795
+0.83507313626 9454.98941724
+220     , -14115.1    , array([ 0.0623885  ,  0.00295755 ,  1.94456    ,  5.86292    ,  11.4997    ,  0.877187   ,  6.74638    ,  0.0953198  ,  0.0701722  ,  0.0592532  ,  2.30255    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 257. Sum of data in those entries is 0.684899:
+Iter time: 206.684854031
+Iter time: 392.188031197
+Iter time: 664.865474939
+0.684899300963 9454.98941724
+221     , -13342      , array([ 0.0625619  ,  0.00292911 ,  1.94363    ,  5.86841    ,  11.4808    ,  0.877047   ,  6.91985    ,  0.0947609  ,  0.069614   ,  0.0588833  ,  2.29407    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 249. Sum of data in those entries is 0.838173:
+Iter time: 206.068140984
+Iter time: 389.665544033
+Iter time: 665.893929958
+0.838173124441 9454.98941724
+222     , -13266.7    , array([ 0.0625864  ,  0.00293359 ,  1.94511    ,  5.86545    ,  11.4925    ,  0.877092   ,  6.86694    ,  0.0950026  ,  0.0697982  ,  0.0590497  ,  2.29638    ])
+WARNING:Numerics:Extrapolation may have failed. Check resulting frequency spectrum for unexpected results.
+WARNING:Inference:Model is masked in some entries where data is not.
+WARNING:Inference:Number of affected entries is 255. Sum of data in those entries is 0.836539:
+Iter time: 206.381493092
+Iter time: 390.38835001
+Iter time: 664.093360901
+0.83653883545 9454.98941724
+223     , -13292.4    , array([ 0.0625335  ,  0.00293145 ,  1.94452    ,  5.87063    ,  11.4909    ,  0.877067   ,  6.89437    ,  0.0948896  ,  0.0697189  ,  0.0590659  ,  2.29589    ])

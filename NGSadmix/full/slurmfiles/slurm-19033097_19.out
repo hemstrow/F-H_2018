@@ -1,0 +1,51 @@
+==========================================
+SLURM_JOB_ID = 19033119
+SLURM_NODELIST = c9-90
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 2
+run 10
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r10.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r10.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=2, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r10
+Setup: seed=1524507477 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=210599350.384005
+iter[50] like is=-124653036.666851 thres=0.010622
+iter[100] like is=-124400385.060489 thres=0.000713
+iter[150] like is=-124398910.437197 thres=0.000314
+iter[200] like is=-124398893.936462 thres=0.000030
+iter[250] like is=-124398892.294803 thres=0.000011
+EM accelerated has reached convergence with tol 0.000010
+best like=-124398892.085727 after 260 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r10.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K2_r10.fopt.gz
+	[ALL done] cpu-time used =  4449.35 sec
+	[ALL done] walltime used =  4450.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c9-90
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:17:57
+End                 : 2018-04-23T12:32:07
+Reserved walltime   : 6-12:00:00
+Used walltime       :   01:14:10
+Used CPU time       :   01:14:09
+% User (Computation): 98.61%
+% System (I/O)      :  1.39%
+Mem reserved        : 20G/node
+Max Mem used        : 6.12G (c9-90)
+Max Disk Write      : 0.00  (c9-90)
+Max Disk Read       : 249.74M (c9-90)

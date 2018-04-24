@@ -1,0 +1,54 @@
+==========================================
+SLURM_JOB_ID = 19033168
+SLURM_NODELIST = c8-70
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 5
+run 7
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K5_r7.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K5_r7.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=5, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K5_r7
+Setup: seed=1524507717 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=191894010.430013
+iter[50] like is=-114862661.827625 thres=0.008469
+iter[100] like is=-114790276.815128 thres=0.001115
+iter[150] like is=-114788267.679764 thres=0.000664
+iter[200] like is=-114788076.937067 thres=0.000518
+iter[250] like is=-114788037.710489 thres=0.000028
+iter[300] like is=-114788025.077492 thres=0.000051
+iter[350] like is=-114788037.425842 thres=0.000080
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-114788037.425842 after 350 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K5_r7.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K5_r7.fopt.gz
+	[ALL done] cpu-time used =  9211.75 sec
+	[ALL done] walltime used =  9213.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c8-70
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:21:57
+End                 : 2018-04-23T13:55:30
+Reserved walltime   : 6-12:00:00
+Used walltime       :   02:33:33
+Used CPU time       :   02:33:32
+% User (Computation): 98.59%
+% System (I/O)      :  1.41%
+Mem reserved        : 20G/node
+Max Mem used        : 6.19G (c8-70)
+Max Disk Write      : 17.32M (c8-70)
+Max Disk Read       : 249.74M (c8-70)

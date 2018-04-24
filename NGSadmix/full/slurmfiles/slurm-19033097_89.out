@@ -1,0 +1,62 @@
+==========================================
+SLURM_JOB_ID = 19033781
+SLURM_NODELIST = c11-71
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 9
+run 10
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r10.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r10.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=9, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r10
+Setup: seed=1524513524 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=187159577.980044
+iter[50] like is=-112679075.461783 thres=0.026836
+iter[100] like is=-112330180.378942 thres=0.001988
+iter[150] like is=-112309037.425145 thres=0.001402
+iter[200] like is=-112302855.149146 thres=0.025088
+iter[250] like is=-112299960.625253 thres=0.004096
+iter[300] like is=-112298864.203853 thres=0.004749
+iter[350] like is=-112298183.551035 thres=0.000427
+iter[400] like is=-112297799.334924 thres=0.000395
+iter[450] like is=-112297687.832329 thres=0.000626
+iter[500] like is=-112297487.910717 thres=0.000309
+iter[550] like is=-112297270.855495 thres=0.000356
+iter[600] like is=-112297210.147179 thres=0.003451
+iter[650] like is=-112297125.236190 thres=0.003009
+iter[700] like is=-112297080.586109 thres=0.000093
+iter[750] like is=-112297278.912699 thres=0.001359
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-112297278.912699 after 750 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r10.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K9_r10.fopt.gz
+	[ALL done] cpu-time used =  17342.32 sec
+	[ALL done] walltime used =  17342.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-71
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T12:58:44
+End                 : 2018-04-23T17:47:46
+Reserved walltime   : 6-12:00:00
+Used walltime       :   04:49:02
+Used CPU time       :   04:49:02
+% User (Computation): 98.93%
+% System (I/O)      :  1.07%
+Mem reserved        : 20G/node
+Max Mem used        : 6.32G (c11-71)
+Max Disk Write      : 42.02M (c11-71)
+Max Disk Read       : 249.75M (c11-71)

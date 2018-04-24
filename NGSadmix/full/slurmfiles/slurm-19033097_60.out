@@ -1,0 +1,56 @@
+==========================================
+SLURM_JOB_ID = 19033405
+SLURM_NODELIST = c11-77
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 7
+run 1
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K7_r1.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K7_r1.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=7, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K7_r1
+Setup: seed=1524510144 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=188746963.860998
+iter[50] like is=-113543662.970875 thres=0.013257
+iter[100] like is=-113193501.214561 thres=0.003474
+iter[150] like is=-113144539.410761 thres=0.003720
+iter[200] like is=-113142038.440650 thres=0.002285
+iter[250] like is=-113141835.402263 thres=0.000101
+iter[300] like is=-113141772.119652 thres=0.000046
+iter[350] like is=-113141714.749284 thres=0.000020
+iter[400] like is=-113141698.552106 thres=0.000011
+iter[450] like is=-113141927.143742 thres=0.000093
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-113141927.143742 after 450 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K7_r1.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K7_r1.fopt.gz
+	[ALL done] cpu-time used =  9107.36 sec
+	[ALL done] walltime used =  9107.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-77
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T12:02:24
+End                 : 2018-04-23T14:34:12
+Reserved walltime   : 6-12:00:00
+Used walltime       :   02:31:48
+Used CPU time       :   02:31:47
+% User (Computation): 98.93%
+% System (I/O)      :  1.06%
+Mem reserved        : 20G/node
+Max Mem used        : 6.25G (c11-77)
+Max Disk Write      : 0.00  (c11-77)
+Max Disk Read       : 249.75M (c11-77)

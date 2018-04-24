@@ -1,0 +1,44 @@
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c11-73
+Cores               : 8
+State               : NODE_FAIL
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T13:37:37
+End                 : 2018-04-23T13:44:48
+Reserved walltime   : 6-12:00:00
+Used walltime       :   00:07:11
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 20G/node
+Max Mem used        : 0.00  ()
+Max Disk Write      : 0.00  ()
+Max Disk Read       : 0.00  ()
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c10-97
+Cores               : 8
+State               : FAILED
+Submit              : 2018-04-23T13:44:48
+Start               : 2018-04-23T13:47:22
+End                 : 2018-04-23T13:47:22
+Reserved walltime   : 6-12:00:00
+Used walltime       : --
+Used CPU time       : --
+% User (Computation): --
+% System (I/O)      : --
+Mem reserved        : 20G/node
+Max Mem used        : 0.00  ()
+Max Disk Write      : 0.00  ()
+Max Disk Read       : 0.00  ()

@@ -1,0 +1,58 @@
+==========================================
+SLURM_JOB_ID = 19033305
+SLURM_NODELIST = c8-86
+==========================================
+Module slurm/17.11.5 loaded 
+Module openmpi/3.0.1 loaded 
+Module gcc/7.3.0 loaded 
+K = 6
+run 5
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r5.log
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r5.filter
+Input: lname=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/monGLF.beagle.gz nPop=6, fname=(null) qname=(null) outfiles=/home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r5
+Setup: seed=1524508824 nThreads=1 method=1
+Convergence: maxIter=2000 tol=0.000010 tolLike50=0.100000 dymBound=0
+Filters: misTol=0.050000 minMaf=0.050000 minLrt=0.000000 minInd=0
+Input file has dim: nsites=548771 nind=281
+Input file has dim (AFTER filtering): nsites=548771 nind=281
+iter[start] like is=189986289.261716
+iter[50] like is=-114603213.367972 thres=0.005116
+iter[100] like is=-114380832.361982 thres=0.006612
+iter[150] like is=-114032256.186799 thres=0.005255
+iter[200] like is=-113918085.251223 thres=0.098536
+iter[250] like is=-113899446.263041 thres=0.000344
+iter[300] like is=-113899236.567763 thres=0.000068
+iter[350] like is=-113899185.484565 thres=0.000026
+iter[400] like is=-113899164.319982 thres=0.000016
+iter[450] like is=-113899157.056779 thres=0.000020
+iter[500] like is=-113899152.970352 thres=0.000005
+iter[550] like is=-113899161.138937 thres=0.000014
+Convergence achived because log likelihooditer difference for 50 iteraction is less than 0.100000
+Convergence achived because log likelihooditer difference was NEGATIVE
+best like=-113899161.138937 after 550 iterations
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r5.qopt
+	-> Dumping file: /home/hemstrow/monarch/github/F-H_2018/NGSadmix/full/out_K6_r5.fopt.gz
+	[ALL done] cpu-time used =  15282.38 sec
+	[ALL done] walltime used =  15284.00 sec
+
+===========================================================================
+Job Finished
+
+Name                : f_NGSa
+User                : hemstrow
+Partition           : med
+Nodes               : c8-86
+Cores               : 8
+State               : COMPLETED
+Submit              : 2018-04-23T11:17:27
+Start               : 2018-04-23T11:40:24
+End                 : 2018-04-23T15:55:09
+Reserved walltime   : 6-12:00:00
+Used walltime       :   04:14:45
+Used CPU time       :   04:14:42
+% User (Computation): 98.58%
+% System (I/O)      :  1.42%
+Mem reserved        : 20G/node
+Max Mem used        : 6.25G (c8-86)
+Max Disk Write      : 0.00  (c8-86)
+Max Disk Read       : 249.74M (c8-86)

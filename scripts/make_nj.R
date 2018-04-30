@@ -63,6 +63,11 @@ combplates$color <- pal[as.numeric(as.factor(combplates$Pop))]
 colnames(m) <- combplates$Pop
 rownames(m) <- combplates$Pop
 
+
+# dat <- cbind(sample = combplates$ind, pop = rownames(m), as.data.frame(m))
+# PCA <- PCAfromPA(dat, 2)
+# tSNE <- tSNEfromPA(dat, 2)
+
 #make and plot the tree.
 nj <- nj(m) #make tree
 

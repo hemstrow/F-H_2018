@@ -1,0 +1,66 @@
+
+Using the parameter settings in the file: 
+''paramfile''
+
+Parameter settings
+----------------------- Main parameters -------------------------
+DATATYPE = 1
+INDFILE = 
+POPFILE = pop_K9-combined.txt
+OUTFILE = pop_K9-combined-merged.txt
+MISCFILE = pop_K9-combined-miscfile.txt
+K = 9
+C = 281
+R = 10
+M = 2
+W = 0
+S = 2
+- Additional options for the Greedy and LargeKGreedy algorithms -
+GREEDY_OPTION = 2
+REPEATS = 20
+PERMUTATIONFILE = 
+----------------------- Optional outputs ------------------------
+PRINT_PERMUTED_DATA = 1
+PERMUTED_DATAFILE = pop_K9-combined-aligned.txt
+PRINT_EVERY_PERM = 0
+EVERY_PERMFILE = 
+PRINT_RANDOM_INPUTORDER = 0
+RANDOM_INPUTORDERFILE = 
+----------------------- Advanced options ------------------------
+OVERRIDE_WARNINGS = 0
+ORDER_BY_RUN = 0
+
+
+In total, 20 configurations of runs and clusters will be tested.
+
+Results
+------------------------------
+The highest value of H' is: 0.76033716637384
+
+The list of permutations of the clusters that produces that
+H' value is (runs are listed sequentially on separate rows)
+
+3 8 7 4 1 2 5 6 9 
+8 6 1 9 2 7 3 4 5 
+3 8 7 4 1 2 5 6 9 
+4 1 2 8 6 3 5 7 9 
+4 1 2 8 6 3 5 7 9 
+4 1 2 8 6 3 5 7 9 
+1 4 2 6 7 9 3 8 5 
+1 2 3 4 5 6 7 8 9 
+1 2 3 4 5 6 7 8 9 
+1 2 3 4 5 6 7 8 9 
+
+The pairwise G' values for each pair of runs where the clusters
+of each run are permuted according to the list of permutations above
+
+1.0000 0.7433 1.0000 0.7266 0.7266 0.7266 0.6034 0.6911 0.6911 0.6911 
+0.7433 1.0000 0.7433 0.7738 0.7738 0.7738 0.6550 0.8047 0.8047 0.8047 
+1.0000 0.7433 1.0000 0.7266 0.7266 0.7266 0.6034 0.6911 0.6911 0.6911 
+0.7266 0.7738 0.7266 1.0000 1.0000 1.0000 0.6315 0.7446 0.7446 0.7446 
+0.7266 0.7738 0.7266 1.0000 1.0000 1.0000 0.6315 0.7446 0.7446 0.7446 
+0.7266 0.7738 0.7266 1.0000 1.0000 1.0000 0.6315 0.7446 0.7446 0.7446 
+0.6034 0.6550 0.6034 0.6315 0.6315 0.6315 1.0000 0.6762 0.6762 0.6762 
+0.6911 0.8047 0.6911 0.7446 0.7446 0.7446 0.6762 1.0000 1.0000 1.0000 
+0.6911 0.8047 0.6911 0.7446 0.7446 0.7446 0.6762 1.0000 1.0000 1.0000 
+0.6911 0.8047 0.6911 0.7446 0.7446 0.7446 0.6762 1.0000 1.0000 1.0000 

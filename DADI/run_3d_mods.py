@@ -315,7 +315,7 @@ def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2
     # p1 to p2 divergence.
     phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
     
-    # print("Growing p2 with migration.\n")
+    print("Growing p2 with migration.\n")
     # We need to define a function to describe the non-constant population 2
     # size. lambda is a convenient way to do so. Lambda just makes a function with parameter t, always just does an expression. In this case, given a time (t), what is the pop size?
     nu2_func = lambda t: (K2*nu2B*math.exp(r2*t))/(K2 + nu2B*(math.exp(r2*t) - 1))
@@ -327,7 +327,7 @@ def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2
     # Now split off p3 from p2
     phi = dadi.PhiManip.phi_2D_to_3D_split_1(xx, phi)
     
-    # print("Growning p2 and p3 with migration.\n")
+    # print("Growing p2 and p3 with migration.\n")
     # Grow the two split populations until present
     # Need an equation for nu3 and to redefine nu2 where the time elapsed is t plus the time from founding until the split.
     nu3_func = lambda t: (K3*nu3B*math.exp(r3*t))/(K3 + nu3B*(math.exp(r3*t) - 1))

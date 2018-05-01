@@ -392,7 +392,7 @@ print("Projection:")
 print(projection)
 print("Number of segregating sites in projected sfs:")
 print(data.S())
-print("Folding spectra:")
+print("Polarized spectra:")
 print(sys.argv[7])
 print("Level of parm folding:\n" + sys.argv[8])
 print("Optimizer:\n" + sys.argv[13])
@@ -444,44 +444,3 @@ f = open(sys.argv[3],'a')
 f.write("model:\t" + sys.argv[4] + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + str(popt) + "\n")
 
 print("Finished.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ###############################################
-# # folded
-# dataf= dadi.Spectrum.from_data_dict(dd, ['NAM','GUA','HAW'], [20,20,20], polarized=False)
-# nsf = data.sample_sizes
-# 
-# print('Beginning optimization folded************************************************')
-# popt_f = dadi.Inference.optimize_log(p0, dataf, func_ex, pts_l, 
-#                                    lower_bound=lower_bound,
-#                                    upper_bound=upper_bound,
-#                                    verbose=20, maxiter=50)
-# print('Beginning optimization folded************************************************')
-# 
-# modelf = func_ex(popt_f, nsf, pts_l)
-# 
-# # theta 0
-# t0f = dadi.Inference.optimal_sfs_scaling(modelf, data)
-# 
-# print("Folded optimal parms:\n")
-# print(popt_f)
-# print("\ntheta:\n")
-# print(t0f)
-# print("\n")
-# 
-# 

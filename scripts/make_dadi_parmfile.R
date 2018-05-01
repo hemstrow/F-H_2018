@@ -6,7 +6,7 @@ mods <- c(rep("cgrowth", 20),
 maxiters <- c(rep(10, length(mods)))
 pops <- c(rep(c(rep("[NAM,HAW,GUA]", 10), rep("[NAM,GUA,HAW]", 10)), 4),
           rep("[NAM,HAW,GUA]", 10))
-fs <- rep("True", length(mods))
+fs <- rep("False", length(mods))
 fp <- rep(3, length(mods))
 ip <- c(rep("[0.1,0.1,0.5,0.5,5,5,.1,.1,.1,.1]", 20),
         rep("[0.1,0.1,1,1,5,5,.1,.1,.1,.1,2,2]", 20),

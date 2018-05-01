@@ -68,14 +68,14 @@ raw_genos <- cbind(raw_genos[,1:3], temp[,order(colnames(temp))])
 #grab pop info
 pops <- substr(colnames(raw_genos)[4:ncol(raw_genos)], 1, 3)
 
-#paste on pooling IDs
-pops[pops %in% c("SAM", "NCA", "FIJ")] <- paste0("NPA_", pops[pops %in% c("SAM", "NCA", "FIJ")])
-pops[pops %in% c("SAI", "GUA")] <- paste0("SAG_", pops[pops %in% c("SAI", "GUA")])
-pops[pops %in% c("VIC", "NSW", "QLD", "NZL")] <- paste0("AUS_", pops[pops %in% c("VIC", "NSW", "QLD", "NZL")])
-ncoln <- paste0(pops, "_", gsub(".+_", "", colnames(raw_genos)[-c(1:3)])) #new column names
-
-#replace names
-colnames(raw_genos) <- c(colnames(raw_genos)[1:3], ncoln)
+# #paste on pooling IDs
+# pops[pops %in% c("SAM", "NCA", "FIJ")] <- paste0("NPA_", pops[pops %in% c("SAM", "NCA", "FIJ")])
+# pops[pops %in% c("SAI", "GUA")] <- paste0("SAG_", pops[pops %in% c("SAI", "GUA")])
+# pops[pops %in% c("VIC", "NSW", "QLD", "NZL")] <- paste0("AUS_", pops[pops %in% c("VIC", "NSW", "QLD", "NZL")])
+# ncoln <- paste0(pops, "_", gsub(".+_", "", colnames(raw_genos)[-c(1:3)])) #new column names
+# 
+# #replace names
+# colnames(raw_genos) <- c(colnames(raw_genos)[1:3], ncoln)
 
 #order
 meta <- raw_genos[,1:3]
@@ -98,6 +98,7 @@ flt_genos_clean <- filter_snps(raw_genos, 3, 0.05, 0.55, floor((ncol(raw_genos)-
 #only filtering high frequency hets, for dadi. Note, change the raw genos input to something with no maf filtering!
 dadi_genos <- filter_snps(raw_genos, 3, FALSE, 0.55, floor((ncol(raw_genos)-3)/2))
 
+saveRDS(dadi_genos,"temp.RDS")
 
 #reorder - full
 meta <- flt_genos[,1:3]
@@ -165,3 +166,10 @@ data.table::fwrite(HAWonly, "Data/fastSTRUCTURE/HAWonly.txt", col.names = F, row
 data.table::fwrite(AUSonly, "Data/fastSTRUCTURE/AUSonly.txt", col.names = F, row.names = F, quote = F, sep = "\t")
 
 
+
+
+
+###############################
+#snps for dadi
+dadi_genos2 <- rgap_snps(dadi_genos, 10000) #get snps seperated by a mininum gap length
+write.table(dadi_genos2, "../Data/dadi_snps_10kgap.txt", quote = F, col.names = T, row.names = F, sep = "\t")

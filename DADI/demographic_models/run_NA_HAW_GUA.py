@@ -199,7 +199,7 @@ dd = dadi.Misc.make_data_dict('dadi_snps_10kgap.txt')
 # Extract the spectrum for NAM, GUA, and HAW from that dictionary,
 # projected down to 100, 15, and 15 samples per population, which seems to produce the most segregating sites.
 
-data= dadi.Spectrum.from_data_dict(dd, ['NAM','GUA','HAW'], [150,15,15], polarized=True)
+data= dadi.Spectrum.from_data_dict(dd, ['NAM','GUA','HAW'], [15,15,15], polarized=False)
 
 # These are the grid point settings will use for extrapolation.
 pts_l = [40,50,60]

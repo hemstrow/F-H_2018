@@ -13656,3 +13656,31 @@ Module gcc/7.3.0 loaded
 ------------
 startlik=-200955486.112045
 lik[2]=-16965175.588566 diff=1.839903e+08 alpha:1.000000 sr2:1.055658e-01
+lik[5]=-14584276.245751 diff=2.380899e+06 alpha:1.561905 sr2:1.254476e-02
+lik[8]=-14546717.027614 diff=3.755922e+04 alpha:1.999430 sr2:5.493976e-06
+lik[11]=-14540307.661260 diff=6.409366e+03 alpha:3.925164 sr2:7.091636e-08
+lik[14]=-14539024.881528 diff=1.282780e+03 alpha:1.900605 sr2:3.751941e-09
+lik[17]=-14537509.745536 diff=1.515136e+03 alpha:4.000000 sr2:5.926202e-10
+slurmstepd: error: *** JOB 19030733 ON bigmem1 CANCELLED AT 2018-05-02T10:34:29 ***
+
+===========================================================================
+Job Finished
+
+Name                : 3d_unf_SFS
+User                : hemstrow
+Partition           : bigmemm
+Nodes               : bigmem1
+Cores               : 12
+State               : CANCELLED,CANCELLED by 917150
+Submit              : 2018-04-23T10:27:35
+Start               : 2018-04-23T10:27:36
+End                 : 2018-05-02T10:34:29
+Reserved walltime   : 40-12:00:00
+Used walltime       : 9-00:06:53
+Used CPU time       : 54-02:19:47
+% User (Computation): 97.78%
+% System (I/O)      :  2.22%
+Mem reserved        : 96G/node
+Max Mem used        : 63.53G (bigmem1)
+Max Disk Write      : 860.16K (bigmem1)
+Max Disk Read       : 23.53G (bigmem1)

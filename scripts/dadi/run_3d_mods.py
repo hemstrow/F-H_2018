@@ -6,7 +6,7 @@ if len(sys.argv) != 14:
   print("Arguments:")
   print("\tpath_to_dir_with_data: The path to the directory containing input data.")
   print("\tinfile: Input file name.")
-  print("\toutfile: Name for output file, contained in the directory from which this script is run.")
+  print("\toutfile: Name for output file, contained in the directory with the input data this script is run.")
   print("\tmodel: Name of the model to run. Options:")
   print("\t\tcgrowth\n\t\tlgrowth_both\n\t\tlgrowth_p3\n\t\tlgrowth_p2\n\t\tlgb_p1tb_2f\n\t\t2p_cgrowth\n\t\t2p_lgrowth_both\n\t\t2p_lgrowth_1\n\t\t2p_lgrowth_2")
   print("\t\tNote: all of the 2p_* models are for two populations only!")
@@ -529,7 +529,7 @@ def p2_lgrowth_2((nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2), (n1,n2), pts):
     # phi for the equilibrium ancestral population
     phi = dadi.PhiManip.phi_1D(xx)
     # Pop 1 bottleneck and growth over time.
-    nu1_func_pre = lambda t: nu1B*(nu1f/nu1B)**(t/tot)
+    nu1_func_pre = lambda t: nu1B*(nu1f/nu1B)**(t/t_tot)
     phi = dadi.Integration.one_pop(phi, xx, ts, nu=nu1_func_pre)
     
     
@@ -652,6 +652,6 @@ AIC = (-2*(float(ll))) + (2*len(p0))
 
 #print results
 f = open(sys.argv[3],'a')
-f.write("model:\t" + sys.argv[4] + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + str(popt) + "\n")
+f.write("model:\t" + sys.argv[4] + "\tpops:\t" + ' '.join(map(str, pops)) + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + ' '.join(map(str, popt)) + "\n")
 
 print("Finished.")

@@ -1,22 +1,21 @@
 #!/bin/bash -l
-#SBATCH --array=1-90
+#SBATCH --array=1-340
 #SBATCH --mem=4G
 #SBATCH -t 6-12:00:00
-#SBATCH -J 3d_dadi
+#SBATCH -J 3dDadi
 
 #runs run_3d_mods.py with the parameters given in the parmfile, space seperated. Make sure that the correct number of array tasks are requested!
 
-module load python
 module load numpy
+module load scipy
 module load dadi
 module load matplotlib
-module load scipy
 
 idir=~/monarch/github/F-H_2018/data/dadi_inputs/
 infile=dadi_10kgap_snps.txt
-outfile=1st_folded_optim_10kgap.txt
+outfile=1st_pass_optim.txt
 parmfile=~/monarch/github/F-H_2018/dadi/parmfiles/1st_folded_optim_snps_both_mods.txt
-pyscript=~/monarch/github/F-H_2018/dadi/demographic_models/run_3d_mods.py
+pyscript=~/monarch/github/F-H_2018/scripts/dadi/run_3d_mods.py
 
 
 

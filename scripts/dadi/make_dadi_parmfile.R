@@ -166,6 +166,6 @@ parms4 <- gsub("GUA", "ROT", parms3)
 
 
 #############combine#############
-parms <- rbind(parms, parms2, parms3, parms4)
+parms <- rbind(parms3, parms4, parms, parms2)
 
-write.table(parms, "dadi/parmfiles/1st_folded_optim_snps_both_mods.txt", quote = F, sep = " ", row.names = F, col.names = F)
+write.table(parms, "~/monarch/github/F-H_2018/dadi/parmfiles/1st_folded_optim_snps_both_mods.txt", quote = F, sep = " ", row.names = F, col.names = F)

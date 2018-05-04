@@ -653,6 +653,6 @@ AIC = (-2*(float(ll))) + (2*len(p0))
 #print results
 f = open(sys.argv[3],'a')
 
-f.write("model:\t" + sys.argv[4] + "\tpops:\t" + ' '.join(map(str, pops)) + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + ' '.join(map(str, popt)) + "\n")
+f.write("model:\t" + sys.argv[4] + "\tpops:\t" + ' '.join(map(str, pops)) + "\ttheta:\t" + str(t0) + "\tll:\t" + str(numpy.around(ll, 4)) + "\tAIC:\t" + str(numpy.around(AIC, 4)) + "\toptimal_parameters:\t" + ' '.join(map(str, numpy.around(popt, 9))) + "\n")
 
 print("Finished.")

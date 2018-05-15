@@ -81,18 +81,18 @@ parms2 <- gsub("GUA", "ROT", parms)
 ##############2-pop models for GUA/ROT and HAW only!##############
 
 #model parameter p0, lower bounds, and upper bounds.
-nu1B <- c(0.01, 1e-6, .5)
-nu2B <- c(0.01, 1e-6, .5)
-nu1f <- c(0.1, 1e-5, 1)
-nu2f <- c(0.1, 1e-5, 1)
-K1 <- c(0.1, 1e-5, 1)
-K2 <- c(0.1, 1e-5, 1)
+nu1B <- c(0.01, 1e-6, 10)
+nu2B <- c(0.01, 1e-6, 10)
+nu1f <- c(0.1, 1e-5, 10)
+nu2f <- c(0.1, 1e-5, 10)
+K1 <- c(0.1, 1e-5, 10)
+K2 <- c(0.1, 1e-5, 10)
 ts <- c(.1, .001, 4)
 tp <- c(.1, .001, 4)
-m12 <- c(.1, 0, 5)
-m21 <- c(.1, 0, 5)
-r1 <- c(1, .01, 4)
-r2 <- c(1, .01, 4)
+m12 <- c(.1, 0, 30)
+m21 <- c(.1, 0, 30)
+r1 <- c(1, .01, 5)
+r2 <- c(1, .01, 5)
 
 #how many iters?
 iters <- 20
@@ -117,7 +117,7 @@ proj <- "[15,15]"
 optim <- "fmin"
 
 #outfile?
-ofile <- "dadi/parmfiles/1st_passHGR_2d_parms.txt"
+ofile <- "dadi/parmfiles/1st_passHGR_2d_parms_new_bounds.txt"
 
 ##########################################
 #make the parm df

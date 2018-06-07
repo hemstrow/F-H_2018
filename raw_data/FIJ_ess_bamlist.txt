@@ -1,0 +1,5 @@
+SOMM270_split_RA_GGAGCACCTCTGCAG.sort.flt.bam
+SOMM270_split_RA_GGCGACACACTGCAG.sort.flt.bam
+SOMM270_split_RA_GGCGACTGGATGCAG.sort.flt.bam
+SOMM270_split_RA_GGTGGAACAATGCAG.sort.flt.bam
+SOMM270_split_RA_GGGCTCGGTATGCAG.sort.flt.bam

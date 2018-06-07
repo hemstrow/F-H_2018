@@ -81,18 +81,18 @@ parms2 <- gsub("GUA", "ROT", parms)
 ##############2-pop models for GUA/ROT and HAW only!##############
 
 #model parameter p0, lower bounds, and upper bounds.
-nu1B <- c(0.01, 1e-6, 10)
-nu2B <- c(0.01, 1e-6, 10)
-nu1f <- c(0.1, 1e-5, 10)
-nu2f <- c(0.1, 1e-5, 10)
-K1 <- c(0.1, 1e-5, 10)
-K2 <- c(0.1, 1e-5, 10)
-ts <- c(.1, .001, 4)
-tp <- c(.1, .001, 4)
+nu1B <- c(0.01, 1e-6, 20)
+nu2B <- c(0.01, 1e-6, 20)
+nu1f <- c(0.1, 1e-5, 20)
+nu2f <- c(0.1, 1e-5, 20)
+K1 <- c(0.1, 1e-5, 20)
+K2 <- c(0.1, 1e-5, 20)
+ts <- c(.1, .001, 10)
+tp <- c(.1, .001, 10)
 m12 <- c(.1, 0, 30)
 m21 <- c(.1, 0, 30)
-r1 <- c(1, .01, 5)
-r2 <- c(1, .01, 5)
+r1 <- c(1, .01, 6)
+r2 <- c(1, .01, 6)
 
 #how many iters?
 iters <- 20
@@ -104,7 +104,7 @@ mods <- c("p2_cgrowth", "p2_lgrowth_both", "p2_lgrowth_1", "p2_lgrowth_2")
 #which pops to use?
 pops <- c("[HAW,GUA]", "[HAW,ROT]", "[GUA,HAW]", "[ROT,HAW]")
 
-#fold the spectra?
+#is the spectra polarized?
 fs <- "False"
 
 #fold initial params?

@@ -1,0 +1,4 @@
+merged.CAGATC_RA_GGTAGGATGATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGAATCCGTCTGCAG.sort.flt.bam
+SOMM270_split_RA_GGACAGCAGATGCAG.sort.flt.bam
+SOMM270_split_RA_GGCAAGACTATGCAG.sort.flt.bam

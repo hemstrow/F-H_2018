@@ -12,7 +12,7 @@ if len(sys.argv) != 14:
   print("\t\tNote: all of the 2p_* models are for two populations only!")
   print("\tmaxiters: Maximum number of iterations overwhich to optimize.")
   print("\tpops: list of populations, in the correct order for the model.")
-  print("\tfold_spectra: Should the spectra be folded? True or False.")
+  print("\tpolarized: Is the spectra polarized. True or False.")
   print("\tfold_parms: How strongly should the initial parameters be perturbed?")
   print("\tinitial_parms: List of initial parameter values.")
   print("\tupper_bounds: List of upper bounds for parameters.")
@@ -529,7 +529,7 @@ def p2_lgrowth_2((nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2), (n1,n2), pts):
     # phi for the equilibrium ancestral population
     phi = dadi.PhiManip.phi_1D(xx)
     # Pop 1 bottleneck and growth over time.
-    nu1_func_pre = lambda t: nu1B*(nu1f/nu1B)**(t/tot)
+    nu1_func_pre = lambda t: nu1B*(nu1f/nu1B)**(t/t_tot)
     phi = dadi.Integration.one_pop(phi, xx, ts, nu=nu1_func_pre)
     
     
@@ -563,7 +563,10 @@ pops = sys.argv[6]
 pops = pops.strip('[]').split(',')
 projection = sys.argv[12]
 projection = map(int, projection.strip('[]').split(","))
-data = dadi.Spectrum.from_data_dict(dd, pops, projection, polarized=sys.argv[7])
+if sys.argv[7] == "True":
+  data = dadi.Spectrum.from_data_dict(dd, pops, projection, polarized=True)
+else:
+  data = dadi.Spectrum.from_data_dict(dd, pops, projection, polarized=False)
 ns = data.sample_sizes
 
 # These are the grid point settings will use for extrapolation.

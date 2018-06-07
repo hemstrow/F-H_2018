@@ -1,0 +1,16 @@
+SOMM270_split_RA_GGCGAACTTATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGTGGCTTCATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGCAAGACTATGCAG.sort.flt.bam
+SOMM270_split_RA_GGCCTCTATCTGCAG.sort.flt.bam
+merged.CAGATC_RA_GGGGAGAACATGCAG.sort.flt.bam
+SOMM270_split_RA_GGAGATGTACTGCAG.sort.flt.bam
+SOMM270_split_RA_GGGCTAACGATGCAG.sort.flt.bam
+SOMM270_split_RA_GGATTGAGGATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGCGCATACATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGACAGCAGATGCAG.sort.flt.bam
+SOMM270_split_RA_GGAAGGTACATGCAG.sort.flt.bam
+merged.CAGATC_RA_GGCAGATCTGTGCAG.sort.flt.bam
+merged.CAGATC_RA_GGCGGATTGCTGCAG.sort.flt.bam
+merged.CAGATC_RA_GGAGCCATGCTGCAG.sort.flt.bam
+SOMM270_split_RA_GGAACGTGATTGCAG.sort.flt.bam
+SOMM270_split_RA_GGTGAAGAGATGCAG.sort.flt.bam

@@ -1,0 +1,12 @@
+merged.ACAGTG_RA_GGCGAACTTATGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGAATGTTGCTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGCCTCTATCTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGCGACACACTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGAGCACCTCTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGAAACATCGTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGCATACCAATGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGAAGAGATCTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGACCACTGTTGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGGATAGACATGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGAGTCACTATGCAG.sort.flt.bam
+merged.ACAGTG_RA_GGACATTGGCTGCAG.sort.flt.bam

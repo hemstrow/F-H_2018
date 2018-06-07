@@ -1,8 +1,8 @@
 #!/bin/bash -l
-#SBATCH --array=1-340
-#SBATCH --mem=4G
-#SBATCH -t 6-12:00:00
-#SBATCH -J 3dDadi
+#SBATCH --array=1-800
+#SBATCH --mem=2G
+#SBATCH -t 12-12:00:00
+#SBATCH -J MonDadi2
 
 #runs run_3d_mods.py with the parameters given in the parmfile, space seperated. Make sure that the correct number of array tasks are requested!
 
@@ -13,8 +13,8 @@ module load matplotlib
 
 idir=~/monarch/github/F-H_2018/data/dadi_inputs/
 infile=dadi_10kgap_snps.txt
-outfile=1st_pass_optim.txt
-parmfile=~/monarch/github/F-H_2018/dadi/parmfiles/1st_folded_optim_snps_both_mods.txt
+outfile=1st_pass_optim_HGR_new_bounds.txt
+parmfile=~/monarch/github/F-H_2018/dadi/parmfiles/1st_passHGR_2d_parms_new_bounds.txt
 pyscript=~/monarch/github/F-H_2018/scripts/dadi/run_3d_mods.py
 
 
@@ -38,4 +38,4 @@ optimizer="${params[9]}"
 echo "Beginning. Call:"
 echo "$pyscript $idir $infile $outfile $model $maxiters $pops $fs $fp $ip $ub $lb $proj $optimizer"
 
-python $pyscript $idir $infile $outfile $model $maxiters $pops $fs $fp $ip $ub $lb $proj $optimizer
+python $pyscript $idir $infile run_${SLURM_ARRAY_TASK_ID}_${outfile} $model $maxiters $pops $fs $fp $ip $ub $lb $proj $optimizer

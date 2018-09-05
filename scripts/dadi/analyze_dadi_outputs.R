@@ -1,7 +1,7 @@
 library(ggplot2); library(dplyr)
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/1st_pass_HGR_out.txt")
+res <- readLines("data/dadi_inputs/cat_1st_pass_new_bounds.txt")
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -51,8 +51,8 @@ ggplot(rdf, aes(x = AIC)) + geom_histogram() + facet_grid(model ~ pops) + theme_
 
 #best replicate per model
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
-best.reps
-best.reps[,-c(2,3,4,5,7)] #where are we pushing parameter bounds?
+best.reps <- arrange(best.reps, pops, model)
+best.reps[,-c(3,4,5,7)] #where are we pushing parameter bounds?
 ggplot(best.reps, aes(y = AIC, x = model, color = pops)) + geom_point() + theme_bw()
 
 #these best.reps are the starting points for run 2

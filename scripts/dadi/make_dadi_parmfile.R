@@ -81,16 +81,16 @@ parms2 <- gsub("GUA", "ROT", parms)
 ##############2-pop models for GUA/ROT and HAW only!##############
 
 #model parameter p0, lower bounds, and upper bounds.
-nu1B <- c(0.01, 1e-6, 20)
-nu2B <- c(0.01, 1e-6, 20)
-nu1f <- c(0.1, 1e-5, 20)
-nu2f <- c(0.1, 1e-5, 20)
+nu1B <- c(0.01, 1e-6, 100)
+nu2B <- c(0.01, 1e-6, 100)
+nu1f <- c(0.1, 1e-5, 100)
+nu2f <- c(0.1, 1e-5, 100)
 K1 <- c(0.1, 1e-5, 20)
 K2 <- c(0.1, 1e-5, 20)
 ts <- c(.1, .001, 10)
 tp <- c(.1, .001, 10)
-m12 <- c(.1, 0, 30)
-m21 <- c(.1, 0, 30)
+m12 <- c(.1, 0, 40)
+m21 <- c(.1, 0, 40)
 r1 <- c(1, .01, 6)
 r2 <- c(1, .01, 6)
 

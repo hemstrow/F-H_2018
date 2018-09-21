@@ -117,7 +117,7 @@ proj <- "[15,15]"
 optim <- "fmin"
 
 #outfile?
-ofile <- "dadi/parmfiles/1st_passHGR_2d_parms_new_bounds.txt"
+ofile <- "dadi/parmfiles/1st_passHGR_2d_parms_bounds_090518.txt"
 
 ##########################################
 #make the parm df

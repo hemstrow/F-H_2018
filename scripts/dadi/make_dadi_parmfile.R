@@ -15,11 +15,11 @@ r2 <- c(1, .01, 4)
 r3 <- c(1, .01, 4)
 
 #which models?
-mods <- c(rep("cgrowth", 20),
-          rep("lgrowth_both", 20),
-          rep("lgrowth_p3", 20),
-          rep("lgrowth_p2", 20),
-          rep("lgb_p1tb_2f", 10))
+mods <- c(rep("p3_cgrowth", 20),
+          rep("p3_lgrowth_both", 20),
+          rep("p3_lgrowth_p3", 20),
+          rep("p3_lgrowth_p2", 20),
+          rep("p3_lgb_p1tb_2f", 10))
 
 #how many iterations?
 maxiters <- c(rep(10, length(mods)))
@@ -78,15 +78,15 @@ parms2 <- gsub("GUA", "ROT", parms)
 
 
 
-##############2-pop models for GUA/ROT and HAW only!##############
+##############2-pop models##############
 
 #model parameter p0, lower bounds, and upper bounds.
 nu1B <- c(0.01, 1e-6, 100)
 nu2B <- c(0.01, 1e-6, 100)
 nu1f <- c(0.1, 1e-5, 100)
 nu2f <- c(0.1, 1e-5, 100)
-K1 <- c(0.1, 1e-5, 20)
-K2 <- c(0.1, 1e-5, 20)
+K1 <- c(0.1, 1e-5, 100)
+K2 <- c(0.1, 1e-5, 100)
 ts <- c(.1, .001, 10)
 tp <- c(.1, .001, 10)
 m12 <- c(.1, 0, 40)
@@ -95,14 +95,14 @@ r1 <- c(1, .01, 6)
 r2 <- c(1, .01, 6)
 
 #how many iters?
-iters <- 20
+iters <- 50
 
 #which models and how many reps?
-reps_per_perm <- 50
-mods <- c("p2_cgrowth", "p2_lgrowth_both", "p2_lgrowth_1", "p2_lgrowth_2")
+reps_per_perm <- 100
+mods <- c("nig_cgrowth", "nig_lgrowth_both", "nig_lgrowth_1", "nig_lgrowth_2")
 
 #which pops to use?
-pops <- c("[HAW,GUA]", "[HAW,ROT]", "[GUA,HAW]", "[ROT,HAW]")
+pops <- c("[NAM,HAW]")
 
 #is the spectra polarized?
 fs <- "False"
@@ -111,13 +111,14 @@ fs <- "False"
 fp <- 3
 
 #what projection?
-proj <- "[15,15]"
+proj <- "[100,10]"
 
 #which optimizer?
 optim <- "fmin"
 
 #outfile?
-ofile <- "dadi/parmfiles/1st_passHGR_2d_parms_bounds_090518.txt"
+ofile <- "dadi/parmfiles/1st_pass_NAM_HAW_nig.txt"
+append.ofile <- T # should this be appened to an existing outfile?
 
 ##########################################
 #make the parm df
@@ -151,17 +152,29 @@ ip <- character(length(mods))
 lb <- ip
 ub <- ip
 for(i in 1:length(ip)){
-  if(mods[i] == "p2_cgrowth"){
-    tparms <- cbind(nu1B, nu2B, nu1f, nu2f, ts, tp, m12, m21)
+  if(mods[i] == "cgrowth"){
+    tparms <- cbind(nu1ag, nu2B, nu1f, nu2f, ts, tp, m12, m21)
   }
-  else if (mods[i] == "p2_lgrowth_both"){
-    tparms <- cbind(nu1B, nu2B, K1, K2, ts, tp, m12, m21, r1, r2)
+  else if (mods[i] == "lgrowth_both"){
+    tparms <- cbind(nu1ag, nu2B, K1, K2, ts, tp, m12, m21, r1, r2)
   }
-  else if (mods[i] == "p2_lgrowth_1"){
-    tparms <- cbind(nu1B, nu2B, K1, nu2f, ts, tp, m12, m21, r1)
+  else if (mods[i] == "lgrowth_1"){
+    tparms <- cbind(nu1ag, nu2B, K1, nu2f, ts, tp, m12, m21, r1)
   }
-  else if (mods[i] == "p2_lgrowth_2"){
-    tparms <- cbind(nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2)
+  else if (mods[i] == "lgrowth_2"){
+    tparms <- cbind(nu1ag, nu2B, nu1f, K2, ts, tp, m12, m21, r2)
+  }
+  else if(mods[i] == "nig_cgrowth"){
+    tparms <- cbind(nu1B, nu2B, nu1f, nu2f, tp, m12, m21)
+  }
+  else if (mods[i] == "nig_lgrowth_both"){
+    tparms <- cbind(nu1B, nu2B, K1, K2, tp, m12, m21, r1, r2)
+  }
+  else if (mods[i] == "nig_lgrowth_1"){
+    tparms <- cbind(nu1B, nu2B, K1, nu2f, tp, m12, m21, r1)
+  }
+  else if (mods[i] == "nig_lgrowth_2"){
+    tparms <- cbind(nu1B, nu2B, nu1f, K2, tp, m12, m21, r2)
   }
   ip[i] <- paste0("[", paste0(tparms[1,], collapse = ","), "]")
   lb[i] <- paste0("[", paste0(tparms[2,], collapse = ","), "]")
@@ -173,6 +186,6 @@ for(i in 1:length(ip)){
 parms <- cbind(mods, maxiters, pops, fs, fp, ip, ub, lb, proj, optim)
 
 #write
-write.table(parms, ofile, quote = F, sep = " ", row.names = F, col.names = F)
+write.table(parms, ofile, quote = F, sep = " ", row.names = F, col.names = F, append = append.ofile)
 
 

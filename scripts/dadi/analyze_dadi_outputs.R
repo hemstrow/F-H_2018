@@ -1,7 +1,7 @@
 library(ggplot2); library(dplyr)
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/cat_1st_pass_optim_HGR_bounds_090518.txt")
+res <- readLines("data/dadi_inputs/cat_NAH_1st_pass_out.txt")
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -54,24 +54,33 @@ best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1
 best.reps <- arrange(best.reps, pops, model)
 best.reps[,-c(3,4,5,7)] #where are we pushing parameter bounds?
 ggplot(best.reps, aes(y = AIC, x = model, color = pops)) + geom_point() + theme_bw()
-
+best.reps[order(best.reps$AIC),-c(3,4,5,7)]
 
 #these best.reps are the starting points for next run
 
+
+# plots for the parameters for the lgrowth2 NAM_HAW model
+ggplot(wlist$p2_lgrowth_2_NAM_HAW, aes(x = nu2B, y = nu1B, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+
+
+
+
+
+
 #==========call a function to make a parameter input file using these parms=============
-nu1B <- c(0.01, 100)
-nu2B <- c(0.01, 100)
-nu1f <- c(0.1, 100)
-nu2f <- c(0.1, 100)
-K1 <- c(0.1, 20)
-K2 <- c(0.1, 20)
-ts <- c(.1, 10)
-tp <- c(.1, 10)
-m12 <- c(.1, 40)
-m21 <- c(.1, 40)
+nu1B <- c(0.001, 200)
+nu2B <- c(0.001, 200)
+nu1f <- c(0.01, 200)
+nu2f <- c(0.01, 200)
+K1 <- c(0.01, 20)
+K2 <- c(0.01, 20)
+ts <- c(.01, 10)
+tp <- c(.01, 10)
+m12 <- c(.01, 40)
+m21 <- c(.01, 40)
 r1 <- c(1, 6)
 r2 <- c(1, 6)
 bounds <- list(nu1B = nu1B, nu2B = nu2B, nu1f = nu1f, nu2f = nu2f,
                K1 = K1, K2 = K2, ts = ts, tp = tp, m12 = m12, m21 = m21, r1 = r1, r2 = r2)
 
-make.parm.file.from.best(best.reps, mplist, bounds, 50, 100, "False", 2, "[15,15]", "dadi/parmfiles/dadi_HGR_2nd_pass_parms.txt")
+make.parm.file.from.best(best.reps, mplist, bounds, 100, 100, "False", 1, "[15,15]", "dadi/parmfiles/dadi_HGR_3RD_pass_parms.txt")

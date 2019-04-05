@@ -36,7 +36,7 @@ os.chdir(sys.argv[1])
 
 # Models for three pops
 # define the models. Some of these should be run both with the order of GUA and HAW flipped!
-def cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pts):
+def p3_cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pts):
     """
     Models p2 establishment followed by p3 establishment. Migration between p3 and p2 as well as to both of those from p1.
     Assumes constant, exponential growth in both p2 and p3. Assumes equal growth rates in both areas.
@@ -96,7 +96,7 @@ def cgrowth((nu2B, nu3B, nu2F, nu3F, ts, tp, m21, m31, m32, m23), (n1,n2,n3), pt
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
 
-def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2,n3), pts):
+def p3_lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2,n3), pts):
     """
     Models pop2 establishment followed by pop3 establishment. Migration between p1 and p2 as well as to both of those from p1.
     Assumes logistic growth to different K values in both p2 and p3.
@@ -158,7 +158,7 @@ def lgrowth_both((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
 
-def lgrowth_p3((nu2B, nu3B, nu2F, K3, ts, tp, m21, m31, m32, m23, r3), (n1,n2,n3), pts):
+def p3_lgrowth_p3((nu2B, nu3B, nu2F, K3, ts, tp, m21, m31, m32, m23, r3), (n1,n2,n3), pts):
     """
     Models p2 establishment followed by p3 establishment. Migration between p3 and p2 as well as to both of those from p1.
     Assumes logistic growth to different K values in both p2 and p3.
@@ -220,7 +220,7 @@ def lgrowth_p3((nu2B, nu3B, nu2F, K3, ts, tp, m21, m31, m32, m23, r3), (n1,n2,n3
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
 
-def lgrowth_p2((nu2B, nu3B, nu3F, K2, ts, tp, m21, m31, m32, m23, r2), (n1,n2,n3), pts):
+def p3_lgrowth_p2((nu2B, nu3B, nu3F, K2, ts, tp, m21, m31, m32, m23, r2), (n1,n2,n3), pts):
     """
     Models p2 establishment followed by p3 establishment. Migration between p3 and p2 as well as to both of those from p1.
     Assumes logistic growth to different K values in both p2 and p3.
@@ -282,7 +282,7 @@ def lgrowth_p2((nu2B, nu3B, nu3F, K2, ts, tp, m21, m31, m32, m23, r2), (n1,n2,n3
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2,n3), (xx,yy,zz))
     return(sfs)
 
-def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2,n3), pts):
+def p3_lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2,n3), pts):
     """
     Models p2 and p3 establishment seperately from NA. p2 founded first. Migration between p3 and p2 as well as to both of those from p1.
     Assumes logistic growth to different K values in both p2 and p3.
@@ -348,7 +348,7 @@ def lgb_p1tb_2f((nu2B, nu3B, K2, K3, ts, tp, m21, m31, m32, m23, r2, r3), (n1,n2
 
 
 # Models for two pops
-def p2_cgrowth((nu1B, nu2B, nu1f, nu2f, ts, tp, m12, m21), (n1,n2), pts):
+def cgrowth((nu1B, nu2B, nu1f, nu2f, ts, tp, m12, m21), (n1,n2), pts):
     """
     Models growth in pop 1 until a split, then exponential growth in each.
     
@@ -396,7 +396,7 @@ def p2_cgrowth((nu1B, nu2B, nu1f, nu2f, ts, tp, m12, m21), (n1,n2), pts):
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
     return(sfs)
 
-def p2_lgrowth_both((nu1B, nu2B, K1, K2, ts, tp, m12, m21, r1, r2), (n1,n2), pts):
+def lgrowth_both((nu1B, nu2B, K1, K2, ts, tp, m12, m21, r1, r2), (n1,n2), pts):
     """
     Models growth in pop 1 until a split, then logistic growth in each.
     
@@ -448,7 +448,7 @@ def p2_lgrowth_both((nu1B, nu2B, K1, K2, ts, tp, m12, m21, r1, r2), (n1,n2), pts
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
     return(sfs)
 
-def p2_lgrowth_1((nu1B, nu2B, K1, nu2f, ts, tp, m12, m21, r1), (n1,n2), pts):
+def lgrowth_1((nu1B, nu2B, K1, nu2f, ts, tp, m12, m21, r1), (n1,n2), pts):
     """
     Models growth in pop 1 until a split, then logistic growth in only pop 1.
     
@@ -499,7 +499,7 @@ def p2_lgrowth_1((nu1B, nu2B, K1, nu2f, ts, tp, m12, m21, r1), (n1,n2), pts):
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
     return(sfs)
 
-def p2_lgrowth_2((nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2), (n1,n2), pts):
+def lgrowth_2((nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2), (n1,n2), pts):
     """
     Models growth in pop 1 until a split, then logistic growth in only pop 1.
     
@@ -551,6 +551,186 @@ def p2_lgrowth_2((nu1B, nu2B, nu1f, K2, ts, tp, m12, m21, r2), (n1,n2), pts):
     sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
     return(sfs)
 
+# Two pops, no initial bottleneck and growth. Just an initial pop and then a split.
+def nig_cgrowth((nu1B, nu2B, nu1f, nu2f, tp, m12, m21), (n1,n2), pts):
+    """
+    Models growth in pop 1 until a split, then exponential growth in each.
+    
+    nu1B: p1 pop size
+    nu2B: p2 pop size after founding.
+    nu1f: Final pop size for p1.
+    nu2f: Final p2 pop size.
+    tp: Time from p2 founding to present.
+    m21: Migration into p2 from p1.
+    m12: Migration into p1 from p2.
+    
+    n1,n2: Size of fs to generate.
+    pts: Number of points to use in grid for evaluation.
+    """
+    
+    start = time.time()
+    xx = yy = dadi.Numerics.default_grid(pts)
+    
+    # phi for the equilibrium ancestral population
+    phi = dadi.PhiManip.phi_1D(xx)
+    
+    # The divergence
+    phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
+    
+    
+    # growth functions:
+    nu1_func = lambda t: nu1B*(nu1f/nu1B)**(t/tp)
+    nu2_func = lambda t: nu2B*(nu2f/nu2B)**(t/tp)
+    
+    phi = dadi.Integration.two_pops(phi, xx, tp, nu1=nu1_func, nu2=nu2_func, 
+                                    m12=m12, m21=m21)
+    
+    # print("Finishing=======================================================\n")
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
+    sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
+    return(sfs)
+
+def nig_lgrowth_both((nu1B, nu2B, K1, K2, tp, m12, m21, r1, r2), (n1,n2), pts):
+    """
+    Models growth in pop 1 until a split, then logistic growth in each.
+    
+    
+    nu1B: p1 pop size
+    nu2B: p2 pop size after founding.
+    K1: Carrying capacity in pop 1.
+    K2: Carrying capacity in pop 2.
+    tp: Time from p2 founding to present.
+    m21: Migration into p2 from p1.
+    m12: Migration into p1 from p2.
+    r1: growth rate, pop 1
+    r2: growth rate, pop 2
+
+    n1,n2: Size of fs to generate.
+    pts: Number of points to use in grid for evaluation.
+    """
+    
+    start = time.time()
+    
+    # Define grid
+    start = time.time()
+    xx = yy = dadi.Numerics.default_grid(pts)
+    
+    
+    # phi for the equilibrium ancestral population
+    phi = dadi.PhiManip.phi_1D(xx)
+    
+    # The divergence
+    phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
+    
+    
+    # growth functions:
+    nu1_func = lambda t: (K1*nu1B*math.exp(r1*t))/(K1 + nu1B*(math.exp(r1*t) - 1))
+    nu2_func = lambda t: (K2*nu2B*math.exp(r2*t))/(K2 + nu2B*(math.exp(r2*t) - 1))
+    phi = dadi.Integration.two_pops(phi, xx, tp, nu1=nu1_func, nu2=nu2_func, 
+                                    m12=m12, m21=m21)
+    
+    # print("Finishing=======================================================\n")
+    
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    
+    # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
+    sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
+    return(sfs)
+
+def nig_lgrowth_1((nu1B, nu2B, K1, nu2f, tp, m12, m21, r1), (n1,n2), pts):
+    """
+    Models growth in pop 1 until a split, then logistic growth in only pop 1.
+    
+    
+    nu1B: p1 pop size
+    nu2B: p2 pop size after founding.
+    K1: Carrying capacity in pop 1.
+    nu2f: final pop 2 pop size
+    tp: Time from p2 founding to present.
+    m21: Migration into p2 from p1.
+    m12: Migration into p1 from p2.
+    r1: growth rate, pop 1
+    
+    n1,n2: Size of fs to generate.
+    pts: Number of points to use in grid for evaluation.
+    """
+    
+    start = time.time()
+    
+    # Define grid
+    start = time.time()
+    xx = yy = dadi.Numerics.default_grid(pts)
+    
+    
+    # phi for the equilibrium ancestral population
+    phi = dadi.PhiManip.phi_1D(xx)
+    
+    # The divergence
+    phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
+    
+    # growth functions:
+    nu1_func = lambda t: (K1*nu1B*math.exp(r1*t))/(K1 + nu1B*(math.exp(r1*t) - 1))
+    nu2_func = lambda t: nu2B*(nu2f/nu2B)**(t/tp)
+    phi = dadi.Integration.two_pops(phi, xx, tp, nu1=nu1_func, nu2=nu2_func, 
+                                    m12=m12, m21=m21)
+    
+    # print("Finishing=======================================================\n")
+    
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    
+    # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
+    sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
+    return(sfs)
+
+def nig_lgrowth_2((nu1B, nu2B, nu1f, K2, tp, m12, m21, r2), (n1,n2), pts):
+    """
+    Models growth in pop 1 until a split, then logistic growth in only pop 1.
+    
+    
+    nu1B: p1 pop size
+    nu2B: p2 pop size after founding.
+    nu1f: final pop 1 pop size
+    K2: Carrying capacity in pop 1.
+    tp: Time from p2 founding to present.
+    m21: Migration into p2 from p1.
+    m12: Migration into p1 from p2.
+    r1: growth rate, pop 1
+    
+    n1,n2: Size of fs to generate.
+    pts: Number of points to use in grid for evaluation.
+    """
+    
+    start = time.time()
+    
+    # Define grid
+    start = time.time()
+    xx = yy = dadi.Numerics.default_grid(pts)
+    
+    
+    # phi for the equilibrium ancestral population
+    phi = dadi.PhiManip.phi_1D(xx)
+    
+    # The divergence
+    phi = dadi.PhiManip.phi_1D_to_2D(xx, phi)
+    
+    # growth functions:
+    nu1_func = lambda t: nu1B*(nu1f/nu1B)**(t/tp)
+    nu2_func = lambda t: (K2*nu2B*math.exp(r2*t))/(K2 + nu2B*(math.exp(r2*t) - 1))
+    phi = dadi.Integration.two_pops(phi, xx, tp, nu1=nu1_func, nu2=nu2_func, 
+                                    m12=m12, m21=m21)
+    
+    # print("Finishing=======================================================\n")
+    
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    
+    # Finally, calculate the spectrum. n1, n2, and n3 are the sample sizes to take from the populations. xx, yy, and zz are the grid sizes.
+    sfs = dadi.Spectrum.from_phi(phi, (n1,n2), (xx,yy))
+    return(sfs)
 
 
 

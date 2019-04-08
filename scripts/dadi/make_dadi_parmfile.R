@@ -81,25 +81,43 @@ parms2 <- gsub("GUA", "ROT", parms)
 ##############2-pop models##############
 
 #model parameter p0, lower bounds, and upper bounds.
-nu1B <- c(0.01, 1e-6, 100)
-nu2B <- c(0.01, 1e-6, 100)
-nu1f <- c(0.1, 1e-5, 100)
-nu2f <- c(0.1, 1e-5, 100)
-K1 <- c(0.1, 1e-5, 100)
-K2 <- c(0.1, 1e-5, 100)
-ts <- c(.1, .001, 10)
-tp <- c(.1, .001, 10)
-m12 <- c(.1, 0, 40)
-m21 <- c(.1, 0, 40)
-r1 <- c(1, .01, 6)
-r2 <- c(1, .01, 6)
+nuA <- c(0.01, 1e-6, 100) # ancient pop size
+nu1 <- c(0.01, 1e-6, 100) # final pop size, pop 1
+nu2 <- c(0.01, 1e-6, 100) # final pop size, pop 2
+Ti <- c(.1, .001, 20) # Time to (single) split
+T1 <- c(.1, .001, 10)  # Time of first epoch
+T2 <- c(.1, .001, 10) # Time of second epoch to present
+s <- c(0.1, 1e-5, 1) # fraction of nuA that goes to pop 2
+K2 <- c(0.1, 1e-5, 100) # Carrying capacity of pop 2
+m12 <- c(.1, 0, 40) # Migration rate from 2 to 1
+m21 <- c(.1, 0, 40) # Migration rate from 1 to 2
+m <- c(.1, 0, 40) # Symmetric migration rate
+f <- c(0.1, 1e-5, 1) # Fraction of updated population 2 to be derived from population 1 (admixture)
+r2 <- c(1, .01, 6) # Logistic growth rate of pop 2
 
 #how many iters?
 iters <- 50
 
 #which models and how many reps?
 reps_per_perm <- 100
-mods <- c("nig_cgrowth", "nig_lgrowth_both", "nig_lgrowth_1", "nig_lgrowth_2")
+mods <- c(vic_no_mig = T, 
+              vic_anc_asym_mig = T,  
+              vic_sec_contact_asym_mig = T,  
+              founder_nomig = T,  
+              founder_sym = T, 
+              founder_asym = T, 
+              vic_no_mig_admix_early = T,  
+              vic_no_mig_admix_late = T,  
+              vic_two_epoch_admix = T, 
+              founder_nomig_admix_early = T, 
+              founder_nomig_admix_late = T,  
+              founder_nomig_admix_two_epoch = T,  
+              founder_nomig_logistic = T,  
+              founder_sym_logistic = T, 
+              founder_asym_logistic = T,  
+              founder_nomig_admix_early_logistic = T, 
+              founder_nomig_admix_late_logistic = T,  
+              founder_nomig_admix_two_epoch_logistic = T)
 
 #which pops to use?
 pops <- c("[NAM,HAW]")
@@ -123,6 +141,7 @@ append.ofile <- T # should this be appened to an existing outfile?
 ##########################################
 #make the parm df
 #models
+mods <- names(mods)[mods]
 rpp <- reps_per_perm
 rppm <- rpp*length(pops)
 mods <- sort(rep(mods, rppm))
@@ -152,29 +171,59 @@ ip <- character(length(mods))
 lb <- ip
 ub <- ip
 for(i in 1:length(ip)){
-  if(mods[i] == "cgrowth"){
-    tparms <- cbind(nu1ag, nu2B, nu1f, nu2f, ts, tp, m12, m21)
+  if(mods[i] == "vic_no_mig"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s)
   }
-  else if (mods[i] == "lgrowth_both"){
-    tparms <- cbind(nu1ag, nu2B, K1, K2, ts, tp, m12, m21, r1, r2)
+  else if(mods[i] == "vic_anc_asym_mig"){
+    tparms <- cbind(nuA, nu1, nu2, m12, m21, T1, T2, s)
   }
-  else if (mods[i] == "lgrowth_1"){
-    tparms <- cbind(nu1ag, nu2B, K1, nu2f, ts, tp, m12, m21, r1)
+  else if(mods[i] == "vic_sec_contact_asym_mig"){
+    tparms <- cbind(nuA, nu1, nu2, m12, m21, T1, T2, s)
   }
-  else if (mods[i] == "lgrowth_2"){
-    tparms <- cbind(nu1ag, nu2B, nu1f, K2, ts, tp, m12, m21, r2)
+  else if(mods[i] == "founder_nomig"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s)
   }
-  else if(mods[i] == "nig_cgrowth"){
-    tparms <- cbind(nu1B, nu2B, nu1f, nu2f, tp, m12, m21)
+  else if(mods[i] == "founder_sym"){
+    tparms <- cbind(nuA, nu1, nu2, m, Ti, s)
   }
-  else if (mods[i] == "nig_lgrowth_both"){
-    tparms <- cbind(nu1B, nu2B, K1, K2, tp, m12, m21, r1, r2)
+  else if(mods[i] == "founder_asym"){
+    tparms <- cbind(nuA, nu1, nu2, m12, m21, Ti, s)
   }
-  else if (mods[i] == "nig_lgrowth_1"){
-    tparms <- cbind(nu1B, nu2B, K1, nu2f, tp, m12, m21, r1)
+  else if(mods[i] == "vic_no_mig_admix_early"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f)
   }
-  else if (mods[i] == "nig_lgrowth_2"){
-    tparms <- cbind(nu1B, nu2B, nu1f, K2, tp, m12, m21, r2)
+  else if(mods[i] == "vic_no_mig_admix_late"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f)
+  }
+  else if(mods[i] == "vic_two_epoch_admix"){
+    tparms <- cbind(nuA, nu1, nu2, T1, T2, s, f)
+  }
+  else if(mods[i] == "founder_nomig_admix_early"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f)
+  }
+  else if(mods[i] == "founder_nomig_admix_late"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f)
+  }
+  else if(mods[i] == "founder_nomig_admix_two_epoch"){
+    tparms <- cbind(nuA, nu1, nu2, T1, T2, s, f)
+  }
+  else if(mods[i] == "founder_nomig_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, K2, r2)
+  }
+  else if(mods[i] == "founder_sym_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, m, Ti, s, K2, r2)
+  }
+  else if(mods[i] == "founder_asym_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, m12, m21, Ti, s, K2, r2)
+  }
+  else if(mods[i] == "founder_nomig_admix_early_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f, K2, r2)
+  }
+  else if(mods[i] == "founder_nomig_admix_late_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, Ti, s, f, K2, r2)
+  }
+  else if(mods[i] == "founder_nomig_admix_two_epoch_logistic"){
+    tparms <- cbind(nuA, nu1, nu2, T1, T2, s, f, K2, r2)
   }
   ip[i] <- paste0("[", paste0(tparms[1,], collapse = ","), "]")
   lb[i] <- paste0("[", paste0(tparms[2,], collapse = ","), "]")

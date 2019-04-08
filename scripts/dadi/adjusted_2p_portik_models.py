@@ -11,14 +11,14 @@ def vic_no_mig(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-
+    
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2, m12=0, m21=0)
     
     end = time.time()
@@ -26,7 +26,7 @@ def vic_no_mig(params, ns, pts):
     
     fs = Spectrum.from_phi(phi, ns, (xx,xx)
     return(fs)
-    
+
 def vic_anc_asym_mig(params, ns, pts):
     """
     Split with asymmetric migration followed by isolation. Populations are fractions of ancient
@@ -43,21 +43,21 @@ def vic_anc_asym_mig(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m12, m21, T1, T2, s = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-   
+    
     phi = Integration.two_pops(phi, xx, T1, nu1, nu2, m12=m12, m21=m21)
     
     phi = Integration.two_pops(phi, xx, T2, nu1, nu2, m12=0, m21=0)
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -77,24 +77,24 @@ def vic_sec_contact_asym_mig(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m12, m21, T1, T2, s = params
-
+    
     xx = Numerics.default_grid(pts)
     
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-
+    
     phi = Integration.two_pops(phi, xx, T1, nu1, nu2, m12=0, m21=0)
-
+    
     phi = Integration.two_pops(phi, xx, T2, nu1, nu2, m12=m12, m21=m21)
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
- 
+
 def founder_nomig(params, ns, pts):
     """
     Split into two populations, with no migration. Populations are fractions of ancient
@@ -108,12 +108,12 @@ def founder_nomig(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
@@ -123,10 +123,10 @@ def founder_nomig(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
- 
+
 def founder_sym(params, ns, pts):
     """
     Split into two populations, with one migration rate. Populations are fractions of ancient
@@ -141,12 +141,12 @@ def founder_sym(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m, Ti, s = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
@@ -156,7 +156,7 @@ def founder_sym(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -175,12 +175,12 @@ def founder_asym(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m12, m21, Ti, s = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
@@ -190,7 +190,7 @@ def founder_asym(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -208,20 +208,20 @@ def vic_no_mig_admix_early(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-
+    
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2, m12=0, m21=0)
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -239,20 +239,20 @@ def vic_no_mig_admix_late(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-
+    
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2, m12=0, m21=0)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -271,22 +271,22 @@ def vic_two_epoch_admix(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, T1, T2, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
     
     phi = PhiManip.phi_1D(xx)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     nu1 = nuA*(1-s)
     nu2 = nuA*s
-
+    
     phi = Integration.two_pops(phi, xx, T1, nu1, nu2, m12=0, m21=0)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
-
+    
     phi = Integration.two_pops(phi, xx, T2, nu1, nu2, m12=0, m21=0)
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -304,13 +304,13 @@ def founder_nomig_admix_early(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
@@ -320,7 +320,7 @@ def founder_nomig_admix_early(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -338,12 +338,12 @@ def founder_nomig_admix_late(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
@@ -354,7 +354,7 @@ def founder_nomig_admix_late(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -373,12 +373,12 @@ def founder_nomig_admix_two_epoch(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, T1, T2, s, f = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/T1)
@@ -391,7 +391,7 @@ def founder_nomig_admix_two_epoch(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -412,12 +412,12 @@ def founder_nomig_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: (K2*(nuA*s)*math.exp(r2*t))/(K2 + (nuA*s)*(math.exp(r2*t) - 1))
@@ -427,10 +427,10 @@ def founder_nomig_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
- 
+
 def founder_sym_logistic(params, ns, pts):
     """
     Split into two populations, with one migration rate. Populations are fractions of ancient
@@ -446,12 +446,12 @@ def founder_sym_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m, Ti, s, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: (K2*(nuA*s)*math.exp(r2*t))/(K2 + (nuA*s)*(math.exp(r2*t) - 1))
@@ -461,7 +461,7 @@ def founder_sym_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -481,12 +481,12 @@ def founder_asym_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, m12, m21, Ti, s, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: (K2*(nuA*s)*math.exp(r2*t))/(K2 + (nuA*s)*(math.exp(r2*t) - 1))
@@ -496,7 +496,7 @@ def founder_asym_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -515,13 +515,13 @@ def founder_nomig_admix_early_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: (K2*(nuA*s)*math.exp(r2*t))/(K2 + (nuA*s)*(math.exp(r2*t) - 1))
@@ -531,7 +531,7 @@ def founder_nomig_admix_early_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -551,12 +551,12 @@ def founder_nomig_admix_late_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, Ti, s, f, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: (K2*(nuA*s)*math.exp(r2*t))/(K2 + (nuA*s)*(math.exp(r2*t) - 1))
@@ -567,7 +567,7 @@ def founder_nomig_admix_late_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
@@ -586,12 +586,12 @@ def founder_nomig_admix_two_epoch_logistic(params, ns, pts):
     """
     start = time.time()
     nuA, nu1, nu2, T1, T2, s, f, K2, r2 = params
-
+    
     xx = Numerics.default_grid(pts)
-
+    
     phi = PhiManip.phi_1D(xx, nu=nuA)
     phi = PhiManip.phi_1D_to_2D(xx, phi)
-
+    
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
     nu2_func = lambda t: nu2_0 * (nu2/nu2_0)**(t/T1)
@@ -607,6 +607,6 @@ def founder_nomig_admix_two_epoch_logistic(params, ns, pts):
     
     end = time.time()
     print("Iter time: " + str(end - start))
-
+    
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)

@@ -1,3 +1,10 @@
+import numpy
+import time
+from dadi import Numerics, PhiManip, Integration
+from dadi.Spectrum_mod import Spectrum
+
+
+
 def vic_no_mig(params, ns, pts):
     """
     Split into two populations, no migration. Populations are fractions of ancient

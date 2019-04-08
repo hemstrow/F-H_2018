@@ -1,5 +1,6 @@
 import numpy
 import time
+import math
 from dadi import Numerics, PhiManip, Integration
 from dadi.Spectrum_mod import Spectrum
 

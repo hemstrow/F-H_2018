@@ -24,7 +24,7 @@ def vic_no_mig(params, ns, pts):
     end = time.time()
     print("Iter time: " + str(end - start))
     
-    fs = Spectrum.from_phi(phi, ns, (xx,xx)
+    fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
 def vic_anc_asym_mig(params, ns, pts):

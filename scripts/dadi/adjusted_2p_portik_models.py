@@ -25,7 +25,7 @@ def vic_no_mig(params, ns, pts):
     print("Iter time: " + str(end - start))
     
     fs = Spectrum.from_phi(phi, ns, (xx,xx)
-    return fs
+    return(fs)
     
 def vic_anc_asym_mig(params, ns, pts):
     """
@@ -59,7 +59,7 @@ def vic_anc_asym_mig(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def vic_sec_contact_asym_mig(params, ns, pts):
     """
@@ -93,7 +93,7 @@ def vic_sec_contact_asym_mig(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
  
 def founder_nomig(params, ns, pts):
     """
@@ -125,7 +125,7 @@ def founder_nomig(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
  
 def founder_sym(params, ns, pts):
     """
@@ -158,7 +158,7 @@ def founder_sym(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_asym(params, ns, pts):
     """
@@ -192,7 +192,7 @@ def founder_asym(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def vic_no_mig_admix_early(params, ns, pts):
     """
@@ -223,7 +223,7 @@ def vic_no_mig_admix_early(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def vic_no_mig_admix_late(params, ns, pts):
     """
@@ -254,7 +254,7 @@ def vic_no_mig_admix_late(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def vic_two_epoch_admix(params, ns, pts):
     """
@@ -288,7 +288,7 @@ def vic_two_epoch_admix(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_early(params, ns, pts):
     """
@@ -322,7 +322,7 @@ def founder_nomig_admix_early(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_late(params, ns, pts):
     """
@@ -356,7 +356,7 @@ def founder_nomig_admix_late(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_two_epoch(params, ns, pts):
     """
@@ -393,7 +393,7 @@ def founder_nomig_admix_two_epoch(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 
 ##########################same founder models, but with logistic growth
@@ -429,7 +429,7 @@ def founder_nomig_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
  
 def founder_sym_logistic(params, ns, pts):
     """
@@ -463,7 +463,7 @@ def founder_sym_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_asym_logistic(params, ns, pts):
     """
@@ -498,7 +498,7 @@ def founder_asym_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_early_logistic(params, ns, pts):
     """
@@ -533,7 +533,7 @@ def founder_nomig_admix_early_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_late_logistic(params, ns, pts):
     """
@@ -569,7 +569,7 @@ def founder_nomig_admix_late_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)
 
 def founder_nomig_admix_two_epoch_logistic(params, ns, pts):
     """
@@ -609,4 +609,4 @@ def founder_nomig_admix_two_epoch_logistic(params, ns, pts):
     print("Iter time: " + str(end - start))
 
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
-    return fs
+    return(fs)

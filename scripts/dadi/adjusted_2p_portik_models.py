@@ -1,3 +1,4 @@
+from __future__ import division
 import numpy
 import time
 import math
@@ -5,21 +6,13 @@ from dadi import Numerics, PhiManip, Integration
 from dadi.Spectrum_mod import Spectrum
 
 ######################################growth subfunctions#######################################
-def nu1_exp_func(t):
-    n = nu1_0 * (nu1/nu1_0)**(t/Ti)
-    return(n)
+nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
 
-def nu2_exp_func(t):
-    n = nu2_0 * (nu2/nu2_0)**(t/Ti)
-    return(n)
+nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
 
-def nu1_logistic_func(t):
-    n = (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
-    return(n)
+nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
 
-def nu2_logistic_func(t):
-    n = (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
-    return(n)
+nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
 
 #######################################vicariance models, no growth#############################
 

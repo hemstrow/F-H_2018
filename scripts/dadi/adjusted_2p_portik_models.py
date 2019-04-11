@@ -6,13 +6,13 @@ from dadi import Numerics, PhiManip, Integration
 from dadi.Spectrum_mod import Spectrum
 
 ######################################growth subfunctions#######################################
-nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
-
-nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
-
-nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
-
-nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
+# nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+# 
+# nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
+# 
+# nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+# 
+# nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
 
 #######################################vicariance models, no growth#############################
 
@@ -233,6 +233,7 @@ def founder_nomig_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_exp_func, m12=0, m21=0)
@@ -265,6 +266,7 @@ def founder_sym_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_exp_func, m12=m, m21=m)
@@ -298,6 +300,7 @@ def founder_asym_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_exp_func, m12=m12, m21=m21)
@@ -331,6 +334,7 @@ def founder_nomig_admix_early_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_exp_func, m12=0, m21=0)
@@ -363,6 +367,7 @@ def founder_nomig_admix_late_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_exp_func, m12=0, m21=0)
@@ -397,6 +402,7 @@ def founder_nomig_admix_two_epoch_growth_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1, nu2_exp_func, m12=0, m21=0)
@@ -405,6 +411,7 @@ def founder_nomig_admix_two_epoch_growth_pop_2(params, ns, pts):
     
     nu2_0 = nu2_exp_func(T1)
     Ti = T2
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     phi = Integration.two_pops(phi, xx, T2, nu1, nu2_exp_func, m12=0, m21=0)
     
     end = time.time()
@@ -436,6 +443,7 @@ def founder_nomig_growth_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2, m12=0, m21=0)
@@ -468,6 +476,7 @@ def founder_sym_growth_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2, m12=m, m21=m)
@@ -501,6 +510,7 @@ def founder_asym_growth_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2, m12=m12, m21=m21)
@@ -534,6 +544,7 @@ def founder_nomig_admix_early_growth_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2, m12=0, m21=0)
@@ -566,6 +577,7 @@ def founder_nomig_admix_late_growth_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2, m12=0, m21=0)
@@ -601,6 +613,7 @@ def founder_nomig_admix_two_epoch_growth_pop_1(params, ns, pts):
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
     Ti = T1
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1_exp_func, nu1, m12=0, m21=0)
@@ -608,6 +621,7 @@ def founder_nomig_admix_two_epoch_growth_pop_1(params, ns, pts):
     
     nu1_0 = nu1_exp_func(T1)
     Ti = T2
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
     phi = Integration.two_pops(phi, xx, T2, nu1_exp_func, nu2, m12=0, m21=0)
     
     end = time.time()
@@ -638,6 +652,8 @@ def founder_nomig_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2_exp_func, m12=0, m21=0)
@@ -670,6 +686,8 @@ def founder_sym_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2_exp_func, m12=m, m21=m)
@@ -703,6 +721,8 @@ def founder_asym_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2_exp_func, m12=m12, m21=m21)
@@ -736,6 +756,8 @@ def founder_nomig_admix_early_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2_exp_func, m12=0, m21=0)
@@ -768,6 +790,8 @@ def founder_nomig_admix_late_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_exp_func, nu2_exp_func, m12=0, m21=0)
@@ -802,6 +826,8 @@ def founder_nomig_admix_two_epoch_growth_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_exp_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1_exp_func, nu2_exp_func, m12=0, m21=0)
@@ -811,6 +837,8 @@ def founder_nomig_admix_two_epoch_growth_both(params, ns, pts):
     nu1_0 = nu1_exp_func(T1)
     nu2_0 = nu1_exp_func(T1)
     Ti = T2
+    nu1_exp_func = lambda t: nu1_0 * (nu1/nu1_0)**(t/Ti)
+    nu2_exp_func= lambda t: nu2_0 * (nu2/nu2_0)**(t/Ti)
     phi = Integration.two_pops(phi, xx, T2, nu1_exp_func, nu2_exp_func, m12=0, m21=0)
 
     end = time.time()
@@ -844,6 +872,7 @@ def founder_nomig_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_logistic_func, m12=0, m21=0)
@@ -876,6 +905,7 @@ def founder_sym_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_logistic_func, m12=m, m21=m)
@@ -909,6 +939,7 @@ def founder_asym_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_logistic_func, m12=m12, m21=m21)
@@ -942,6 +973,7 @@ def founder_nomig_admix_early_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_logistic_func, m12=0, m21=0)
@@ -974,6 +1006,7 @@ def founder_nomig_admix_late_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1, nu2_logistic_func, m12=0, m21=0)
@@ -1008,6 +1041,7 @@ def founder_nomig_admix_two_epoch_logistic_pop_2(params, ns, pts):
     
     nu1 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1, nu2_logistic_func, m12=0, m21=0)
@@ -1016,6 +1050,7 @@ def founder_nomig_admix_two_epoch_logistic_pop_2(params, ns, pts):
     
     nu2_0 = nu2_logistic_func(T1)
     Ti = T2
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     phi = Integration.two_pops(phi, xx, T2, nu1, nu2_logistic_func, m12=0, m21=0)
     
     end = time.time()
@@ -1047,6 +1082,7 @@ def founder_nomig_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2, m12=0, m21=0)
@@ -1079,6 +1115,7 @@ def founder_sym_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2, m12=m, m21=m)
@@ -1112,6 +1149,7 @@ def founder_asym_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2, m12=m12, m21=m21)
@@ -1145,6 +1183,7 @@ def founder_nomig_admix_early_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2, m12=0, m21=0)
@@ -1177,6 +1216,7 @@ def founder_nomig_admix_late_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2, m12=0, m21=0)
@@ -1212,6 +1252,7 @@ def founder_nomig_admix_two_epoch_logistic_pop_1(params, ns, pts):
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
     Ti = T1
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1_logistic_func, nu1, m12=0, m21=0)
@@ -1219,6 +1260,7 @@ def founder_nomig_admix_two_epoch_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nu1_logistic_func(T1)
     Ti = T2
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     phi = Integration.two_pops(phi, xx, T2, nu1_logistic_func, nu2, m12=0, m21=0)
     
     end = time.time()
@@ -1249,6 +1291,8 @@ def founder_nomig_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2_logistic_func, m12=0, m21=0)
@@ -1281,6 +1325,8 @@ def founder_sym_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2_logistic_func, m12=m, m21=m)
@@ -1314,6 +1360,8 @@ def founder_asym_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2_logistic_func, m12=m12, m21=m21)
@@ -1347,6 +1395,8 @@ def founder_nomig_admix_early_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2_logistic_func, m12=0, m21=0)
@@ -1379,6 +1429,8 @@ def founder_nomig_admix_late_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, Ti, nu1_logistic_func, nu2_logistic_func, m12=0, m21=0)
@@ -1413,6 +1465,8 @@ def founder_nomig_admix_two_epoch_logistic_both(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2_0 = nuA*s
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_logistic_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
     phi = Integration.two_pops(phi, xx, T1, nu1_logistic_func, nu2_logistic_func, m12=0, m21=0)
@@ -1422,6 +1476,8 @@ def founder_nomig_admix_two_epoch_logistic_both(params, ns, pts):
     nu1_0 = nu1_logistic_func(T1)
     nu2_0 = nu1_logistic_func(T1)
     Ti = T2
+    nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
+    nu2_logistic_func = lambda t: (K2*(nu2_0)*math.exp(r2*t))/(K2 + (nu2_0)*(math.exp(r2*t) - 1))
     phi = Integration.two_pops(phi, xx, T2, nu1_logistic_func, nu2_logistic_func, m12=0, m21=0)
 
     end = time.time()

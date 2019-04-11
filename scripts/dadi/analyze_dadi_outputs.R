@@ -1,7 +1,7 @@
 library(ggplot2); library(dplyr)
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/cat_NAH_1st_pass_out.txt")
+res <- readLines("data/dadi_inputs/cat_NAH_portik_1st_out.txt")
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -13,10 +13,24 @@ for(i in 1:length(res)){
 
 #define the parameters per model:
 mplist <- list(
-  p2_cgrowth = c("nu1B", "nu2B", "nu1f", "nu2f", "ts", "tp", "m12", "m21"), 
-  p2_lgrowth_both = c("nu1B", "nu2B", "K1", "K2", "ts", "tp", "m12", "m21", "r1", "r2"),
-  p2_lgrowth_1 = c("nu1B", "nu2B", "K1", "nu2f", "ts", "tp", "m12", "m21", "r1"),
-  p2_lgrowth_2 = c("nu1B", "nu2B", "nu1f", "K2", "ts", "tp", "m12", "m21", "r2")
+  vic_no_mig = c("nuA", "nu1", "nu2", "Ti", "s"),
+  vic_anc_asym_mig = c("nuA", "nu1", "nu2", "m12", "m21", "T1", "T2", "s"),
+  vic_sec_contact_asym_mig = c("nuA", "nu1", "nu2", "m12", "m21", "T1", "T2", "s"),
+  founder_nomig = c("nuA", "nu1", "nu2", "Ti", "s"),
+  founder_sym = c("nuA", "nu1", "nu2", "m", "Ti", "s"),
+  founder_asym = c("nuA", "nu1", "nu2", "m12", "m21", "Ti", "s"),
+  vic_no_mig_admix_early = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  vic_no_mig_admix_late = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  vic_two_epoch_admix = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f"),
+  founder_nomig_admix_early = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  founder_nomig_admix_late = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  founder_nomig_admix_two_epoch = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f"),
+  founder_nomig_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "K2", "r2"),
+  founder_sym_logistic = c("nuA", "nu1", "nu2", "m", "Ti", "s", "K2", "r2"),
+  founder_asym_logistic = c("nuA", "nu1", "nu2", "m12", "m21", "Ti", "s", "K2", "r2"),
+  founder_nomig_admix_early_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "f", "K2", "r2"),
+  founder_nomig_admix_late_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "f", "K2", "r2"),
+  founder_nomig_admix_two_epoch_logistic = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f", "K2", "r2")
 )
 
 #what are the unique combinations of model and pop?
@@ -53,14 +67,14 @@ ggplot(rdf, aes(x = AIC)) + geom_histogram() + facet_grid(model ~ pops) + theme_
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
 best.reps <- arrange(best.reps, pops, model)
 best.reps[,-c(3,4,5,7)] #where are we pushing parameter bounds?
-ggplot(best.reps, aes(y = AIC, x = model, color = pops)) + geom_point() + theme_bw()
-best.reps[order(best.reps$AIC),-c(3,4,5,7)]
+ggplot(best.reps, aes(y = AIC, x = model, color = pops)) + geom_point() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+best.reps[order(best.reps$AIC),-c(3,4,7)]
 
 #these best.reps are the starting points for next run
 
 
-# plots for the parameters for the lgrowth2 NAM_HAW model
-ggplot(wlist$p2_lgrowth_2_NAM_HAW, aes(x = nu2B, y = nu1B, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+# plots for the parameters
+ggplot(wlist$founder_asym_HAW_NAM, aes(x = s, y = nuA, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
 

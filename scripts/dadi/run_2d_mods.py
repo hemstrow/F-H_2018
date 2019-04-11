@@ -31,6 +31,7 @@ import os
 import array
 import math
 import adjusted_2p_portik_models
+from __future__ import division
 
 os.chdir(sys.argv[1])
 

@@ -1,3 +1,4 @@
+from __future__ import division
 import sys
 
 if len(sys.argv) != 14:
@@ -31,7 +32,7 @@ import os
 import array
 import math
 import adjusted_2p_portik_models
-from __future__ import division
+
 
 os.chdir(sys.argv[1])
 

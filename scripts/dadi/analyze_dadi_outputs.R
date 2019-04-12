@@ -13,24 +13,97 @@ for(i in 1:length(res)){
 
 #define the parameters per model:
 mplist <- list(
-  vic_no_mig = c("nuA", "nu1", "nu2", "Ti", "s"),
-  vic_anc_asym_mig = c("nuA", "nu1", "nu2", "m12", "m21", "T1", "T2", "s"),
-  vic_sec_contact_asym_mig = c("nuA", "nu1", "nu2", "m12", "m21", "T1", "T2", "s"),
-  founder_nomig = c("nuA", "nu1", "nu2", "Ti", "s"),
-  founder_sym = c("nuA", "nu1", "nu2", "m", "Ti", "s"),
-  founder_asym = c("nuA", "nu1", "nu2", "m12", "m21", "Ti", "s"),
-  vic_no_mig_admix_early = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
-  vic_no_mig_admix_late = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
-  vic_two_epoch_admix = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f"),
-  founder_nomig_admix_early = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
-  founder_nomig_admix_late = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
-  founder_nomig_admix_two_epoch = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f"),
-  founder_nomig_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "K2", "r2"),
-  founder_sym_logistic = c("nuA", "nu1", "nu2", "m", "Ti", "s", "K2", "r2"),
-  founder_asym_logistic = c("nuA", "nu1", "nu2", "m12", "m21", "Ti", "s", "K2", "r2"),
-  founder_nomig_admix_early_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "f", "K2", "r2"),
-  founder_nomig_admix_late_logistic = c("nuA", "nu1", "nu2", "Ti", "s", "f", "K2", "r2"),
-  founder_nomig_admix_two_epoch_logistic = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f", "K2", "r2")
+  vic_no_mig = c("nuA", "Ti", "s"),
+  
+  vic_anc_asym_mig = c("nuA", "m12", "m21", "T1", "T2", "s"),
+  
+  vic_sec_contact_asym_mig = c("nuA", "m12", "m21", "T1", "T2", "s"),
+  
+  vic_no_mig_admix_early = c("nuA", "Ti", "s", "f"),
+  
+  vic_no_mig_admix_late = c("nuA", "Ti", "s", "f"),
+  
+  vic_two_epoch_admix = c("nuA", "T1", "T2", "s", "f"),
+  
+  
+  # exponential models
+  founder_nomig_growth_pop_2 =  c("nuA", "nu2", "Ti", "s"),
+  
+  founder_sym_growth_pop_2 = c("nuA", "nu2", "m", "Ti", "s"),
+  
+  founder_asym_growth_pop_2 = c("nuA", " nu2", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_growth_pop_2 = c("nuA", "nu2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_growth_pop_2 = c("nuA", "nu2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_growth_pop_2 = c("nuA", "nu2", "T1", "T2", "s", "f"),
+  
+  
+  founder_nomig_growth_pop_1 = c("nuA", "nu1", "Ti", "s"),
+  
+  founder_sym_growth_pop_1 = c("nuA", "nu1", "m", "Ti", "s"),
+  
+  founder_asym_growth_pop_1 = c("nuA", "nu1", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_growth_pop_1 = c("nuA", "nu1", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_growth_pop_1 =  c("nuA", "nu1", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_growth_pop_1 = c("nuA", "nu1", "T1", "T2", "s", "f"),
+  
+  
+  founder_nomig_growth_both = c("nuA", "nu1", "nu2", "Ti", "s"),
+  
+  founder_sym_growth_both = c("nuA", "nu1", "nu2", "m", "Ti", "s"),
+  
+  founder_asym_growth_both = c("nuA", "nu1", "nu2", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_growth_both = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_growth_both = c("nuA", "nu1", "nu2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_growth_both = c("nuA", "nu1", "nu2", "T1", "T2", "s", "f"),
+  
+  
+  # logistic models
+  founder_nomig_logistic_pop_2 = c("nuA", "K2", "r2", "Ti", "s"),
+  
+  founder_sym_logistic_pop_2 = c("nuA", "K2", "r2", "m", "Ti", "s"),
+  
+  founder_asym_logistic_pop_2 = c("nuA", "K2", "r2", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_logistic_pop_2 = c("nuA", "K2", "r2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_logistic_pop_2 = c("nuA", "K2", "r2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_logistic_pop_2 = c("nuA", "K2", "r2", "T1", "T2", "s", "f"),
+  
+  
+  founder_nomig_logistic_pop_1 = c("nuA", "K1", "r1", "Ti", "s"),
+  
+  founder_sym_logistic_pop_1 = c("nuA", "K1", "r1", "m", "Ti", "s"),
+  
+  founder_asym_logistic_pop_1 = c("nuA", "K1", "r1", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_logistic_pop_1 = c("nuA", "K1", "r1", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_logistic_pop_1 = c("nuA", "K1", "r1", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_logistic_pop_1 = c("nuA", "K1", "r1", "T1", "T2", "s", "f"),
+  
+  
+  founder_nomig_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "Ti", "s"),
+  
+  founder_sym_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "m", "Ti", "s"),
+  
+  founder_asym_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "m12", "m21", "Ti", "s"),
+  
+  founder_nomig_admix_early_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_late_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "Ti", "s", "f"),
+  
+  founder_nomig_admix_two_epoch_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "T1", "T2", "s", "f")
 )
 
 #what are the unique combinations of model and pop?

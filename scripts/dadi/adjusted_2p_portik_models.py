@@ -189,7 +189,7 @@ def vic_two_epoch_admix(params, ns, pts):
     f: Fraction of updated population 2 to be derived from population 1. 
     """
     start = time.time()
-    nuA, s, f = params
+    nuA, T1, T2, s, f = params
     
     xx = Numerics.default_grid(pts)
     
@@ -1246,11 +1246,10 @@ def founder_nomig_admix_two_epoch_logistic_pop_1(params, ns, pts):
     
     nu1_0 = nuA*(1-s)
     nu2 = nuA*s
-    Ti = T1
     nu1_logistic_func = lambda t: (K1*(nu1_0)*math.exp(r1*t))/(K1 + (nu1_0)*(math.exp(r1*t) - 1))
     #note, the nu2_0 can be eliminated and the function can appear as:
     #nu2_func = lambda t: (nuA*(1-s)) * (nu2/(nuA*(1-s)))**(t/Ti)
-    phi = Integration.two_pops(phi, xx, T1, nu1_logistic_func, nu1, m12=0, m21=0)
+    phi = Integration.two_pops(phi, xx, T1, nu1_logistic_func, nu2, m12=0, m21=0)
     phi = PhiManip.phi_2D_admix_1_into_2(phi, f, xx,xx)
     
     nu1_0 = nu1_logistic_func(T1)

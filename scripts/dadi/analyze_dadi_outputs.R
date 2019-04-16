@@ -1,7 +1,7 @@
 library(ggplot2); library(dplyr)
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/cat_NAH_portik_1st_out.txt")
+res <- readLines("data/dadi_inputs/cat_NH_1st_pass_dportik.txt")
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -31,7 +31,7 @@ mplist <- list(
   
   founder_sym_growth_pop_2 = c("nuA", "nu2", "m", "Ti", "s"),
   
-  founder_asym_growth_pop_2 = c("nuA", " nu2", "m12", "m21", "Ti", "s"),
+  founder_asym_growth_pop_2 = c("nuA", "nu2", "m12", "m21", "Ti", "s"),
   
   founder_nomig_admix_early_growth_pop_2 = c("nuA", "nu2", "Ti", "s", "f"),
   
@@ -131,43 +131,58 @@ for(i in 1:length(wlist)){
 
 
 #==========analysis========
-#overall between models.
+# overall between models.
 rdf$AIC <- as.numeric(rdf$AIC)
 rdf$ll <- as.numeric(rdf$ll)
-ggplot(rdf, aes(x = AIC)) + geom_histogram() + facet_grid(model ~ pops) + theme_bw()
+rdf$mod_median <- aggregate(AIC ~ model, data = rdf, FUN = median)[match(rdf$model, sort(unique(rdf$model))),2] # add model means
+c(table(rdf$model)[which.min(table(rdf$model))]) # which model got through the least number of runs?
+ggplot(rdf, aes(x = AIC)) + geom_histogram() + facet_grid(model ~ pops) + theme_bw() + 
+  xlim(c(min(rdf$AIC), 10000)) + geom_vline(aes(xintercept = mod_median), color = "red")
+ggplot(rdf, aes(x = AIC)) + geom_histogram() + facet_wrap(~model) + theme_bw() + 
+  xlim(c(min(rdf$AIC), 10000)) + geom_vline(aes(xintercept = mod_median), color = "red")
+ggplot(rdf, aes(x = model, y = log(AIC), color = pops)) + geom_point() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(rdf, aes(x = model, y = log(AIC), color = pops)) + geom_boxplot() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-#best replicate per model
+
+# which model had the best AIC on average?
+best.mods <- arrange(unique(rdf[,c(1,2,ncol(rdf))]), mod_median)
+
+# best replicate per model
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
 best.reps <- arrange(best.reps, pops, model)
 best.reps[,-c(3,4,5,7)] #where are we pushing parameter bounds?
 ggplot(best.reps, aes(y = AIC, x = model, color = pops)) + geom_point() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 best.reps[order(best.reps$AIC),-c(3,4,7)]
 
-#these best.reps are the starting points for next run
+# these best.reps are the starting points for next run
 
 
 # plots for the parameters
-ggplot(wlist$founder_asym_HAW_NAM, aes(x = s, y = nuA, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = nu1, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = Ti, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
 
-
-
-
+ggplot(wlist$founder_asym_growth_both_NAM_HAW, aes(x = m12, y = m21, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(wlist$founder_asym_growth_pop_2_NAM_HAW, aes(x = nuA, y = nu2, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
 #==========call a function to make a parameter input file using these parms=============
-nu1B <- c(0.001, 200)
-nu2B <- c(0.001, 200)
-nu1f <- c(0.01, 200)
-nu2f <- c(0.01, 200)
-K1 <- c(0.01, 20)
-K2 <- c(0.01, 20)
-ts <- c(.01, 10)
-tp <- c(.01, 10)
-m12 <- c(.01, 40)
-m21 <- c(.01, 40)
-r1 <- c(1, 6)
-r2 <- c(1, 6)
-bounds <- list(nu1B = nu1B, nu2B = nu2B, nu1f = nu1f, nu2f = nu2f,
-               K1 = K1, K2 = K2, ts = ts, tp = tp, m12 = m12, m21 = m21, r1 = r1, r2 = r2)
+nuA <- c(1e-2, 100) # ancient pop size
+nu1 <- c(1e-3, 100) # final pop size, pop 1, exp growth
+nu2 <- c(1e-6, 100) # final pop size, pop 2, exp growth
+K1 <- c(1e-2, 100) # Carrying capacity of pop 1
+K2 <- c(1e-5, 100) # Carrying capacity of pop 2
+r1 <- c(0, 6) # Logistic growth rate of pop 2
+r2 <- c(0, 6) # Logistic growth rate of pop 2
+Ti <- c(1e-5, 20) # Time to (single) split
+T1 <- c(1e-5, 10)  # Time of first epoch
+T2 <- c(1e-5, 10) # Time of second epoch to present
+s <- c(1e-5, .5) # fraction of nuA that goes to pop 2
+m12 <- c(0, 40) # Migration rate from 2 to 1
+m21 <- c(0, 40) # Migration rate from 1 to 2
+m <- c(0, 40) # Symmetric migration rate
+f <- c(1e-5, 1) # Fraction of updated population 2 to be derived from population 1 (admixture)
+bounds <- list(nuA = nuA, nu1 = nu1, nu2 = nu2, K1 = K1, K2 = K2, r1 = r1, r2 = r2, 
+               Ti = Ti, T1 = T1, T2 = T2, s = s, m12 = m21, m = m, f = f)
 
-make.parm.file.from.best(best.reps, mplist, bounds, 100, 100, "False", 1, "[15,15]", "dadi/parmfiles/dadi_HGR_3RD_pass_parms.txt")
+# make.parm.file.from.best(best.reps, mplist, bounds, 100, 100, "False", 1, "[15,15]", "dadi/parmfiles/dadi_HGR_3RD_pass_parms.txt")
+make.parm.file.from.weighted.ave(wlist, mplist, bounds, 50, 60, "False", 2, "[100,10]", "dadi/parmfiles/NH_r2_adjusted_portik.txt")

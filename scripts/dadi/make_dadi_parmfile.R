@@ -99,10 +99,10 @@ f <- c(0.1, 1e-5, 1) # Fraction of updated population 2 to be derived from popul
 
 
 #how many iters?
-iters <- 50
+iters <- 30
 
 #which models and how many reps?
-reps_per_perm <- 1
+reps_per_perm <- 50
 mods <- c(
   # vicariance models
   vic_no_mig = T, 

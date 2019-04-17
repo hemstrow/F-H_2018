@@ -11,35 +11,43 @@
 #    optim: Optimization formula to use.
 #    exclude: Numeric vector stipulating which rows from best.reps should be skipped when making this parmfile.
 
-make.parm.file.from.best <- function(best.reps, mplist, bounds, iters, 
+make.parm.file.from.best <- function(wlist, mplist, bounds, iters, 
                                      reps_per_perm, fs, fp, proj, ofile, optim = "fmin",exclude = NA){
   if(!is.na(exclude)){
     best.reps <- best.reps[-exclude,]
   }
-  
+
   #initialize vectors to store info
-  rppm <- reps_per_perm*nrow(best.reps)
-  mods <- rep(best.reps$model, each = reps_per_perm)
-  pops <- rep(paste0("[", gsub(" ", ",", best.reps$pops), "]"), each = reps_per_perm)
-  ip <- character(length(mods))
+  rppm <- reps_per_perm*length(wlist)
+  pops <- character(length(rppm))
+  mods <- pops
+  ip <- pops
   ub <- ip
   lb <- ip
   counter <- 1
   
   #fill vectors
-  for(i in 1:nrow(best.reps)){
+  for(i in 1:length(wlist)){
     #add starting values
+    best.parms <- wlist[[i]][which.min(wlist[[i]]$AIC),]
+    best.parms <- best.parms[-c(1:5)]
     ip[counter:(counter + reps_per_perm - 1)] <-
-      paste0("[", gsub(" ", ",", best.reps$mnum[i]), "]")
+      paste0("[", paste0(best.parms, collapse = ","), "]")
     
     #grab upper and lower bounds
-    tb <- unlist(mplist[names(mplist) == best.reps$model[i]])
+    browser()
+    tb <- unlist(mplist[names(mplist) == wlist[[i]]$model[1]])
     tb <- bounds[names(bounds) %in% tb]
+    tb <- tb[match(names(best.parms),names(tb))]
     tb <- as.data.frame(tb)
     lb[counter:(counter + reps_per_perm - 1)] <- 
       paste0("[", paste0(tb[1,], collapse = ","), "]")
     ub[counter:(counter + reps_per_perm - 1)] <- 
       paste0("[", paste0(tb[2,], collapse = ","), "]")
+
+    # add pops and models
+    pops[counter:(counter + reps_per_perm - 1)] <- paste0("[", gsub(" ", ",", wlist[[i]]$pops[1]), "]")
+    mods[counter:(counter + reps_per_perm - 1)] <- wlist[[i]]$model[1]
     
     #update counter
     counter <- counter + reps_per_perm
@@ -71,7 +79,7 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
   if(!is.na(exclude)){
     wlist <- wlist[-exclude,]
   }
-  
+
   #initialize vectors to store info
   rppm <- reps_per_perm*length(wlist)
   pops <- character(length(rppm))
@@ -102,9 +110,11 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
       paste0("[", paste0(fit.parms, collapse = ","), "]")
     
     #grab upper and lower bounds
-    tb <- unlist(mplist[names(mplist) == rdf$model[i]])
+    tb <- unlist(mplist[names(mplist) == wlist[[i]]$model[1]])
     tb <- bounds[names(bounds) %in% tb]
+    tb <- tb[match(names(fit.parms),names(tb))]
     tb <- as.data.frame(tb)
+
     lb[counter:(counter + reps_per_perm - 1)] <- 
       paste0("[", paste0(tb[1,], collapse = ","), "]")
     ub[counter:(counter + reps_per_perm - 1)] <- 

@@ -1,4 +1,4 @@
-library(ggplot2); library(dplyr)
+library(ggplot2); library(dplyr); source("scripts/dadi/make_dadi_parmfile_from_results.R")
 #==========import and prep data==========
 
 res <- readLines("data/dadi_inputs/cat_NH_1st_pass_dportik.txt")
@@ -126,7 +126,7 @@ for(i in 1:length(wlist)){
   colnames(po) <- mplist[[facets$model[i]]]
   po <- cbind(tdat[,3:5], po)
   colnames(po)[1:3] <- c("theta", "ll", "AIC")
-  wlist[[i]] <- po
+  wlist[[i]] <- cbind(pops = tdat$pops, po)
 }
 
 
@@ -146,6 +146,7 @@ ggplot(rdf, aes(x = model, y = log(AIC), color = pops)) + geom_boxplot() + theme
 
 # which model had the best AIC on average?
 best.mods <- arrange(unique(rdf[,c(1,2,ncol(rdf))]), mod_median)
+best.mods
 
 # best replicate per model
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
@@ -160,9 +161,8 @@ best.reps[order(best.reps$AIC),-c(3,4,7)]
 # plots for the parameters
 ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = nu1, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
 ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = Ti, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
-
-ggplot(wlist$founder_asym_growth_both_NAM_HAW, aes(x = m12, y = m21, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(wlist$founder_asym_growth_pop_2_NAM_HAW, aes(x = nuA, y = nu2, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = m12, y = m21, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(wlist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nu1, y = s, color = AIC)) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
 #==========call a function to make a parameter input file using these parms=============

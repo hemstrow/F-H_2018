@@ -71,20 +71,20 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
   if(!is.na(exclude)){
     wlist <- wlist[-exclude,]
   }
-
+  
   #initialize vectors to store info
   rppm <- reps_per_perm*length(wlist)
-  mods <- rep(names(wlist), each = reps_per_perm)
-  pops <- character(length(mods))
+  pops <- character(length(rppm))
+  mods <- pops
   ip <- pops
   ub <- ip
   lb <- ip
   
-  
-  # find the weighted average parameters for each model.
-  fit.parms <- vector(mode = "list", length = length(wlist))
-  names(fit.parms) <- names(wlist)
+  counter <- 1
+  #fill vectors
   for(i in 1:length(wlist)){
+    
+    # find the weighted average parameters for each model.
     tmod <- wlist[[i]]
     AIC <- tmod$AIC
     if(quant){
@@ -94,16 +94,12 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
     }
     # weights are the inverse of AIC
     wt <- 1/AIC
-    tmod <- tmod[,-c(1:3)]
-    fit.parms[[i]] <- round(colSums(tmod*wt)/sum(wt), 7)
-  }
-  
-  counter <- 1
-  #fill vectors
-  for(i in 1:length(wlist)){
+    tmod <- tmod[,-c(1:5)]
+    fit.parms <- round(colSums(tmod*wt)/sum(wt), 7)
+    
     #add starting values
     ip[counter:(counter + reps_per_perm - 1)] <-
-      paste0("[", paste0(fit.parms[[i]], collapse = ","), "]")
+      paste0("[", paste0(fit.parms, collapse = ","), "]")
     
     #grab upper and lower bounds
     tb <- unlist(mplist[names(mplist) == rdf$model[i]])
@@ -114,8 +110,9 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
     ub[counter:(counter + reps_per_perm - 1)] <- 
       paste0("[", paste0(tb[2,], collapse = ","), "]")
     
-    # add pops
+    # add pops and models
     pops[counter:(counter + reps_per_perm - 1)] <- paste0("[", gsub(" ", ",", wlist[[i]]$pops[1]), "]")
+    mods[counter:(counter + reps_per_perm - 1)] <- wlist[[i]]$model[1]
     
     #update counter
     counter <- counter + reps_per_perm

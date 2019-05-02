@@ -20,7 +20,7 @@ ${angsdpath} -b ../Raw_data/ENA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genom
 ${angsdpath} -b ../Raw_data/WNA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genome_v3.fasta -out WNA -dosaf 1 -gl 1 -fold 1
 
 #calculate the 2dsfs prior
-ll ${sfspath} ENA.saf.idx WNA.saf.idx > ENA.WNA.ml
+${sfspath} ENA.saf.idx WNA.saf.idx > ENA.WNA.ml
 
 #prepare the fst for easy window analysis etc
 ${sfspath} fst index ENA.saf.idx WNA.saf.idx -sfs ENA.WNA.ml -fstout ENA.WNA

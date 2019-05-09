@@ -16,8 +16,8 @@ sfspath=~millermr/bin/realSFS
 
 #this is with 2pops
 #first calculate per pop saf for each population
-${angsdpath} -b ..F-H_2018/Raw_data/ENA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genome_v3.fasta -out ENA -dosaf 1 -gl 1 -fold 1
-${angsdpath} -b ..F-H_2018/Raw_data/WNA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genome_v3.fasta -out WNA -dosaf 1 -gl 1 -fold 1
+${angsdpath} -b ./F-H_2018/Raw_data/ENA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genome_v3.fasta -out ENA -dosaf 1 -gl 1 -fold 1
+${angsdpath} -b ./F-H_2018/Raw_data/WNA_bamlist.txt -anc /home/hemstrow/genomes/Dp_genome_v3.fasta -out WNA -dosaf 1 -gl 1 -fold 1
 
 #calculate the 2dsfs prior
 ${sfspath} ENA.saf.idx WNA.saf.idx > ENA.WNA.ml

@@ -11,8 +11,8 @@
 
 # to run this, type sbatch calc_sliding_window.sh
 
-angsdpath=~/angsd/angsd
-sfspath=~/angsd/misc/realSFS
+angsdpath=~mlyjones/bin/angsd_dir/angsd
+sfspath=~mlyjones/bin/angsd_dir/angsd/misc/realSFS
 
 #this is with 2pops
 #first calculate per pop saf for each population

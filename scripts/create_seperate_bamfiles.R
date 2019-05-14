@@ -19,7 +19,7 @@ comb <- comb[order(comb$size, decreasing = T),]
 #remove duplicate HAW sample (although really we should just merge them...)
 comb <- comb[-which(comb$tag == "GCCAAGAC" & comb$plate == "plate1"),]
 
-comb[comb$pop %in% c("ENA", "WNA"),]$pop <- "NAM"
+#comb[comb$pop %in% c("ENA", "WNA"),]$pop <- "NAM"
 
 #get best n of each pop
 n <- nrow(comb[comb$pop == "HAW",])

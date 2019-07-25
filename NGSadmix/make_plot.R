@@ -199,10 +199,15 @@ mqs <- sort_inds(mqf, pop, cluster = c(6,7,8), q = 7) #using the k = 6 plot, whi
 p <- plotQ(mqs,
            returnplot = T, exportplot = F, imgoutput = "join", clustercol = cbp,
            grplab = pop,
-           grplabsize = 5, grplabcol = "black", splabcol = "black", splabsize = 15, 
-           splab = paste0("K ", 2:9), pointsize = 8, divsize = 1)
+           grplabsize = 3, grplabcol = "black", splabcol = "black", splabsize = 10, 
+           grplabangle = 90, grplabpos = 1, grplabheight = 1,
+           splab = paste0("K=", 2:9), pointsize = 8, divsize = 1)
 
 S1 <- grid.arrange(p$plot[[1]])
+
+
+
+
 
 #plotQ(readQ("pop_K4/pop_K4-combined-merged.txt"),
 #      returnplot = T, exportplot = F, basesize = 11)

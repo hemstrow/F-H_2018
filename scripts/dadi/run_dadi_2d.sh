@@ -1,10 +1,10 @@
 #!/bin/bash -l
-#SBATCH --array=1-5
-#SBATCH --mem=2G
+#SBATCH --array=1-4200
+#SBATCH --mem=5G
 #SBATCH -t 6-12:00:00
 #SBATCH -J NHmondadi
 
-#runs run_3d_mods.py with the parameters given in the parmfile, space seperated. Make sure that the correct number of array tasks are requested!
+#runs run_2d_mods.py with the parameters given in the parmfile, space seperated. Make sure that the correct number of array tasks are requested!
 
 module load bio
 module load matplotlib
@@ -12,8 +12,8 @@ module load dadi
 
 idir=~/monarch/github/F-H_2018/data/dadi_inputs/
 infile=dadi_10kgap_snps.txt
-outfile=NH_1st_pass_out_dportik.txt
-parmfile=~/monarch/github/F-H_2018/dadi/parmfiles/1st_pass_NAH_dportik.txt
+outfile=NH_r4_adjusted_portik.txt
+parmfile=~/monarch/github/F-H_2018/dadi/parmfiles/NH_r4_adjusted_portik.txt
 pyscript=~/monarch/github/F-H_2018/scripts/dadi/run_2d_mods.py
 
 

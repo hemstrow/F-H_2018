@@ -54,7 +54,7 @@ else:
 ns = data.sample_sizes
 
 # These are the grid point settings will use for extrapolation.
-pts_l = [100,120,140]
+pts_l = [200,220,240]
 
 # Now let's optimize parameters for this model.
 

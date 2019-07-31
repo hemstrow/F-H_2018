@@ -7,15 +7,45 @@ run <- as.character(args[1])
 outfile <- as.character(args[2])
 cross_sample <- as.numeric(as.character(args[3]))
 
-# prep data
-sample.meta <- read.table("~/monarch/aus_monarchs/aus_monarchs/data/sample_metadata.txt", header = T, stringsAsFactors = F)
-genos <- read.table("~/monarch/aus_monarchs/aus_monarchs/data/genotypes.geno", stringsAsFactors = F)
-snp.meta <- genos[,1:2]
-colnames(snp.meta) <- c("scaffold", "position")
-dat <- import.snpR.data(genos[,-c(1:2)], snp.meta, sample.meta)
-miss.samples <- which(is.na(dat@sample.meta$likely_pheno))
-dat <- subset_snpR_data(dat, samps = (1:ncol(dat))[-miss.samples])
-dat <- filter_snps(dat, maf = 0.05, hf_hets = 0.55, min_ind = 0.5, min_loci = 0.4)
+# read in distance data
+dmeta <- read.table("~/monarch/github/F-H_2018/raw_data/migration_distances.csv", sep = ",", header = T, stringsAsFactors = F)
+
+
+# read in genotypes
+genos <- readRDS("~/monarch/github/F-H_2018/raw_data/flt_snps.RDS")
+
+
+# prepare a new sample meta file
+pops <- colnames(genos)[-c(1:3)]
+pops <- gsub("_.+", "", pops)
+
+meta <- genos[,c(1:3)]
+
+genos <- genos[,-c(1:3)]
+genos <- genos[,which(pops %in% c("ENA", "WNA"))]
+
+pops <- pops[which(pops %in% c("ENA", "WNA"))]
+
+sampIDs <- colnames(genos)
+sampIDs <- gsub(".+_", "", sampIDs)
+
+
+sampmeta <- data.frame(pop = pops, sampleID = sampIDs, stringsAsFactors = F)
+sampmeta$sampleID <- tolower(sampmeta$sampleID)
+sampmeta$ord <- 1:nrow(sampmeta)
+
+dmeta$Sample_ID <- tolower(dmeta$Sample_ID)
+dmeta$Sample_ID <- gsub("ellwood", "goleta", dmeta$Sample_ID)
+dmeta$pop[dmeta$pop == "western"] <- "WNA"
+dmeta$pop[dmeta$pop == "eastern"] <- "ENA"
+
+
+new.meta <- merge(sampmeta, dmeta, by.x = c("sampleID", "pop"), by.y = c("Sample_ID", "pop"))
+
+new.meta <- new.meta[order(new.meta$ord),]
+dat <- import.snpR.data(genos[,new.meta$ord], snp.meta = meta, sample.meta = new.meta, mDat = "NN")
+rm(genos, dmeta, sampmeta)
+dat <- filter_snps(dat, 0.05, 0.55)
 
 ## remove the cross sample
 rdat <- subset_snpR_data(dat, samps = (1:ncol(dat))[-cross_sample])
@@ -23,14 +53,14 @@ rdat <- subset_snpR_data(dat, samps = (1:ncol(dat))[-cross_sample])
 # run parameters
 trim_cuttoffs <- c(1000, 200) # above the first level, will trim at the first percentage, below the last, will trim a single at a time
 trim <- c(.9, .1) # trim at .9 before 1000 SNPs, at .1 before 200, and one per run below this.
-response <- "likely_pheno"
+response <- "migration_distance"
 num.trees <- 50000 # number of trees
-init.mtry <- nrow(dat) # initial mtry
+init.mtry <- nrow(rdat) # initial mtry
 init.num.trees <- 50000 # number of trees in initial run. Probably doesn't need to be huge!
 par <- 11
 
 # run the first random forest
-rf <- run_random_forest(rdat, response = "likely_pheno", mtry = init.mtry, num.trees = init.num.trees)
+rf <- run_random_forest(rdat, response = response, mtry = init.mtry, num.trees = init.num.trees)
 
 # run the refinement
 refined_model <- refine_rf(rf = rf, 

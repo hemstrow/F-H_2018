@@ -84,6 +84,9 @@ parms2 <- gsub("GUA", "ROT", parms)
 nuA <- c(5, 1e-2, 100) # ancient pop size
 nu1 <- c(5, 1e-3, 100) # final pop size, pop 1, exp growth
 nu2 <- c(5, 1e-6, 100) # final pop size, pop 2, exp growth
+nuG <- c(10, 1e-3, 1000) # final pop size, historic growth period 1
+nuG2 <- c(10, 1e-3, 1000) # final pop size, historic growth period 2
+nu2F <- c(.1, 1e-6, 100) # final size, pop 2, hist growth-instant growth
 K1 <- c(10, 1e-2, 100) # Carrying capacity of pop 1
 K2 <- c(10, 1e-5, 100) # Carrying capacity of pop 2
 r1 <- c(1, 0, 6) # Logistic growth rate of pop 2
@@ -91,7 +94,11 @@ r2 <- c(1, 0, 6) # Logistic growth rate of pop 2
 Ti <- c(1, 1e-5, 20) # Time to (single) split
 T1 <- c(1, 1e-5, 10)  # Time of first epoch
 T2 <- c(1, 1e-5, 10) # Time of second epoch to present
-s <- c(0.1, 1e-5, .5) # fraction of nuA that goes to pop 2
+Tg <- c(1, 1e-5, 20) # Time between historic growth and split/phase 2 growth
+Tg2 <- c(.1, 1e-10, 20) # Time between phase two growth and split or Time between split and present
+Ts <- c(.1, 1e-10, 20) # Time between split and instant p2 growth.
+Tg3 <- c(.1, 1e-10, 20) # Time between instant p2 growth and present.
+s <- c(0.01, 1e-5, .5) # fraction of nuA that goes to pop 2
 m12 <- c(.1, 0, 40) # Migration rate from 2 to 1
 m21 <- c(.1, 0, 40) # Migration rate from 1 to 2
 m <- c(.1, 0, 40) # Symmetric migration rate
@@ -105,56 +112,60 @@ iters <- 30
 reps_per_perm <- 50
 mods <- c(
   # vicariance models
-  vic_no_mig = T, 
-  vic_anc_asym_mig = T,  
-  vic_sec_contact_asym_mig = T,
-  vic_no_mig_admix_early = T,  
-  vic_no_mig_admix_late = T,  
-  vic_two_epoch_admix = T, 
+  vic_no_mig = F, 
+  vic_anc_asym_mig = F,  
+  vic_sec_contact_asym_mig = F,
+  vic_no_mig_admix_early = F,  
+  vic_no_mig_admix_late = F,  
+  vic_two_epoch_admix = F, 
   
   # founder exponential models
-  founder_nomig_growth_pop_2 = T,  
-  founder_sym_growth_pop_2 = T, 
-  founder_asym_growth_pop_2 = T, 
-  founder_nomig_admix_early_growth_pop_2 = T, 
-  founder_nomig_admix_late_growth_pop_2 = T,  
-  founder_nomig_admix_two_epoch_growth_pop_2 = T, 
+  founder_nomig_growth_pop_2 = F,  
+  founder_sym_growth_pop_2 = F, 
+  founder_asym_growth_pop_2 = F, 
+  founder_nomig_admix_early_growth_pop_2 = F, 
+  founder_nomig_admix_late_growth_pop_2 = F,  
+  founder_nomig_admix_two_epoch_growth_pop_2 = F, 
   
-  founder_nomig_growth_pop_1 = T,  
-  founder_sym_growth_pop_1 = T, 
-  founder_asym_growth_pop_1 = T, 
-  founder_nomig_admix_early_growth_pop_1 = T, 
-  founder_nomig_admix_late_growth_pop_1 = T,  
-  founder_nomig_admix_two_epoch_growth_pop_1 = T,
+  founder_nomig_growth_pop_1 = F,  
+  founder_sym_growth_pop_1 = F, 
+  founder_asym_growth_pop_1 = F, 
+  founder_nomig_admix_early_growth_pop_1 = F, 
+  founder_nomig_admix_late_growth_pop_1 = F,  
+  founder_nomig_admix_two_epoch_growth_pop_1 = F,
   
-  founder_nomig_growth_both = T,  
-  founder_sym_growth_both = T, 
+  founder_nomig_growth_both = F,  
+  founder_sym_growth_both = F, 
   founder_asym_growth_both = T, 
-  founder_nomig_admix_early_growth_both = T, 
-  founder_nomig_admix_late_growth_both = T,  
-  founder_nomig_admix_two_epoch_growth_both = T, 
+  founder_nomig_admix_early_growth_both = F, 
+  founder_nomig_admix_late_growth_both = F,  
+  founder_nomig_admix_two_epoch_growth_both = F, 
   
   # founder logistic models
-  founder_nomig_logistic_pop_2 = T,  
-  founder_sym_logistic_pop_2 = T, 
-  founder_asym_logistic_pop_2 = T,  
-  founder_nomig_admix_early_logistic_pop_2 = T, 
-  founder_nomig_admix_late_logistic_pop_2 = T,  
-  founder_nomig_admix_two_epoch_logistic_pop_2 = T,
+  founder_nomig_logistic_pop_2 = F,  
+  founder_sym_logistic_pop_2 = F, 
+  founder_asym_logistic_pop_2 = F,  
+  founder_nomig_admix_early_logistic_pop_2 = F, 
+  founder_nomig_admix_late_logistic_pop_2 = F,  
+  founder_nomig_admix_two_epoch_logistic_pop_2 = F,
   
-  founder_nomig_logistic_pop_1 = T,  
-  founder_sym_logistic_pop_1 = T, 
-  founder_asym_logistic_pop_1 = T,  
-  founder_nomig_admix_early_logistic_pop_1 = T, 
-  founder_nomig_admix_late_logistic_pop_1 = T,  
-  founder_nomig_admix_two_epoch_logistic_pop_1 = T,
+  founder_nomig_logistic_pop_1 = F,  
+  founder_sym_logistic_pop_1 = F, 
+  founder_asym_logistic_pop_1 = F,  
+  founder_nomig_admix_early_logistic_pop_1 = F, 
+  founder_nomig_admix_late_logistic_pop_1 = F,  
+  founder_nomig_admix_two_epoch_logistic_pop_1 = F,
   
-  founder_nomig_logistic_both = T,  
-  founder_sym_logistic_both = T, 
-  founder_asym_logistic_both = T,  
-  founder_nomig_admix_early_logistic_both = T, 
-  founder_nomig_admix_late_logistic_both = T,  
-  founder_nomig_admix_two_epoch_logistic_both = T
+  founder_nomig_logistic_both = F,  
+  founder_sym_logistic_both = F, 
+  founder_asym_logistic_both = F,  
+  founder_nomig_admix_early_logistic_both = F, 
+  founder_nomig_admix_late_logistic_both = F,  
+  founder_nomig_admix_two_epoch_logistic_both = F,
+  
+  # hist growth models
+  founder_asym_hist_igrowth_p2 = T,
+  founder_asym_hist_3epoch_exp_growth_p1 = T
 )
 
 #which pops to use?
@@ -173,7 +184,7 @@ proj <- "[100,10]"
 optim <- "fmin"
 
 #outfile?
-ofile <- "dadi/parmfiles/NH_r1_adjusted_portik.txt"
+ofile <- "dadi/parmfiles/NH_hg_r1.txt"
 append.ofile <- F # should this be appened to an existing outfile?
 
 ##########################################
@@ -344,6 +355,15 @@ for(i in 1:length(ip)){
   else if(mods[i] == "founder_nomig_admix_two_epoch_logistic_both"){
     tparms <- cbind(nuA, K1, K2, r1, r2, T1, T2, s, f)
   }
+  
+  # historic growth models
+  else if(mods[i] == "founder_asym_hist_igrowth_p2"){
+    tparms <- cbind(nuA, nuG, nu2F, m12, m21, Tg, Ts, Tg2, s)
+  }
+  else if(mods[i] == "founder_asym_hist_3epoch_exp_growth_p1"){
+    tparms <- cbind(nuA, nuG, nu1F, nuG2, nu2F, m12, m21, Tg, Tg2, Ts, Tg3, s)
+  }
+  
   ip[i] <- paste0("[", paste0(tparms[1,], collapse = ","), "]")
   lb[i] <- paste0("[", paste0(tparms[2,], collapse = ","), "]")
   ub[i] <- paste0("[", paste0(tparms[3,], collapse = ","), "]")

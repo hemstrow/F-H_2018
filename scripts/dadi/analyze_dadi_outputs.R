@@ -179,20 +179,22 @@ best.reps[order(best.reps$AIC),-c(3,4,7)]
 # number of SNPs in dataset: 10000
 # number of SNPs in total set: 302446
 # number of sequenced sites: 1373747
-ratio <- 10000/302446 # ratio of included snps
+mu <- 2.9e-9
+g <- 1/7
+ratio <- 9370/302446 # ratio of included snps
 L <-  1373747*ratio # approx number of considered bases.
 ilist <- interpret_units(wlist, mu, g, L = L)
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nuA, y = nu1, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = s, y = log10(Ti), color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = m12, y = m21, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = s, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = nu2, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nuA, y = nu1, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = s, y = Ti, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = m12, y = m21, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = s, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = nu2, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = nu1, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = s, y = Ti, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = m12, y = m21, color = log(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nu1, y = s, color = log(theta))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = nu1, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = s, y = Ti, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = m12, y = m21, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nu1, y = s, color = log10(theta))) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 exp <- list(asym_both <- ilist$founder_asym_growth_both_NAM_HAW,
             asym_NA <- ilist$founder_asym_growth_pop_1_NAM_HAW)

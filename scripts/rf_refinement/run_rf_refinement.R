@@ -15,6 +15,7 @@ args <- commandArgs(TRUE)
 run <- as.character(args[1])
 outfile <- as.character(args[2])
 cross_sample <- as.numeric(as.character(args[3]))
+sub_pop <- as.character(args[4])
 
 # read in distance data
 dmeta <- read.table("~/monarch/github/F-H_2018/raw_data/migration_distances.csv", sep = ",", header = T, stringsAsFactors = F)
@@ -53,6 +54,7 @@ new.meta <- merge(sampmeta, dmeta, by.x = c("sampleID", "pop"), by.y = c("Sample
 
 new.meta <- new.meta[order(new.meta$ord),]
 dat <- import.snpR.data(genos[,new.meta$ord], snp.meta = meta, sample.meta = new.meta, mDat = "NN")
+dat <- subset_snpR_data(dat, facets = "pop", subfacets = sub_pop)
 rm(genos, dmeta, sampmeta)
 dat <- filter_snps(dat, 0.05, 0.55)
 

@@ -1478,3 +1478,109 @@ def founder_nomig_admix_two_epoch_logistic_both(params, ns, pts):
     fs = Spectrum.from_phi(phi, ns, (xx,xx))
     return(fs)
 
+#######################founder models, but with historic growth prior to split######################
+def founder_asym_hist_igrowth_p2(params, ns, pts):
+    """
+
+    
+    Population undergoes historic growth some time prior to split, p2  grows after split, p1 stays
+    constant
+    
+    nuA: Ancient population size
+    nuG: Size after historic growth
+    s: Fraction of nuA that goes to pop2. (Pop 1 has size nuA*(1-s).)
+    nu2F: Final size of pop 2.
+    Tg: Time between the historic growth event and split.
+    Ts: Time between split and second growth egent (in units of 2*Na generations)
+    Tg2: Time to between second growth event and present
+    m12: Migration from pop 2 to pop 1 (2*Na*m12)
+    m21: Migration from pop 1 to pop 2
+    """
+    start = time.time()
+    nuA, nuG, nu2F, m12, m21, Tg, Ts, Tg2, s = params
+    
+    # initialize
+    xx = Numerics.default_grid(pts)
+    phi = PhiManip.phi_1D(xx, nu=nuA)
+    
+    # first growth, runs for Tg
+    T = Tg
+    phi = Integration.one_pop(phi, xx, T, nuG)
+    
+    # split
+    phi = PhiManip.phi_1D_to_2D(xx, phi)
+    nu1 = nuG*(1-s)
+    nu2 = nuG*s
+    
+    # time passes, runs for Ts
+    T = Ts
+    phi = Integration.two_pops(phi, xx, T, nu1, nu2, m12=m12, m21=m21)
+    
+    # pop 2 grows, run the rest of the time
+    T = Tg2
+    phi = Integration.two_pops(phi, xx, T, nu1, nu2F, m12=m12, m21=m21)
+
+    
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    
+    fs = Spectrum.from_phi(phi, ns, (xx,xx))
+    return(fs)
+
+def founder_asym_hist_3epoch_exp_growth_p1(params, ns, pts):
+    """
+   
+    Population undergoes historic growth some time prior to split, then later some exponential
+    growth, then splits, p2 grows after split, p1 grows/shrinks again.
+
+    nuA: Ancient population size
+    nuG: Size after historic growth
+    s: Fraction of nuA that goes to pop2. (Pop 1 has size nuA*(1-s).)
+    nu2F: Final size of pop 2.
+    nu1F: Final size of pop 1.
+    nuG2: Size of pop 1 at the split.
+    Tg: Time between historic growth and second growth phase
+    Tg2: Time between second growth phase start and split
+    Ts: Time between split and instant growth of p2
+    Tg3: Time between instant growth of p2 and present
+    m12: Migration from pop 2 to pop 1 (2*Na*m12)
+    m21: Migration from pop 1 to pop 2
+    """
+    start = time.time()
+    nuA, nuG, nu1F, nuG2, nu2F, m12, m21, Tg, Tg2, Ts, Tg3, s = params
+    
+    # initialize
+    xx = Numerics.default_grid(pts)
+    phi = PhiManip.phi_1D(xx, nu=nuA)
+    
+    # first growth
+    T = Tg
+    phi = Integration.one_pop(phi, xx, T, nuG)
+    
+    # second growth
+    T = Tg2
+    nu1_exp_func = lambda t: nuG * (nuG2/nuG)**(t/T)
+    phi = Integration.one_pop(phi, xx, T, nu1_exp_func)
+    
+    # split
+    phi = PhiManip.phi_1D_to_2D(xx, phi)
+    nu1 = nuG2*(1-s)
+    nu2 = nuG2*s
+    
+    # time passes, p1 starts final growth phase, p2 is constant.
+    T = Ts
+    T_exp_func = Ts + Tg3 # since we are only doing the start of the growth, we set the full growth period as T for the growth function
+    nu1_exp_func = lambda t: nuG2 * (nu1F/nuG2)**(t/T_exp_func)
+    phi = Integration.two_pops(phi, xx, T, nu1_exp_func, nu2, m12=m12, m21=m21)
+    
+    # pop 2 grows, run the rest of the time
+    T = Ts + Tg3
+    init_T = Ts
+    phi = Integration.two_pops(phi, xx, T, nu1_exp_func, nu2F, m12=m12, m21=m21, initial_t=init_T)
+
+    
+    end = time.time()
+    print("Iter time: " + str(end - start))
+    
+    fs = Spectrum.from_phi(phi, ns, (xx,xx))
+    return(fs)

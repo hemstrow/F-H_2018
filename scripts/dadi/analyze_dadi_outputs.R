@@ -1,7 +1,7 @@
 library(ggplot2); library(dplyr); source("scripts/dadi/make_dadi_parmfile_from_results.R"); source("scripts/interpret_dadi_units.R")
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/cat_NH_r3.out")
+res <- readLines("data/dadi_inputs/cat_NH_hg_r1.txt")
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -103,7 +103,13 @@ mplist <- list(
   
   founder_nomig_admix_late_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "Ti", "s", "f"),
   
-  founder_nomig_admix_two_epoch_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "T1", "T2", "s", "f")
+  founder_nomig_admix_two_epoch_logistic_both = c("nuA", "K1", "K2", "r1", "r2", "T1", "T2", "s", "f"),
+  
+  # historic growth models
+  founder_asym_hist_igrowth_p2 = c("nuA", "nuG", "nu2F", "m12", "m21", "Tg", "Ts", "Tg2", "s"),
+  
+  founder_asym_hist_3epoch_exp_growth_p1 = c("nuA", "nuG", "nu1F", "nuG2", "nu2F", "m12", "m21", "Tg", "Tg2", "Ts", "Tg3", "s")
+  
 )
 
 #what are the unique combinations of model and pop?
@@ -196,28 +202,39 @@ ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = s, y = Ti, color = log10
 ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = m12, y = m21, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
 ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nu1, y = s, color = log10(theta))) + geom_point() + theme_bw() + scale_color_viridis_c()
 
-exp <- list(asym_both <- ilist$founder_asym_growth_both_NAM_HAW,
-            asym_NA <- ilist$founder_asym_growth_pop_1_NAM_HAW)
-saveRDS(exp, "dadi_run3_best_models.RDS")
+
+ggplot(ilist$founder_asym_hist_3epoch_exp_growth_p1_NAM_HAW, aes(x = log10(Tg3), y = log10(Ts), color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+
+
+# exp <- list(asym_both <- ilist$founder_asym_growth_both_NAM_HAW,
+#             asym_NA <- ilist$founder_asym_growth_pop_1_NAM_HAW)
+# saveRDS(exp, "dadi_run3_best_models.RDS")
 
 #==========call a function to make a parameter input file using these parms=============
-nuA <- c(1e-2, 100) # ancient pop size
-nu1 <- c(1e-3, 100) # final pop size, pop 1, exp growth
-nu2 <- c(1e-6, 100) # final pop size, pop 2, exp growth
-K1 <- c(1e-2, 100) # Carrying capacity of pop 1
-K2 <- c(1e-5, 100) # Carrying capacity of pop 2
-r1 <- c(0, 6) # Logistic growth rate of pop 2
-r2 <- c(0, 6) # Logistic growth rate of pop 2
-Ti <- c(1e-5, 20) # Time to (single) split
-T1 <- c(1e-5, 10)  # Time of first epoch
-T2 <- c(1e-5, 10) # Time of second epoch to present
-s <- c(1e-5, .5) # fraction of nuA that goes to pop 2
-m12 <- c(0, 40) # Migration rate from 2 to 1
-m21 <- c(0, 40) # Migration rate from 1 to 2
-m <- c(0, 40) # Symmetric migration rate
-f <- c(1e-5, 1) # Fraction of updated population 2 to be derived from population 1 (admixture)
-bounds <- list(nuA = nuA, nu1 = nu1, nu2 = nu2, K1 = K1, K2 = K2, r1 = r1, r2 = r2, 
-               Ti = Ti, T1 = T1, T2 = T2, s = s, m12 = m12, m21 = m21, m = m, f = f)
+bounds <- list(nuA = c(1e-2, 100), # ancient pop size
+               nu1 = c(1e-3, 100), # final pop size, pop 1, exp growth
+               nu2 = c(1e-6, 100), # final pop size, pop 2, exp growth
+               nuG = c(1e-3, 1000), # final pop size, historic growth period 1
+               nuG2 = c(1e-3, 1000), # final pop size, historic growth period 2
+               nu2F = c(1e-6, 100), # final size, pop 2, hist growth-instant growth
+               nu1F = c(1e-6, 100), # final size, pop 1, hist growth
+               K1 = c(1e-2, 100), # Carrying capacity of pop 1
+               K2 = c(1e-5, 100), # Carrying capacity of pop 2
+               r1 = c(0, 6), # Logistic growth rate of pop 2
+               r2 = c(0, 6), # Logistic growth rate of pop 2
+               Ti = c(1e-5, 20), # Time to (single) split
+               T1 = c(1e-5, 10), # Time of first epoch
+               T2 = c(1e-5, 10), # Time of second epoch to present
+               Tg = c(1e-5, 20), # Time between historic growth and split/phase 2 growth
+               Tg2 = c(1e-10, 20), # Time between phase two growth and split or Time between split and present
+               Ts = c(1e-10, 20), # Time between split and instant p2 growth.
+               Tg3 = c(1e-10, 20), # Time between instant p2 growth and present.
+               s = c(1e-5, .5), # fraction of nuA that goes to pop 2
+               m12 = c(0, 40), # Migration rate from 2 to 1
+               m21 = c(0, 40), # Migration rate from 1 to 2
+               m = c(0, 40), # Symmetric migration rate
+               f = c(1e-5, 1) # Fraction of updated population 2 to be derived from population 1 (admixture)
+)
 
 # make.parm.file.from.best(wlist, mplist, bounds, 100, 100, "False", 1, "[15,15]", "dadi/parmfiles/dadi_HGR_3RD_pass_parms.txt")
-make.parm.file.from.weighted.ave(wlist, mplist, bounds, 100, 100, "False", 1, "[100,10]", "dadi/parmfiles/NH_r4_adjusted_portik.txt")
+make.parm.file.from.weighted.ave(wlist, mplist, bounds, 50, 60, "False", 2, "[100,10]", "dadi/parmfiles/NH_hg_r2.txt.txt")

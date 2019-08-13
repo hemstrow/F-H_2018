@@ -87,6 +87,7 @@ nu2 <- c(5, 1e-6, 100) # final pop size, pop 2, exp growth
 nuG <- c(10, 1e-3, 1000) # final pop size, historic growth period 1
 nuG2 <- c(10, 1e-3, 1000) # final pop size, historic growth period 2
 nu2F <- c(.1, 1e-6, 100) # final size, pop 2, hist growth-instant growth
+nu1F <- c(1, 1e-6, 100) # final size, pop 1, hist growth
 K1 <- c(10, 1e-2, 100) # Carrying capacity of pop 1
 K2 <- c(10, 1e-5, 100) # Carrying capacity of pop 2
 r1 <- c(1, 0, 6) # Logistic growth rate of pop 2
@@ -136,7 +137,7 @@ mods <- c(
   
   founder_nomig_growth_both = F,  
   founder_sym_growth_both = F, 
-  founder_asym_growth_both = T, 
+  founder_asym_growth_both = F, 
   founder_nomig_admix_early_growth_both = F, 
   founder_nomig_admix_late_growth_both = F,  
   founder_nomig_admix_two_epoch_growth_both = F, 
@@ -375,5 +376,4 @@ parms <- cbind(mods, maxiters, pops, fs, fp, ip, ub, lb, proj, optim)
 
 #write
 write.table(parms, ofile, quote = F, sep = " ", row.names = F, col.names = F, append = append.ofile)
-
 

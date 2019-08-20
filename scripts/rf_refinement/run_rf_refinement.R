@@ -1,7 +1,7 @@
 # run parameters
 response <- "migration_distance"
 mtry.scale <- 1 # percentage of snps to use in mtry
-num.trees <- 50000 # number of trees in initial run. Probably doesn't need to be huge!
+num.trees <- 100000 # number of trees in initial run. Probably doesn't need to be huge!
 par <- F
 trim <- .9
 
@@ -67,14 +67,14 @@ rf <- run_random_forest(rdat, response = response, mtry = nrow(rdat)*mtry.scale,
 # run the refinement
 best.imp <- quantile(abs(rf$models$.base_.base$model$variable.importance), trim)
 best.imp <- which(rf$models$.base_.base$model$variable.importance >= best.imp[1])
-rdat <- subset_snpR_data(dat, best.imp)
+rdat <- subset_snpR_data(rdat, snps = best.imp)
 rf <- run_random_forest(rdat, response = response, mtry = nrow(rdat)*mtry.scale, num.trees = num.trees, 
                         par = par, importance = "permutation", pvals = F)
 
 
 
 # save outputs
-aveRDS(refined_model, paste0(outfile, "_model_", run, ".RDS"))
+saveRDS(rf, paste0(outfile, "_model_", run, ".RDS"))
 
 ## prediction, need to re-run the model since the impurity_corrected importance can apparently cause issues. Run with permutation.
 kept.snps <- rf$data@snp.meta$.snp.id
@@ -85,7 +85,7 @@ sn <- sn[,-c(1:3)]
 sn <- sn[kept.snps, cross_sample]
 sn <- as.data.frame(t(sn))
 colnames(sn) <- rf$models$.base_.base$model$forest$independent.variable.names
-out <- predict(predict.rf$models$.base_.base$model, sn)
+out <- predict(rf$models$.base_.base$model, sn)
 
 write.table(data.frame(sample = cross_sample, phenotype = dat@sample.meta[cross_sample,response], prediction = out$predictions),
-            paste0(outfile, "_prediction_", run, ".txt"), quote = F, col.names = F, row.names = F)
+            paste0(outfile, "_prediction_pop_", sub_pop, "_", run, ".txt"), quote = F, col.names = F, row.names = F)

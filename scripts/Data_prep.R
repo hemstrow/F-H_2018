@@ -49,7 +49,7 @@ combplates$Pop <- pops
 
 
 #import raw genotypes.
-raw_genos <- read.table("../../genotypes.geno", header = F, stringsAsFactors = F)
+raw_genos <- read.table("genotypes.geno", header = F, stringsAsFactors = F)
 
 #associate sample IDs to genotypes. Works as long as the combplates are in the same order as the bamfile.
 colnames(raw_genos) <- c("group", "position", paste0(combplates$Pop, "_", combplates$ID))
@@ -91,6 +91,35 @@ l <- list(names(l), as.numeric(l))
 #Filter and prepare data
 library(snpR)
 
+
+sample.meta <- as.data.frame(cbind(samp = colnames(raw_genos)[-c(1:3)], pop = substr(colnames(raw_genos)[-c(1:3)], 1, 3)),
+                             stringsAsFactors = F)
+
+snp.meta <- raw_genos[,2:3]
+
+dat <- import.snpR.data(raw_genos[,-c(1:3)], snp.meta, sample.meta)
+
+# re-order
+p.ord <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", 
+           "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
+
+sample.meta <- dat@sample.meta
+sample.meta$pop <- factor(sample.meta$pop, levels = c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL"))
+sample.meta <- dplyr::arrange(sample.meta, pop)
+genos <- dat[,sample.meta$.sample.id]
+dat2 <- import.snpR.data(genos, dat@snp.meta, sample.meta[,-ncol(sample.meta)])
+saveRDS(dat2, "Raw_data/FHmon_geno_snpR.RDS")
+
+
+
+
+
+
+
+
+
+#########################################################
+# old
 #all samples: for most analysis.
 flt_genos <- filter_snps(raw_genos, 3, 0.05, 0.55, floor((ncol(raw_genos)-3)/2), pop = l) #just filtering snps.
 #only well sequenced samples

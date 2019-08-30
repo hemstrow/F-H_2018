@@ -91,15 +91,6 @@ indices <- nj$edge[nj$edge[,2] <= 281, 2]
 pcols <- combplates$color[indices]
 tcols[which(nj$edge[,2] <= 281)] <- pcols
 
-#=========sNMF plot============
-library(snpR)
-dat <- readRDS("Raw_data/FHmon_geno_snpR.RDS")
-dat <- filter_snps(dat, 0.05, 0.55, 0.5)
-facet.order <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", 
-                "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
-sNMF <- plot_structure(dat, "pop", 
-                       facet.order =  facet.order, clumpp.opt = "large.K.greedy",
-                       k = 9, reps = 10, I = 1000, qsort_K = 6, qsort = 4, alt.palette = brewer.pal(9, "Set1"))
 
 #=========NGSrelate=============
 
@@ -162,7 +153,57 @@ NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp
 
 
 
-#========PCA===================
-dat@sample.meta$pop <- factor(dat@sample.meta$pop, levels = facet.order)
+#=========PCA===================
+PCA <- prcomp(m)
+pplot <- as.data.frame(PCA$x)
+pplot$pop <- rownames(PCA$x)
+pplot$pop <- factor(pplot$pop, levels = facet.order)
+loadings <- summary(PCA)
+loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
+ggplot(pplot, aes(PC1, PC2, color = pop)) + geom_point() + theme_bw() +
+  scale_color_manual(values = pal) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
+  ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)"))
 
-PCA <- plot_clusters(dat, "pop", plot_type = "PCA", minimum_genotype_percentage = .5)
+
+#==========NGSrelate based pie charts on world map=============
+library(scatterpie)
+
+pie_dat <- as.data.frame(matrix(0, nrow = length(unique(NGSrelate$plot_data$`combplates$Pop`)), ncol = 3 + 9))
+colnames(pie_dat) <- c("pop", "lat", "long", paste0("Cluster ", 1:9))
+lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681),
+                 HAW = c(19.627274, -155.493135), GUA = c(11.421207, 142.736584),
+                 ROT = c(14.154628, 145.191535), SAI = c(17.201243, 147.750705),
+                 SAM = c(-13.613179, -172.351278), FIJ = c(-17.924768, 178.081698),
+                 NCA = c(-21.299579, 165.383757), NOR = c(-29.024356, 167.945279),
+                 QLD = c(-27.531395, 152.919356), NSW = c(-32.751896, 151.667208),
+                 VIC = c(-34.574338, 138.689131), NZL = c(-37.124496, 174.961893))
+# note, GUA, ROT, and SAI are fudged so they don't overlapp as much
+
+tpd <- NGSrelate$plot_data[NGSrelate$plot_data$K == "K_9",]
+colnames(tpd)[1] <- "pop"
+tpd$Cluster <- as.numeric(tpd$Cluster)
+anc <- tapply(tpd$Percentage, tpd[,c(1,3)], mean)
+for(i in 1:length(lat_long)){
+  pie_dat[i,1] <- names(lat_long)[i]
+  pie_dat[i,-1] <- c(lat_long[[i]][1], lat_long[[i]][2], anc[names(lat_long)[[i]],])
+  if(pie_dat$long[i] < 0){
+    pie_dat$long[i] <- 360 + pie_dat$long[i]
+  }
+  else{
+    
+  }
+}
+
+
+world <- map_data("world2")
+mp <- ggplot(world, aes(x = long, y = lat)) + 
+  geom_map(map = world, aes(map_id = region), fill = "grey", color = "white") + theme_bw() +
+  xlim(c(min(pie_dat$long - 2), max(pie_dat$long) + 2)) +
+  ylim(c(min(pie_dat$lat - 2), max(pie_dat$lat) + 2)) +
+  geom_scatterpie(data = pie_dat, mapping = aes(x = long, y = lat, r = 2), cols = colnames(pie_dat)[4:ncol(pie_dat)]) +
+  geom_text(data = pie_dat, mapping = aes(x = long, y = lat, label = pop)) +
+  scale_fill_manual(values = brewer.pal(9, "Set1")) +
+  theme(legend.title = element_blank()) + xlab("Longitude") + ylab("Latitude")
+
+
+

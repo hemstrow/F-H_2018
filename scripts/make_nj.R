@@ -54,7 +54,7 @@ combplates$Pop <- pops
 
 #get data and remove poor samples (under 1mb of sequence data)
 setwd("..")
-m <- read.table("Data/monIBS_clean.ibsMat")
+m <- read.table("data/IBS/monIBS_clean.ibsMat")
 m <- as.matrix(m)
 m <- m[-which(combplates$poor),-which(combplates$poor)]
 combplates <- combplates[-which(combplates$poor),]

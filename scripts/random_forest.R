@@ -30,11 +30,12 @@ rf_refined <- refine_rf(rf, "migration_distance", 10000, trim = c(0.9, 0.1),
                         par = 11)
 
 saveRDS(rf_refined, "migration_distance/rf_refined.RDS")
-saveRDS(rf_refined, "migration_distance/rf_raw.RDS")
+saveRDS(rf_raw, "migration_distance/rf_raw.RDS")
+rf_refined <- readRDS("migration_distance/rf_refined.RDS")
 
 plot_manhattan(rf_refined$best_model$data, "migration_distance_RF_importance", chr = "group", significant = 5e6)
 pdat <- as.data.frame(rf_refined$error_delta)
 ggplot(pdat, aes(x = log10(n_snps), y = prediction_error)) + geom_point()
 
 ggplot(rf_refined$best_model$models$.base_.base$predictions, aes(x = predicted, y = pheno)) + 
-  geom_point() + geom_smooth(method = "lm") +
+  geom_point() + geom_smooth(method = "lm")

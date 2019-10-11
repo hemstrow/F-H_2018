@@ -152,7 +152,7 @@ facet.order <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", 
 setwd("../NGSadmix/full/pop-both/")
 pop <- combplates$Pop
 NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = pop, k = 9,
-                            alt.palette = brewer.pal(9, "Set1"))
+                            alt.palette = brewer.pal(9, "Set1")) + xlab("Population")
 setwd("../../..")
 ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate$plot, device = "pdf")
 

@@ -10,7 +10,7 @@ x <- read.table("../F-H_2018/data/dadi_inputs/dadi_10kgap_snps.txt", header = T,
 # use the directionality index
 
 # NAM, HAW
-sf <- make_SFS(x, c("NAM", "HAW"), c(15, 15), F)
+sf <- make_SFS(x, c("NAM", "HAW"), c(10, 10), F)
 plot_sfs(sf)
 NH <- calc_directionality(sf)
 
@@ -38,7 +38,7 @@ sf <- make_SFS(x, c("NAM", "GUA"), c(15, 15))
 plot_sfs(sf)
 
 # NAM, QLD
-sf <- make_SFS(x, c("NAM", "QLD"), c(15, 15), F)
+sf <- make_SFS(x, c("NAM", "QLD"), c(30, 30), F)
 plot_sfs(sf)
 calc_directionality(sf)
 
@@ -118,11 +118,12 @@ library(ggplot2)
 pdf("./plots/directionality_and_sfs.pdf", width = 10, height = 10)
 ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites))) +
   facet_grid(pop_1 ~ pop_2, switch = "both") + geom_tile() +
-  geom_text(aes(label = round(dir, 3), x = 1.5, y = 2.5), color = "black") + 
+  geom_text(aes(label = round(dir, 2), x = 2, y = 1.5), color = "black", size = 7) + 
   ggplot2::scale_color_viridis_c(na.value = "white", option = "inferno") +
   ggplot2::scale_fill_viridis_c(na.value = "white", option = "inferno") +
   theme_bw() + 
   ggplot2::scale_x_continuous(expand = c(0, 0)) +
   ggplot2::scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.background = element_blank())
+  theme(strip.background = element_blank(), strip.text = element_text(size = 20, face = "bold"),
+        axis.title = element_blank(), legend.title = element_text(size = 12, face = "bold"))
 dev.off();dev.off();

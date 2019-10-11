@@ -1570,7 +1570,7 @@ def founder_asym_hist_3epoch_exp_growth_p1(params, ns, pts):
     # time passes, p1 starts final growth phase, p2 is constant.
     T = Ts
     T_exp_func = Ts + Tg3 # since we are only doing the start of the growth, we set the full growth period as T for the growth function
-    nu1_exp_func = lambda t: nuG2 * (nu1F/nuG2)**(t/T_exp_func)
+    nu1_exp_func = lambda t: nu1 * (nu1F/nu1)**(t/T_exp_func)
     phi = Integration.two_pops(phi, xx, T, nu1_exp_func, nu2, m12=m12, m21=m21)
     
     # pop 2 grows, run the rest of the time

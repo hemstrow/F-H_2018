@@ -146,12 +146,15 @@ pops[pops == "Sam"] <- "SAM"
 table(pops)
 combplates$Pop <- pops
 
+facet.order <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
+
 # plot
 setwd("../NGSadmix/full/pop-both/")
-NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = combplates$Pop, k = 9,
-                            alt.palette = brewer.pal(9, "Set1"))
-
-
+pop <- combplates$Pop
+NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = pop, k = 9,
+                            alt.palette = brewer.pal(9, "Set1")) + xlab("Population")
+setwd("../../..")
+ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate$plot, device = "pdf")
 
 #=========PCA===================
 PCA <- prcomp(m)
@@ -160,16 +163,15 @@ pplot$pop <- rownames(PCA$x)
 pplot$pop <- factor(pplot$pop, levels = facet.order)
 loadings <- summary(PCA)
 loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
-ggplot(pplot, aes(PC1, PC2, color = pop)) + geom_point() + theme_bw() +
+PCA_plot <- ggplot(pplot, aes(PC1, PC2, color = pop)) + geom_point() + theme_bw() +
   scale_color_manual(values = pal) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
   ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)"))
+ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf")
 
 
 #==========NGSrelate based pie charts on world map=============
 library(scatterpie)
-
-pie_dat <- as.data.frame(matrix(0, nrow = length(unique(NGSrelate$plot_data$`combplates$Pop`)), ncol = 3 + 9))
-colnames(pie_dat) <- c("pop", "lat", "long", paste0("Cluster ", 1:9))
+K <- 8
 lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681),
                  HAW = c(19.627274, -155.493135), GUA = c(11.421207, 142.736584),
                  ROT = c(14.154628, 145.191535), SAI = c(17.201243, 147.750705),
@@ -179,31 +181,10 @@ lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681
                  VIC = c(-34.574338, 138.689131), NZL = c(-37.124496, 174.961893))
 # note, GUA, ROT, and SAI are fudged so they don't overlapp as much
 
-tpd <- NGSrelate$plot_data[NGSrelate$plot_data$K == "K_9",]
-colnames(tpd)[1] <- "pop"
-tpd$Cluster <- as.numeric(tpd$Cluster)
-anc <- tapply(tpd$Percentage, tpd[,c(1,3)], mean)
-for(i in 1:length(lat_long)){
-  pie_dat[i,1] <- names(lat_long)[i]
-  pie_dat[i,-1] <- c(lat_long[[i]][1], lat_long[[i]][2], anc[names(lat_long)[[i]],])
-  if(pie_dat$long[i] < 0){
-    pie_dat$long[i] <- 360 + pie_dat$long[i]
-  }
-  else{
-    
-  }
-}
+lat_long <- as.data.frame(lat_long)
+mp <- plot_structure_map(NGSrelate, K, "pop", lat_long, alt.palette = RColorBrewer::brewer.pal(8, "Set1"))
 
-
-world <- map_data("world2")
-mp <- ggplot(world, aes(x = long, y = lat)) + 
-  geom_map(map = world, aes(map_id = region), fill = "grey", color = "white") + theme_bw() +
-  xlim(c(min(pie_dat$long - 2), max(pie_dat$long) + 2)) +
-  ylim(c(min(pie_dat$lat - 2), max(pie_dat$lat) + 2)) +
-  geom_scatterpie(data = pie_dat, mapping = aes(x = long, y = lat, r = 2), cols = colnames(pie_dat)[4:ncol(pie_dat)]) +
-  geom_text(data = pie_dat, mapping = aes(x = long, y = lat, label = pop)) +
-  scale_fill_manual(values = brewer.pal(9, "Set1")) +
-  theme(legend.title = element_blank()) + xlab("Longitude") + ylab("Latitude")
+ggsave("plots/NGSadmix_map_plot.pdf", plot = mp, device = "pdf")
 
 
 

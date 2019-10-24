@@ -99,11 +99,15 @@ for(i in 1:(length(pops) - 1)){
     tsf <- merge(tsf, ntsf, by = c("p1", "p2"))
     
     # save
-    tsf$dir <- dir
     tsf$N <- N
     tsf$dirN <- dirN
     tsf$pop_1 <- pops[j]
     tsf$pop_2 <- pops[i]
+    ## dir tsf, flipped
+    dir.tsf <- data.frame(pop_1 = tsf$pop_2, pop_2 = tsf$pop_1, dir = rep(dir, nrow(tsf)))
+    
+    
+    tsf <- merge(tsf, dir.tsf, by = c("pop_1", "pop_2"), all = T)
     out[[iter]] <- tsf
     iter <- iter + 1
   }
@@ -118,7 +122,7 @@ library(ggplot2)
 pdf("./plots/directionality_and_sfs.pdf", width = 10, height = 10)
 ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites))) +
   facet_grid(pop_1 ~ pop_2, switch = "both") + geom_tile() +
-  geom_text(aes(label = round(dir, 2), x = 2, y = 1.5), color = "black", size = 7) + 
+  geom_text(aes(label = round(dir, 2), x = 5, y = 6), color = "black", size = 7) + 
   ggplot2::scale_color_viridis_c(na.value = "white", option = "inferno") +
   ggplot2::scale_fill_viridis_c(na.value = "white", option = "inferno") +
   theme_bw() + 

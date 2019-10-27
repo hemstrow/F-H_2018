@@ -50,7 +50,7 @@ find_non_paralogous_sections <- function(paralog_dir, paralog_file_pattern, uniq
       # if this is the last one, everything after this bad window is good
       if(j == length(t.chr.bads)){
         # as long as there are actually more bps in the chr, note that everything else is good
-        if(chr_lengths[j] <= t.chr.bads[j] + base_pair_buffer + 1){
+        if(chr_lengths[i] >= t.chr.bads[j] + base_pair_buffer + 1){
           good.sections <- c(good.sections, paste0(chr_opts[i], ":", t.chr.bads[j] + base_pair_buffer + 1, "-"))
         }
         next

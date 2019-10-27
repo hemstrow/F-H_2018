@@ -21,6 +21,7 @@ find_non_paralogous_sections <- function(paralog_dir, paralog_file_pattern, uniq
   # now need to highlight the regions to run. These exclude each site within 1kb of a paralog (basically the tag)
   # to do so, loop through each possible chr and find the acceptable regions
   chr_opts <- read.table(unique_chromsome_file, header = F, stringsAsFactors = F)
+  chr_lengths <- chr_opts[,2]
   chr_opts <- chr_opts[,1]
   chr_opts <- gsub(">", "", chr_opts)
   
@@ -48,13 +49,18 @@ find_non_paralogous_sections <- function(paralog_dir, paralog_file_pattern, uniq
       
       # if this is the last one, everything after this bad window is good
       if(j == length(t.chr.bads)){
-        good.sections <- c(good.sections, paste0(chr_opts[i], ":", t.chr.bads[j] + base_pair_buffer, "-"))
+        # as long as there are actually more bps in the chr, note that everything else is good
+        if(chr_lengths[j] <= t.chr.bads[j] + base_pair_buffer + 1){
+          good.sections <- c(good.sections, paste0(chr_opts[i], ":", t.chr.bads[j] + base_pair_buffer + 1, "-"))
+        }
         next
       }
       
-      # if this bad window start is greater than the previous bad window end, time to print a new good section
+      # if this bad window start is greater than the previous bad window end, time to print a new good section (unless there is a perfect overlap!)
       if(t.chr.bads[j] - base_pair_buffer > b.end){
-        good.sections <- c(good.sections, paste0(chr_opts[i], ":", g.start, "-", t.chr.bads[j] - base_pair_buffer - 1))
+        if(g.start < t.chr.bads[j] - base_pair_buffer - 1){
+          good.sections <- c(good.sections, paste0(chr_opts[i], ":", g.start, "-", t.chr.bads[j] - base_pair_buffer - 1))
+        }
         g.start <- t.chr.bads[j] + base_pair_buffer + 1
         b.end <- t.chr.bads[j] + base_pair_buffer
       }

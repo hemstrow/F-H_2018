@@ -1,15 +1,26 @@
+source("scripts/import_dadi_results.R"); source("scripts/interpret_dadi_units.R")
+library(dplyr)
 mu <- 2.9e-9
 g <- 1/7
 ratio <- 9370/302446 # ratio of included snps
 L <-  1373747*ratio # approx number of considered bases.
 
-pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_NH_hg_r1.txt"),
+# pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_hg_r1_fix_combined.txt"),
+#                              mu = mu, g = g, L = L)
+# pass2 <- import_dadi_results(c("data/dadi_inputs/cat_NH_best_r2.txt", "data/dadi_inputs/cat_NH_3e_re_best_r2.txt"),
+#                              mu = mu, g = g, L = L)
+# pass3 <- import_dadi_results("data/dadi_inputs/cat_NH_best_r3.txt",
+#                              mu = mu, g = g, L = L)
+# pass4 <- import_dadi_results("data/dadi_inputs/cat_NH_best_r4.txt", mu = mu, g = g, L = L)
+
+
+pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_hg_r1_fix_combined.txt"),
                              mu = mu, g = g, L = L)
-pass2 <- import_dadi_results(c("data/dadi_inputs/cat_NH_2nd_pass_out_dportik.txt", "data/dadi_inputs/cat_NH_hg_r2.txt"),
+pass2 <- import_dadi_results(c("data/dadi_inputs/cat_NH_2nd_pass_out_dportik.txt", "data/dadi_inputs/cat_NH_3e_re_weighted_r2.txt"),
                              mu = mu, g = g, L = L)
-pass3 <- import_dadi_results(c("data/dadi_inputs/cat_NH_r3.out", "data/dadi_inputs/cat_NH_hg_r3.txt"),
+pass3 <- import_dadi_results(c("data/dadi_inputs/cat_NH_hg_r3_found_and_grow.txt", "data/dadi_inputs/cat_NH_3e_re_weighted_r3.txt", "data/dadi_inputs/cat_NH_r3.out"),
                              mu = mu, g = g, L = L)
-pass4 <- import_dadi_results("data/dadi_inputs/cat_NH_all_r4.txt", mu = mu, g = g, L = L)
+pass4 <- import_dadi_results(c("data/dadi_inputs/cat_NH_all_fix_r4.txt", "data/dadi_inputs/cat_NH_3e_re_weighted_r4.txt"), mu = mu, g = g, L = L)
 
 
 # AIC dist per model
@@ -37,7 +48,6 @@ dev.off(); dev.off()
 # best overall model
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
 best.reps <- arrange(best.reps, pops, model)
-View(pass1$ilist$founder_asym_hist_3epoch_exp_growth_p1_NAM_HAW)
 
 # plots for the best model
 # best model across all passes
@@ -98,6 +108,9 @@ colnames(ilist3.2)[c(4,5,8)] <- c("Ne_NA", "Ne_Ha", "SplitTime")
 ilist3.2$Ne_Split <- ilist3.2$nuA
 ilist3 <- merge(ilist3.1, ilist3.2, all = T)
 ilist3$model <- ifelse(ilist3$model == "founder_asym_growth_both", "Found and Grow", "Three Epoch Found and Grow")
+ilist3$best <- 0
+ilist3$best[which(ilist3$model == "Found and Grow" & ilist3$AIC == min(ilist3$AIC[ilist3$model == "Found and Grow"]))] <- 1
+ilist3$best[which(ilist3$model == "Three Epoch Found and Grow" & ilist3$AIC == min(ilist3$AIC[ilist3$model == "Three Epoch Found and Grow"]))] <- 1
 
 
 ## function to grab legend
@@ -116,21 +129,34 @@ dpb.time <- ggplot(ilist3, aes(y = log10(SplitTime), x = log10(s), color = AIC, 
 legend <- g_legend(dpb.time)
 
 ## make plots
-dpb.time <- ggplot(ilist3, aes(y = log10(SplitTime), x = log10(s), color = AIC, shape = pass)) + 
+dpb.time <- ggplot(ilist3, aes(y = log10(SplitTime), x = log10(Ne_NA), color = AIC, shape = pass)) + 
   geom_point() + theme_bw() + 
   theme(legend.position = "none", 
         strip.background = element_rect(fill = "white")) + 
   scale_color_viridis_c() + facet_wrap(~model) +
-  ylab("log10(Ts)") + xlab("log10(Founding Ne)") +
+  # geom_point(data = ilist3[ilist3$best == 1,], aes(y = log10(SplitTime), x = log10(Ne_NA)), color = "red") +
+  ylab(bquote(~log[10]~ '(Time Since Split)')) + xlab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), North America')) + 
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
 
-dpb.size <- ggplot(ilist3, aes(x = log10(Ne_NA), y = log10(Ne_Ha), color = AIC, shape = pass)) + 
+dpb.size <- ggplot(ilist3, aes(x = log10(s), y = log10(Ne_Ha), color = AIC, shape = pass)) + 
   geom_point() + theme_bw()+ 
   theme(legend.position = "none",
         strip.background = element_blank(),
         strip.text = element_blank()) +
   scale_color_viridis_c() + facet_wrap(~model) +
-  xlab("log10(North America Ne)") + ylab("log10(Hawaii Ne)") +
+  # geom_point(data = ilist3[ilist3$best == 1,], aes(x = log10(s), y = log10(Ne_Ha)), color = "red") +
+  ylab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), Hawaii')) + xlab(bquote('Founding ' ~log[10]~ '(' ~N[e]~ '), Hawaii')) + 
+  scale_y_continuous(labels = function(x) sprintf("%.5f", x))
+
+
+dpb.end.size <- ggplot(ilist3, aes(x = log10(Ne_NA), y = log10(Ne_Ha), color = AIC, shape = pass)) + 
+  geom_point() + theme_bw()+ 
+  theme(legend.position = "none",
+        strip.background = element_blank(),
+        strip.text = element_blank()) +
+  scale_color_viridis_c() + facet_wrap(~model) +
+  # geom_point(data = ilist3[ilist3$best == 1,], aes(x = log10(s), y = log10(Ne_Ha)), color = "red") +
+  xlab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), North America')) + ylab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), Hawaii')) + 
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
 
 # dpb.split <- ggplot(ilist3, aes(x = log10(s), y = log10(Ne_Split), color = AIC, shape = pass)) + 
@@ -145,13 +171,37 @@ dpb.mig <- ggplot(ilist3, aes(x = m12, y = m21, color = AIC, shape = pass)) +
   theme(legend.position = "none",
         strip.background = element_blank(),
         strip.text = element_blank()) +scale_color_viridis_c() + facet_wrap(~model) +
+  # geom_point(data = ilist3[ilist3$best == 1,], aes(x = m12, y = m21), color = "red") +
   xlab("Migration: Hawaii -> NA") + ylab("Migration: NA -> Hawaii") +
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
 
 ## combine plots
 pdf("plots/dadi_summary_plot.pdf")
-gridExtra::grid.arrange(dpb.time, dpb.size, dpb.mig, legend,
-                        layout_matrix = matrix(c(1,2,3,5,5,5), nrow = 3, ncol = 2),
+gridExtra::grid.arrange(dpb.time, dpb.end.size, dpb.size, dpb.mig, legend,
+                        layout_matrix = matrix(c(1,2,3,4,5,5,5,5), nrow = 4, ncol = 2),
                         widths = c(1,.1))
 dev.off();dev.off();
 
+# ancient growth plot
+# ggplot(ilist3[ilist3$model == "Three Epoch Found and Grow",], 
+#        aes(x = log10(AncientTime), y = log10(nuA), color = AIC, shape = pass)) +
+#   geom_point() + theme_bw() + 
+#   theme(strip.background = element_blank(),
+#         strip.text = element_blank()) +
+#   scale_color_viridis_c()
+# 
+# 
+# ggplot(ilist3[ilist3$model == "Three Epoch Found and Grow",], 
+#        aes(x = log10(Ne_NA), y = log10(), color = AIC, shape = pass)) +
+#   geom_point() + theme_bw() + 
+#   theme(strip.background = element_blank(),
+#         strip.text = element_blank()) +
+#   scale_color_viridis_c()
+# 
+# ggplot(ilist, aes(x = log10(nu1F), y = log10(nuG2), color = log10(AIC), shape = pass)) + 
+#     geom_point() + theme_bw() + scale_color_viridis_c() +
+#     xlab("log10(Final North American Ne)") + ylab("log10(Total Ne at establishment)")
+# 
+# ggplot(ilist, aes(x = log10(nuG), y = log10(nuG2), color = log10(AIC), shape = pass)) + 
+#   geom_point() + theme_bw() + scale_color_viridis_c() +
+#   xlab("log10(North American Ne pre-growth)") + ylab("log10(Total Ne at establishment)")

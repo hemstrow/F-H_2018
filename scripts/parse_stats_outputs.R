@@ -1,4 +1,7 @@
 library(data.table); library(ggplot2); library(snpR);
+
+
+
 #==================tajima's D===============
 # pull in data
 flist <- list.files(path = "./results/paralogs/", "tajimas_D")
@@ -65,7 +68,7 @@ ggplot(samp.s, aes(x = pop, y = Het_Hom)) + geom_point() + theme_bw()
 
 # fst
 dat.maf <- filter_snps(dat, maf = 0.05)
-dat.maf <- calc_pairwise_fst(dat, "pop")
+dat.maf <- calc_pairwise_fst(dat.maf, "pop", method = "Genepop")
 
 
 #=======================tables==============
@@ -84,9 +87,8 @@ comb.table <- dplyr::arrange(comb.table, population)
 comb.table
 
 # fst
-fst <- get.snpR.stats(dat.maf, "pop", type = "pairwise")
-fst <- tapply(fst$fst, fst$comparison, mean, na.rm = T)
-fst <- data.frame(pop_1 = substr(names(fst), 1, 3), pop_2 = substr(names(fst), 5, 7), fst = as.numeric(fst), stringsAsFactors = F)
+fst <- dat.maf[[2]]
+fst <- data.frame(pop_1 = substr(fst[,1], 1, 3), pop_2 = substr(fst[,1], 5, 7), fst = fst[,2], stringsAsFactors = F)
 opts <- unique(c(fst$pop_1, fst$pop_2))
 opts <- opts[order(match(opts, facet.order))]
 fst$pop_1 <- factor(fst$pop_1, opts, ordered = T)
@@ -104,4 +106,4 @@ for(i in 1:nrow(fst)){
 fst <- reshape2::dcast(fst, pop_1~pop_2)
 fst[is.na(fst)] <- ""
 colnames(fst)[1] <- "population"
-formattable(fst, align = c("l", rep("c", 7)))
+fst

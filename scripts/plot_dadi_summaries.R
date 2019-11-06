@@ -5,6 +5,7 @@ g <- .3
 ratio <- 9370/302446 # ratio of included snps
 L <-  1373747*ratio # approx number of considered bases.
 
+
 # pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_hg_r1_fix_combined.txt"),
 #                              mu = mu, g = g, L = L)
 # pass2 <- import_dadi_results(c("data/dadi_inputs/cat_NH_best_r2.txt", "data/dadi_inputs/cat_NH_3e_re_best_r2.txt"),
@@ -14,13 +15,13 @@ L <-  1373747*ratio # approx number of considered bases.
 # pass4 <- import_dadi_results("data/dadi_inputs/cat_NH_best_r4.txt", mu = mu, g = g, L = L)
 
 
-pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_hg_r1_fix_combined.txt"),
+pass1 <- import_dadi_results(c("data/dadi_inputs/cat_NH_1st_pass_dportik.txt", "data/dadi_inputs/cat_NH_hg_r1.txt"),
                              mu = mu, g = g, L = L)
 pass2 <- import_dadi_results(c("data/dadi_inputs/cat_NH_2nd_pass_out_dportik.txt", "data/dadi_inputs/cat_NH_hg_r2_fix_weighted.txt"),
                              mu = mu, g = g, L = L)
-pass3 <- import_dadi_results(c("data/dadi_inputs/cat_NH_hg_r3_found_and_grow.txt", "data/dadi_inputs/cat_NH_3e_re_weighted_r3.txt", "data/dadi_inputs/cat_NH_r3.out"),
+pass3 <- import_dadi_results(c("data/dadi_inputs/cat_NH_r3.out", "data/dadi_inputs/cat_NH_hg_r3.txt"),
                              mu = mu, g = g, L = L)
-pass4 <- import_dadi_results(c("data/dadi_inputs/cat_NH_all_fix_r4.txt", "data/dadi_inputs/cat_NH_3e_re_weighted_r4.txt"), mu = mu, g = g, L = L)
+pass4 <- import_dadi_results("data/dadi_inputs/cat_NH_all_r4.txt", mu = mu, g = g, L = L)
 
 
 # AIC dist per model
@@ -49,6 +50,7 @@ dev.off(); dev.off()
 # best overall model
 best.reps <- rdf %>% group_by(model) %>% group_by(pops, add = TRUE) %>% top_n(-1, AIC)
 best.reps <- arrange(best.reps, pops, model)
+View(pass1$ilist$founder_asym_hist_3epoch_exp_growth_p1_NAM_HAW)
 
 # plots for the best model
 # best model across all passes
@@ -77,9 +79,6 @@ colnames(ilist3.2)[c(4,5,8)] <- c("Ne_NA", "Ne_Ha", "SplitTime")
 ilist3.2$Ne_Split <- ilist3.2$nuA
 ilist3 <- merge(ilist3.1, ilist3.2, all = T)
 ilist3$model <- ifelse(ilist3$model == "founder_asym_growth_both", "Found and Grow", "Three Epoch Found and Grow")
-ilist3$best <- 0
-ilist3$best[which(ilist3$model == "Found and Grow" & ilist3$AIC == min(ilist3$AIC[ilist3$model == "Found and Grow"]))] <- 1
-ilist3$best[which(ilist3$model == "Three Epoch Found and Grow" & ilist3$AIC == min(ilist3$AIC[ilist3$model == "Three Epoch Found and Grow"]))] <- 1
 
 
 ## function to grab legend
@@ -171,8 +170,7 @@ zc.end.size <- ggplot(ilist5, aes(x = log10(Ne_NA), y = log10(Ne_Ha), color = AI
         strip.background = element_blank(),
         strip.text = element_blank()) +
   scale_color_viridis_c() + facet_wrap(~model) +
-  # geom_point(data = ilist3[ilist3$best == 1,], aes(x = log10(s), y = log10(Ne_Ha)), color = "red") +
-  xlab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), North America')) + ylab(bquote('Current' ~log[10]~ '(' ~N[e]~ '), Hawaii')) + 
+  xlab("log10(North America Ne)") + ylab("log10(Hawaii Ne)") +
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
 
 zc.mig <- ggplot(ilist5, aes(x = m12, y = m21, color = AIC, shape = pass)) + 
@@ -180,10 +178,8 @@ zc.mig <- ggplot(ilist5, aes(x = m12, y = m21, color = AIC, shape = pass)) +
   theme(legend.position = "none",
         strip.background = element_blank(),
         strip.text = element_blank()) +scale_color_viridis_c() + facet_wrap(~model) +
-  # geom_point(data = ilist3[ilist3$best == 1,], aes(x = m12, y = m21), color = "red") +
   xlab("Migration: Hawaii -> NA") + ylab("Migration: NA -> Hawaii") +
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
-
 
 pdf("plots/zhan_compare_supplment.pdf")
 gridExtra::grid.arrange(zc.time, zc.end.size, zc.mig, legend,

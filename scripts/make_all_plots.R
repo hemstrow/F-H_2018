@@ -1,4 +1,4 @@
-library(RColorBrewer); library(ape); library(snpR); library(ggplot2)
+library(RColorBrewer); library(ape); library(snpR); library(ggplot2); library(gridExtra); library(gridGraphics)
 
 # This script makes all of the R plots for the publication. Plots are as follows, 
 # asterisks imply that the plot was not made with R:
@@ -12,6 +12,12 @@ facet.order <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", 
 pal <- colorRampPalette(brewer.pal(9, "Set1"))(14) #palette to use
 color.guide <- data.frame(pop = facet.order, color = pal, stringsAsFactors = F)
 
+g_legend <- function(a.gplot){ 
+  tmp <- ggplot_gtable(ggplot_build(a.gplot)) 
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box") 
+  legend <- tmp$grobs[[leg]] 
+  legend
+}
 
 #=========Neighbor-joining tree========
 # grab data
@@ -90,14 +96,13 @@ pcols <- combplates$color[indices]
 tcols[which(nj$edge[,2] <= 281)] <- pcols
 
 
-pdf("plots/NJ_tree1.pdf", width = 11, height = 8.5)
+#pdf("plots/NJ_tree1.pdf", width = 11, height = 8.5)
 ##plot
 plot.phylo(nj, no.margin = TRUE, cex = .5, type = "unrooted", 
-           tip.color = combplates$color, lab4ut = "axial", 
-           x.lim = c(0, .4), edge.color = tcols)
-##add legend
-legend(.33, 0.31, legend = levels(combplates$Pop), fill = pal, title = "Population", cex = 0.9)
-dev.off();dev.off()
+           tip.color = combplates$color, lab4ut = "axial", edge.color = tcols)
+grid.echo()
+f2c <- grid.grab()
+
 
 #=========NGSrelate=============
 
@@ -158,9 +163,13 @@ combplates$Pop <- pops
 setwd("../NGSadmix/full/pop-both/")
 pop <- combplates$Pop
 NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = pop, k = 9,
-                            alt.palette = brewer.pal(9, "Set1"))$plot + xlab("Population")
+                            alt.palette = brewer.pal(9, "Set1"))
+f2b <- NGSrelate$plot + xlab("Population")
 setwd("../../..")
-ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate, device = "pdf", width = 11, height = 8.5)
+#ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate, device = "pdf", width = 11, height = 8.5)
+
+f2l2 <- g_legend(f2b)
+f2b <- f2b + theme(legend.position = "none")
 
 #=========PCA===================
 PCA <- prcomp(m)
@@ -169,12 +178,49 @@ pplot$Population <- rownames(PCA$x)
 pplot$Population <- factor(pplot$Population, levels = facet.order)
 loadings <- summary(PCA)
 loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
-PCA_plot <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point() + theme_bw() +
+f2a <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point() + theme_bw() +
   scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
   ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)"))
-ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
+#ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
+f2l1 <- g_legend(f2a)
+f2a <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point() + theme_bw() +
+  scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
+  theme(legend.position = "none") + 
+  ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)")) +
+  scale_y_reverse() + scale_x_reverse()
 
 
+#==========NGSrelate based pie charts not used (but cool!)=============
+library(scatterpie)
+K <- 5
+lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681),
+                 HAW = c(19.627274, -155.493135), GUA = c(11.421207, 142.736584),
+                 ROT = c(14.154628, 145.191535), SAI = c(17.201243, 147.750705),
+                 SAM = c(-13.613179, -172.351278), FIJ = c(-17.924768, 178.081698),
+                 NCA = c(-21.299579, 165.383757), NOR = c(-29.024356, 167.945279),
+                 QLD = c(-27.531395, 152.919356), NSW = c(-32.751896, 151.667208),
+                 VIC = c(-34.574338, 138.689131), NZL = c(-37.124496, 174.961893))
+# note, GUA, ROT, and SAI are fudged so they don't overlapp as much
+
+lat_long <- as.data.frame(lat_long)
+mp <- plot_structure_map(NGSrelate, K, "pop", lat_long, alt.palette = RColorBrewer::brewer.pal(8, "Set1"))
+f2d <- mp + theme(legend.position = "none")
+
+#ggsave("plots/NGSadmix_map_plot.pdf", plot = mp, device = "pdf")
+
+
+
+#==========================================arranged fig 2=============
+pdf("plots/Figure_2.pdf", width = 15, height = 8.5)
+grid.arrange(f2c, 
+             f2b + 
+               ggplot2::theme(axis.text.x = element_text(size = 9.5), 
+                              axis.text.y = element_blank(), 
+                              axis.ticks.y = element_blank()), 
+             f2a + ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank()),
+             f2d, f2l1, f2l2, 
+             layout_matrix = cbind(c(3,NA,1), c(5,5,5), c(2,NA,4), c(6,6,6)), widths = c(1, .2, 1, .2), heights = c(1,.1,1))
+dev.off(); dev.off()
 
 #=========het/hom ratio=======
 input <- readRDS("results/paralogs/nomaf_paralog_fix_snpR.RDS")
@@ -190,23 +236,4 @@ hhplot <- ggplot(het_hom, aes(x = Population, y = Het_Hom, color = Population)) 
   theme_bw() + ylab("Het Count / Hom Count")
 ggsave("plots/het_hom.pdf", plot = hhplot, device = "pdf", height = 8.5, width = 11)
 
-
-#==========NGSrelate based pie charts on world map, not used (but cool!)=============
-# library(scatterpie)
-# K <- 8
-# lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681),
-#                  HAW = c(19.627274, -155.493135), GUA = c(11.421207, 142.736584),
-#                  ROT = c(14.154628, 145.191535), SAI = c(17.201243, 147.750705),
-#                  SAM = c(-13.613179, -172.351278), FIJ = c(-17.924768, 178.081698),
-#                  NCA = c(-21.299579, 165.383757), NOR = c(-29.024356, 167.945279),
-#                  QLD = c(-27.531395, 152.919356), NSW = c(-32.751896, 151.667208),
-#                  VIC = c(-34.574338, 138.689131), NZL = c(-37.124496, 174.961893))
-# # note, GUA, ROT, and SAI are fudged so they don't overlapp as much
-# 
-# lat_long <- as.data.frame(lat_long)
-# mp <- plot_structure_map(NGSrelate, K, "pop", lat_long, alt.palette = RColorBrewer::brewer.pal(8, "Set1"))
-# 
-# ggsave("plots/NGSadmix_map_plot.pdf", plot = mp, device = "pdf")
-# 
-# 
 

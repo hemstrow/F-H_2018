@@ -1,5 +1,5 @@
 # remotes::install_github("hemstrow/snpR", ref = "dev")
-library(snpR)
+library(snpR); library(ggplot2)
 
 x <- read.table("../F-H_2018/data/dadi_inputs/dadi_10kgap_snps.txt", header = T, stringsAsFactors = F)
 
@@ -118,7 +118,6 @@ out$p1 <- as.numeric(out$p1)
 out$p2 <- as.numeric(out$p2)
 
 # make a plot
-library(ggplot2)
 pdf("./plots/directionality_and_sfs.pdf", width = 10, height = 10)
 ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites))) +
   facet_grid(pop_1 ~ pop_2, switch = "both") + geom_tile() +
@@ -129,5 +128,6 @@ ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites
   ggplot2::scale_x_continuous(expand = c(0, 0)) +
   ggplot2::scale_y_continuous(expand = c(0, 0)) +
   theme(strip.background = element_blank(), strip.text = element_text(size = 20, face = "bold"),
-        axis.title = element_blank(), legend.title = element_text(size = 12, face = "bold"))
+        axis.title = element_blank(), legend.title = element_text(size = 12, face = "bold"), 
+        panel.grid = element_blank(), axis.text = element_blank(), axis.ticks = element_blank())
 dev.off();dev.off();

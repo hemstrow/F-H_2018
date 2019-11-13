@@ -211,7 +211,7 @@ f2d <- mp + theme(legend.position = "none")
 
 
 #==========================================arranged fig 2=============
-pdf("plots/Figure_2.pdf", width = 15, height = 8.5)
+pdf("plots/Figure_2.pdf", width = 13, height = 8.5)
 grid.arrange(f2c, 
              f2b + 
                ggplot2::theme(axis.text.x = element_text(size = 9.5), 
@@ -219,7 +219,7 @@ grid.arrange(f2c,
                               axis.ticks.y = element_blank()), 
              f2a + ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank()),
              f2d, f2l1, f2l2, 
-             layout_matrix = cbind(c(3,NA,1), c(5,5,5), c(2,NA,4), c(6,6,6)), widths = c(1, .2, 1, .2), heights = c(1,.1,1))
+             layout_matrix = cbind(c(3,NA,1), c(5,5,5), c(2,NA,4), c(6,6,6)), widths = c(1, .2, 1, .2), heights = c(1,.05,1))
 dev.off(); dev.off()
 
 #=========het/hom ratio=======

@@ -127,7 +127,7 @@ dpb.mig <- ggplot(ilist3, aes(x = m12, y = m21, color = AIC, shape = pass)) +
   scale_y_continuous(labels = function(x) sprintf("%.5f", x))
 
 ## combine plots
-pdf("plots/dadi_summary_plot.pdf")
+pdf("plots/dadi_summary_plot.pdf", width = 11, height = 8.5)
 gridExtra::grid.arrange(dpb.time, dpb.end.size, dpb.mig, legend,
                         layout_matrix = matrix(c(1,2,3,5,5,5), nrow = 3, ncol = 2),
                         widths = c(1,.1))

@@ -309,7 +309,7 @@ function(dat, nMC, burnin, thinning, eps=7, priq=1, pria=c(1,2), prik=1){
 		npop = 4
 		print("N.B. Omitting populations 5+ from graph.", quote=F)
 		}
-	windows()
+    dev.new() #may need to update depending on OS
 	par(mfcol=c(npop,npop))
 	for( i in 1:npop ){
 		for( j in 1:npop ){

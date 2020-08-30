@@ -8,7 +8,7 @@ rm(input)
 mariana <- subset_snpR_data(dats, facets = "pop", subfacets = c("GUA", "ROT", "SAI"))
 mariana <- filter_snps(mariana, 0.05, maf.facets = "pop")
 mariana <- calc_isolation_by_distance(mariana, x_y = c("long", "lat"))
-get.snpR.stats(mariana, type = "ibd")
+get.snpR.stats(mariana, type = "ibd") 
 
 #============north america==============
 noram <- subset_snpR_data(dats, facets = "pop", subfacets = "NAM")

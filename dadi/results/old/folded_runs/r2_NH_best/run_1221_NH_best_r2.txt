@@ -1,0 +1,1 @@
+model:	vic_no_mig	pops:	NAM HAW	theta:	1350.956843459554	ll:	-1318.6332	AIC:	2643.2663	optimal_parameters:	4.279494692 0.051218661 0.078067345

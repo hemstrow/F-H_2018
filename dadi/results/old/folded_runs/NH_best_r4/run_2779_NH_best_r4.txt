@@ -1,0 +1,1 @@
+model:	founder_nomig_logistic_pop_2	pops:	NAM HAW	theta:	17.94223162876142	ll:	-1866.3841	AIC:	3742.7683	optimal_parameters:	98.109431418 19.705843484 5.999999661 1.358041751 0.017208424

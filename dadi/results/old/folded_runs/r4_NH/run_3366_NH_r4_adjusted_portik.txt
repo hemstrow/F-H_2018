@@ -1,0 +1,1 @@
+model:	founder_asym_growth_pop_1	pops:	NAM HAW	theta:	565.284532847321	ll:	-1116.011	AIC:	2244.0221	optimal_parameters:	2.003379049 7.945539153 0.473615268 6.677146803 0.533731536 0.19964882

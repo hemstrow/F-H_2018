@@ -1,0 +1,1 @@
+model:	vic_two_epoch_admix	pops:	NAM HAW	theta:	1123.891025458745	ll:	-1126.447	AIC:	2262.8941	optimal_parameters:	3.420484127 0.158313144 0.007516273 0.014115917 0.989266533

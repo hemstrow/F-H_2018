@@ -1,0 +1,1 @@
+model:	vic_no_mig_admix_early	pops:	NAM HAW	theta:	1350.9515420985354	ll:	-1318.6332	AIC:	2645.2663	optimal_parameters:	4.279534386 0.051219411 0.078068727 0.495570031

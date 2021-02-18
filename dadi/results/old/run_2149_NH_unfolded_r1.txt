@@ -1,0 +1,1 @@
+model:	vic_sec_contact_asym_mig	pops:	NAM HAW	theta:	855.679746914472	ll:	-1749.2295	AIC:	3510.459	optimal_parameters:	4.516150237 8.93069703 39.999999216 0.052366434 1.009719814 0.013304537

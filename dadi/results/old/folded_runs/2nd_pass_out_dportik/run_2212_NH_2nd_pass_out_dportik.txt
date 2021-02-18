@@ -1,0 +1,1 @@
+model:	founder_nomig_admix_late_growth_pop_1	pops:	NAM HAW	theta:	85.22568854397163	ll:	-1326.8648	AIC:	2663.7296	optimal_parameters:	15.76874922 99.999912152 1.243803588 0.208905575 0.330705145

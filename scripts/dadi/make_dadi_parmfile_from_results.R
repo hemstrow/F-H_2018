@@ -35,7 +35,6 @@ make.parm.file.from.best <- function(wlist, mplist, bounds, iters,
       paste0("[", paste0(best.parms, collapse = ","), "]")
     
     #grab upper and lower bounds
-    browser()
     tb <- unlist(mplist[names(mplist) == wlist[[i]]$model[1]])
     tb <- bounds[names(bounds) %in% tb]
     tb <- tb[match(names(best.parms),names(tb))]
@@ -91,7 +90,7 @@ make.parm.file.from.weighted.ave <- function(wlist, mplist, bounds, iters,
   counter <- 1
   #fill vectors
   for(i in 1:length(wlist)){
-    
+
     # find the weighted average parameters for each model.
     tmod <- wlist[[i]]
     AIC <- tmod$AIC

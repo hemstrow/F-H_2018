@@ -113,34 +113,34 @@ iters <- 30
 reps_per_perm <- 50
 mods <- c(
   # vicariance models
-  vic_no_mig = F, 
-  vic_anc_asym_mig = F,  
-  vic_sec_contact_asym_mig = F,
-  vic_no_mig_admix_early = F,  
-  vic_no_mig_admix_late = F,  
-  vic_two_epoch_admix = F, 
+  vic_no_mig = T, 
+  vic_anc_asym_mig = T,  
+  vic_sec_contact_asym_mig = T,
+  vic_no_mig_admix_early = T,  
+  vic_no_mig_admix_late = T,  
+  vic_two_epoch_admix = T, 
   
   # founder exponential models
-  founder_nomig_growth_pop_2 = F,  
-  founder_sym_growth_pop_2 = F, 
-  founder_asym_growth_pop_2 = F, 
-  founder_nomig_admix_early_growth_pop_2 = F, 
-  founder_nomig_admix_late_growth_pop_2 = F,  
-  founder_nomig_admix_two_epoch_growth_pop_2 = F, 
+  founder_nomig_growth_pop_2 = T,  
+  founder_sym_growth_pop_2 = T, 
+  founder_asym_growth_pop_2 = T, 
+  founder_nomig_admix_early_growth_pop_2 = T, 
+  founder_nomig_admix_late_growth_pop_2 = T,  
+  founder_nomig_admix_two_epoch_growth_pop_2 = T, 
   
-  founder_nomig_growth_pop_1 = F,  
-  founder_sym_growth_pop_1 = F, 
-  founder_asym_growth_pop_1 = F, 
-  founder_nomig_admix_early_growth_pop_1 = F, 
-  founder_nomig_admix_late_growth_pop_1 = F,  
-  founder_nomig_admix_two_epoch_growth_pop_1 = F,
+  founder_nomig_growth_pop_1 = T,  
+  founder_sym_growth_pop_1 = T, 
+  founder_asym_growth_pop_1 = T, 
+  founder_nomig_admix_early_growth_pop_1 = T, 
+  founder_nomig_admix_late_growth_pop_1 = T,  
+  founder_nomig_admix_two_epoch_growth_pop_1 = T,
   
-  founder_nomig_growth_both = F,  
-  founder_sym_growth_both = F, 
-  founder_asym_growth_both = F, 
-  founder_nomig_admix_early_growth_both = F, 
-  founder_nomig_admix_late_growth_both = F,  
-  founder_nomig_admix_two_epoch_growth_both = F, 
+  founder_nomig_growth_both = T,  
+  founder_sym_growth_both = T, 
+  founder_asym_growth_both = T, 
+  founder_nomig_admix_early_growth_both = T, 
+  founder_nomig_admix_late_growth_both = T,  
+  founder_nomig_admix_two_epoch_growth_both = T, 
   
   # founder logistic models
   founder_nomig_logistic_pop_2 = F,  
@@ -173,7 +173,7 @@ mods <- c(
 pops <- c("[NAM,HAW]")
 
 #is the spectra polarized?
-fs <- "False"
+fs <- "True"
 
 #fold initial params?
 fp <- 3
@@ -185,7 +185,7 @@ proj <- "[100,10]"
 optim <- "fmin"
 
 #outfile?
-ofile <- "dadi/parmfiles/NH_hg_r1.txt"
+ofile <- "dadi/parmfiles/NH_unfolded_r1.txt"
 append.ofile <- F # should this be appened to an existing outfile?
 
 ##########################################

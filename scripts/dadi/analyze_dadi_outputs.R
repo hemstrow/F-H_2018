@@ -1,7 +1,8 @@
 library(ggplot2); library(dplyr); source("scripts/dadi/make_dadi_parmfile_from_results.R"); source("scripts/interpret_dadi_units.R")
 #==========import and prep data==========
 
-res <- readLines("data/dadi_inputs/cat_NH_hg_r1.txt")
+res <- readLines("data/dadi_inputs/cat_NH_unfolded_r3.txt")
+#res <- c(res, readLines("data/dadi_inputs/cat_NH_best_r2.txt"))
 
 #grab the data
 rdf <- data.frame(model = character(length(res)), pops = character(length(res)), theta = numeric(length(res)), ll = numeric(length(res)), AIC = numeric(length(res)), mnum = numeric(length(res)), parms = numeric(length(res)), stringsAsFactors = F)
@@ -185,25 +186,15 @@ best.reps[order(best.reps$AIC),-c(3,4,7)]
 # number of SNPs in dataset: 10000
 # number of SNPs in total set: 302446
 # number of sequenced sites: 1373747
-mu <- 2.9e-9
-g <- 1/7
-ratio <- 9370/302446 # ratio of included snps
+mu <- 8.4e-9
+g <- .3
+ratio <- 10929/302446 # ratio of included snps
 L <-  1373747*ratio # approx number of considered bases.
 ilist <- interpret_units(wlist, mu, g, L = L)
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nuA, y = nu1, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = s, y = Ti, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = m12, y = m21, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = s, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_both_NAM_HAW, aes(x = nu1, y = nu2, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nuA, y = nu1, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = s, y = Ti, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = m12, y = m21, color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
-ggplot(ilist$founder_asym_growth_pop_1_NAM_HAW, aes(x = nu1, y = s, color = log10(theta))) + geom_point() + theme_bw() + scale_color_viridis_c()
-
-
-ggplot(ilist$founder_asym_hist_3epoch_exp_growth_p1_NAM_HAW, aes(x = log10(Tg3), y = log10(Ts), color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+#ggplot(ilist$founder_asym_hist_3epoch_exp_growth_p1_NAM_HAW, aes(y = log10(Tg3 + Ts), x = log10(s), color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
+#ggplot(ilist$founder_asym_hist_igrowth_p2_NAM_HAW, aes(y = log10(Tg2 + Ts), x = log10(s), color = log10(AIC))) + geom_point() + theme_bw() + scale_color_viridis_c()
 
 
 # exp <- list(asym_both <- ilist$founder_asym_growth_both_NAM_HAW,
@@ -236,5 +227,6 @@ bounds <- list(nuA = c(1e-2, 100), # ancient pop size
                f = c(1e-5, 1) # Fraction of updated population 2 to be derived from population 1 (admixture)
 )
 
-# make.parm.file.from.best(wlist, mplist, bounds, 100, 100, "False", 1, "[15,15]", "dadi/parmfiles/dadi_HGR_3RD_pass_parms.txt")
-make.parm.file.from.weighted.ave(wlist, mplist, bounds, 50, 60, "False", 2, "[100,10]", "dadi/parmfiles/NH_hg_r2.txt.txt")
+#make.parm.file.from.best(wlist, mplist, bounds, 100, 100, "False", 1, "[100,10]", "dadi/parmfiles/NH_best_r4.txt")
+make.parm.file.from.weighted.ave(wlist,
+                                 mplist, bounds, iters = 100, reps_per_perm = 100, "True", 1, "[100,10]", "dadi/parmfiles/NH_unfolded_r4.txt")

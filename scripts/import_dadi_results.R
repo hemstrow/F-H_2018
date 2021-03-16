@@ -136,7 +136,7 @@ import_dadi_results <- function(res, mu, g, L){
     colnames(po) <- mplist[[facets$model[i]]]
     po <- cbind(tdat[,3:5], po)
     colnames(po)[1:3] <- c("theta", "ll", "AIC")
-    wlist[[i]] <- cbind(pops = tdat$pops, model = tdat$model, po, stringsAsFactors = F)
+    wlist[[i]] <- cbind(pops = tdat$pops, model = tdat$model, run_ID = tdat$parms, po, stringsAsFactors = F)
   }
   
   

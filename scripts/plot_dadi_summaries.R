@@ -68,7 +68,7 @@ dcomb <- reshape2::dcast(comb, model ~ var + pass)
 
 openxlsx::addWorksheet(wb, "model_statistics")
 openxlsx::writeDataTable(wb, "model_statistics", dcomb, tableStyle = "none")
-openxlsx::saveWorkbook(wb, "model_statistics.xlsx", overwrite = T)
+openxlsx::saveWorkbook(wb, "plots/Supplementary_Table_S4.xlsx", overwrite = T)
 
 #=======================grab and prepare data for three best models and Zahn model=============================
 # Three Epoch

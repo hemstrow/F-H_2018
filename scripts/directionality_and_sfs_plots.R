@@ -1,7 +1,7 @@
 # remotes::install_github("hemstrow/snpR", ref = "dev")
 library(snpR); library(ggplot2)
 
-x <- read.table("../F-H_2018/data/dadi_inputs/dadi_10kgap_snps.txt", header = T, stringsAsFactors = F)
+x <- read.table("data/dadi_inputs/dadi_10kgap_snps.txt", header = T, stringsAsFactors = F)
 
 # the make_SFS function arguments are: input data file, populations, projections (the number of
 # sample gene copies (2 per individual!) to make the sfs from, lower numbers will keep more snps, maximizing snps
@@ -12,35 +12,35 @@ x <- read.table("../F-H_2018/data/dadi_inputs/dadi_10kgap_snps.txt", header = T,
 # NAM, HAW
 sf <- make_SFS(x, c("NAM", "HAW"), c(10, 10), F)
 plot_sfs(sf)
-NH <- calc_directionality(sf)
+NH <- calc_directionality(sfs = sf)
 
 # HAW, GUA
 sf <- make_SFS(x, c("HAW", "GUA"), c(10, 10), F)
 plot_sfs(sf)
-HG <- calc_directionality(sf)
+HG <- calc_directionality(sfs = sf)
 
 # GUA, ROT
 sf <- make_SFS(x, c("GUA", "ROT"), c(15, 15), F)
 plot_sfs(sf)
-GR <- calc_directionality(sf)
+GR <- calc_directionality(sfs = sf)
 
 # HAW, QLD
 sf <- make_SFS(x, c("HAW", "QLD"), c(10, 10), F)
 plot_sfs(sf)
-HQ <- calc_directionality(sf)
+HQ <- calc_directionality(sfs = sf)
 
 # HAW, NOR
 sf <- make_SFS(x, c("HAW", "NOR"), c(10, 10), F)
 plot_sfs(sf)
-HN <- calc_directionality(sf)
+HN <- calc_directionality(sfs = sf)
 
 sf <- make_SFS(x, c("NAM", "GUA"), c(15, 15))
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 
 # NAM, QLD
 sf <- make_SFS(x, c("NAM", "QLD"), c(30, 30), F)
 plot_sfs(sf)
-calc_directionality(sf)
+calc_directionality(sfs = sf)
 
 # make a table of the comparisons of interest
 dirs <- as.data.frame(t(combn(c("NAM", "HAW", "GUA", "QLD"), 2)), stringsAsFactors = F)
@@ -52,7 +52,7 @@ names(proj.sizes) <- c("NAM", "HAW", "GUA", "QLD")
 for(i in 1:nrow(dirs)){
   print(dirs[i,1:2])
   sf <- make_SFS(x, c(dirs[i,1], dirs[i,2]), proj.sizes[match(dirs[i,1:2], names(proj.sizes))])
-  di <- calc_directionality(sf)
+  di <- calc_directionality(sfs = sf)
   dirs$di[i] <- di
   dirs$direction[i] <- attr(di, "direction")
 }
@@ -74,7 +74,7 @@ for(i in 1:(length(pops) - 1)){
     
     # generate a fuller SFS for the directionality
     dirtsf <- make_SFS(x, c(pops[i], pops[j]), c(pop.sample.sizes[i], pop.sample.sizes[j]))
-    dir <- calc_directionality(dirtsf)
+    dir <- calc_directionality(sfs = dirtsf)
     dirN <- sum(dirtsf[-1,-1]) # no fixed sites
     
     # record data and melt
@@ -118,7 +118,7 @@ out$p1 <- as.numeric(out$p1)
 out$p2 <- as.numeric(out$p2)
 
 # make a plot
-pdf("./plots/directionality_and_sfs.pdf", width = 10, height = 10)
+pdf("./plots/Figure_S3.pdf", width = 10, height = 10)
 ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites))) +
   facet_grid(pop_1 ~ pop_2, switch = "both") + geom_tile() +
   geom_text(aes(label = round(dir, 2), x = 5, y = 6), color = "black", size = 7) + 
@@ -131,3 +131,6 @@ ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites
         axis.title = element_blank(), legend.title = element_text(size = 12, face = "bold"), 
         panel.grid = element_blank(), axis.text = element_blank(), axis.ticks = element_blank())
 dev.off();dev.off();
+
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S3.jpg plots/Figure_S3.pdf")
+

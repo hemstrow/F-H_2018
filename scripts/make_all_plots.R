@@ -1,4 +1,5 @@
-library(RColorBrewer); library(ape); library(ggplot2); library(gridExtra); library(gridGraphics); library(data.table); library(snpR)
+library(RColorBrewer); library(ape); library(ggplot2); library(gridExtra); library(gridGraphics); library(data.table); 
+library(snpR); library(ggtree)
 
 # This script makes all of the R plots for the publication. Plots are as follows, 
 # asterisks imply that the plot was not made with R:
@@ -8,8 +9,25 @@ library(RColorBrewer); library(ape); library(ggplot2); library(gridExtra); libra
 
 
 
-facet.order <- c("ENA", "WNA", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
-pal <- colorRampPalette(brewer.pal(9, "Set1"))(14) #palette to use
+facet.order <- c("ENA", "WNA", "MAU", "OAH", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
+full.label <- c("Eastern North America (ENA, 45)",
+                "Western North America (WNA, 40)",
+                "Maui (MAU, 8)",
+                "Oahu (OAH, 4)",
+                "Guam (GUA, 24)",
+                "Rota (ROT, 20)",
+                "Saipan (SAI, 4)",
+                "Samoa (31)",
+                "Fiji (5)",
+                "New Caledonia (NCA, 18)",
+                "Norfolk Island (NOR, 16)",
+                "Queensland (QLD, 44)",
+                "New South Wales (NSW, 6)",
+                "Victoria (VIC, 4)",
+                "New Zealand (NZL, 16)")
+full.label.tab <- data.frame(abrv = facet.order, full = full.label)
+
+pal <- colorRampPalette(brewer.pal(9, "Set1"))(length(facet.order)) #palette to use
 color.guide <- data.frame(pop = facet.order, color = pal, stringsAsFactors = F)
 
 g_legend <- function(a.gplot){ 
@@ -72,6 +90,11 @@ pops[pops == "Sam"] <- "SAM"
 table(pops)
 combplates$Pop <- pops
 
+# remove duplicated HAW sample
+combplates[269,]$poor <- TRUE
+
+# split oahu and maui
+combplates$Pop[combplates$Pop == "HAW"] <- ifelse(combplates$plate[combplates$Pop == "HAW"] == "plate1", "MAU", "OAH")
 
 #get data and remove poor samples (under 1mb of sequence data)
 setwd("..")
@@ -79,7 +102,6 @@ m <- read.table("data/IBS/monIBS_clean.ibsMat")
 m <- as.matrix(m)
 m <- m[-which(combplates$poor),-which(combplates$poor)]
 combplates <- combplates[-which(combplates$poor),]
-pal <- colorRampPalette(brewer.pal(9, "Set1"))(14) #palette to use
 combplates$Pop <- factor(combplates$Pop, levels = facet.order)
 combplates$color <- color.guide$color[match(combplates$Pop, color.guide$pop)]
 
@@ -88,22 +110,28 @@ rownames(m) <- combplates$Pop
 
 #make and plot the tree.
 nj <- nj(m) #make tree
-
-##get branch colors
-tcols <- rep("black", length(nj$edge.length))
-indices <- nj$edge[nj$edge[,2] <= 281, 2]
-pcols <- combplates$color[indices]
-tcols[which(nj$edge[,2] <= 281)] <- pcols
-
+# 
+# ##get branch colors
+# tcols <- rep("black", length(nj$edge.length))
+# indices <- nj$edge[nj$edge[,2] <= 281, 2]
+# pcols <- combplates$color[indices]
+# tcols[which(nj$edge[,2] <= 281)] <- pcols
+# 
 
 #pdf("plots/NJ_tree1.pdf", width = 11, height = 8.5)
 ##plot
-plot.phylo(nj, no.margin = TRUE, cex = .5, type = "unrooted", 
-           tip.color = combplates$color, lab4ut = "axial", edge.color = tcols)
-grid.echo()
-f2c <- grid.grab()
-f2c <- ggplotify::as.ggplot(f2c) + ggtitle("C") + scale_x_continuous(limits = c(.1,.9)) +
-  theme(plot.title = element_text(hjust = .06))
+# plot.phylo(nj, no.margin = TRUE, cex = .5, type = "unrooted", 
+#            tip.color = combplates$color, lab4ut = "axial", edge.color = tcols)
+
+
+nj <- tidytree::as_tibble(nj)
+nj$Population <- factor(full.label.tab$full[match(nj$label, full.label.tab$abrv)], levels = full.label)
+nj <- tidytree::as.treedata(nj)
+f1c <- ggtree(nj, layout = "ape") + geom_tippoint(aes(color = Population), size = 4) + 
+  scale_color_manual(values = pal) + ggtitle("C") + theme(legend.position = "none")
+
+
+f1l2 <- g_legend(ggplot(na.omit(tidytree::as_tibble(nj)), aes(x = parent, y = node, color = Population)) + geom_point(size = 4) + theme_bw() + scale_color_manual(values = pal))
 
 
 #=========NGSrelate=============
@@ -160,19 +188,25 @@ pops[pops == "Sam"] <- "SAM"
 table(pops)
 combplates$Pop <- pops
 
+# remove duplicate hawaiian sample
+combplates <- combplates[-which(combplates$bam == "SOMM270_split_RA_GGGCCAAGACTGCAG.sort.flt.bam"),]
+
+# split oahu and maui
+combplates$Pop[combplates$Pop == "HAW"] <- ifelse(combplates$plate[combplates$Pop == "HAW"] == "plate1", "MAU", "OAH")
+
 
 # plot
 setwd("../NGSadmix/full/pop-both/")
 pop <- combplates$Pop
 NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = pop, k = 1:9,
                             alt.palette = brewer.pal(9, "Set1"))
-f2b <- NGSrelate$plot + xlab("Population") + theme(strip.text = element_text(size = 10))
+f1b <- NGSrelate$plot + xlab("Population") + theme(strip.text = element_text(size = 10))
 setwd("../../..")
 #ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate, device = "pdf", width = 11, height = 8.5)
 
-f2l2 <- g_legend(f2b)
-f2b <- f2b + theme(legend.position = "none")
-f2b <- f2b + ggtitle("B")
+f1l1 <- g_legend(f1b)
+f1b <- f1b + theme(legend.position = "none")
+f1b <- f1b + ggtitle("B")
 
 
 
@@ -200,6 +234,18 @@ if(length(infs) > 0){
 }
 
 
+pdf("plots/Figure_S6.pdf", width = 11, height = 8.5)
+ggplot(evanno[evanno$K <= 9,], aes(x = K, y = log10(deltaK))) + geom_point(size = 4) + 
+  theme_bw() +
+  ylab(bquote(log[10](Delta*K))) +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14)) +
+  scale_x_continuous(breaks = 1:9)
+dev.off(); dev.off()
+
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S6.jpg plots/Figure_S6.pdf")
+
+
 # k = 2 or 5 are the highest deltaK
 
 
@@ -210,22 +256,19 @@ pplot$Population <- rownames(PCA$x)
 pplot$Population <- factor(pplot$Population, levels = facet.order)
 loadings <- summary(PCA)
 loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
-f2d <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point() + theme_bw() +
-  scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
-  ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)"))
 #ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
-f2l1 <- g_legend(f2d)
-f2d <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point() + theme_bw() +
+f1d <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
   scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
   theme(legend.position = "none") + 
   ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)")) +
-  scale_y_reverse() + scale_x_reverse() + ggtitle("D")
+  scale_y_reverse() + scale_x_reverse() + ggtitle("D") # rotated to be layed out more like the geography
 
 
 #==========NGSrelate based pie charts=============
 K <- 5
 lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681),
-                 HAW = c(19.627274, -155.493135), GUA = c(11.421207, 142.736584),
+                 OAH = c(21.3069, -158.8583), MAU = c(20.9997, -155.6581),
+                 GUA = c(11.421207, 142.736584),
                  ROT = c(14.154628, 145.191535), SAI = c(17.201243, 147.750705),
                  SAM = c(-13.613179, -172.351278), FIJ = c(-17.924768, 178.081698),
                  NCA = c(-21.299579, 165.383757), NOR = c(-29.024356, 167.945279),
@@ -235,22 +278,22 @@ lat_long <- list(ENA = c(19.556050, -100.289503), WNA = c(36.625980, -121.930681
 
 lat_long <- as.data.frame(lat_long)
 mpd <- NGSrelate
-sstab <- matrix(c("ENA", "ENA (45)",
-                  "WNA", "WNA (40)",
-                  "HAW", "HAW (12)",
-                  "GUA", "GUA (24)",
-                  "ROT", "ROT (20)",
-                  "SAI", "SAI (4)",
-                  "SAM", "SAM (31)",
-                  "FIJ", "FIJ (5)",
-                  "NCA", "NCA (18)",
-                  "NOR", "NOR (16)",
-                  "QLD", "QLD (44)",
-                  "NSW", "NSW (6)",
-                  "VIC", "VIC (4)",
-                  "NZL", "NCL (16)"), byrow = 2, ncol = 2)
-names(lat_long) <- sstab[match(names(lat_long), sstab[,1]),2]
-mpd$plot_data$pop <- sstab[match(mpd$plot_data$pop, sstab[,1]),2]
+# sstab <- matrix(c("ENA", "ENA (45)",
+#                   "WNA", "WNA (40)",
+#                   "HAW", "HAW (12)",
+#                   "GUA", "GUA (24)",
+#                   "ROT", "ROT (20)",
+#                   "SAI", "SAI (4)",
+#                   "SAM", "SAM (31)",
+#                   "FIJ", "FIJ (5)",
+#                   "NCA", "NCA (18)",
+#                   "NOR", "NOR (16)",
+#                   "QLD", "QLD (44)",
+#                   "NSW", "NSW (6)",
+#                   "VIC", "VIC (4)",
+#                   "NZL", "NCL (16)"), byrow = 2, ncol = 2)
+# names(lat_long) <- sstab[match(names(lat_long), sstab[,1]),2]
+# mpd$plot_data$pop <- sstab[match(mpd$plot_data$pop, sstab[,1]),2]
 
 lat_long <- as.data.frame(t(lat_long))
 lat_long$pop <- rownames(lat_long)
@@ -266,8 +309,8 @@ lat_long <- sf::st_transform(lat_long, sf::st_crs(background))
 mp <- plot_structure_map(mpd, K, "pop", lat_long, sf = list(background), 
                          alt.palette = RColorBrewer::brewer.pal(8, "Set1"), scale_bar = NULL, crop = TRUE,
                          sf_fill_colors = "white", label_args = list(max.overlaps = 10, seed = 1212, nudge_x = -7, nudge_y = 3,
-                                                                     point.padding = 4.3))
-f2a <- mp + theme(legend.position = "none", axis.text = element_blank(),
+                                                                     point.padding = 4.3, size = 2))
+f1a <- mp + theme(legend.position = "none", axis.text = element_blank(),
                   axis.ticks = element_blank(), axis.title = element_blank(), 
                   axis.line = element_blank(), panel.grid = element_blank()) +
   ggtitle("A")
@@ -279,18 +322,20 @@ f2a <- mp + theme(legend.position = "none", axis.text = element_blank(),
 #==========================================arranged fig 1=============
 pdf("plots/Figure_1.pdf", width = 15, height = 8.5)
 
-grid.arrange(f2a, 
-             f2b + 
+grid.arrange(f1a, 
+             f1b + 
                ggplot2::theme(axis.text.x = element_text(size = 9.5), 
                               axis.text.y = element_blank(), 
                               axis.ticks.y = element_blank()),
-             f2l2,
-             f2c,
-             f2d + ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank()),
-             f2l1, 
+             f1l1,
+             f1c,
+             f1d + ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank()),
+             f1l2, 
              #layout_matrix = cbind(c(3,NA,1), c(5,5,5), c(2,NA,4), c(6,6,6)), widths = c(1, .2, 1, .2), heights = c(1,.05,1)
-             layout_matrix = rbind(c(1, 2, 3), c(4, 5, 6)), widths = c(1, 1, .2), heights = c(1, 1))
+             layout_matrix = rbind(c(1, 2, 3), c(4, 5, 6)), widths = c(1, 1, .4), heights = c(1, 1))
 dev.off(); dev.off()
+
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_1.jpg plots/Figure_1.pdf")
 
 #=========het/hom ratio=======
 input <- readRDS("results/paralogs/nomaf_paralog_fix_snpR.RDS")
@@ -307,6 +352,7 @@ hhplot <- ggplot(het_hom, aes(x = Population, y = `Het/Hom`, color = Population)
                                                      axis.title.x = element_text(size = 14),
                                                      axis.title.y = element_text(size = 14))
 hhplot
-ggsave("plots/het_hom.pdf", plot = hhplot, device = "pdf", height = 8.5, width = 11)
+ggsave("plots/Figure_S4.pdf", plot = hhplot, device = "pdf", height = 8.5, width = 11)
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S4.jpg plots/Figure_S4.pdf")
 
 

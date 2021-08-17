@@ -35,11 +35,13 @@ mins <- tapply(rdf$AIC, rdf$model, min)
 sort(mins)
 
 # plot AIC scores in each model in each pass
-pdf("./plots/dadi_model_comparison.pdf")
+pdf("./plots/Figure_S2.pdf")
 ggplot(rdf,aes(x = model, y = log(AIC), color = pass)) + 
   geom_boxplot() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_color_manual(values = RColorBrewer::brewer.pal(4, "Set1"))
 dev.off(); dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S2.jpg plots/Figure_S2.pdf")
+
 
 # best overall model
 best.reps <- tapply(rdf$AIC, rdf[,c("model", "pass")], min)
@@ -68,7 +70,7 @@ dcomb <- reshape2::dcast(comb, model ~ var + pass)
 
 openxlsx::addWorksheet(wb, "model_statistics")
 openxlsx::writeDataTable(wb, "model_statistics", dcomb, tableStyle = "none")
-openxlsx::saveWorkbook(wb, "plots/Supplementary_Table_S4.xlsx", overwrite = T)
+openxlsx::saveWorkbook(wb, "plots/Table_S4.xlsx", overwrite = T)
 
 #=======================grab and prepare data for three best models and Zahn model=============================
 # Three Epoch
@@ -229,11 +231,13 @@ dpb.mig <- ggplot(ilistm, aes(x = m12, y = m21, color = log10(AIC), shape = pass
   scale_y_continuous(labels = function(x) sprintf("%.5f", x)) + scale_shape_manual(values = 15:18)
 
 ## combine plots
-pdf("plots/dadi_summary_plot.pdf", width = 11, height = 8.5)
+pdf("plots/Figure_2.pdf", width = 11, height = 8.5)
 gridExtra::grid.arrange(dpb.time, dpb.mig, dpb.end.size, legend,
                         layout_matrix = matrix(c(1,2,3,4,4,4), nrow = 3, ncol = 2),
                         widths = c(1,.1))
 dev.off();dev.off();
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_2.jpg plots/Figure_2.pdf")
+
 #=================prepare plots: spectra=================
 # want four graphs: one with the real, one with the models, one with the resid hists, and one with the resid plot
 ## get heatmap data, residuals, etc all combined
@@ -329,17 +333,20 @@ resid <- ggplot(residual_heatmap,
   scale_y_continuous(expand = c(0, 0)) +
   theme(strip.background = element_blank())
 
-pdf("plots/model_spectra.pdf", width = 20, height = 8.5)
+pdf("plots/Figure_3.pdf", width = 20, height = 8.5)
 gridExtra::grid.arrange(rs, ms, ms_leg,
                         layout_matrix = matrix(c(1,1,2,2,3,3), nrow = 2, ncol = 3),
                         widths = c(1,1,.1))
 dev.off();dev.off();
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_3.jpg plots/Figure_3.pdf")
+
 
 
 pdf("plots/spectra_resid_hist.pdf", width = 11, height = 8.5)
 his
 dev.off();dev.off();
 
-pdf("plots/spectra_resid_heatmaps.pdf", width = 11, height = 8.5)
+pdf("plots/Figure_S5.pdf", width = 11, height = 8.5)
 resid
 dev.off();dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S5.jpg plots/Figure_S5.pdf")

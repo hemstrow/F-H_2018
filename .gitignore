@@ -12,3 +12,4 @@
 ./fastsimcol2/slurm-19969085.out
 .Rproj.user
 .Rhistory
+*.history

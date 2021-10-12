@@ -100,8 +100,9 @@ combplates$Pop[combplates$Pop == "HAW"] <- ifelse(combplates$plate[combplates$Po
 setwd("..")
 m <- read.table("data/IBS/monIBS_clean.ibsMat")
 m <- as.matrix(m)
-m <- m[-which(combplates$poor),-which(combplates$poor)]
-combplates <- combplates[-which(combplates$poor),]
+bad <- which(combplates$poor)
+m <- m[-bad,-bad]
+combplates <- combplates[-bad,]
 combplates$Pop <- factor(combplates$Pop, levels = facet.order)
 combplates$color <- color.guide$color[match(combplates$Pop, color.guide$pop)]
 
@@ -250,17 +251,37 @@ shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S6.jpg plots
 
 
 #=========PCA===================
-PCA <- prcomp(m)
-pplot <- as.data.frame(PCA$x)
-pplot$Population <- rownames(PCA$x)
-pplot$Population <- factor(pplot$Population, levels = facet.order)
-loadings <- summary(PCA)
-loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
+mat <- read.table("data/IBS/monIBS_clean.covMat")
+mat <- as.matrix(mat)
+mat <- mat[-bad,-bad]
+colnames(mat) <- colnames(m)
+rownames(mat) <- rownames(m)
+pca_r <- eigen(mat)
+# pca_r <- prcomp(mat[-dup,][-bad.samps,])
+# pca <- as.data.frame(pca_r$x) #grab the PCA vectors.
+pca <- pca_r$vectors
+colnames(pca) <- paste0("PC", 1:ncol(pca))
+pca <- as.data.frame(pca)
+pca <- cbind(pca, Population = rownames(mat))
+# loadings <- (pca_r$sdev^2)/sum(pca_r$sdev^2)
+# loadings <- round(loadings * 100, 2)
+
+loadings <- pca_r$values/sum(pca_r$values)
+loadings <- round(loadings*100, 2)
+pca$Population <- factor(pca$Population, labels = facet.order)
+
+
+# PCA <- prcomp(m)
+# pplot <- as.data.frame(PCA$x)
+# pplot$Population <- rownames(PCA$x)
+# pplot$Population <- factor(pplot$Population, levels = facet.order)
+# loadings <- summary(PCA)
+# loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
 #ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
-f1d <- ggplot(pplot, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
-  scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings$importance[2,1], "%)")) +
+f1d <- ggplot(pca, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
+  scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings[1], "%)")) +
   theme(legend.position = "none") + 
-  ylab(label = paste0("PC2 (", loadings$importance[2,2], "%)")) +
+  ylab(label = paste0("PC2 (", loadings[2], "%)")) +
   scale_y_reverse() + scale_x_reverse() + ggtitle("D") # rotated to be layed out more like the geography
 
 

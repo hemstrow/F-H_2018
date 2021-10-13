@@ -1,10 +1,10 @@
-.libPaths(c(.libPaths(), "/home/hemstrow/R/x86_64-pc-linux-gnu-library/3.6", "/usr/local/lib/R/site-library", "/usr/lib/R/site-library", "/usr/lib/R/library", "/share/apps/rmodules"))
+.libPaths(c(.libPaths(), "/home/hemstrow/R/x86_64-pc-linux-gnu-library/4.1", "/usr/local/lib/R/site-library", "/usr/lib/R/site-library", "/usr/lib/R/library", "/share/apps/rmodules"))
 library(snpR); library(readr)
 
 
 ######################################################################
 # prep metadata
-setwd("../github/F-H_2018/Raw_data/")
+setwd("Raw_data/")
 
 
 # import bamlist and annotations
@@ -57,14 +57,13 @@ pops[pops == "ENA"] <- "NAM"
 table(pops)
 combplates$Pop <- pops
 
-setwd("../../../paralogue_check/")
-
 #######################################################
 # import data and associate metadata
 cat("Importing data.\n")
 
 # import raw genotypes.
-raw_genos <- read.table("all_sites_paralogs.geno", sep = "\t", header = F, stringsAsFactors = F)
+raw_genos <- data.table::fread("all_sites_paralogs.geno.gz", sep = "\t", header = F, stringsAsFactors = F)
+raw_genos <- as.data.frame(raw_genos)
 raw_genos <- raw_genos[,-ncol(raw_genos)] # strip NA column
 
 
@@ -101,21 +100,28 @@ dat <- import.snpR.data(raw_genos[,-c(1:3)], snp.meta, sample.meta)
 cat("dat rows:", nrow(dat), "\n")
 
 
+setwd("../results/paralogs/")
 #########################################################
 # all sites
 cat("Saving all sites data.\n")
 saveRDS(dat, "allsites_paralog_fix_snpR.RDS")
 
 #########################################################
+# HWE filter for everything else
+dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop")
+
+#########################################################
 # maf
 cat("Filtering by minor allele frequency.\n")
-dat_maf <- filter_snps(dat, maf = 0.05)
-saveRDS(dat_maf, "maf_paralog_fix_snpR.RDS") 
+dat_maf <- filter_snps(dat, maf = 0.05, maf_facets = "pop")
+dat_maf <- gap_snps(dat, "group", 500)
+saveRDS(dat_maf, "maf_gap_paralog_fix_snpR.RDS") 
 rm(dat_maf)
 
 #########################################################
 # no maf, but only polymorphic
 cat("Filtering out only non-polymorphic sites.\n")
 dat_nomaf <- filter_snps(dat)
-saveRDS(dat_nomaf, "nomaf_paralog_fix_snpR.RDS")
+dat_nomaf <- gap_snps(dat_nomaf, "group", 500)
+saveRDS(dat_nomaf, "nomaf_gap_paralog_fix_snpR.RDS")
 

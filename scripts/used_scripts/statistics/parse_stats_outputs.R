@@ -1,5 +1,12 @@
+.libPaths(c(.libPaths(), "/home/hemstrow/R/x86_64-pc-linux-gnu-library/4.1", "/usr/local/lib/R/site-library", "/usr/lib/R/site-library", "/usr/lib/R/library", "/share/apps/rmodules"))
 library(data.table); library(ggplot2); library(snpR);
 
+
+wb <- openxlsx::createWorkbook(creator = "William Hemstrom")
+
+
+openxlsx::addWorksheet(wb, "Basic Stats")
+openxlsx::addWorksheet(wb, "Fst")
 
 
 #==================tajima's D===============
@@ -11,99 +18,111 @@ for(i in 1:length(flist)){
   out[[i]]$pop <- substr(flist[i], 27, 29)
 }
 tsd <- dplyr::bind_rows(out)
-
-# purge off odd values
-tsd[is.nan(tsd$D)]$D <- NA
-tsd[is.infinite(tsd$D)]$D <- NA
+tsd <- tsd[,-1]
 
 # get averages
-tab.D <- data.table::dcast(tsd, 1 ~ pop, value.var = "D", 
-                           fun.aggregate = mean, na.rm = T)
-tab.ws <- data.table::dcast(tsd, 1 ~ pop, value.var = "ws.theta", fun.aggregate = mean, na.rm = T)
-tab.ts <- data.table::dcast(tsd, 1 ~ pop, value.var = "ts.theta", fun.aggregate = mean, na.rm = T)
+aves <- tsd[tsd$snp.subfacet == ".OVERALL_MEAN",]
+colnames(aves)[which(colnames(aves) == "n")] <- "thetas_n"
 
-# plot
-## thetas
-pdat.t <- data.frame(population = c(names(tab.ws), names(tab.ts)),
-                   stat = c(rep("watersons_theta", length(tab.ws)), rep("tajimas_theta", length(tab.ts))),
-                   value = c(as.numeric(tab.ws), as.numeric(tab.ts)))
-pdat.t <- pdat.t[-(which(pdat.t$population == ".")),]
-ggplot(pdat.t, aes(x = population, y = value, fill = stat)) + 
-  geom_bar(stat = "identity", position = position_dodge()) +
-  theme_bw() + scale_fill_viridis_d(option = "inferno", end = 0.5)
-
-## D
-pdat.D <- data.frame(population = names(tab.D), D = as.numeric(tab.D))
-pdat.D <- pdat.D[-which(pdat.D$population == "."),]
-ggplot(pdat.D, aes(x = population, y = D)) + geom_point() + theme_bw() +
-  geom_hline(yintercept = 0, color = "red")
+# # plot
+# ggplot(aves, aes(y = log10(weighted_mean_ws.theta), x = log10(weighted_mean_ts.theta), label = pop)) + geom_text() +
+#   theme_bw() + geom_abline(intercept = 0, slope = 1)
 
 
-#==============take two, paralogs===============
-input <- readRDS("results/paralogs/nomaf_paralog_fix_snpR.RDS")
-dat <- filter_snps(input, min_loci = 0.75)
-dat <- calc_het_hom_ratio(dat)
+#==============dadi, gapped===============
+dat <- data.table::fread("data/dadi_inputs/rand_10kgap_snps.txt")
+samp.met <- colnames(dat)[-c(1:2)]
+samp.met <- data.frame(ID = samp.met, pop = substr(samp.met, 1, 3))
+dat <- import.snpR.data(dat[,-c(1:2)], dat[,1:2], samp.met)
+dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop", min_loci = .75, 
+                   maf = 0.05, maf_facets = "pop")
+
+dat <- calc_het_hom_ratio(dat, "pop")
 dat <- calc_pi(dat, "pop")
 dat <- calc_ho(dat, "pop")
 
-ss <- get.snpR.stats(dat, "pop")
-colnames(ss)[2] <- "pop"
-tab.pi <- data.table::dcast(ss, 1 ~ pop, value.var = "pi", fun.aggregate = mean, na.rm = T)
-tab.ho <- data.table::dcast(ss, 1 ~ pop, value.var = "ho", fun.aggregate = mean, na.rm = T)
+ss <- get.snpR.stats(dat, "pop", c("pi", "ho"))$weighted.means
+ss <- na.omit(ss)
+ss <- reshape2::melt(ss[,c(2, 5, 6)], id.vars = c("subfacet"))
+colnames(ss) <- c("pop", "stat", "value")
 
-# plot
-pdat.div <- data.frame(population = c(names(tab.pi), names(tab.ho)),
-                   stat = c(rep("pi", length(tab.pi)), rep("ho", length(tab.ho))),
-                   value = c(as.numeric(tab.pi), as.numeric(tab.ho)))
-pdat.div <- pdat.div[-(which(pdat.div$population == "1")),]
-ggplot(pdat.div, aes(x = population, y = value, fill = stat)) + 
-  geom_bar(stat = "identity", position = position_dodge()) +
-  theme_bw() + scale_fill_viridis_d(option = "inferno", end = 0.5)
+# # plot
+# ggplot(ss, aes(x = pop, y = value, fill = stat)) + 
+#   geom_bar(stat = "identity", position = position_dodge()) +
+#   theme_bw() + scale_fill_viridis_d(option = "inferno", end = 0.5)
 
 # het/hom
-samp.s <- dat@sample.stats
-colnames(samp.s)[5] <- "Het_Hom"
-ggplot(samp.s, aes(x = pop, y = Het_Hom)) + geom_point() + theme_bw()
-
-
-# fst
-dat.maf <- filter_snps(dat, maf = 0.05)
-dat.maf <- calc_pairwise_fst(dat.maf, "pop", method = "Genepop")
+samp.s <- get.snpR.stats(dat, "pop", "het_hom_ratio")$sample
+samp.s <- na.omit(samp.s)
+# ggplot(samp.s, aes(x = pop, y = `Het/Hom`)) + geom_point() + theme_bw()
 
 
 #=======================tables==============
 
 # basic stats:
-comb.table <- merge(pdat.D, reshape2::dcast(pdat.div, population~stat), by = "population")
-he_ho_means <- tapply(samp.s$Het_Hom, samp.s$pop, mean)
+## merge
+comb.table <- merge(aves, reshape2::dcast(ss, pop~stat, value.var = "value"), by = "pop")
+he_ho_means <- tapply(samp.s$`Het/Hom`, samp.s$pop, mean)
 comb.table$het_hom <- he_ho_means
-comb.table[,-1] <- round(comb.table[,-1], 3)
-colnames(comb.table) <- c("population", "Tajima's D", expression(H[o]), "pi", "Het/Hom")
+comb.table <- comb.table[,-c(2:5)]
+n <- table(sample.meta(dat)$pop)
+comb.table$n <- n[match(comb.table$pop, names(n))]
 
+
+## clean
+comb.table[, .SDcols = colnames(comb.table)[-1], colnames(comb.table)[-1] := lapply(.SD, round, digits = 3)]
+comb.table <- comb.table[,-c(2:3)]
+comb.table <- as.data.frame(comb.table)
+colnames(comb.table) <- c("Population", "D", expression(n[D]), expression(pi), expression(H[o]), "Het/Hom", expression(n[other]))
 facet.order <- c("NAM", "HAW", "GUA", "ROT", "SAI", "SAM", "FIJ", "NCA", "NOR", "QLD", "NSW", "VIC", "NZL")
-comb.table$population <- factor(comb.table$population, facet.order)
-comb.table <- dplyr::arrange(comb.table, population)
-#formattable(comb.table, align = c("l", rep("c", 4)))
-comb.table
 
-# fst
-fst <- dat.maf[[2]]
-fst <- data.frame(pop_1 = substr(fst[,1], 1, 3), pop_2 = substr(fst[,1], 5, 7), fst = fst[,2], stringsAsFactors = F)
-opts <- unique(c(fst$pop_1, fst$pop_2))
-opts <- opts[order(match(opts, facet.order))]
-fst$pop_1 <- factor(fst$pop_1, opts, ordered = T)
-fst$pop_2 <- factor(fst$pop_2, opts, ordered = T)
-fst$fst <- round(fst$fst, 3)
-for(i in 1:nrow(fst)){
-  if(fst$pop_1[i] < fst$pop_2[i]){
-    np1 <- fst$pop_2[i]
-    np2 <- fst$pop_1[i]
-    fst$pop_1[i] <- np1
-    fst$pop_2[i] <- np2
-  }
-}
+## rename
+comb.table$Population <- factor(comb.table$Population, facet.order)
+comb.table <- dplyr::arrange(comb.table, Population)
+key <- data.frame(code = facet.order, name = c("North America", "Hawaii", "Guam",
+                                               "Rota", "Saipan", "Samoa", "Fiji", "New Caledonia", 
+                                               "Norfolk Island", "Queensland", "New South Wales", "Victoria",
+                                               "New Zealand"))
+key$key <- paste0(key$name, " (", key$name, ")")
+comb.table$Population <- key$key[match(comb.table$Population, key$code)]
+# comb.table
+openxlsx::writeData(wb, "Basic Stats", x = comb.table, keepNA = T)
 
-fst <- reshape2::dcast(fst, pop_1~pop_2)
-fst[is.na(fst)] <- ""
-colnames(fst)[1] <- "population"
-fst
+
+
+
+#===================fst======================
+dat <- calc_pairwise_fst(dat, facets = "pop", method = "genepop", boot = 1000, boot_par = 24)
+
+fst <- get.snpR.stats(dat, "pop", "fst")
+
+fst <- fst$fst.matrix
+fst_matrix <- fst$pop$fst
+rn <- fst_matrix$p1
+fst_matrix$p1 <- NA
+colnames(fst_matrix)[1] <- "GUA"
+fst_matrix <- as.matrix(fst_matrix)
+fst_matrix <- rbind(fst_matrix, rep(NA, 8))
+rn <- c(rn, "VIC")
+cn <- colnames(fst_matrix)
+fst_matrix <- matrix(as.numeric(fst_matrix), nrow(fst_matrix))
+
+p_matrix <- fst$pop$p
+p_matrix$p1 <- NA
+colnames(p_matrix)[1] <- "GUA"
+p_matrix <- as.matrix(p_matrix)
+p_matrix <- rbind(p_matrix, rep(NA, 8))
+rownames(p_matrix) <- rn
+p_matrix <- t(p_matrix)
+p_matrix <- matrix(as.numeric(p_matrix), nrow(p_matrix))
+
+
+fst_matrix[is.na(fst_matrix)] <- p_matrix[is.na(fst_matrix)]
+fst_matrix <- round(fst_matrix, 4)
+colnames(fst_matrix) <- cn
+rownames(fst_matrix) <- rn
+
+openxlsx::writeData(wb, "Fst", x = fst_matrix, keepNA = T)
+
+#===============save and return============
+openxlsx::saveWorkbook(wb, "./results/paralogs/statistics.xlsx", overwrite = TRUE)

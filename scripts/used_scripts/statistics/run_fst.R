@@ -1,16 +1,17 @@
 library(snpR)
-input <- readRDS("../results/paralogs/nomaf_paralog_fix_snpR.RDS")
-meta <- read.csv("../Raw_data/sample_metadata.csv")
-sample.meta(input) <- meta
 
-input <- import.snpR.data(genotypes(input), snp.meta = snp.meta(input), sample.meta = sample.meta(input))
+input <- data.table::fread("../../../data/dadi_inputs/rand_10kgap_snps.txt")
+samp.met <- colnames(input)[-c(1:2)]
+samp.met <- data.frame(ID = samp.met, pop = substr(samp.met, 1, 3))
+input <- import.snpR.data(input[,-c(1:2)], input[,1:2], samp.met)
+
 input <- input[pop = c("NAM", "HAW", "GUA", "ROT", "SAI", "QLD", "NSW", "VIC")]
 
 #=========fst===========
-input <- filter_snps(input, maf = 0.05, maf.facets = "pop", min_loci = 0.75)
+input <- filter_snps(input, hwe = 0.000001, hwe_facets = "pop", min_loci = .75, maf = 0.05, maf_facets = "pop")
 input <- calc_pairwise_fst(input, facets = "pop", method = "genepop", boot = 1000, boot_par = 24)
 
-# saveRDS(input, "../results/fst_out.RDS")
+ saveRDS(input, "../../../results/fst_out.RDS")
 # input <- readRDS("../results/fst_out.RDS")
 
 fst <- get.snpR.stats(input, "pop", "fst")
@@ -41,4 +42,5 @@ fst_matrix[is.na(fst_matrix)] <- p_matrix[is.na(fst_matrix)]
 fst_matrix <- round(fst_matrix, 4)
 colnames(fst_matrix) <- cn
 rownames(fst_matrix) <- rn
+
 

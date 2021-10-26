@@ -4,7 +4,10 @@
 #SBATCH --mem=60G
 #SBATCH -J par_tsd
 
+module load R/4.1.0
+
 pops=(HAW GUA ROT SAI SAM FIJ NCA NOR QLD NSW VIC NZL NAM)
 
-Rscript calc_tsd.R allsites_paralog_fix_snpR.RDS ${pops[${SLURM_ARRAY_TASK_ID}]}
+cd ../../../results/paralogs
+Rscript /home/hemstrow/monarch/github/F-H_2018/scripts/used_scripts/statistics/calc_tsd.R allsites_paralog_fix_snpR.RDS ${pops[${SLURM_ARRAY_TASK_ID}]}
 

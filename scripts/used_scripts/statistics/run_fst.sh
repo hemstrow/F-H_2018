@@ -4,5 +4,7 @@
 #SBATCH -p bigmemm
 #SBATCH -J fst
 
+
+module load R/4.1.0
 Rscript run_fst.R
 

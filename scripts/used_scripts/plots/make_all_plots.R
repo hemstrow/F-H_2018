@@ -128,11 +128,11 @@ nj <- nj(m) #make tree
 nj <- tidytree::as_tibble(nj)
 nj$Population <- factor(full.label.tab$full[match(nj$label, full.label.tab$abrv)], levels = full.label)
 nj <- tidytree::as.treedata(nj)
-f1c <- ggtree(nj, layout = "ape") + geom_tippoint(aes(color = Population), size = 4) + 
-  scale_color_manual(values = pal) + ggtitle("C") + theme(legend.position = "none")
+fsxb <- ggtree(nj, layout = "ape") + geom_tippoint(aes(color = Population), size = 4) + 
+  scale_color_manual(values = pal) + ggtitle("B") + theme(legend.position = "none")
 
 
-f1l2 <- g_legend(ggplot(na.omit(tidytree::as_tibble(nj)), aes(x = parent, y = node, color = Population)) + geom_point(size = 4) + theme_bw() + scale_color_manual(values = pal))
+fsxbl <- g_legend(ggplot(na.omit(tidytree::as_tibble(nj)), aes(x = parent, y = node, color = Population)) + geom_point(size = 4) + theme_bw() + scale_color_manual(values = pal))
 
 
 #=========NGSrelate=============
@@ -234,17 +234,33 @@ if(length(infs) > 0){
   evanno$deltaK[infs] <- NA
 }
 
+evanno_m <- data.table::melt(evanno, id.vars = c("K"))
+evanno_m <- evanno_m[which(evanno_m$variable %in% c("deltaK", "mean_est_ln_prob")),]
+evanno_m[,variable := as.character(variable)]
+evanno_m$value[evanno_m$variable == "deltaK"] <- log10(evanno_m$value[evanno_m$variable == "deltaK"])
+evanno_m$variable[evanno_m$variable == "deltaK"] <- "log[10](Delta*K)"
+evanno_m$variable[evanno_m$variable == "mean_est_ln_prob"] <- "bar(ln(Prob))"
 
-pdf("plots/Figure_S6.pdf", width = 11, height = 8.5)
-ggplot(evanno[evanno$K <= 9,], aes(x = K, y = log10(deltaK))) + geom_point(size = 4) + 
+
+
+
+
+pdf("plots/Figure_S2.pdf", width = 11, height = 8.5)
+ggplot(evanno_m[evanno_m$K <= 9,], aes(x = K, y = value)) +
+  geom_point(size = 4) + 
+  facet_wrap(~variable, nrow = 2, labeller = label_parsed, scales = "free_y", strip.position = "left") +
   theme_bw() +
-  ylab(bquote(log[10](Delta*K))) +
   theme(axis.text = element_text(size = 12),
-        axis.title = element_text(size = 14)) +
+        axis.title = element_text(size = 14), 
+        panel.grid.minor.x  = element_blank(), 
+        axis.title.y = element_blank(), 
+        strip.placement = "outside", 
+        strip.background = element_blank(),
+        strip.text = element_text(size = 14)) +
   scale_x_continuous(breaks = 1:9)
 dev.off(); dev.off()
 
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S6.jpg plots/Figure_S6.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S2.jpg plots/Figure_S2.pdf")
 
 
 # k = 2 or 5 are the highest deltaK
@@ -278,11 +294,11 @@ pca$Population <- factor(pca$Population, labels = facet.order)
 # loadings <- summary(PCA)
 # loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
 #ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
-f1d <- ggplot(pca, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
+fsxa <- ggplot(pca, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
   scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings[1], "%)")) +
   theme(legend.position = "none") + 
   ylab(label = paste0("PC2 (", loadings[2], "%)")) +
-  scale_y_reverse() + scale_x_reverse() + ggtitle("D") # rotated to be layed out more like the geography
+  scale_y_reverse() + scale_x_reverse() + ggtitle("A") # rotated to be layed out more like the geography
 
 
 #==========NGSrelate based pie charts=============
@@ -322,15 +338,19 @@ colnames(lat_long)[1:2] <- c("lat", "long")
 lat_long$long[lat_long$long < 0] <- lat_long$long[lat_long$long < 0] + 360
 lat_long <- sf::st_as_sf(lat_long, coords = c("long", "lat"))
 lat_long <- sf::`st_crs<-`(lat_long, "EPSG:4326")
-background <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sp")
-background <- maptools::nowrapRecenter(background)
-background <- sf::st_as_sf(background)
+
+
+background <- sf::st_as_sf(maps::map("world2", plot = FALSE, fill = TRUE))
 lat_long <- sf::st_transform(lat_long, sf::st_crs(background))
 
-mp <- plot_structure_map(mpd, K, "pop", lat_long, sf = list(background), 
-                         alt.palette = RColorBrewer::brewer.pal(8, "Set1"), scale_bar = NULL, crop = TRUE,
-                         sf_fill_colors = "white", label_args = list(max.overlaps = 10, seed = 1212, nudge_x = -7, nudge_y = 3,
-                                                                     point.padding = 4.3, size = 2))
+mp <- plot_structure_map(mpd, K, "pop", lat_long, sf = list(background),
+                         alt.palette = RColorBrewer::brewer.pal(8, "Set1"), 
+                         scale_bar = list(dist = 1000, dist_unit = "km", transform = T, st.size = 3), crop = TRUE,
+                         sf_fill_colors = "white", 
+                         label_args = list(max.overlaps = 10, seed = 1212, nudge_x = -7, 
+                                           nudge_y = 3, point.padding = 4.3, size = 4)) +
+  theme(axis.text = element_blank(), axis.ticks = element_blank(), panel.grid = element_blank())
+
 f1a <- mp + theme(legend.position = "none", axis.text = element_blank(),
                   axis.ticks = element_blank(), axis.title = element_blank(), 
                   axis.line = element_blank(), panel.grid = element_blank()) +
@@ -341,22 +361,26 @@ f1a <- mp + theme(legend.position = "none", axis.text = element_blank(),
 
 
 #==========================================arranged fig 1=============
-pdf("plots/Figure_1.pdf", width = 15, height = 8.5)
+pdf("plots/Figure_2.pdf", width = 11, height = 8.5)
 
 grid.arrange(f1a, 
-             f1b + 
-               ggplot2::theme(axis.text.x = element_text(size = 9.5), 
-                              axis.text.y = element_blank(), 
-                              axis.ticks.y = element_blank()),
+             f1b,
              f1l1,
-             f1c,
-             f1d + ggplot2::theme(axis.text = element_blank(), axis.ticks = element_blank()),
-             f1l2, 
-             #layout_matrix = cbind(c(3,NA,1), c(5,5,5), c(2,NA,4), c(6,6,6)), widths = c(1, .2, 1, .2), heights = c(1,.05,1)
-             layout_matrix = rbind(c(1, 2, 3), c(4, 5, 6)), widths = c(1, 1, .4), heights = c(1, 1))
+             layout_matrix = rbind(c(1, 3), c(2, 3)), widths = c(1, .2), heights = c(1, 1))
 dev.off(); dev.off()
 
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_1.jpg plots/Figure_1.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_2.jpg plots/Figure_2.pdf")
+
+#==========================================arranged fig SX============
+pdf("plots/Figure_S1.pdf", width = 11, height = 8.5)
+
+grid.arrange(fsxa,
+             fsxb,
+             fsxbl,
+             layout_matrix = rbind(c(1, 3), c(2, 3)), widths = c(1, .3), heights = c(1, 1))
+dev.off(); dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S1.jpg plots/Figure_S1.pdf")
+
 
 #=========het/hom ratio=======
 input <- readRDS("results/paralogs/nomaf_paralog_fix_snpR.RDS")
@@ -373,7 +397,7 @@ hhplot <- ggplot(het_hom, aes(x = Population, y = `Het/Hom`, color = Population)
                                                      axis.title.x = element_text(size = 14),
                                                      axis.title.y = element_text(size = 14))
 hhplot
-ggsave("plots/Figure_S4.pdf", plot = hhplot, device = "pdf", height = 8.5, width = 11)
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S4.jpg plots/Figure_S4.pdf")
+ggsave("plots/Figure_S3.pdf", plot = hhplot, device = "pdf", height = 8.5, width = 11)
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S3.jpg plots/Figure_S3.pdf")
 
 

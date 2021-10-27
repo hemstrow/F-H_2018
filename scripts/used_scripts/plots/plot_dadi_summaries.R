@@ -35,12 +35,12 @@ mins <- tapply(rdf$AIC, rdf$model, min)
 sort(mins)
 
 # plot AIC scores in each model in each pass
-pdf("./plots/Figure_S2.pdf")
+pdf("./plots/Figure_S5.pdf")
 ggplot(rdf,aes(x = model, y = log(AIC), color = pass)) + 
   geom_boxplot() + theme_bw() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_color_manual(values = RColorBrewer::brewer.pal(4, "Set1"))
 dev.off(); dev.off()
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S2.jpg plots/Figure_S2.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S5.jpg plots/Figure_S5.pdf")
 
 
 # best overall model
@@ -231,12 +231,12 @@ dpb.mig <- ggplot(ilistm, aes(x = m12, y = m21, color = log10(AIC), shape = pass
   scale_y_continuous(labels = function(x) sprintf("%.5f", x)) + scale_shape_manual(values = 15:18)
 
 ## combine plots
-pdf("plots/Figure_2.pdf", width = 11, height = 8.5)
+pdf("plots/Figure_3.pdf", width = 11, height = 8.5)
 gridExtra::grid.arrange(dpb.time, dpb.mig, dpb.end.size, legend,
                         layout_matrix = matrix(c(1,2,3,4,4,4), nrow = 3, ncol = 2),
                         widths = c(1,.1))
 dev.off();dev.off();
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_2.jpg plots/Figure_2.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_3.jpg plots/Figure_3.pdf")
 
 #=================prepare plots: spectra=================
 # want four graphs: one with the real, one with the models, one with the resid hists, and one with the resid plot
@@ -274,79 +274,127 @@ all_spectra_dat <- dplyr::bind_rows(all_spectra_dat)
 residuals <- dplyr::bind_rows(residuals)
 residual_heatmap <- dplyr::bind_rows(residual_heatmap)
 
-max_spec <- log10(max(all_spectra_dat$N, na.rm = T))
-min_spec <- log10(min(all_spectra_dat$N, na.rm = T))
 
-# mod spectra
-ms <- ggplot(all_spectra_dat[all_spectra_dat$source == "model",], 
-             aes(x = p1, y = p2, fill = log10(N))) + 
-  geom_tile() +
-  facet_grid(quadrant~model) +
-  theme_bw() +
-  scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-  scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-  xlab("HAW") + ylab("NAM") +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.background = element_blank())
 
-ms_leg <- ggpubr::get_legend(ms)
+# function to make plots for each model
+make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
+  rd <- spectra1$raw_plots[[1]]$comp$data[which(spectra1$raw_plots[[1]]$comp$data$source == "data"),]
+  
+  
+  max_spec <- log10(max(c(spectra_dat$N, rd$N), na.rm = T))
+  min_spec <- log10(min(c(spectra_dat$N, rd$N), na.rm = T))
+  
+  spectra_dat$quadrant <- factor(spectra_dat$quadrant, levels = c("TR", "TL", "BR", "BL"))
+  residual_heatmap_dat$quadrant <- factor(residual_heatmap_dat$quadrant, levels = c("TR", "TL", "BR", "BL"))
+  
+  
+  # mod spectra
+  ms <- ggplot(spectra_dat[spectra_dat$source == "model",], 
+               aes(x = p1, y = p2, fill = log10(N))) + 
+    geom_tile() +
+    facet_wrap(~quadrant, nrow = 2) +
+    theme_bw() +
+    scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
+    scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
+    xlab("HAW") + ylab("NAM") +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    theme(strip.background = element_blank())
+  
+  ms_leg <- cowplot::get_legend(ms)
+  
+  ms <- ms + theme(legend.position = "none")
+  
+  # real spectra
+  rs <- ggplot(rd, 
+               aes(x = p1, y = p2, fill = log10(N))) + 
+    geom_tile() +
+    theme_bw() +
+    scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
+    scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
+    xlab("HAW") + ylab("NAM") +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    theme(strip.background = element_blank(), legend.position = "none") +
+    ggtitle("Data")
+  
+  # residual hist
+  his <- ggplot(residuals_dat, aes(x = resid)) +
+    geom_histogram(color = "steelblue", fill = "steelblue", bins = 50) + 
+    theme_bw() +
+    facet_grid(quadrant~model) +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+    # scale_y_log10(expand = expansion(mult = c(0, .1))) +
+    xlab("Residuals") + theme(strip.background = element_blank()) 
+  
+  # residual plot
+  resid_max <- max(abs(residual_heatmap$N), na.rm = T)
+  resid <- ggplot(residual_heatmap, 
+                  aes(x = p1, y = p2, fill = N)) + 
+    geom_tile() +
+    facet_wrap(~quadrant, nrow = 2) +
+    theme_bw() +
+    # scale_color_viridis_c(na.value = "white", option = "magma", direction = -1) +
+    # scale_fill_viridis_c(na.value = "white", option = "magma", direction = -1) +
+    scico::scale_fill_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
+    scico::scale_color_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
+    xlab("HAW") + ylab("NAM") +
+    scale_x_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = c(0, 0)) +
+    theme(strip.background = element_blank())
+  
+  
+  # arrange
+  gridExtra::grid.arrange(rs, ms, ms_leg,
+                          layout_matrix = matrix(c(1,1,2,2,3,3), nrow = 2, ncol = 3),
+                          widths = c(1,1,.1))
+  
+  return(list(rs = rs, ms = ms, ms_leg = ms_leg, resid = resid))
+}
 
-ms <- ms + theme(legend.position = "none")
 
-# real spectra
-rs <- ggplot(spectra1$raw_plots[[1]]$comp$data[which(spectra1$raw_plots[[1]]$comp$data$source == "data"),], 
-             aes(x = p1, y = p2, fill = log10(N))) + 
-  geom_tile() +
-  theme_bw() +
-  scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-  scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-  xlab("HAW") + ylab("NAM") +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.background = element_blank(), legend.position = "none") +
-  ggtitle("Data")
+# call for each model
 
-# residual hist
-his <- ggplot(residuals, aes(x = resid)) +
-  geom_histogram(color = "steelblue", fill = "steelblue", bins = 50) + 
-  theme_bw() +
-  facet_grid(quadrant~model) +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-  # scale_y_log10(expand = expansion(mult = c(0, .1))) +
-  xlab("Residuals") + theme(strip.background = element_blank())
 
-# residual plot
-resid_max <- max(abs(residual_heatmap$N), na.rm = T)
-resid <- ggplot(residual_heatmap, 
-                aes(x = p1, y = p2, fill = N)) + 
-  geom_tile() +
-  facet_grid(quadrant~model) +
-  theme_bw() +
-  # scale_color_viridis_c(na.value = "white", option = "magma", direction = -1) +
-  # scale_fill_viridis_c(na.value = "white", option = "magma", direction = -1) +
-  scico::scale_fill_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
-  scico::scale_color_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
-  xlab("HAW") + ylab("NAM") +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme(strip.background = element_blank())
 
-pdf("plots/Figure_3.pdf", width = 20, height = 8.5)
-gridExtra::grid.arrange(rs, ms, ms_leg,
-                        layout_matrix = matrix(c(1,1,2,2,3,3), nrow = 2, ncol = 3),
-                        widths = c(1,1,.1))
+pdf("plots/Figure_4.pdf", width = 15, height = 8.5)
+f4 <- make_spectra_plot(all_spectra_dat[which(all_spectra_dat$model == "Three Epoch"),],
+                        residuals[which(residuals$model == "Three Epoch"),],
+                        residual_heatmap[which(residual_heatmap$model == "Three Epoch"),])
 dev.off();dev.off();
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_3.jpg plots/Figure_3.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_4.jpg plots/Figure_4.pdf")
 
 
-
-pdf("plots/spectra_resid_hist.pdf", width = 11, height = 8.5)
-his
-dev.off();dev.off();
-
-pdf("plots/Figure_S5.pdf", width = 11, height = 8.5)
-resid
+pdf("plots/Figure_S6.pdf", width = 15, height = 8.5)
+fS6 <- make_spectra_plot(all_spectra_dat[which(all_spectra_dat$model == "Found and Grow"),],
+                        residuals[which(residuals$model == "Found and Grow"),],
+                        residual_heatmap[which(residual_heatmap$model == "Found and Grow"),])
 dev.off();dev.off()
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S5.jpg plots/Figure_S5.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S6.jpg plots/Figure_S6.pdf")
+
+
+pdf("plots/Figure_S7.pdf", width = 15, height = 8.5)
+fS7<- make_spectra_plot(all_spectra_dat[which(all_spectra_dat$model == "Two Epoch"),],
+                         residuals[which(residuals$model == "Two Epoch"),],
+                         residual_heatmap[which(residual_heatmap$model == "Two Epoch"),])
+dev.off();dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S7.jpg plots/Figure_S7.pdf")
+
+
+pdf("plots/Figure_S8.pdf", width = 15, height = 8.5)
+fS8 <- make_spectra_plot(all_spectra_dat[which(all_spectra_dat$model == "Zhan"),],
+                         residuals[which(residuals$model == "Zhan"),],
+                         residual_heatmap[which(residual_heatmap$model == "Zhan"),])
+dev.off();dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S8.jpg plots/Figure_S8.pdf")
+
+
+pdf("plots/Figure_S9.pdf", width = 11, height = 8.5)
+gridExtra::grid.arrange(f3$resid + ggtitle("Three Epoch"), 
+                        fS5$resid + ggtitle("Found and Grow"),
+                        fS6$resid + ggtitle("Two Epoch"),
+                        fS7$resid + ggtitle("Zhan"),
+                        ncol = 2)
+dev.off();dev.off()
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S9.jpg plots/Figure_S9.pdf")

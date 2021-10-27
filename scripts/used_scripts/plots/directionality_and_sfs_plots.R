@@ -11,27 +11,27 @@ x <- read.table("data/dadi_inputs/dadi_10kgap_snps.txt", header = T, stringsAsFa
 
 # NAM, HAW
 sf <- make_SFS(x, c("NAM", "HAW"), c(10, 10), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 NH <- calc_directionality(sfs = sf)
 
 # HAW, GUA
 sf <- make_SFS(x, c("HAW", "GUA"), c(10, 10), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 HG <- calc_directionality(sfs = sf)
 
 # GUA, ROT
 sf <- make_SFS(x, c("GUA", "ROT"), c(15, 15), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 GR <- calc_directionality(sfs = sf)
 
 # HAW, QLD
 sf <- make_SFS(x, c("HAW", "QLD"), c(10, 10), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 HQ <- calc_directionality(sfs = sf)
 
 # HAW, NOR
 sf <- make_SFS(x, c("HAW", "NOR"), c(10, 10), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 HN <- calc_directionality(sfs = sf)
 
 sf <- make_SFS(x, c("NAM", "GUA"), c(15, 15))
@@ -39,7 +39,7 @@ plot_sfs(sfs = sf)
 
 # NAM, QLD
 sf <- make_SFS(x, c("NAM", "QLD"), c(30, 30), F)
-plot_sfs(sf)
+plot_sfs(sfs = sf)
 calc_directionality(sfs = sf)
 
 # make a table of the comparisons of interest
@@ -118,7 +118,7 @@ out$p1 <- as.numeric(out$p1)
 out$p2 <- as.numeric(out$p2)
 
 # make a plot
-pdf("./plots/Figure_S3.pdf", width = 10, height = 10)
+pdf("./plots/Figure_S4.pdf", width = 10, height = 10)
 ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites))) +
   facet_grid(pop_1 ~ pop_2, switch = "both") + geom_tile() +
   geom_text(aes(label = round(dir, 2), x = 5, y = 6), color = "black", size = 7) + 
@@ -132,5 +132,5 @@ ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites
         panel.grid = element_blank(), axis.text = element_blank(), axis.ticks = element_blank())
 dev.off();dev.off();
 
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S3.jpg plots/Figure_S3.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S3.jpg plots/Figure_S4.pdf")
 

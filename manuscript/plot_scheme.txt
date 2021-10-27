@@ -1,0 +1,16 @@
+Fig1: structure
+Fig2: demography diagrams
+Fig3: demography params
+Fig4: Three-epoch spectra fit
+
+
+
+S1: Tree and PCA
+S2: DeltaAIC + -loglike
+S3: Het/Hom
+S4: Directionality
+S5: Model AICs
+S6: Found and grow spectra
+S7: Two Epoch spectra
+S8: Zhan spectra
+S9: Spectra Resids

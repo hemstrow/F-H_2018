@@ -12,7 +12,7 @@ ref=~/genomes/Dp_genome_v3.fasta ### reference fasta file used in alignment ###
 # find the pop
 pop=${pops[${SLURM_ARRAY_TASK_ID}]}
 
-#angsd -bam bamlists/${pop}_bamlist_fixed.txt -out results_snp/$pop -ref $ref -GL 2 -doMajorMinor 1 -doMaf 2 -SNP_pval 1e-6 -minMapQ 20 -minQ 20
-#gunzip results_snp/${pop}*.gz
+angsd -bam bamlists/${pop}_bamlist_fixed.txt -out results_snp/$pop -ref $ref -GL 2 -doMajorMinor 1 -doMaf 2 -SNP_pval 1e-6 -minMapQ 20 -minQ 20
+gunzip results_snp/${pop}*.gz
 cut -d$'\t' -f1-2  results_snp/${pop}.mafs | sed 1d > results_snp/${pop}.snp.pos
 

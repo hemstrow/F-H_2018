@@ -1,10 +1,10 @@
 .libPaths(c(.libPaths(), "/home/hemstrow/R/x86_64-pc-linux-gnu-library/4.1", "/usr/local/lib/R/site-library", "/usr/lib/R/site-library", "/usr/lib/R/library", "/share/apps/rmodules"))
-library(snpR); library(readr)
+library(snpR)
 
 
 ######################################################################
 # prep metadata
-setwd("Raw_data/")
+setwd("../../../Raw_data/")
 
 
 # import bamlist and annotations
@@ -108,20 +108,19 @@ saveRDS(dat, "allsites_paralog_fix_snpR.RDS")
 
 #########################################################
 # HWE filter for everything else
-dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop")
+dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop", min_loci = .75)
 
 #########################################################
-# maf
+# maf + gap and stringent min_ind
 cat("Filtering by minor allele frequency.\n")
 dat_maf <- filter_snps(dat, maf = 0.05, maf_facets = "pop")
-dat_maf <- gap_snps(dat, "group", 500)
+dat_maf <- gap_snps(dat_maf, "group", 250)
 saveRDS(dat_maf, "maf_gap_paralog_fix_snpR.RDS") 
 rm(dat_maf)
 
 #########################################################
 # no maf, but only polymorphic
 cat("Filtering out only non-polymorphic sites.\n")
-dat_nomaf <- filter_snps(dat)
-dat_nomaf <- gap_snps(dat_nomaf, "group", 500)
+dat_nomaf <- gap_snps(dat, "group", 250)
 saveRDS(dat_nomaf, "nomaf_gap_paralog_fix_snpR.RDS")
 

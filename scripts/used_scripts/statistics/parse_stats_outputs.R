@@ -37,6 +37,12 @@ dat <- import.snpR.data(dat[,-c(1:2)], dat[,1:2], samp.met)
 dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop", min_loci = .75, 
                    maf = 0.05, maf_facets = "pop")
 
+# # for the less filtered dataset...
+# dat <- readRDS("results/paralogs/nomaf_paralog_fix_snpR.RDS")
+# meta <- read.csv("Raw_data/sample_metadata.csv")
+# sample.meta(dat) <- meta
+
+
 dat <- calc_het_hom_ratio(dat, "pop")
 dat <- calc_pi(dat, "pop")
 dat <- calc_ho(dat, "pop")

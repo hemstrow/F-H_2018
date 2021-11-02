@@ -201,13 +201,13 @@ setwd("../NGSadmix/full/pop-both/")
 pop <- combplates$Pop
 NGSrelate <- plot_structure("combined-merged", facet.order = facet.order, clumpp = F, facet = pop, k = 1:9,
                             alt.palette = brewer.pal(9, "Set1"))
-f1b <- NGSrelate$plot + xlab("Population") + theme(strip.text = element_text(size = 10))
+f2b <- NGSrelate$plot + xlab("Population") + theme(strip.text = element_text(size = 10))
 setwd("../../..")
 #ggsave("plots/NGSadmix_plot.pdf", plot = NGSrelate, device = "pdf", width = 11, height = 8.5)
 
-f1l1 <- g_legend(f1b)
-f1b <- f1b + theme(legend.position = "none")
-f1b <- f1b + ggtitle("B")
+f2l1 <- g_legend(f2b)
+f2b <- f2b + theme(legend.position = "none")
+f2b <- f2b + ggtitle("B")
 
 
 
@@ -351,7 +351,7 @@ mp <- plot_structure_map(mpd, K, "pop", lat_long, sf = list(background),
                                            nudge_y = 3, point.padding = 4.3, size = 4)) +
   theme(axis.text = element_blank(), axis.ticks = element_blank(), panel.grid = element_blank())
 
-f1a <- mp + theme(legend.position = "none", axis.text = element_blank(),
+f2a <- mp + theme(legend.position = "none", axis.text = element_blank(),
                   axis.ticks = element_blank(), axis.title = element_blank(), 
                   axis.line = element_blank(), panel.grid = element_blank()) +
   ggtitle("A")
@@ -363,9 +363,9 @@ f1a <- mp + theme(legend.position = "none", axis.text = element_blank(),
 #==========================================arranged fig 1=============
 pdf("plots/Figure_2.pdf", width = 11, height = 8.5)
 
-grid.arrange(f1a, 
-             f1b,
-             f1l1,
+grid.arrange(f2a, 
+             f2b,
+             f2l1,
              layout_matrix = rbind(c(1, 3), c(2, 3)), widths = c(1, .2), heights = c(1, 1))
 dev.off(); dev.off()
 

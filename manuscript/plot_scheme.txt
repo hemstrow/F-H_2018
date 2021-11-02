@@ -1,5 +1,5 @@
-Fig1: structure
-Fig2: demography diagrams
+Fig1: demography diagrams
+Fig2: structure
 Fig3: demography params
 Fig4: Three-epoch spectra fit
 

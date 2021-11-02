@@ -132,5 +132,5 @@ ggplot(out, aes(x = p1, y = p2, color = log10(Num.Sites), fill = log10(Num.Sites
         panel.grid = element_blank(), axis.text = element_blank(), axis.ticks = element_blank())
 dev.off();dev.off();
 
-shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S3.jpg plots/Figure_S4.pdf")
+shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S4.jpg plots/Figure_S4.pdf")
 

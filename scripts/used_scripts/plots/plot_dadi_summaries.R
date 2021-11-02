@@ -191,6 +191,8 @@ ilistm$highlight <- ifelse(ilistm$point_ids %in% c(spectra1$plot_point_ids,
                                                    spectra3$plot_point_ids,
                                                    spectra4$plot_point_ids), 1, 0)
 
+ilistm$model <- factor(ilistm$model, c("Three Epoch", "Found and Grow", "Two Epoch", "Zhan"))
+
 
 ## grab legend
 dpb.time <- ggplot(ilistm, aes(y = log10(SplitTime), x = log10(s), color = log10(AIC), shape = pass)) + 

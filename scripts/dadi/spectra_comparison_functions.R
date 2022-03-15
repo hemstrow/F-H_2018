@@ -24,10 +24,11 @@ import_spectra <- function(x){
 }
 plot_comp_spectra <- function(obs, mod, resid, viridis.option = "inferno",
                               resid.viridis.option = "magma"){
-  
+
   # reformat using snpR, but need to combine plots on constant scale so can't
   # just take these
   p1 <- snpR::plot_sfs(obs)
+  attr(mod, "pop") <- attr(obs, "pop")
   p2 <- snpR::plot_sfs(mod)
   
   # combine reformatted data
@@ -55,6 +56,7 @@ plot_comp_spectra <- function(obs, mod, resid, viridis.option = "inferno",
   pc <- pc + ggplot2::theme(legend.position = "none")
   
   # get and plot the residuals
+  attr(resid, "pop") <- attr(obs, "pop")
   pr <- snpR::plot_sfs(resid, log = F)
   pr <- suppressMessages(pr + 
                            ggplot2::scale_color_viridis_c(na.value = "white", 

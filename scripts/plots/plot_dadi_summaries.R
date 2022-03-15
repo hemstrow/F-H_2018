@@ -1,5 +1,5 @@
 #======================set parameters==================
-source("scripts/import_dadi_results.R"); source("scripts/interpret_dadi_units.R")
+source("scripts/dadi/dadi_reading_functions.R")
 library(dplyr); library(ggplot2)
 mu <- 8.4e-9
 g <- .3
@@ -286,9 +286,11 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
   max_spec <- log10(max(c(spectra_dat$N, rd$N), na.rm = T))
   min_spec <- log10(min(c(spectra_dat$N, rd$N), na.rm = T))
   
-  spectra_dat$quadrant <- factor(spectra_dat$quadrant, levels = c("TR", "TL", "BR", "BL"))
-  residual_heatmap_dat$quadrant <- factor(residual_heatmap_dat$quadrant, levels = c("TR", "TL", "BR", "BL"))
-  
+  spectra_dat$quadrant <- factor(spectra_dat$quadrant, levels = c("TL", "TR", "BL", "BR"))
+  residual_heatmap_dat$quadrant <- factor(residual_heatmap_dat$quadrant, levels = c("TL", "TR", "BL", "BR"))
+  residuals_dat$quadrant <- factor(residuals_dat$quadrant, levels = c("TL", "TR", "BL", "BR"))
+  residuals_dat$quadrant <- factor(residuals_dat$quadrant, levels = c("TL", "TR", "BL", "BR"))
+
   
   # mod spectra
   ms <- ggplot(spectra_dat[spectra_dat$source == "model",], 
@@ -298,9 +300,10 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
     theme_bw() +
     scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
     scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-    xlab("HAW") + ylab("NAM") +
-    scale_x_continuous(expand = c(0, 0)) +
-    scale_y_continuous(expand = c(0, 0)) +
+    xlab("Derived Allele Count (HAW)") + ylab("Derived Allele Count (NAM)") +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(0,10, by = 2)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(0,100, by = 20)) +
+    ggtitle("Model") +
     theme(strip.background = element_blank())
   
   ms_leg <- cowplot::get_legend(ms)
@@ -314,9 +317,9 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
     theme_bw() +
     scale_color_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
     scale_fill_viridis_c(na.value = "white", option = "inferno", limits = c(min_spec, max_spec)) +
-    xlab("HAW") + ylab("NAM") +
-    scale_x_continuous(expand = c(0, 0)) +
-    scale_y_continuous(expand = c(0, 0)) +
+    xlab("Derived Allele Count (HAW)") + ylab("Derived Allele Count (NAM)") +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(0,10, by = 2)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(0,100, by = 20)) +
     theme(strip.background = element_blank(), legend.position = "none") +
     ggtitle("Data")
   
@@ -331,8 +334,8 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
     xlab("Residuals") + theme(strip.background = element_blank()) 
   
   # residual plot
-  resid_max <- max(abs(residual_heatmap$N), na.rm = T)
-  resid <- ggplot(residual_heatmap, 
+  resid_max <- max(abs(residual_heatmap_dat$N), na.rm = T)
+  resid <- ggplot(residual_heatmap_dat, 
                   aes(x = p1, y = p2, fill = N)) + 
     geom_tile() +
     facet_wrap(~quadrant, nrow = 2) +
@@ -341,9 +344,9 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
     # scale_fill_viridis_c(na.value = "white", option = "magma", direction = -1) +
     scico::scale_fill_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
     scico::scale_color_scico(limits = c(-1*resid_max, resid_max), palette = "vik") +
-    xlab("HAW") + ylab("NAM") +
-    scale_x_continuous(expand = c(0, 0)) +
-    scale_y_continuous(expand = c(0, 0)) +
+    xlab("Derived Allele Count (HAW)") + ylab("Derived Allele Count (NAM)") +
+    scale_x_continuous(expand = c(0, 0), breaks = seq(0,10, by = 2)) +
+    scale_y_continuous(expand = c(0, 0), breaks = seq(0,100, by = 20)) +
     theme(strip.background = element_blank())
   
   
@@ -352,7 +355,7 @@ make_spectra_plot <- function(spectra_dat, residuals_dat, residual_heatmap_dat){
                           layout_matrix = matrix(c(1,1,2,2,3,3), nrow = 2, ncol = 3),
                           widths = c(1,1,.1))
   
-  return(list(rs = rs, ms = ms, ms_leg = ms_leg, resid = resid))
+  return(list(rs = rs, ms = ms, ms_leg = ms_leg, resid = resid, histogram = his))
 }
 
 
@@ -393,10 +396,10 @@ shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S8.jpg plots
 
 
 pdf("plots/Figure_S9.pdf", width = 11, height = 8.5)
-gridExtra::grid.arrange(f3$resid + ggtitle("Three Epoch"), 
-                        fS5$resid + ggtitle("Found and Grow"),
-                        fS6$resid + ggtitle("Two Epoch"),
-                        fS7$resid + ggtitle("Zhan"),
+gridExtra::grid.arrange(f4$resid + ggtitle("Three Epoch"), 
+                        fS6$resid + ggtitle("Found and Grow"),
+                        fS7$resid + ggtitle("Two Epoch"),
+                        fS8$resid + ggtitle("Zhan"),
                         ncol = 2)
 dev.off();dev.off()
 shell("C://usr/bin/gswin64c.exe -sDEVICE=jpeg -r288 -o plots/Figure_S9.jpg plots/Figure_S9.pdf")

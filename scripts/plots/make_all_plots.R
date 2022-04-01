@@ -284,7 +284,7 @@ pca <- cbind(pca, Population = rownames(mat))
 
 loadings <- pca_r$values/sum(pca_r$values)
 loadings <- round(loadings*100, 2)
-pca$Population <- factor(pca$Population, labels = facet.order)
+pca$Population <- factor(pca$Population, levels = facet.order)
 
 
 # PCA <- prcomp(m)
@@ -295,7 +295,8 @@ pca$Population <- factor(pca$Population, labels = facet.order)
 # loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
 #ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
 fsxa <- ggplot(pca, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
-  scale_color_manual(values = color.guide$color) + xlab(label = paste0("PC1 (", loadings[1], "%)")) +
+  scale_color_manual(values = pal) + 
+  xlab(label = paste0("PC1 (", loadings[1], "%)")) +
   theme(legend.position = "none") + 
   ylab(label = paste0("PC2 (", loadings[2], "%)")) +
   scale_y_reverse() + scale_x_reverse() + ggtitle("A") # rotated to be layed out more like the geography

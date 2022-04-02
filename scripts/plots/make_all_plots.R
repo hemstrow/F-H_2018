@@ -294,12 +294,13 @@ pca$Population <- factor(pca$Population, levels = facet.order)
 # loadings <- summary(PCA)
 # loadings$importance[2,] <- round(loadings$importance[2,], 4) * 100
 #ggsave("plots/PCA.pdf", plot = PCA_plot, device = "pdf", height = 8.5, width = 11)
-fsxa <- ggplot(pca, aes(PC1, PC2, color = Population)) + geom_point(size = 4) + theme_bw() +
-  scale_color_manual(values = pal) + 
+fsxa <- ggplot(pca, aes(PC1, PC2, fill = Population)) + 
+  geom_jitter(size = 4, pch = 21, width = 0.005, height = 0.005, alpha = 0.5) + theme_bw() +
+  scale_fill_manual(values = pal) + 
   xlab(label = paste0("PC1 (", loadings[1], "%)")) +
   theme(legend.position = "none") + 
   ylab(label = paste0("PC2 (", loadings[2], "%)")) +
-  scale_y_reverse() + scale_x_reverse() + ggtitle("A") # rotated to be layed out more like the geography
+  scale_x_reverse() + ggtitle("A") # rotated to be layed out more like the geography
 
 
 #==========NGSrelate based pie charts=============

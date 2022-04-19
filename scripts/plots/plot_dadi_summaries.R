@@ -4,7 +4,7 @@ library(dplyr); library(ggplot2)
 mu <- 8.4e-9
 g <- .3
 ratio <- 9370/302446 # ratio of included snps
-L <-  1373747*ratio # approx number of considered bases.
+L <-  1373747*ratio # approx number of considered bases, using x/1373747 (number of total sequenced bases) = 9370 (number of snps after LD gapping)/302446 (number of total snps)
 wb <- openxlsx::createWorkbook()
 
 #======================read in and summarize results===========================

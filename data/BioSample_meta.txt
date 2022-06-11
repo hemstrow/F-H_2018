@@ -1,0 +1,289 @@
+sample_name	organism	isolate	isolation_source	geo_loc_name	tissue	collection_date
+FIJ_36_CGACTGGA_plate1	Danaus plexippus	FIJ_36	Fiji: -18.178973,177.550159	USA: California, Fiji: -18.178973,177.550159	leg	2009
+FIJ_37_GCTCGGTA_plate1	Danaus plexippus	FIJ_37	Fiji: -18.178973,177.550159	USA: California, Fiji: -18.178973,177.550159	leg	2009
+FIJ_38_TGGAACAA_plate1	Danaus plexippus	FIJ_38	Fiji: -18.178973,177.550159	USA: California, Fiji: -18.178973,177.550159	leg	2009
+FIJ_39_AGCACCTC_plate1	Danaus plexippus	FIJ_39	Fiji: -18.178973,177.550159	USA: California, Fiji: -18.178973,177.550159	leg	2009
+FIJ_40_CGACACAC_plate1	Danaus plexippus	FIJ_40	Fiji: -18.178973,177.550159	USA: California, Fiji: -18.178973,177.550159	leg	2009
+GUA_41_CGCTGATC_plate1	Danaus plexippus	GUA_41	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_42_ACACAGAA_plate1	Danaus plexippus	GUA_42	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_43_CAACCACA_plate1	Danaus plexippus	GUA_43	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_44_CGCATACA_plate1	Danaus plexippus	GUA_44	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_45_GGAGAACA_plate1	Danaus plexippus	GUA_45	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_F17.10_ACCTCCAA_CAGATC	Danaus plexippus	GUA_F17.10	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_F17.11_CAATGGAA_CAGATC	Danaus plexippus	GUA_F17.11	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_F17.12_CTGAGCCA_CAGATC	Danaus plexippus	GUA_F17.12	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_F17.4_GTACGCAA_CAGATC	Danaus plexippus	GUA_F17.4	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_F18.1_TTCACGCA_CAGATC	Danaus plexippus	GUA_F18.1	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_F18.3_ATAGCGAC_CAGATC	Danaus plexippus	GUA_F18.3	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_F18.5_GAACAGGC_CAGATC	Danaus plexippus	GUA_F18.5	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_F19.4_AACGAACG_CAGATC	Danaus plexippus	GUA_F19.4	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	19-Jul-2015
+GUA_F19.7_ACGCTCGA_CAGATC	Danaus plexippus	GUA_F19.7	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	19-Jul-2015
+GUA_F19.8_CACTTCGA_CAGATC	Danaus plexippus	GUA_F19.8	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	19-Jul-2015
+GUA_M17.3_CTGGCATA_CAGATC	Danaus plexippus	GUA_M17.3	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_M17.5_GTCGTAGA_CAGATC	Danaus plexippus	GUA_M17.5	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	17-Jul-2015
+GUA_M18.1_ACACGAGA_CAGATC	Danaus plexippus	GUA_M18.1	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_M18.2_ACGACAAG_CAGATC	Danaus plexippus	GUA_M18.2	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_M18.6_GACAGTGC_CAGATC	Danaus plexippus	GUA_M18.6	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	18-Jul-2015
+GUA_M19.2_AGTACAAG_CAGATC	Danaus plexippus	GUA_M19.2	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	19-Jul-2015
+GUA_M19.8_ACGTATCA_CAGATC	Danaus plexippus	GUA_M19.8	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	19-Jul-2015
+GUA_M20.2_CAGCGTTA_CAGATC	Danaus plexippus	GUA_M20.2	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	20-Jul-2015
+GUA_M20.4_GAATCTGA_CAGATC	Danaus plexippus	GUA_M20.4	Dededo, Guam: 13.5453,144.8511	Mexico: Dededo, Guam: 13.5453,144.8511	leg	20-Jul-2015
+HAW_10_AACCGAGA_plate1	Danaus plexippus	HAW_10	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_11_AGCAGGAA_plate1	Danaus plexippus	HAW_11	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_12_CCGTGAGA_plate1	Danaus plexippus	HAW_12	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_13_GCCACATA_plate1	Danaus plexippus	HAW_13	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_14_TCCGTCTA_plate1	Danaus plexippus	HAW_14	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_15_ACACTGAC_plate1	Danaus plexippus	HAW_15	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_16_CCGACAAC_plate1	Danaus plexippus	HAW_16	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_9_AAACATCG_plate1	Danaus plexippus	HAW_9_aliquot_1	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_9_GCCAAGAC_plate1	Danaus plexippus	HAW_9_aliquot_2	Kapalua, Maui: 20.9997,-156.6581	USA: Hawaii, Kapalua, Maui: 20.9997,-156.6581	leg	09-Nov-2016
+HAW_HAW1_CCAGTTCA_ACAGTG	Danaus plexippus	HAW_HAW1	Oahu, Hawaii: 21.3069,-157.8583	USA: Hawaii, Oahu, Hawaii: 21.3069,-157.8583	leg	05-Apr-2017
+HAW_HAW2_GAGCTGAA_ACAGTG	Danaus plexippus	HAW_HAW2	Oahu, Hawaii: 21.3069,-157.8583	USA: Hawaii, Oahu, Hawaii: 21.3069,-157.8583	leg	05-Apr-2017
+HAW_HAW3_TAGGATGA_ACAGTG	Danaus plexippus	HAW_HAW3	Oahu, Hawaii: 21.3069,-157.8583	USA: Hawaii, Oahu, Hawaii: 21.3069,-157.8583	leg	05-Apr-2017
+HAW_HAW4_AATCCGTC_ACAGTG	Danaus plexippus	HAW_HAW4	Oahu, Hawaii: 21.3069,-157.8583	USA: Hawaii, Oahu, Hawaii: 21.3069,-157.8583	leg	05-Apr-2017
+NAM_Goleta63_GCGAGTAA_ACAGTG	Danaus plexippus	NAM_Goleta63	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta67_TCTTCACA_ACAGTG	Danaus plexippus	NAM_Goleta67	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta69_ACAGATTC_ACAGTG	Danaus plexippus	NAM_Goleta69	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta70_AGTCAAGC_ACAGTG	Danaus plexippus	NAM_Goleta70	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta72_ACCACTGT_ACAGTG	Danaus plexippus	NAM_Goleta72	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta79_AAGACGGA_ACAGTG	Danaus plexippus	NAM_Goleta79	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta82_ATCCTGTA_ACAGTG	Danaus plexippus	NAM_Goleta82	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta83_CGAACTTA_ACAGTG	Danaus plexippus	NAM_Goleta83	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta84_GCTAACGA_ACAGTG	Danaus plexippus	NAM_Goleta84	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_Goleta85_TGAAGAGA_ACAGTG	Danaus plexippus	NAM_Goleta85	Goleta, CA: 34.43166,-119.88791	Australia: New South Wales, Goleta, CA: 34.43166,-119.88791	leg	04-Dec-2009
+NAM_M9.10_GCCAAGAC_CAGATC	Danaus plexippus	NAM_M9.10	Chicago, IL: 19.6706,100.2782	Samoa: Chicago, IL: 19.6706,100.2782	leg	22-Aug-2009
+NAM_Mexico10_CGCTGATC_ACAGTG	Danaus plexippus	NAM_Mexico10	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico101_CATCAAGT_ACAGTG	Danaus plexippus	NAM_Mexico101	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico102_ACTATGCA_ACAGTG	Danaus plexippus	NAM_Mexico102	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico106_CATACCAA_ACAGTG	Danaus plexippus	NAM_Mexico106	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico107_GACTAGTA_ACAGTG	Danaus plexippus	NAM_Mexico107	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico11_ACACAGAA_ACAGTG	Danaus plexippus	NAM_Mexico11	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico110_GTGTTCTA_ACAGTG	Danaus plexippus	NAM_Mexico110	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico119_AAGGACAC_ACAGTG	Danaus plexippus	NAM_Mexico119	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico12_CAACCACA_ACAGTG	Danaus plexippus	NAM_Mexico12	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico120_CAAGGAGC_ACAGTG	Danaus plexippus	NAM_Mexico120	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico121_GATGAATC_ACAGTG	Danaus plexippus	NAM_Mexico121	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico123_AGTGGTCA_ACAGTG	Danaus plexippus	NAM_Mexico123	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico127_AGAGTCAA_ACAGTG	Danaus plexippus	NAM_Mexico127	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico13_CGCATACA_ACAGTG	Danaus plexippus	NAM_Mexico13	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico15_GGAGAACA_ACAGTG	Danaus plexippus	NAM_Mexico15	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico17_TGGCTTCA_ACAGTG	Danaus plexippus	NAM_Mexico17	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico21_AGCCATGC_ACAGTG	Danaus plexippus	NAM_Mexico21	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico24_CGGATTGC_ACAGTG	Danaus plexippus	NAM_Mexico24	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico26_CAGATCTG_ACAGTG	Danaus plexippus	NAM_Mexico26	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico27_ACAGCAGA_ACAGTG	Danaus plexippus	NAM_Mexico27	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico29_CAAGACTA_ACAGTG	Danaus plexippus	NAM_Mexico29	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico30_CTCAATGA_ACAGTG	Danaus plexippus	NAM_Mexico30	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico32_GGTGCGAA_ACAGTG	Danaus plexippus	NAM_Mexico32	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico36_TGGTGGTA_ACAGTG	Danaus plexippus	NAM_Mexico36	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico40_AGGCTAAC_ACAGTG	Danaus plexippus	NAM_Mexico40	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico43_CTAAGGTC_ACAGTG	Danaus plexippus	NAM_Mexico43	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico44_ATGCCTAA_ACAGTG	Danaus plexippus	NAM_Mexico44	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico47_ACCTCCAA_ACAGTG	Danaus plexippus	NAM_Mexico47	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico48_CAATGGAA_ACAGTG	Danaus plexippus	NAM_Mexico48	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico56_CTGAGCCA_ACAGTG	Danaus plexippus	NAM_Mexico56	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico57_GTACGCAA_ACAGTG	Danaus plexippus	NAM_Mexico57	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico58_TTCACGCA_ACAGTG	Danaus plexippus	NAM_Mexico58	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico59_ATAGCGAC_ACAGTG	Danaus plexippus	NAM_Mexico59	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico60_GAACAGGC_ACAGTG	Danaus plexippus	NAM_Mexico60	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico64_AACGAACG_ACAGTG	Danaus plexippus	NAM_Mexico64	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico65_ACGCTCGA_ACAGTG	Danaus plexippus	NAM_Mexico65	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico67_CACTTCGA_ACAGTG	Danaus plexippus	NAM_Mexico67	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico72_CTGGCATA_ACAGTG	Danaus plexippus	NAM_Mexico72	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico73_GTCGTAGA_ACAGTG	Danaus plexippus	NAM_Mexico73	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico75_ACACGAGA_ACAGTG	Danaus plexippus	NAM_Mexico75	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico76_ACGACAAG_ACAGTG	Danaus plexippus	NAM_Mexico76	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico77_GACAGTGC_ACAGTG	Danaus plexippus	NAM_Mexico77	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico81_AGTACAAG_ACAGTG	Danaus plexippus	NAM_Mexico81	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico84_ACGTATCA_ACAGTG	Danaus plexippus	NAM_Mexico84	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico86_CAGCGTTA_ACAGTG	Danaus plexippus	NAM_Mexico86	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico88_GAATCTGA_ACAGTG	Danaus plexippus	NAM_Mexico88	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico94_GTCTGTCA_ACAGTG	Danaus plexippus	NAM_Mexico94	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico95_AAGAGATC_ACAGTG	Danaus plexippus	NAM_Mexico95	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico97_ATTGGCTC_ACAGTG	Danaus plexippus	NAM_Mexico97	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Mexico99_GAGTTAGC_ACAGTG	Danaus plexippus	NAM_Mexico99	Sierra Chincua Overwintering Site: 19.6706,100.2782	Samoa: Sierra Chincua Overwintering Site: 19.6706,100.2782	leg	Jan-2016
+NAM_Moran14_GATAGACA_ACAGTG	Danaus plexippus	NAM_Moran14	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran21_TATCAGCA_ACAGTG	Danaus plexippus	NAM_Moran21	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran26_AATGTTGC_ACAGTG	Danaus plexippus	NAM_Moran26	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran27_CCATCCTC_ACAGTG	Danaus plexippus	NAM_Moran27	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran28_AAACATCG_ACAGTG	Danaus plexippus	NAM_Moran28	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran5_ACAAGCTA_ACAGTG	Danaus plexippus	NAM_Moran5	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran6_AACAACCA_ACAGTG	Danaus plexippus	NAM_Moran6	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran7_AGATCGCA_ACAGTG	Danaus plexippus	NAM_Moran7	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Moran9_CCGAAGTA_ACAGTG	Danaus plexippus	NAM_Moran9	Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	Australia: New South Wales, Moran Lake Park Beach, Santa Cruz, CA: 36.95634,-121.97808	leg	04-Dec-2009
+NAM_Pismo33_AACCGAGA_ACAGTG	Danaus plexippus	NAM_Pismo33	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_PIsmo37_AGCAGGAA_ACAGTG	Danaus plexippus	NAM_PIsmo37	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo38_CCGTGAGA_ACAGTG	Danaus plexippus	NAM_Pismo38	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo41_GCCACATA_ACAGTG	Danaus plexippus	NAM_Pismo41	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo43_TCCGTCTA_ACAGTG	Danaus plexippus	NAM_Pismo43	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo44_ACACTGAC_ACAGTG	Danaus plexippus	NAM_Pismo44	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo49_CCGACAAC_ACAGTG	Danaus plexippus	NAM_Pismo49	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo51_ACATTGGC_ACAGTG	Danaus plexippus	NAM_Pismo51	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo52_AACGCTTA_ACAGTG	Danaus plexippus	NAM_Pismo52	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo53_AGTCACTA_ACAGTG	Danaus plexippus	NAM_Pismo53	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_Pismo54_CCTCCTGA_ACAGTG	Danaus plexippus	NAM_Pismo54	Pismo Beach, CA: 35.14275,-120.64128	Australia: New South Wales, Pismo Beach, CA: 35.14275,-120.64128	leg	04-Dec-2009
+NAM_SCLighthouse101_ATTGAGGA_ACAGTG	Danaus plexippus	NAM_SCLighthouse101	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse104_CGACTGGA_ACAGTG	Danaus plexippus	NAM_SCLighthouse104	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse107_GCTCGGTA_ACAGTG	Danaus plexippus	NAM_SCLighthouse107	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse108_TGGAACAA_ACAGTG	Danaus plexippus	NAM_SCLighthouse108	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse115_AGCACCTC_ACAGTG	Danaus plexippus	NAM_SCLighthouse115	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse117_CGACACAC_ACAGTG	Danaus plexippus	NAM_SCLighthouse117	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse92_AGATGTAC_ACAGTG	Danaus plexippus	NAM_SCLighthouse92	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse93_CCTCTATC_ACAGTG	Danaus plexippus	NAM_SCLighthouse93	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse95_AACGTGAT_ACAGTG	Danaus plexippus	NAM_SCLighthouse95	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NAM_SCLighthouse98_AAGGTACA_ACAGTG	Danaus plexippus	NAM_SCLighthouse98	Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	Australia: New South Wales, Lighthouse Field State Beach, Santa Cruz, CA: 36.96072,-122.0022	leg	04-Dec-2009
+NCA_M12.10_ACCACTGT_CAGATC	Danaus plexippus	NCA_M12.10	Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	Guam: Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	leg	Jul-2010
+NCA_M12.4_TCTTCACA_CAGATC	Danaus plexippus	NCA_M12.4	Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	Guam: Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	leg	Jul-2010
+NCA_M12.6_ACAGATTC_CAGATC	Danaus plexippus	NCA_M12.6	Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	Guam: Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	leg	Jul-2010
+NCA_M12.9_AGTCAAGC_CAGATC	Danaus plexippus	NCA_M12.9	Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	Guam: Kone, Grand Terre, New Caledonia: -21.183333,165.3166667	leg	Jul-2010
+NCA_M13.1_CGACACAC_CAGATC	Danaus plexippus	NCA_M13.1	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	1990
+NCA_M13.2_CAACCACA_CAGATC	Danaus plexippus	NCA_M13.2	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	1991
+NCA_M13.3_CGCTGATC_CAGATC	Danaus plexippus	NCA_M13.3	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	1990
+NCA_M13.4_ACACAGAA_CAGATC	Danaus plexippus	NCA_M13.4	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	1990
+NCA_M5.1_AAGACGGA_CAGATC	Danaus plexippus	NCA_M5.1	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.10_AAGGTACA_CAGATC	Danaus plexippus	NCA_M5.10	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.13_ATTGAGGA_CAGATC	Danaus plexippus	NCA_M5.13	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.18_CGACTGGA_CAGATC	Danaus plexippus	NCA_M5.18	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.19_GCTCGGTA_CAGATC	Danaus plexippus	NCA_M5.19	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.2_ATCCTGTA_CAGATC	Danaus plexippus	NCA_M5.2	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.21_TGGAACAA_CAGATC	Danaus plexippus	NCA_M5.21	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.25_AGCACCTC_CAGATC	Danaus plexippus	NCA_M5.25	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.3_CGAACTTA_CAGATC	Danaus plexippus	NCA_M5.3	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.4_GCTAACGA_CAGATC	Danaus plexippus	NCA_M5.4	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.5_TGAAGAGA_CAGATC	Danaus plexippus	NCA_M5.5	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.6_AGATGTAC_CAGATC	Danaus plexippus	NCA_M5.6	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.7_CCTCTATC_CAGATC	Danaus plexippus	NCA_M5.7	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NCA_M5.9_AACGTGAT_CAGATC	Danaus plexippus	NCA_M5.9	New Caledonia: -21.183333,165.3166667	Guam: New Caledonia: -21.183333,165.3166667	leg	2008
+NOR_130_CGGATTGC_CAGATC	Danaus plexippus	NOR_130	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_133_CAGATCTG_CAGATC	Danaus plexippus	NOR_133	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_136_ACAGCAGA_CAGATC	Danaus plexippus	NOR_136	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_146_CGCATACA_CAGATC	Danaus plexippus	NOR_146	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_147_GGAGAACA_CAGATC	Danaus plexippus	NOR_147	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_148_TGGCTTCA_CAGATC	Danaus plexippus	NOR_148	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_158_CAAGACTA_CAGATC	Danaus plexippus	NOR_158	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_160_AGCCATGC_CAGATC	Danaus plexippus	NOR_160	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_28_CGAACTTA_plate1	Danaus plexippus	NOR_28	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_29_GCTAACGA_plate1	Danaus plexippus	NOR_29	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_30_TGAAGAGA_plate1	Danaus plexippus	NOR_30	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_31_AGATGTAC_plate1	Danaus plexippus	NOR_31	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_32_CCTCTATC_plate1	Danaus plexippus	NOR_32	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_33_AACGTGAT_plate1	Danaus plexippus	NOR_33	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_34_AAGGTACA_plate1	Danaus plexippus	NOR_34	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NOR_35_ATTGAGGA_plate1	Danaus plexippus	NOR_35	near Anson Bay, Norfolk Island: -28.9956,167.9256	New Caledonia: near Anson Bay, Norfolk Island: -28.9956,167.9256	leg	25-Jul-2016
+NSW_5_GATAGACA_plate1	Danaus plexippus	NSW_5	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NSW_6_TATCAGCA_plate1	Danaus plexippus	NSW_6	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NSW_7_AATGTTGC_plate1	Danaus plexippus	NSW_7	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NSW_8_CCATCCTC_plate1	Danaus plexippus	NSW_8	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NSW_NSW5_CACCTTAC_ACAGTG	Danaus plexippus	NSW_NSW5	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NSW_NSW6_GCCAAGAC_ACAGTG	Danaus plexippus	NSW_NSW6	Wiseman's Ferry: -33.3819,150.985	Northern Mariana Islands: Rota, Wiseman's Ferry: -33.3819,150.985	leg	01-Aug-2016
+NZL_M4.10_AGGCTAAC_CAGATC	Danaus plexippus	NZL_M4.10	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.12_CTAAGGTC_CAGATC	Danaus plexippus	NZL_M4.12	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.13_ATGCCTAA_CAGATC	Danaus plexippus	NZL_M4.13	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.18_CACCTTAC_CAGATC	Danaus plexippus	NZL_M4.18	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.2_CTCAATGA_CAGATC	Danaus plexippus	NZL_M4.2	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.6_GGTGCGAA_CAGATC	Danaus plexippus	NZL_M4.6	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+NZL_M4.7_TGGTGGTA_CAGATC	Danaus plexippus	NZL_M4.7	Russell, North Island, New Zealand: -35.28,174.147453	Northern Mariana Islands: Saipan, Russell, North Island, New Zealand: -35.28,174.147453	leg	Apr-2007
+QLD_Q10_CAATGGAA_plate1	Danaus plexippus	QLD_Q10	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q106_CCAGTTCA_plate1	Danaus plexippus	QLD_Q106	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q11_CTGAGCCA_plate1	Danaus plexippus	QLD_Q11	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q115_GAGCTGAA_plate1	Danaus plexippus	QLD_Q115	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q118_TAGGATGA_plate1	Danaus plexippus	QLD_Q118	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q12_GTACGCAA_plate1	Danaus plexippus	QLD_Q12	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q120_AATCCGTC_plate1	Danaus plexippus	QLD_Q120	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q122_CACCTTAC_plate1	Danaus plexippus	QLD_Q122	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q13_TTCACGCA_plate1	Danaus plexippus	QLD_Q13	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q14_ATAGCGAC_plate1	Danaus plexippus	QLD_Q14	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q15_GAACAGGC_plate1	Danaus plexippus	QLD_Q15	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q16_AACGAACG_plate1	Danaus plexippus	QLD_Q16	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q17_ACGCTCGA_plate1	Danaus plexippus	QLD_Q17	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	18-Jun-2016
+QLD_Q19_CACTTCGA_plate1	Danaus plexippus	QLD_Q19	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q21_CTGGCATA_plate1	Danaus plexippus	QLD_Q21	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q22_GTCGTAGA_plate1	Danaus plexippus	QLD_Q22	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q23_ACACGAGA_plate1	Danaus plexippus	QLD_Q23	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q24_ACGACAAG_plate1	Danaus plexippus	QLD_Q24	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q25_GACAGTGC_plate1	Danaus plexippus	QLD_Q25	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q26_AGTACAAG_plate1	Danaus plexippus	QLD_Q26	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	18-Jun-2016
+QLD_Q3_CTCAATGA_plate1	Danaus plexippus	QLD_Q3	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q4_GGTGCGAA_plate1	Danaus plexippus	QLD_Q4	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q5_TGGTGGTA_plate1	Danaus plexippus	QLD_Q5	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q6_AGGCTAAC_plate1	Danaus plexippus	QLD_Q6	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q63_ACGTATCA_plate1	Danaus plexippus	QLD_Q63	Wolffdene, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Wolffdene, Queensland: -27.5391,152.9059	leg	30-Jun-2016
+QLD_Q64_CAGCGTTA_plate1	Danaus plexippus	QLD_Q64	Wolffdene, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Wolffdene, Queensland: -27.5391,152.9059	leg	30-Jun-2016
+QLD_Q65_GAATCTGA_plate1	Danaus plexippus	QLD_Q65	Wolffdene, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Wolffdene, Queensland: -27.5391,152.9059	leg	30-Jun-2016
+QLD_Q7_CTAAGGTC_plate1	Danaus plexippus	QLD_Q7	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q73_GTCTGTCA_plate1	Danaus plexippus	QLD_Q73	Wolffdene, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Wolffdene, Queensland: -27.5391,152.9059	leg	30-Jun-2016
+QLD_Q78_AAGAGATC_plate1	Danaus plexippus	QLD_Q78	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	04-Jul-2016
+QLD_Q79_ATTGGCTC_plate1	Danaus plexippus	QLD_Q79	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	04-Jul-2016
+QLD_Q8_ATGCCTAA_plate1	Danaus plexippus	QLD_Q8	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	16-Jun-2016
+QLD_Q80_GAGTTAGC_plate1	Danaus plexippus	QLD_Q80	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	04-Jul-2016
+QLD_Q81_CATCAAGT_plate1	Danaus plexippus	QLD_Q81	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	04-Jul-2016
+QLD_Q82_ACTATGCA_plate1	Danaus plexippus	QLD_Q82	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	04-Jul-2016
+QLD_Q83_CATACCAA_plate1	Danaus plexippus	QLD_Q83	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	05-Jul-2016
+QLD_Q84_GACTAGTA_plate1	Danaus plexippus	QLD_Q84	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	05-Jul-2016
+QLD_Q85_GTGTTCTA_plate1	Danaus plexippus	QLD_Q85	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	05-Jul-2016
+QLD_Q86_AAGGACAC_plate1	Danaus plexippus	QLD_Q86	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	05-Jul-2016
+QLD_Q87_CAAGGAGC_plate1	Danaus plexippus	QLD_Q87	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	05-Jul-2016
+QLD_Q9_ACCTCCAA_plate1	Danaus plexippus	QLD_Q9	Pinjarra Hills, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Pinjarra Hills, Queensland: -27.5391,152.9059	leg	17-Jun-2016
+QLD_Q93_GATGAATC_plate1	Danaus plexippus	QLD_Q93	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q95_AGTGGTCA_plate1	Danaus plexippus	QLD_Q95	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+QLD_Q99_AGAGTCAA_plate1	Danaus plexippus	QLD_Q99	Canungra, Queensland: -27.5391,152.9059	Australia: Norfolk Island, Canungra, Queensland: -27.5391,152.9059	leg	07-Jul-2016
+ROT_46_TGGCTTCA_plate1	Danaus plexippus	ROT_46	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_47_AGCCATGC_plate1	Danaus plexippus	ROT_47	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_48_CGGATTGC_plate1	Danaus plexippus	ROT_48	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_49_CAGATCTG_plate1	Danaus plexippus	ROT_49	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F25.2_GTCTGTCA_CAGATC	Danaus plexippus	ROT_F25.2	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	25-Jul-2015
+ROT_F26.1_AAGAGATC_CAGATC	Danaus plexippus	ROT_F26.1	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.2_ATTGGCTC_CAGATC	Danaus plexippus	ROT_F26.2	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.3_GAGTTAGC_CAGATC	Danaus plexippus	ROT_F26.3	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.4_CATCAAGT_CAGATC	Danaus plexippus	ROT_F26.4	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.5_ACTATGCA_CAGATC	Danaus plexippus	ROT_F26.5	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.6_CATACCAA_CAGATC	Danaus plexippus	ROT_F26.6	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.7_GACTAGTA_CAGATC	Danaus plexippus	ROT_F26.7	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_F26.8_GTGTTCTA_CAGATC	Danaus plexippus	ROT_F26.8	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M25.6_AAGGACAC_CAGATC	Danaus plexippus	ROT_M25.6	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	25-Jul-2015
+ROT_M26.1_CAAGGAGC_CAGATC	Danaus plexippus	ROT_M26.1	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M26.2_GATGAATC_CAGATC	Danaus plexippus	ROT_M26.2	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M26.3_AGTGGTCA_CAGATC	Danaus plexippus	ROT_M26.3	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M26.4_AGAGTCAA_CAGATC	Danaus plexippus	ROT_M26.4	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M26.6_CCAGTTCA_CAGATC	Danaus plexippus	ROT_M26.6	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+ROT_M26.7_GAGCTGAA_CAGATC	Danaus plexippus	ROT_M26.7	Songsong, Rota: 14.142,145.1459	New Zealand: Songsong, Rota: 14.142,145.1459	leg	26-Jul-2015
+SAI_4_TAGGATGA_CAGATC	Danaus plexippus	SAI_4	near Kagman, Saipan: 15.1747,145.7745	Australia: Victoria, near Kagman, Saipan: 15.1747,145.7745	leg	25-Jul-2015
+SAI_5_AATCCGTC_CAGATC	Danaus plexippus	SAI_5	near Kagman, Saipan: 15.1747,145.7745	Australia: Victoria, near Kagman, Saipan: 15.1747,145.7745	leg	25-Jul-2015
+SAI_50_ACAGCAGA_plate1	Danaus plexippus	SAI_50	near Kagman, Saipan: 15.1747,145.7745	Australia: Victoria, near Kagman, Saipan: 15.1747,145.7745	leg	25-Jul-2015
+SAI_51_CAAGACTA_plate1	Danaus plexippus	SAI_51	near Kagman, Saipan: 15.1747,145.7745	Australia: Victoria, near Kagman, Saipan: 15.1747,145.7745	leg	25-Jul-2015
+SAM_10_CCGAAGTA_CAGATC	Danaus plexippus	SAM_10	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_11_GATAGACA_CAGATC	Danaus plexippus	SAM_11	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_12_TATCAGCA_CAGATC	Danaus plexippus	SAM_12	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_13_AATGTTGC_CAGATC	Danaus plexippus	SAM_13	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_14_CCATCCTC_CAGATC	Danaus plexippus	SAM_14	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_15_AAACATCG_CAGATC	Danaus plexippus	SAM_15	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_16_AACCGAGA_CAGATC	Danaus plexippus	SAM_16	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_17_ACATTGGC_plate1	Danaus plexippus	SAM_17	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_18_AACGCTTA_plate1	Danaus plexippus	SAM_18	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_19_AGTCACTA_plate1	Danaus plexippus	SAM_19	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_20_CCTCCTGA_plate1	Danaus plexippus	SAM_20	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_21_GCGAGTAA_plate1	Danaus plexippus	SAM_21	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_22_TCTTCACA_plate1	Danaus plexippus	SAM_22	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_23_ACAGATTC_plate1	Danaus plexippus	SAM_23	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_24_AGTCAAGC_plate1	Danaus plexippus	SAM_24	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_25_ACCACTGT_plate1	Danaus plexippus	SAM_25	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_26_AAGACGGA_plate1	Danaus plexippus	SAM_26	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2006
+SAM_27_ATCCTGTA_plate1	Danaus plexippus	SAM_27	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2006
+SAM_6_ACAAGCTA_CAGATC	Danaus plexippus	SAM_6	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_8_AACAACCA_CAGATC	Danaus plexippus	SAM_8	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_9_AGATCGCA_CAGATC	Danaus plexippus	SAM_9	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	Jun-2016
+SAM_M1.1_AGTCACTA_CAGATC	Danaus plexippus	SAM_M1.1	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2006
+SAM_M1.3_CCTCCTGA_CAGATC	Danaus plexippus	SAM_M1.3	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2006
+SAM_M1.6_GCGAGTAA_CAGATC	Danaus plexippus	SAM_M1.6	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2006
+SAM_M2.1_AGCAGGAA_CAGATC	Danaus plexippus	SAM_M2.1	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M2.11_ACACTGAC_CAGATC	Danaus plexippus	SAM_M2.11	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M2.13_CCGACAAC_CAGATC	Danaus plexippus	SAM_M2.13	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M2.2_CCGTGAGA_CAGATC	Danaus plexippus	SAM_M2.2	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M2.3_GCCACATA_CAGATC	Danaus plexippus	SAM_M2.3	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M2.7_TCCGTCTA_CAGATC	Danaus plexippus	SAM_M2.7	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M3.10_AACGCTTA_CAGATC	Danaus plexippus	SAM_M3.10	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+SAM_M3.4_ACATTGGC_CAGATC	Danaus plexippus	SAM_M3.4	Upolu, Samoa: -13.978088,-171.585236	Australia: Queensland, Upolu, Samoa: -13.978088,-171.585236	leg	2007
+VIC_1_ACAAGCTA_plate1	Danaus plexippus	VIC_1	near Adelaide: -36.613043,143.254584	Fiji: near Adelaide: -36.613043,143.254584	leg	2016
+VIC_2_AACAACCA_plate1	Danaus plexippus	VIC_2	near Adelaide: -36.613043,143.254584	Fiji: near Adelaide: -36.613043,143.254584	leg	2016
+VIC_3_AGATCGCA_plate1	Danaus plexippus	VIC_3	near Adelaide: -36.613043,143.254584	Fiji: near Adelaide: -36.613043,143.254584	leg	2016
+VIC_4_CCGAAGTA_plate1	Danaus plexippus	VIC_4	near Adelaide: -36.613043,143.254584	Fiji: near Adelaide: -36.613043,143.254584	leg	2016

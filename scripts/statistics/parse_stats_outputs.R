@@ -30,12 +30,16 @@ colnames(aves)[which(colnames(aves) == "n")] <- "thetas_n"
 
 
 #==============dadi, gapped===============
+
+
 dat <- data.table::fread("data/dadi_inputs/rand_10kgap_snps.txt")
 samp.met <- colnames(dat)[-c(1:2)]
 samp.met <- data.frame(ID = samp.met, pop = substr(samp.met, 1, 3))
 dat <- import.snpR.data(dat[,-c(1:2)], dat[,1:2], samp.met)
-dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop", min_loci = .75, 
-                   maf = 0.05, maf_facets = "pop")
+dat <- filter_snps(dat, hwe = 0.000001, hwe_facets = "pop", min_loci = .75, maf_facets = "pop")
+
+# ratio <- nrow(dat)/302446 # ratio of included snps
+# L <-  (1373747 - 86)*ratio # approx number of considered bases, using x/1373747 (number of total sequenced bases) = 9370 (number of snps after LD gapping)/302446 (number of total snps)
 
 dat <- calc_het_hom_ratio(dat, "pop")
 dat <- calc_pi(dat, "pop")
@@ -45,6 +49,8 @@ ss <- get.snpR.stats(dat, "pop", c("pi", "ho"))$weighted.means
 ss <- na.omit(ss)
 ss <- reshape2::melt(ss[,c(2, 5, 6)], id.vars = c("subfacet"))
 colnames(ss) <- c("pop", "stat", "value")
+
+# ss$value <- ss$value/L # correct for non-polymorphic, considered sites.
 
 # # plot
 # ggplot(ss, aes(x = pop, y = value, fill = stat)) + 

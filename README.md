@@ -1,2 +1,5 @@
-# F-H_2018
-Monarch 2018 paper materials and analysis
+Scripts and materials used to produce Hemstrom et al. (2022).
+
+Paper available (open access) at:
+
+https://doi.org/10.1111/mec.16592
